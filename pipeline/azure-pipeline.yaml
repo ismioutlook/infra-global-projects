@@ -1,0 +1,101 @@
+trigger:
+- none
+
+parameters:
+- name: tfEnv
+  type: string
+  default: test
+  values:
+    - test
+    - dev
+    - sit
+    - e2e
+    - prd
+    - global
+- name: workingDir
+  type: string
+  default: "main"
+
+- name: countresource
+  type: number
+  default: 1
+
+resources:
+  repositories:
+  - repository: oneyamlpipeline
+    type: git
+    name: Electrolux-Scripts/TheOneYAMLPipeline
+    ref: develop # This branch having the git pushing feature which will need to be test with the different environment.
+  # - repository: repoforpush
+  #   type: git
+  #   name: dynamic-repos/multi-module-files
+  #   ref: main
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+- template: vars/azure_terraform_${{parameters.tfEnv}}_variables.yaml@oneyamlpipeline
+
+stages:
+  - template: stages/azure_terraform_staticcodeanaytics_stage.yaml@oneyamlpipeline
+    parameters:
+      tfEnv:                    ${{ parameters.tfEnv }}
+      nameSuffix:               ${{ variables.nameSuffix }}
+      serviceCon:               ${{ variables.serviceCon }}
+      workingDir:               ${{ parameters.workingDir }}
+      sourceBranchName:         $(Build.Repository.Name)
+      azureDevOpsPAT:           ${{ variables.azureDevOpsPAT }}
+      organization:             ${{ variables.organization }}
+      dynproject:               ${{ variables.dynproject }}
+
+  - template: stages/azure_terraform_plan_stage.yaml@oneyamlpipeline
+    parameters:
+      tfEnv:                    ${{ parameters.tfEnv }}
+      nameSuffix:               ${{ variables.nameSuffix }}
+      serviceCon:               ${{ variables.serviceCon }}
+      workingDir:               ${{ parameters.workingDir }}
+      beRGName:                 ${{ variables.beRGName }}
+      beStorageAccountName:     ${{ variables.beStorageAccountName }}
+      beContainerName:          ${{ variables.beContainerName }}
+      stateKey:                 ${{ variables.stateKey }}
+      countresource:            ${{ parameters.countresource }}
+
+  # - template: stages/azure_terraform_validaterequest_stage.yaml@oneyamlpipeline
+  #   parameters:
+  #     tfEnv:                    ${{ parameters.tfEnv }}
+  #     nameSuffix:               ${{ variables.nameSuffix }}
+
+  # - template: stages/azure_terraform_apply_stage.yaml@oneyamlpipeline
+  #   parameters:
+  #     tfEnv:                    ${{ parameters.tfEnv }}
+  #     serviceCon:               ${{ variables.serviceCon }}
+  #     workingDir:               ${{ parameters.workingDir }}
+  #     nameSuffix:               ${{ variables.nameSuffix }}
+  #     beRGName:                 ${{ variables.beRGName }}
+  #     beStorageAccountName:     ${{ variables.beStorageAccountName }}
+  #     beContainerName:          ${{ variables.beContainerName }}
+  #     stateKey:                 ${{ variables.stateKey }}
+  #     countresource:            ${{ parameters.countresource }}
+
+  # - template: stages/azure_terraform_validaterequest_stage_destroy.yaml@oneyamlpipeline
+  #   parameters:
+  #     tfEnv:                    ${{ parameters.tfEnv }}
+  #     nameSuffix:               ${{ variables.nameSuffix }}
+
+  # - template: stages/azure_terraform_destroy_stage.yaml@oneyamlpipeline
+  #   parameters:
+  #     tfEnv:                    ${{ parameters.tfEnv }}
+  #     serviceCon:               ${{ variables.serviceCon }}
+  #     workingDir:               ${{ parameters.workingDir }}
+  #     nameSuffix:               ${{ variables.nameSuffix }}
+  #     beRGName:                 ${{ variables.beRGName }}
+  #     beStorageAccountName:     ${{ variables.beStorageAccountName }}
+  #     beContainerName:          ${{ variables.beContainerName }}
+  #     stateKey:                 ${{ variables.stateKey }}
+  #     countresource:            ${{ parameters.countresource }}
+
+  # - template: stages/azure_terraform_push_changes_stage.yaml@oneyamlpipeline
+  #   parameters:
+  #     tfEnv:                    ${{ parameters.tfEnv }}
+  #     sourceBranchName:         $(Build.Repository.Name)
+  #     nameSuffix:               ${{ variables.nameSuffix }}
