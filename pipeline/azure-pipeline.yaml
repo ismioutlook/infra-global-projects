@@ -25,7 +25,7 @@ resources:
   - repository: oneyamlpipeline
     type: git
     name: Electrolux-Scripts/TheOneYAMLPipeline
-    ref: develop-global # This branch having the git pushing feature which will need to be test with the different environment.
+    ref: develop-genesys # This branch having the git pushing feature which will need to be test with the different environment.
   # - repository: repoforpush
   #   type: git
   #   name: dynamic-repos/multi-module-files
