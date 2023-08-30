@@ -11,7 +11,7 @@ module "gl_appgw" {
   appgw_sku_tier          = var.appgw_sku_tier
   appgw_sku_capacity      = var.appgw_sku_capacity
   appgw_ip_config_name    = var.appgw_ip_config_name
-  subnet_id               = local.subnet_id
+  subnet_id               = data.azurerm_subnet.existing_subnet_eu.id
   #WAF Configurations
   waf_enabled                  = var.waf_enabled
   waf_firewall_mode            = var.waf_firewall_mode
