@@ -15,7 +15,7 @@ appgw_sku_name       = "WAF_v2"
 appgw_sku_tier       = "WAF_v2"
 appgw_sku_capacity   = 2
 appgw_ip_config_name = "AppGw-GL-IP-Config"
-
+#subnet_id = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-EU-Sandbox/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-EU-Sandbox/subnets/"
 #----------------------------Resource Group Module Details for US region ------------------------------
 resource_group_location_us = "East US"
 resource_group_name_us     = "RG-GL-ELX-US-Sandbox"
