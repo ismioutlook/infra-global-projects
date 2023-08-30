@@ -87,6 +87,54 @@ variable "service_endpoints" {
 }
 
 
+#--------------------------------------Traffic Manager--------------------------------------------------
+
+
+variable "traffic_manager_name" {
+  type        = string
+  description = "Name of the Traffic Manager."
+}
+
+variable "traffic_routing_method" {
+  type        = string
+  description = "Traffic routing method for the Traffic Manager."
+}
+
+variable "ttl_value" {
+  type        = number
+  description = "TTL value for DNS records."
+}
+
+variable "protocol" {
+  type        = string
+  description = "Protocol for health checks."
+}
+
+variable "port" {
+  type        = number
+  description = "Port number for health checks."
+}
+
+variable "path" {
+  type        = string
+  description = "Path for health checks."
+}
+
+variable "interval_in_seconds" {
+  type        = number
+  description = "Interval between health checks in seconds."
+}
+
+variable "timeout_in_seconds" {
+  type        = number
+  description = "Timeout for health checks in seconds."
+}
+
+variable "tolerated_number_of_failures" {
+  type        = number
+  description = "Number of tolerated failures for health checks."
+}
+
 # Azure Subscription 
 variable "tenant_id" {
   type        = string
