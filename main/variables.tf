@@ -149,44 +149,125 @@ variable "subscription_id" {
 }
 
 #----------------------------Application Gateway-------------------------------------------
-variable "appgw_pip_name" {
+variable "appgw_pip_name_eu" {
   type        = string
-  description = "Name of the Application Gateway public IP."
+  description = "Name of the Application Gateway public IP for EU region."
 }
 
-variable "appgw_pip_allocation" {
+variable "appgw_pip_allocation_eu" {
   type        = string
-  description = "Allocation method for the Application Gateway public IP."
+  description = "Allocation method for the Application Gateway public IP for EU region."
 }
 
-variable "appgw_name" {
+variable "appgw_name_eu" {
   type        = string
-  description = "Name of the Application Gateway."
+  description = "Name of the Application Gateway for EU region."
 }
 
-variable "appgw_sku_name" {
+variable "appgw_sku_name_eu" {
   type        = string
-  description = "Name of the Application Gateway SKU."
+  description = "Name of the Application Gateway SKU for EU region."
 }
 
-variable "appgw_sku_tier" {
+variable "appgw_sku_tier_eu" {
   type        = string
-  description = "Tier of the Application Gateway SKU."
+  description = "Tier of the Application Gateway SKU for EU region."
 }
 
-variable "appgw_sku_capacity" {
+variable "appgw_sku_capacity_eu" {
   type        = number
-  description = "Capacity of the Application Gateway SKU."
+  description = "Capacity of the Application Gateway SKU for EU region."
 }
 
-variable "appgw_ip_config_name" {
+variable "appgw_ip_config_name_eu" {
   type        = string
-  description = "Name of the Application Gateway IP configuration."
+  description = "Name of the Application Gateway IP configuration for EU region."
 }
 
-variable "subnet_id" {
+variable "subnet_id_eu" {
   type        = string
-  description = "ID of the subnet for the Application Gateway IP configuration."
+  description = "ID of the subnet for the Application Gateway IP configuration in EU region."
+}
+#---------------------------------------US--------------------------------
+variable "appgw_pip_name_us" {
+  type        = string
+  description = "Name of the Application Gateway public IP for US region."
+}
+
+variable "appgw_pip_allocation_us" {
+  type        = string
+  description = "Allocation method for the Application Gateway public IP for US region."
+}
+
+variable "appgw_name_us" {
+  type        = string
+  description = "Name of the Application Gateway for US region."
+}
+
+variable "appgw_sku_name_us" {
+  type        = string
+  description = "Name of the Application Gateway SKU for US region."
+}
+
+variable "appgw_sku_tier_us" {
+  type        = string
+  description = "Tier of the Application Gateway SKU for US region."
+}
+
+variable "appgw_sku_capacity_us" {
+  type        = number
+  description = "Capacity of the Application Gateway SKU for US region."
+}
+
+variable "appgw_ip_config_name_us" {
+  type        = string
+  description = "Name of the Application Gateway IP configuration for US region."
+}
+
+variable "subnet_id_us" {
+  type        = string
+  description = "ID of the subnet for the Application Gateway IP configuration in US region."
+}
+
+#---------------------------------------------AU-------------------------------------------
+variable "appgw_pip_name_au" {
+  type        = string
+  description = "Name of the Application Gateway public IP for AU region."
+}
+
+variable "appgw_pip_allocation_au" {
+  type        = string
+  description = "Allocation method for the Application Gateway public IP for AU region."
+}
+
+variable "appgw_name_au" {
+  type        = string
+  description = "Name of the Application Gateway for AU region."
+}
+
+variable "appgw_sku_name_au" {
+  type        = string
+  description = "Name of the Application Gateway SKU for AU region."
+}
+
+variable "appgw_sku_tier_au" {
+  type        = string
+  description = "Tier of the Application Gateway SKU for AU region."
+}
+
+variable "appgw_sku_capacity_au" {
+  type        = number
+  description = "Capacity of the Application Gateway SKU for AU region."
+}
+
+variable "appgw_ip_config_name_au" {
+  type        = string
+  description = "Name of the Application Gateway IP configuration for AU region."
+}
+
+variable "subnet_id_au" {
+  type        = string
+  description = "ID of the subnet for the Application Gateway IP configuration in AU region."
 }
 
 variable "waf_enabled" {
