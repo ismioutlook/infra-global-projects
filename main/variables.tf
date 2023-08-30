@@ -147,3 +147,47 @@ variable "subscription_id" {
   description = "Azure Subscription ID"
   default     = "f28071b5-e402-4c1a-83cc-ed0744ce8e0a"
 }
+
+
+#-----------------------------------------------------Tags--------------------------------------------------------
+variable "owner_tag" {
+  type = string
+  #default     = "Arun Nalliannan"
+  description = "Owner of the resource"
+}
+
+variable "account_tag" {
+  type = string
+  #default     = "623065"
+  description = "Account"
+}
+
+variable "billingid_tag" {
+  type = string
+  #default     = "MyAccounts"
+  description = "Billing ID"
+}
+
+variable "costcenterit_tag" {
+  type = string
+  #default     = "10350645"
+  description = "Cost Center"
+}
+
+variable "sector_tag" {
+  type = string
+  #default     = "BAEurope"
+  description = "Sector"
+}
+
+variable "env_tag" {
+  type = string
+  #default     = "DEV"
+  description = "Environment used in the tags of the resources"
+}
+
+variable "created_by_tag" {
+  type = string
+  #default     = "PETeam"
+  description = "mention created by tag"
+}

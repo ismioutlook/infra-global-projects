@@ -34,3 +34,12 @@ path                         = "/"
 interval_in_seconds          = 30
 timeout_in_seconds           = 10
 tolerated_number_of_failures = 3
+
+#---------------------------Tags--------------------------------------------------
+env_tag          = "Sandbox"
+owner_tag        = "Arun Nalliannan"
+account_tag      = "623065"
+billingid_tag    = "POC"
+costcenterit_tag = "10350645"
+sector_tag       = "Europe"
+created_by_tag   = "PETeam"

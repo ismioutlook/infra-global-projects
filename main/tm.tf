@@ -12,4 +12,12 @@ module "TM" {
   interval_in_seconds          = var.interval_in_seconds
   timeout_in_seconds           = var.timeout_in_seconds
   tolerated_number_of_failures = var.tolerated_number_of_failures
+
+  env_tag          = var.env_tag
+  owner_tag        = var.owner_tag
+  account_tag      = var.account_tag
+  billingid_tag    = var.billingid_tag
+  costcenterit_tag = var.costcenterit_tag
+  sector_tag       = var.sector_tag
+  created_by_tag   = var.created_by_tag
 }
