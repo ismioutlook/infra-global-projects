@@ -87,6 +87,54 @@ variable "service_endpoints" {
 }
 
 
+#--------------------------------------Traffic Manager--------------------------------------------------
+
+
+variable "traffic_manager_name" {
+  type        = string
+  description = "Name of the Traffic Manager."
+}
+
+variable "traffic_routing_method" {
+  type        = string
+  description = "Traffic routing method for the Traffic Manager."
+}
+
+variable "ttl_value" {
+  type        = number
+  description = "TTL value for DNS records."
+}
+
+variable "protocol" {
+  type        = string
+  description = "Protocol for health checks."
+}
+
+variable "port" {
+  type        = number
+  description = "Port number for health checks."
+}
+
+variable "path" {
+  type        = string
+  description = "Path for health checks."
+}
+
+variable "interval_in_seconds" {
+  type        = number
+  description = "Interval between health checks in seconds."
+}
+
+variable "timeout_in_seconds" {
+  type        = number
+  description = "Timeout for health checks in seconds."
+}
+
+variable "tolerated_number_of_failures" {
+  type        = number
+  description = "Number of tolerated failures for health checks."
+}
+
 # Azure Subscription 
 variable "tenant_id" {
   type        = string
@@ -98,4 +146,48 @@ variable "subscription_id" {
   type        = string
   description = "Azure Subscription ID"
   default     = "f28071b5-e402-4c1a-83cc-ed0744ce8e0a"
+}
+
+
+#-----------------------------------------------------Tags--------------------------------------------------------
+variable "owner_tag" {
+  type = string
+  #default     = "Arun Nalliannan"
+  description = "Owner of the resource"
+}
+
+variable "account_tag" {
+  type = string
+  #default     = "623065"
+  description = "Account"
+}
+
+variable "billingid_tag" {
+  type = string
+  #default     = "MyAccounts"
+  description = "Billing ID"
+}
+
+variable "costcenterit_tag" {
+  type = string
+  #default     = "10350645"
+  description = "Cost Center"
+}
+
+variable "sector_tag" {
+  type = string
+  #default     = "BAEurope"
+  description = "Sector"
+}
+
+variable "env_tag" {
+  type = string
+  #default     = "DEV"
+  description = "Environment used in the tags of the resources"
+}
+
+variable "created_by_tag" {
+  type = string
+  #default     = "PETeam"
+  description = "mention created by tag"
 }
