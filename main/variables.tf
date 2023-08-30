@@ -184,10 +184,10 @@ variable "appgw_ip_config_name" {
   description = "Name of the Application Gateway IP configuration."
 }
 
-# variable "subnet_id" {
-#   type        = string
-#   description = "ID of the subnet for the Application Gateway IP configuration."
-# }
+variable "subnet_id" {
+  type        = string
+  description = "ID of the subnet for the Application Gateway IP configuration."
+}
 
 variable "waf_enabled" {
   type        = bool
