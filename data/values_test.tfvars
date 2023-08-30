@@ -25,7 +25,7 @@ subnet_address_space_us    = ["10.217.3.0/24", "10.217.2.192/27", "10.217.2.0/25
 
 appgw_pip_name_us       = "AAG-GL-ELX-US-NonProd-PIP"
 appgw_pip_allocation_us  = "Static"
-appgw_name_us_us            = "AppGw-GL-ELX-US-Sandbox"
+appgw_name_us          = "AppGw-GL-ELX-US-Sandbox"
 appgw_sku_name_us        = "WAF_v2"
 appgw_sku_tier_us       = "WAF_v2"
 appgw_sku_capacity_us   = 2
@@ -41,7 +41,7 @@ subnet_address_space_au    = ["10.218.3.0/24", "10.218.2.192/27", "10.218.2.0/25
 
 appgw_pip_name_au       = "AAG-GL-ELX-AU-NonProd-PIP"
 appgw_pip_allocation_au  = "Static"
-appgw_name_us_au           = "AppGw-GL-ELX-AU-Sandbox"
+appgw_name_au           = "AppGw-GL-ELX-AU-Sandbox"
 appgw_sku_name_au       = "WAF_v2"
 appgw_sku_tier_au      = "WAF_v2"
 appgw_sku_capacity_au   = 2
