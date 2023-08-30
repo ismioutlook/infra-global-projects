@@ -1,5 +1,5 @@
 module "eu_gl_virtualNetwork" {
-  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-vnet//module?ref=v0.0._au"
+  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-vnet//module?ref=v0.0.3"
   resource_group_name     = var.resource_group_name_eu
   resource_group_location = var.resource_group_location_eu
   virtual_network_name    = var.virtual_network_name_eu
@@ -11,7 +11,7 @@ module "eu_gl_virtualNetwork" {
 }
 
 module "us_gl_virtualNetwork" {
-  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-vnet//module?ref=v0.0._au"
+  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-vnet//module?ref=v0.0.3"
   resource_group_name     = var.resource_group_name_us
   resource_group_location = var.resource_group_location_us
   virtual_network_name    = var.virtual_network_name_us
@@ -23,7 +23,7 @@ module "us_gl_virtualNetwork" {
 }
 
 module "au_gl_virtualNetwork" {
-  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-vnet//module?ref=v0.0._au"
+  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-vnet//module?ref=v0.0.3"
   resource_group_name     = var.resource_group_name_au
   resource_group_location = var.resource_group_location_au
   virtual_network_name    = var.virtual_network_name_au
