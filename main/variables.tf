@@ -20,15 +20,15 @@ variable "resource_group_name_us" {
   description = "Name of the resource group in the US region."
 }
 
-# variable "resource_group_location_au" {
-#   type        = string
-#   description = "Location of the resource group in the Australia region."
-# }
+variable "resource_group_location_au" {
+  type        = string
+  description = "Location of the resource group in the Australia region."
+}
 
-# variable "resource_group_name_au" {
-#   type        = string
-#   description = "Name of the resource group in the Australia region."
-# }
+variable "resource_group_name_au" {
+  type        = string
+  description = "Name of the resource group in the Australia region."
+}
 
 #-----------------------------Virtual Network module variables-----------------------------------------
 variable "virtual_network_name_eu" {
@@ -41,10 +41,10 @@ variable "virtual_network_name_us" {
   description = "Name of the virtual network in the US region."
 }
 
-# variable "virtual_network_name_au" {
-#   type        = string
-#   description = "Name of the virtual network in the Australia region."
-# }
+variable "virtual_network_name_au" {
+  type        = string
+  description = "Name of the virtual network in the Australia region."
+}
 
 variable "vnet_address_space_eu" {
   type        = list(string)
@@ -56,10 +56,10 @@ variable "vnet_address_space_us" {
   description = "Address space of the virtual network in the US region."
 }
 
-# variable "vnet_address_space_au" {
-#   type        = list(string)
-#   description = "Address space of the virtual network in the Australia region."
-# }
+variable "vnet_address_space_au" {
+  type        = list(string)
+  description = "Address space of the virtual network in the Australia region."
+}
 
 variable "subnet_name" {
   type        = list(string)
@@ -76,10 +76,10 @@ variable "subnet_address_space_us" {
   description = "Address space of the subnet in the US region."
 }
 
-# variable "subnet_address_space_au" {
-#   type        = list(string)
-#   description = "Address space of the subnet in the Australia region."
-# }
+variable "subnet_address_space_au" {
+  type        = list(string)
+  description = "Address space of the subnet in the Australia region."
+}
 
 variable "service_endpoints" {
   type        = list(string)

@@ -10,8 +10,8 @@ module "us_gl_rg" {
   resource_group_location = var.resource_group_location_us
 }
 
-# module "au_gl_rg" {
-#   source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-rg//module?ref=v0.0.4"
-#   resource_group_name     = var.resource_group_name_au
-#   resource_group_location = var.resource_group_location_au
-# }
+module "au_gl_rg" {
+  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-rg//module?ref=v0.0.4"
+  resource_group_name     = var.resource_group_name_au
+  resource_group_location = var.resource_group_location_au
+}
