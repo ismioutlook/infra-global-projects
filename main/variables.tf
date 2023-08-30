@@ -1,39 +1,91 @@
-variable "virtual_network_name" {
+#-----------------------------resource group module variables-----------------------------------------
+
+variable "resource_group_name_eu" {
   type        = string
-  description = "Name of the Virtual Network this Subnet is located within"
+  description = "Name of the resource group in the EU region."
+}
+
+variable "resource_group_location_eu" {
+  type        = string
+  description = "Location of the resource group in the EU region."
+}
+
+variable "resource_group_location_us" {
+  type        = string
+  description = "Location of the resource group in the US region."
+}
+
+variable "resource_group_name_us" {
+  type        = string
+  description = "Name of the resource group in the US region."
+}
+
+variable "resource_group_location_au" {
+  type        = string
+  description = "Location of the resource group in the Australia region."
+}
+
+variable "resource_group_name_au" {
+  type        = string
+  description = "Name of the resource group in the Australia region."
+}
+
+#-----------------------------Virtual Network module variables-----------------------------------------
+variable "virtual_network_name_eu" {
+  type        = string
+  description = "Name of the virtual network in the EU region."
+}
+
+variable "virtual_network_name_us" {
+  type        = string
+  description = "Name of the virtual network in the US region."
+}
+
+variable "virtual_network_name_au" {
+  type        = string
+  description = "Name of the virtual network in the Australia region."
+}
+
+variable "vnet_address_space_eu" {
+  type        = list(string)
+  description = "Address space of the virtual network in the EU region."
+}
+
+variable "vnet_address_space_us" {
+  type        = list(string)
+  description = "Address space of the virtual network in the US region."
+}
+
+variable "vnet_address_space_au" {
+  type        = list(string)
+  description = "Address space of the virtual network in the Australia region."
 }
 
 variable "subnet_name" {
   type        = list(string)
-  description = "Name of the Subnet"
+  description = "Name of the subnet."
 }
 
-variable "vnet_address_space" {
+variable "subnet_address_space_eu" {
   type        = list(string)
-  description = "vnet address space range details"
-  #default = "10.216.0.0/16"
+  description = "Address space of the subnet in the EU region."
 }
 
-variable "subnet_address_space" {
+variable "subnet_address_space_us" {
   type        = list(string)
-  description = "subnet address space range details"
-  #default = "10.216.0.0/24"
+  description = "Address space of the subnet in the US region."
 }
 
-variable "resource_group_location" {
-  type        = string
-  description = "The Azure Region where the Resource Group should exist."
+variable "subnet_address_space_au" {
+  type        = list(string)
+  description = "Address space of the subnet in the Australia region."
 }
 
 variable "service_endpoints" {
   type        = list(string)
-  description = "mentioned service endpoints which needs to be enabled with subnet"
+  description = "List of service endpoints."
 }
 
-variable "resource_group_name" {
-  description = "Name of resource group"
-  type        = string
-}
 
 # Azure Subscription 
 variable "tenant_id" {
