@@ -317,7 +317,7 @@ variable "waf_max_request_body_size_kb" {
 
 # LogAnalytics workspace & Solution details
 
-variable "log_analytics_name" {
+variable "log_analytics_name_eu" {
   type        = string
   description = "The Name of the log analytics workspace "
 }
@@ -336,7 +336,7 @@ variable "la_solution_name" {
 
 # Kubernetes cluster
 
-variable "cluster_name" {
+variable "cluster_name_eu" {
   type        = string
   description = "Name of the AKS cluster"
 }
