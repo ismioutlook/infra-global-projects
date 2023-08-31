@@ -33,20 +33,20 @@ appgw_ip_config_name_us = "AppGw-GL-ELX-US-IP-Config"
 subnet_id_us = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-US-Sandbox/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US-Sandbox/subnets/Subnet-GW"
 # ------------------------Resource Group Module Details for AS region------------------------------
 
-resource_group_location_au = "North Central US"
-resource_group_name_au     = "RG-GL-ELX-AU-Sandbox1"
-virtual_network_name_au    = "VN-GL-ELX-AU-Sandbox1"
-vnet_address_space_au      = ["10.218.0.0/16"]
-subnet_address_space_au    = ["10.218.3.0/24", "10.218.2.192/27", "10.218.2.0/25"]
+resource_group_location_us2 = "North Central US"
+resource_group_name_us2     = "RG-GL-ELX-US2-Sandbox1"
+virtual_network_name_us2    = "VN-GL-ELX-US2-Sandbox1"
+vnet_address_space_us2      = ["10.218.0.0/16"]
+subnet_address_space_us2    = ["10.218.3.0/24", "10.218.2.192/27", "10.218.2.0/25"]
 
-appgw_pip_name_au       = "AAG-GL-ELX-AU-NonProd-PIP1"
-appgw_pip_allocation_au  = "Dynamic"
-appgw_name_au           = "AppGw-GL-ELX-AU-Sandbox"
-appgw_sku_name_au       = "WAF_v2"
-appgw_sku_tier_au      = "WAF_v2"
-appgw_sku_capacity_au   = 2
-appgw_ip_config_name_au = "AppGw-GL-ELX-AU-IP-Config"
-subnet_id_au = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-AU-Sandbox/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-AU-Sandbox/subnets/Subnet-GW"
+appgw_pip_name_us2       = "AAG-GL-ELX-US2-NonProd-PIP1"
+appgw_pip_allocation_us2  = "Dynamic"
+appgw_name_us2           = "AppGw-GL-ELX-US2-Sandbox"
+appgw_sku_name_us2       = "WAF_v2"
+appgw_sku_tier_us2      = "WAF_v2"
+appgw_sku_capacity_us2   = 2
+appgw_ip_config_name_us2 = "AppGw-GL-ELX-US2-IP-Config"
+subnet_id_us2 = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-US2-Sandbox/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US2-Sandbox/subnets/Subnet-GW"
 
 #------------------------------------------------------------------------------------------
 subnet_name       = ["Subnet-APIM", "Subnet-GW", "Subnet-AKS"]

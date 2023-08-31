@@ -20,12 +20,12 @@ variable "resource_group_name_us" {
   description = "Name of the resource group in the US region."
 }
 
-variable "resource_group_location_au" {
+variable "resource_group_location_us2" {
   type        = string
   description = "Location of the resource group in the Australia region."
 }
 
-variable "resource_group_name_au" {
+variable "resource_group_name_us2" {
   type        = string
   description = "Name of the resource group in the Australia region."
 }
@@ -41,7 +41,7 @@ variable "virtual_network_name_us" {
   description = "Name of the virtual network in the US region."
 }
 
-variable "virtual_network_name_au" {
+variable "virtual_network_name_us2" {
   type        = string
   description = "Name of the virtual network in the Australia region."
 }
@@ -56,7 +56,7 @@ variable "vnet_address_space_us" {
   description = "Address space of the virtual network in the US region."
 }
 
-variable "vnet_address_space_au" {
+variable "vnet_address_space_us2" {
   type        = list(string)
   description = "Address space of the virtual network in the Australia region."
 }
@@ -76,7 +76,7 @@ variable "subnet_address_space_us" {
   description = "Address space of the subnet in the US region."
 }
 
-variable "subnet_address_space_au" {
+variable "subnet_address_space_us2" {
   type        = list(string)
   description = "Address space of the subnet in the Australia region."
 }
@@ -229,45 +229,45 @@ variable "subnet_id_us" {
   description = "ID of the subnet for the Application Gateway IP configuration in US region."
 }
 
-#---------------------------------------------AU-------------------------------------------
-variable "appgw_pip_name_au" {
+#---------------------------------------------US2-------------------------------------------
+variable "appgw_pip_name_us2" {
   type        = string
-  description = "Name of the Application Gateway public IP for AU region."
+  description = "Name of the Application Gateway public IP for US2 region."
 }
 
-variable "appgw_pip_allocation_au" {
+variable "appgw_pip_allocation_us2" {
   type        = string
-  description = "Allocation method for the Application Gateway public IP for AU region."
+  description = "Allocation method for the Application Gateway public IP for US2 region."
 }
 
-variable "appgw_name_au" {
+variable "appgw_name_us2" {
   type        = string
-  description = "Name of the Application Gateway for AU region."
+  description = "Name of the Application Gateway for US2 region."
 }
 
-variable "appgw_sku_name_au" {
+variable "appgw_sku_name_us2" {
   type        = string
-  description = "Name of the Application Gateway SKU for AU region."
+  description = "Name of the Application Gateway SKU for US2 region."
 }
 
-variable "appgw_sku_tier_au" {
+variable "appgw_sku_tier_us2" {
   type        = string
-  description = "Tier of the Application Gateway SKU for AU region."
+  description = "Tier of the Application Gateway SKU for US2 region."
 }
 
-variable "appgw_sku_capacity_au" {
+variable "appgw_sku_capacity_us2" {
   type        = number
-  description = "Capacity of the Application Gateway SKU for AU region."
+  description = "Capacity of the Application Gateway SKU for US2 region."
 }
 
-variable "appgw_ip_config_name_au" {
+variable "appgw_ip_config_name_us2" {
   type        = string
-  description = "Name of the Application Gateway IP configuration for AU region."
+  description = "Name of the Application Gateway IP configuration for US2 region."
 }
 
-variable "subnet_id_au" {
+variable "subnet_id_us2" {
   type        = string
-  description = "ID of the subnet for the Application Gateway IP configuration in AU region."
+  description = "ID of the subnet for the Application Gateway IP configuration in US2 region."
 }
 
 variable "waf_enabled" {
