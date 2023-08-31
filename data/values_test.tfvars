@@ -35,6 +35,36 @@ interval_in_seconds          = 30
 timeout_in_seconds           = 10
 tolerated_number_of_failures = 3
 
+
+#----------------------------------------AKS EU------------------------------------------------
+
+log_analytics_name  = "LA-GL-ELX-AKS-WS-Sandbox"
+la_sku              = "PerGB2018"
+la_solution_name    = "ContainerInsights"
+cluster_name        = "aks-gl-eu-Sandbox-cluster"
+kubernetes_version  = "1.25.6"
+pod_security_policy = false
+node_count          = 2
+node_vm_size        = "Standard_D2s_v3"
+os_disk_size_gb     = 80
+enable_auto_scaling = true
+node_min_count      = 1
+node_max_count      = 5
+node_max_pods       = 60
+node_taints         = []
+node_labels = {
+  "service" = "kubernetes"
+  "env"     = "sandbox"
+  "project" = "myproject"
+}
+# Network profile
+network_plugin     = "azure"
+network_policy     = "azure"
+pod_cidr           = "10.0.16.0/20"
+service_cidr       = "10.0.32.0/20"
+dns_service_ip     = "10.0.32.10"
+docker_bridge_cidr = "172.0.0.1/8"
+
 #---------------------------Tags--------------------------------------------------
 env_tag          = "Sandbox"
 owner_tag        = "Arun Nalliannan"
