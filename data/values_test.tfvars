@@ -33,7 +33,7 @@ appgw_ip_config_name_us = "AppGw-GL-ELX-US-IP-Config"
 subnet_id_us            = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-US-Sandbox1/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US-Sandbox1/subnets/Subnet-GW"
 # ------------------------Resource Group Module Details for AS region------------------------------
 
-resource_group_location_us2 = "North Central US"
+resource_group_location_us2 = "East US 2"
 resource_group_name_us2     = "RG-GL-ELX-US2-Sandbox1"
 virtual_network_name_us2    = "VN-GL-ELX-US2-Sandbox1"
 vnet_address_space_us2      = ["10.218.0.0/16"]
