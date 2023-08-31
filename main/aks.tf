@@ -12,7 +12,7 @@ module "eu_gl_aks" {
   node_count          = var.node_count
   node_vm_size        = var.node_vm_size
   os_disk_size_gb     = var.os_disk_size_gb
-  vnet_subnet_id      = var.aks_subnet_id
+  aks_subnet_id      = var.aks_subnet_id
   enable_auto_scaling = var.enable_auto_scaling
   node_min_count      = var.node_min_count
   node_max_count      = var.node_max_count
