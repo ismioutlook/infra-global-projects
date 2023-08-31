@@ -3,21 +3,21 @@ subscription_id = "f28071b5-e402-4c1a-83cc-ed0744ce8e0a"
 
 # ------------------------Resource Group Module Details for EU region------------------------------
 resource_group_location_eu = "West Europe"
-resource_group_name_eu     = "RG-GL-ELX-EU-Sandbox"
-virtual_network_name_eu = "VN-GL-ELX-EU-Sandbox"
+resource_group_name_eu     = "RG-GL-ELX-EU-Sandbox1"
+virtual_network_name_eu = "VN-GL-ELX-EU-Sandbox1"
 vnet_address_space_eu = ["10.216.0.0/16"]
 subnet_address_space_eu = ["10.216.3.0/24", "10.216.2.192/27", "10.216.2.0/25"]
 #----------------------------Resource Group Module Details for US region ------------------------------
 resource_group_location_us = "East US"
-resource_group_name_us     = "RG-GL-ELX-US-Sandbox"
-virtual_network_name_us = "VN-GL-ELX-US-Sandbox"
+resource_group_name_us     = "RG-GL-ELX-US-Sandbox1"
+virtual_network_name_us = "VN-GL-ELX-US-Sandbox1"
 vnet_address_space_us = ["10.217.0.0/16"]
 subnet_address_space_us = ["10.217.3.0/24", "10.217.2.192/27", "10.217.2.0/25"]
 # ------------------------Resource Group Module Details for AS region------------------------------
 
-resource_group_location_au = "Australia East"
-resource_group_name_au     = "RG-GL-ELX-AU-Sandbox"
-virtual_network_name_au = "VN-GL-ELX-AU-Sandbox"
+resource_group_location_au = "North Central US"
+resource_group_name_au     = "RG-GL-ELX-AU-Sandbox1"
+virtual_network_name_au = "VN-GL-ELX-AU-Sandbox1"
 vnet_address_space_au = ["10.218.0.0/16"]
 subnet_address_space_au = ["10.218.3.0/24", "10.218.2.192/27", "10.218.2.0/25"]
 #------------------------------------------------------------------------------------------
