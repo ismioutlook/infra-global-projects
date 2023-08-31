@@ -20,5 +20,5 @@ module "TM" {
   costcenterit_tag = var.costcenterit_tag
   sector_tag       = var.sector_tag
   created_by_tag   = var.created_by_tag
-  depends_on = [ module.eu_gl_rg ]
+  depends_on       = [module.eu_gl_rg]
 }

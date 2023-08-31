@@ -519,9 +519,41 @@ variable "scale_down_utilization_threshold" {
   default     = "0.5"
 }
 
-variable "aks_subnet_id" {
-  type = string
+variable "aks_subnet_id_eu" {
+  type        = string
   description = "add subnet id for aks"
+}
+
+
+#----------------------------AKS US--------------------------
+variable "aks_subnet_id_us" {
+  type        = string
+  description = "add subnet id for aks"
+}
+
+variable "log_analytics_name_us" {
+  type        = string
+  description = "add log analytics name for us"
+}
+
+variable "cluster_name_us" {
+  type        = string
+  description = "add Aks cluster name for us"
+}
+#----------------------------AKS US2--------------------------
+variable "aks_subnet_id_us2" {
+  type        = string
+  description = "add subnet id for aks"
+}
+
+variable "log_analytics_name_us2" {
+  type        = string
+  description = "add log analytics name for us"
+}
+
+variable "cluster_name_us2" {
+  type        = string
+  description = "add Aks cluster name for us"
 }
 #-----------------------------------------------------Tags--------------------------------------------------------
 variable "owner_tag" {
