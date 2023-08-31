@@ -374,11 +374,6 @@ variable "os_disk_size_gb" {
   description = "Default node pool disk size"
 }
 
-variable "subnet_id" {
-  type        = string
-  description = "vnet subnet id"
-}
-
 variable "enable_auto_scaling" {
   type        = bool
   description = "Enable autoscaling on the default node pool"
@@ -524,6 +519,10 @@ variable "scale_down_utilization_threshold" {
   default     = "0.5"
 }
 
+variable "subnet_id_eu_aks" {
+  type = string
+  description = "add subnet id for aks"
+}
 #-----------------------------------------------------Tags--------------------------------------------------------
 variable "owner_tag" {
   type = string
