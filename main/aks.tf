@@ -1,5 +1,5 @@
 module "eu_gl_aks" {
-  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//module?ref=v0.0.7"
+  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//module?ref=v0.0.8"
   resource_group_name     = var.resource_group_name_eu
   resource_group_location = var.resource_group_location_eu
   log_analytics_name      = var.log_analytics_name
@@ -12,7 +12,7 @@ module "eu_gl_aks" {
   node_count          = var.node_count
   node_vm_size        = var.node_vm_size
   os_disk_size_gb     = var.os_disk_size_gb
-  vnet_subnet_id      = var.subnet_id_eu_aks
+  vnet_subnet_id      = var.aks_subnet_id
   enable_auto_scaling = var.enable_auto_scaling
   node_min_count      = var.node_min_count
   node_max_count      = var.node_max_count

@@ -519,7 +519,7 @@ variable "scale_down_utilization_threshold" {
   default     = "0.5"
 }
 
-variable "subnet_id_eu_aks" {
+variable "aks_subnet_id" {
   type = string
   description = "add subnet id for aks"
 }

@@ -70,7 +70,7 @@ node_labels = {
   "project" = "myproject"
 }
 # Network profile
-subnet_id_eu_aks = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-EU-Sandbox1/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-EU-Sandbox1/subnets/Subnet-AKS"
+aks_subnet_id = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-EU-Sandbox1/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-EU-Sandbox1/subnets/Subnet-AKS"
 network_plugin     = "azure"
 network_policy     = "azure"
 pod_cidr           = "10.0.16.0/20"
