@@ -1,5 +1,5 @@
 module "TM" {
-  source                       = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-TM//module?ref=v0.0.1"
+  source                       = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-TM//module?ref=v0.0.2"
   tenant_id                    = var.tenant_id
   subscription_id              = var.subscription_id
   traffic_manager_name         = var.traffic_manager_name
