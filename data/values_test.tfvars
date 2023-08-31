@@ -48,6 +48,35 @@ appgw_sku_capacity_us2   = 2
 appgw_ip_config_name_us2 = "AppGw-GL-ELX-US2-IP-Config"
 subnet_id_us2 = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-US2-Sandbox1/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US2-Sandbox1/subnets/Subnet-GW"
 
+#----------------------------------------AKS EU------------------------------------------------
+
+log_analytics_name  = "LA-GL-ELX-AKS-WS-Sandbox"
+la_sku              = "PerGB2018"
+la_solution_name    = "ContainerInsights"
+cluster_name        = "aks-gl-eu-Sandbox-cluster"
+kubernetes_version  = "1.25.6"
+pod_security_policy = false
+node_count          = 2
+node_vm_size        = "Standard_D2s_v3"
+os_disk_size_gb     = 80
+enable_auto_scaling = true
+node_min_count      = 1
+node_max_count      = 5
+node_max_pods       = 60
+node_taints         = []
+node_labels = {
+  "service" = "kubernetes"
+  "env"     = "sandbox"
+  "project" = "myproject"
+}
+# Network profile
+network_plugin     = "azure"
+network_policy     = "azure"
+pod_cidr           = "10.0.16.0/20"
+service_cidr       = "10.0.32.0/20"
+dns_service_ip     = "10.0.32.10"
+docker_bridge_cidr = "172.0.0.1/8"
+
 #------------------------------------------------------------------------------------------
 subnet_name       = ["Subnet-APIM", "Subnet-GW", "Subnet-AKS"]
 service_endpoints = ["Microsoft.Sql", "Microsoft.KeyVault"]
