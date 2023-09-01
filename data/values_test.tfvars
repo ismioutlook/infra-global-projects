@@ -12,10 +12,10 @@ appgw_pip_name_eu       = "AAG-GL-ELX-EU-NonProd-PIP"
 appgw_pip_allocation_eu = "Static"
 appgw_name_eu           = "AppGw-GL-ELX-EU-Sandbox"
 appgw_sku_name_eu       = "WAF_v2"
-appgw_sku_tier_eu      = "WAF_v2"
-appgw_sku_capacity_eu  = 2
+appgw_sku_tier_eu       = "WAF_v2"
+appgw_sku_capacity_eu   = 2
 appgw_ip_config_name_eu = "AppGw-GL-ELX-EU-IP-Config"
-subnet_id_eu = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-EU-Sandbox1/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-EU-Sandbox1/subnets/Subnet-GW"
+subnet_id_eu            = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-EU-Sandbox1/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-EU-Sandbox1/subnets/Subnet-GW"
 #----------------------------Resource Group Module Details for US region ------------------------------
 resource_group_location_us = "East US"
 resource_group_name_us     = "RG-GL-ELX-US-Sandbox1"
@@ -24,30 +24,69 @@ vnet_address_space_us      = ["10.217.0.0/16"]
 subnet_address_space_us    = ["10.217.3.0/24", "10.217.2.192/27", "10.217.2.0/25"]
 
 appgw_pip_name_us       = "AAG-GL-ELX-US-NonProd-PIP"
-appgw_pip_allocation_us  = "Static"
-appgw_name_us          = "AppGw-GL-ELX-US-Sandbox"
-appgw_sku_name_us        = "WAF_v2"
+appgw_pip_allocation_us = "Static"
+appgw_name_us           = "AppGw-GL-ELX-US-Sandbox"
+appgw_sku_name_us       = "WAF_v2"
 appgw_sku_tier_us       = "WAF_v2"
 appgw_sku_capacity_us   = 2
 appgw_ip_config_name_us = "AppGw-GL-ELX-US-IP-Config"
-subnet_id_us = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-US-Sandbox1/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US-Sandbox1/subnets/Subnet-GW"
+subnet_id_us            = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-US-Sandbox1/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US-Sandbox1/subnets/Subnet-GW"
 # ------------------------Resource Group Module Details for AS region------------------------------
 
-resource_group_location_us2 = "North Central US"
+resource_group_location_us2 = "East US 2"
 resource_group_name_us2     = "RG-GL-ELX-US2-Sandbox1"
 virtual_network_name_us2    = "VN-GL-ELX-US2-Sandbox1"
 vnet_address_space_us2      = ["10.218.0.0/16"]
 subnet_address_space_us2    = ["10.218.3.0/24", "10.218.2.192/27", "10.218.2.0/25"]
 
 appgw_pip_name_us2       = "AAG-GL-ELX-US2-NonProd-PIP1"
-appgw_pip_allocation_us2  = "Static"
+appgw_pip_allocation_us2 = "Static"
 appgw_name_us2           = "AppGw-GL-ELX-US2-Sandbox"
 appgw_sku_name_us2       = "WAF_v2"
-appgw_sku_tier_us2      = "WAF_v2"
+appgw_sku_tier_us2       = "WAF_v2"
 appgw_sku_capacity_us2   = 2
 appgw_ip_config_name_us2 = "AppGw-GL-ELX-US2-IP-Config"
-subnet_id_us2 = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-US2-Sandbox1/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US2-Sandbox1/subnets/Subnet-GW"
+subnet_id_us2            = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-US2-Sandbox1/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US2-Sandbox1/subnets/Subnet-GW"
 
+#----------------------------------------AKS EU------------------------------------------------
+
+log_analytics_name_eu  = "LA-GL-ELX-AKS-WS-Sandbox"
+la_sku              = "PerGB2018"
+la_solution_name    = "ContainerInsights"
+cluster_name_eu        = "aks-gl-eu-Sandbox-cluster"
+kubernetes_version  = "1.25.6"
+pod_security_policy = false
+node_count          = 2
+node_vm_size        = "Standard_D2s_v3"
+os_disk_size_gb     = 80
+enable_auto_scaling = true
+node_min_count      = 1
+node_max_count      = 5
+node_max_pods       = 60
+node_taints         = []
+node_labels = {
+  "service" = "kubernetes"
+  "env"     = "sandbox"
+  "project" = "myproject"
+}
+# Network profile
+aks_subnet_id_eu      = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-EU-Sandbox1/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-EU-Sandbox1/subnets/Subnet-AKS"
+network_plugin     = "azure"
+network_policy     = "azure"
+pod_cidr           = "10.0.16.0/20"
+service_cidr       = "10.0.32.0/20"
+dns_service_ip     = "10.0.32.10"
+docker_bridge_cidr = "172.0.0.1/8"
+#----------------------------------------AKS US------------------------------------------------
+log_analytics_name_us  = "LA-GL-ELX-AKS-US-Sandbox"
+cluster_name_us        = "aks-gl-us-Sandbox-cluster"
+# Network profile
+aks_subnet_id_us     = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-US-Sandbox1/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US-Sandbox1/subnets/Subnet-AKS"
+#----------------------------------------AKS US2------------------------------------------------
+log_analytics_name_us2  = "LA-GL-ELX-AKS-US2-Sandbox"
+cluster_name_us2        = "aks-gl-us2-Sandbox-cluster"
+# Network profile
+aks_subnet_id_us2      = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-US2-Sandbox1/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US2-Sandbox1/subnets/Subnet-AKS"
 #------------------------------------------------------------------------------------------
 subnet_name       = ["Subnet-APIM", "Subnet-GW", "Subnet-AKS"]
 service_endpoints = ["Microsoft.Sql", "Microsoft.KeyVault"]
