@@ -38,6 +38,7 @@ module "eu_gl_aks" {
   scale_down_unneeded              = var.scale_down_unneeded
   scale_down_unready               = var.scale_down_unready
   scale_down_utilization_threshold = var.scale_down_utilization_threshold
+  depends_on                       = [module.eu_gl_rg, module.eu_gl_virtualNetwork]
 
   # Tags
   owner_tag        = var.owner_tag
@@ -88,6 +89,7 @@ module "us_gl_aks" {
   scale_down_unneeded              = var.scale_down_unneeded
   scale_down_unready               = var.scale_down_unready
   scale_down_utilization_threshold = var.scale_down_utilization_threshold
+  depends_on                       = [module.us_gl_rg, module.us_gl_virtualNetwork]
 
   # Tags
   owner_tag        = var.owner_tag
@@ -138,6 +140,7 @@ module "us2_gl_aks" {
   scale_down_unneeded              = var.scale_down_unneeded
   scale_down_unready               = var.scale_down_unready
   scale_down_utilization_threshold = var.scale_down_utilization_threshold
+  depends_on                       = [module.us2_gl_rg, module.us2_gl_virtualNetwork]
 
   # Tags
   owner_tag        = var.owner_tag
