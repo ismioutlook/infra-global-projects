@@ -555,6 +555,45 @@ variable "cluster_name_us2" {
   type        = string
   description = "add Aks cluster name for us"
 }
+
+#-----------------------------------------------------APIM-----------------------------------------------
+variable "apim_subnet_id_eu" {
+  type        = string
+  description = "add subnet id for EU APIM "
+}
+
+variable "apim_subnet_id_us" {
+  type        = string
+  description = "add subnet id for US APIM"
+}
+
+variable "apim_subnet_id_us2" {
+  type        = string
+  description = "add subnet id for US2 APIM"
+}
+
+variable "apim_name" {
+  description = "API Mnagement Name"
+  type        = string
+}
+
+variable "apim_publisher_name" {
+  type        = string
+  default     = "Electrolux"
+  description = "value"
+}
+
+variable "apim_publisher_email" {
+  type        = string
+  default     = "ram.patreddy@electrolux.com"
+  description = "value"
+}
+
+variable "apim_sku_name" {
+  type        = string
+  description = "APIM SKU type"
+  #default     = "Premium_1"
+}
 #-----------------------------------------------------Tags--------------------------------------------------------
 variable "owner_tag" {
   type = string

@@ -102,6 +102,14 @@ interval_in_seconds          = 30
 timeout_in_seconds           = 10
 tolerated_number_of_failures = 3
 
+#-------------------------------------------APIM--------------------------------
+apim_subnet_id_eu    = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-EU-Sandbox1/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-EU-Sandbox1/subnets/Subnet-APIM"
+apim_subnet_id_us    = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-US-Sandbox1/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US-Sandbox1/subnets/Subnet-APIM"
+apim_subnet_id_us2   = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-US2-Sandbox1/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US2-Sandbox1/subnets/Subnet-APIM"
+apim_name            = "apimeluxglsandbox"
+apim_publisher_name  = "Electrolux"
+apim_publisher_email = "ram.patreddy@electrolux.com"
+apim_sku_name        = "Premium_1"
 #---------------------------Tags--------------------------------------------------
 env_tag          = "Sandbox"
 owner_tag        = "Arun Nalliannan"
