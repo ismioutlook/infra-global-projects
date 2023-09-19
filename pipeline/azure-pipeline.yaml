@@ -6,6 +6,7 @@ parameters:
   type: string
   default: test
   values:
+    - nonprod
     - test
     - dev
     - sit

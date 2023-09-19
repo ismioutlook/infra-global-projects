@@ -1,10 +1,10 @@
 tenant_id       = "d2007bef-127d-4591-97ac-10d72fe28031"
-subscription_id = "f28071b5-e402-4c1a-83cc-ed0744ce8e0a"
+subscription_id = "4731e47d-991b-4fbd-86aa-1e861607b82f"
 
 # ------------------------Resource Group Module Details for EU region------------------------------
 resource_group_location_eu = "West Europe"
-resource_group_name_eu     = "RG-GL-ELX-EU-Sandbox1"
-virtual_network_name_eu    = "VN-GL-ELX-EU-Sandbox1"
+resource_group_name_eu     = "RG-GL-ELX-EU-NonProd"
+virtual_network_name_eu    = "VN-GL-ELX-EU-NonProd"
 vnet_address_space_eu      = ["10.216.0.0/16"]
 subnet_address_space_eu    = ["10.216.3.0/24", "10.216.2.192/27", "10.216.2.0/25"]
 
@@ -15,11 +15,11 @@ appgw_sku_name_eu       = "WAF_v2"
 appgw_sku_tier_eu       = "WAF_v2"
 appgw_sku_capacity_eu   = 2
 appgw_ip_config_name_eu = "AppGw-GL-ELX-EU-IP-Config"
-subnet_id_eu            = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-EU-Sandbox1/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-EU-Sandbox1/subnets/Subnet-GW"
+subnet_id_eu            = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-EU-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-EU-NonProd/subnets/Subnet-GW"
 #----------------------------Resource Group Module Details for US region ------------------------------
 resource_group_location_us = "East US"
-resource_group_name_us     = "RG-GL-ELX-US-Sandbox1"
-virtual_network_name_us    = "VN-GL-ELX-US-Sandbox1"
+resource_group_name_us     = "RG-GL-ELX-US-NonProd"
+virtual_network_name_us    = "VN-GL-ELX-US-NonProd"
 vnet_address_space_us      = ["10.217.0.0/16"]
 subnet_address_space_us    = ["10.217.3.0/24", "10.217.2.192/27", "10.217.2.0/25"]
 
@@ -30,12 +30,12 @@ appgw_sku_name_us       = "WAF_v2"
 appgw_sku_tier_us       = "WAF_v2"
 appgw_sku_capacity_us   = 2
 appgw_ip_config_name_us = "AppGw-GL-ELX-US-IP-Config"
-subnet_id_us            = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-US-Sandbox1/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US-Sandbox1/subnets/Subnet-GW"
+subnet_id_us            = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-US-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US-NonProd/subnets/Subnet-GW"
 # ------------------------Resource Group Module Details for AS region------------------------------
 
 resource_group_location_us2 = "East US 2"
-resource_group_name_us2     = "RG-GL-ELX-US2-Sandbox1"
-virtual_network_name_us2    = "VN-GL-ELX-US2-Sandbox1"
+resource_group_name_us2     = "RG-GL-ELX-US2-NonProd"
+virtual_network_name_us2    = "VN-GL-ELX-US2-NonProd"
 vnet_address_space_us2      = ["10.218.0.0/16"]
 subnet_address_space_us2    = ["10.218.3.0/24", "10.218.2.192/27", "10.218.2.0/25"]
 
@@ -46,7 +46,7 @@ appgw_sku_name_us2       = "WAF_v2"
 appgw_sku_tier_us2       = "WAF_v2"
 appgw_sku_capacity_us2   = 2
 appgw_ip_config_name_us2 = "AppGw-GL-ELX-US2-IP-Config"
-subnet_id_us2            = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-US2-Sandbox1/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US2-Sandbox1/subnets/Subnet-GW"
+subnet_id_us2            = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-US2-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US2-NonProd/subnets/Subnet-GW"
 
 #----------------------------------------AKS EU------------------------------------------------
 
@@ -70,7 +70,7 @@ node_labels = {
   "project" = "myproject"
 }
 # Network profile
-aks_subnet_id_eu      = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-EU-Sandbox1/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-EU-Sandbox1/subnets/Subnet-AKS"
+aks_subnet_id_eu      = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-EU-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-EU-NonProd/subnets/Subnet-AKS"
 network_plugin     = "azure"
 network_policy     = "azure"
 pod_cidr           = "10.0.16.0/20"
@@ -81,12 +81,12 @@ docker_bridge_cidr = "172.0.0.1/8"
 log_analytics_name_us  = "LA-GL-ELX-AKS-US-Sandbox"
 cluster_name_us        = "aks-gl-us-Sandbox-cluster"
 # Network profile
-aks_subnet_id_us     = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-US-Sandbox1/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US-Sandbox1/subnets/Subnet-AKS"
+aks_subnet_id_us     = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-US-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US-NonProd/subnets/Subnet-AKS"
 #----------------------------------------AKS US2------------------------------------------------
 log_analytics_name_us2  = "LA-GL-ELX-AKS-US2-Sandbox"
 cluster_name_us2        = "aks-gl-us2-Sandbox-cluster"
 # Network profile
-aks_subnet_id_us2      = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-US2-Sandbox1/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US2-Sandbox1/subnets/Subnet-AKS"
+aks_subnet_id_us2      = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-US2-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US2-NonProd/subnets/Subnet-AKS"
 #------------------------------------------------------------------------------------------
 subnet_name       = ["Subnet-APIM", "Subnet-GW", "Subnet-AKS"]
 service_endpoints = ["Microsoft.Sql", "Microsoft.KeyVault"]
@@ -103,9 +103,9 @@ timeout_in_seconds           = 10
 tolerated_number_of_failures = 3
 
 #-------------------------------------------APIM--------------------------------
-apim_subnet_id_eu    = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-EU-Sandbox1/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-EU-Sandbox1/subnets/Subnet-APIM"
-apim_subnet_id_us    = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-US-Sandbox1/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US-Sandbox1/subnets/Subnet-APIM"
-apim_subnet_id_us2   = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-GL-ELX-US2-Sandbox1/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US2-Sandbox1/subnets/Subnet-APIM"
+apim_subnet_id_eu    = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-EU-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-EU-NonProd/subnets/Subnet-APIM"
+apim_subnet_id_us    = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-US-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US-NonProd/subnets/Subnet-APIM"
+apim_subnet_id_us2   = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-US2-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US2-NonProd/subnets/Subnet-APIM"
 apim_name            = "apimeluxglsandbox"
 apim_publisher_name  = "Electrolux"
 apim_publisher_email = "ram.patreddy@electrolux.com"
