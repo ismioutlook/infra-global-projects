@@ -1,5 +1,5 @@
 module "eu_gl_aks" {
-  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//module?ref=v0.0.8"
+  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//module?ref=v0.0.10"
   resource_group_name     = var.resource_group_name_eu
   resource_group_location = var.resource_group_location_eu
   log_analytics_name      = var.log_analytics_name_eu
@@ -50,7 +50,7 @@ module "eu_gl_aks" {
 }
 #-----------------------------------------------------------------------------------
 module "us_gl_aks" {
-  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//module?ref=v0.0.8"
+  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//module?ref=v0.0.10"
   resource_group_name     = var.resource_group_name_us
   resource_group_location = var.resource_group_location_us
   log_analytics_name      = var.log_analytics_name_us
@@ -101,7 +101,7 @@ module "us_gl_aks" {
 }
 #------------------------------------------------------------------------------------
 module "us2_gl_aks" {
-  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//module?ref=v0.0.8"
+  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//module?ref=v0.0.10"
   resource_group_name     = var.resource_group_name_us2
   resource_group_location = var.resource_group_location_us2
   log_analytics_name      = var.log_analytics_name_us2
