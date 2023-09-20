@@ -1,13 +1,14 @@
 module "eu_gl_aks" {
-  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//module?ref=v0.0.10"
-  resource_group_name     = var.resource_group_name_eu
-  resource_group_location = var.resource_group_location_eu
-  log_analytics_name      = var.log_analytics_name_eu
-  la_sku                  = var.la_sku
-  la_solution_name        = var.la_solution_name
-  cluster_name            = var.cluster_name_eu
-  kubernetes_version      = var.kubernetes_version
-  pod_security_policy     = var.pod_security_policy
+  source                   = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//module?ref=v0.0.10"
+  resource_group_name      = var.resource_group_name_eu
+  node_resource_group_name = var.node_resource_group_name_eu
+  resource_group_location  = var.resource_group_location_eu
+  log_analytics_name       = var.log_analytics_name_eu
+  la_sku                   = var.la_sku
+  la_solution_name         = var.la_solution_name
+  cluster_name             = var.cluster_name_eu
+  kubernetes_version       = var.kubernetes_version
+  pod_security_policy      = var.pod_security_policy
   # Default node pool
   node_count          = var.node_count
   node_vm_size        = var.node_vm_size
@@ -38,7 +39,7 @@ module "eu_gl_aks" {
   scale_down_unneeded              = var.scale_down_unneeded
   scale_down_unready               = var.scale_down_unready
   scale_down_utilization_threshold = var.scale_down_utilization_threshold
-  depends_on                       = [module.eu_gl_rg, module.eu_gl_virtualNetwork]
+  depends_on                       = [module.eu_gl_rg, module.eu_gl_virtualNetwork, module.eu_gl_rg_aks_node]
 
   # Tags
   owner_tag        = var.owner_tag
@@ -50,15 +51,16 @@ module "eu_gl_aks" {
 }
 #-----------------------------------------------------------------------------------
 module "us_gl_aks" {
-  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//module?ref=v0.0.10"
-  resource_group_name     = var.resource_group_name_us
-  resource_group_location = var.resource_group_location_us
-  log_analytics_name      = var.log_analytics_name_us
-  la_sku                  = var.la_sku
-  la_solution_name        = var.la_solution_name
-  cluster_name            = var.cluster_name_us
-  kubernetes_version      = var.kubernetes_version
-  pod_security_policy     = var.pod_security_policy
+  source                   = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//module?ref=v0.0.10"
+  resource_group_name      = var.resource_group_name_us
+  node_resource_group_name = var.node_resource_group_name_us
+  resource_group_location  = var.resource_group_location_us
+  log_analytics_name       = var.log_analytics_name_us
+  la_sku                   = var.la_sku
+  la_solution_name         = var.la_solution_name
+  cluster_name             = var.cluster_name_us
+  kubernetes_version       = var.kubernetes_version
+  pod_security_policy      = var.pod_security_policy
   # Default node pool
   node_count          = var.node_count
   node_vm_size        = var.node_vm_size
@@ -89,7 +91,7 @@ module "us_gl_aks" {
   scale_down_unneeded              = var.scale_down_unneeded
   scale_down_unready               = var.scale_down_unready
   scale_down_utilization_threshold = var.scale_down_utilization_threshold
-  depends_on                       = [module.us_gl_rg, module.us_gl_virtualNetwork]
+  depends_on                       = [module.us_gl_rg, module.us_gl_virtualNetwork, module.us_gl_rg_aks_node]
 
   # Tags
   owner_tag        = var.owner_tag
@@ -101,15 +103,16 @@ module "us_gl_aks" {
 }
 #------------------------------------------------------------------------------------
 module "us2_gl_aks" {
-  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//module?ref=v0.0.10"
-  resource_group_name     = var.resource_group_name_us2
-  resource_group_location = var.resource_group_location_us2
-  log_analytics_name      = var.log_analytics_name_us2
-  la_sku                  = var.la_sku
-  la_solution_name        = var.la_solution_name
-  cluster_name            = var.cluster_name_us2
-  kubernetes_version      = var.kubernetes_version
-  pod_security_policy     = var.pod_security_policy
+  source                   = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//module?ref=v0.0.10"
+  resource_group_name      = var.resource_group_name_us2
+  node_resource_group_name = var.node_resource_group_name_us2
+  resource_group_location  = var.resource_group_location_us2
+  log_analytics_name       = var.log_analytics_name_us2
+  la_sku                   = var.la_sku
+  la_solution_name         = var.la_solution_name
+  cluster_name             = var.cluster_name_us2
+  kubernetes_version       = var.kubernetes_version
+  pod_security_policy      = var.pod_security_policy
   # Default node pool
   node_count          = var.node_count
   node_vm_size        = var.node_vm_size
@@ -140,7 +143,7 @@ module "us2_gl_aks" {
   scale_down_unneeded              = var.scale_down_unneeded
   scale_down_unready               = var.scale_down_unready
   scale_down_utilization_threshold = var.scale_down_utilization_threshold
-  depends_on                       = [module.us2_gl_rg, module.us2_gl_virtualNetwork]
+  depends_on                       = [module.us2_gl_rg, module.us2_gl_virtualNetwork, module.us2_gl_rg_aks_node]
 
   # Tags
   owner_tag        = var.owner_tag

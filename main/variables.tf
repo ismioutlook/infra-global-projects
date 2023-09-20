@@ -5,6 +5,11 @@ variable "resource_group_name_eu" {
   description = "Name of the resource group in the EU region."
 }
 
+variable "node_resource_group_name_eu" {
+  type        = string
+  description = "Name of the resource group for AKS nodes EU region"
+}
+
 variable "resource_group_location_eu" {
   type        = string
   description = "Location of the resource group in the EU region."
@@ -20,6 +25,12 @@ variable "resource_group_name_us" {
   description = "Name of the resource group in the US region."
 }
 
+variable "node_resource_group_name_us" {
+  type        = string
+  description = "Name of the resource group for AKS nodes US region"
+}
+
+
 variable "resource_group_location_us2" {
   type        = string
   description = "Location of the resource group in the Australia region."
@@ -28,6 +39,11 @@ variable "resource_group_location_us2" {
 variable "resource_group_name_us2" {
   type        = string
   description = "Name of the resource group in the Australia region."
+}
+
+variable "node_resource_group_name_us2" {
+  type        = string
+  description = "Name of the resource group for AKS nodes US2 region"
 }
 
 #-----------------------------Virtual Network module variables-----------------------------------------

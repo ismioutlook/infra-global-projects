@@ -23,5 +23,5 @@ module "apim-multi-location" {
   sector_tag       = var.sector_tag
   created_by_tag   = var.created_by_tag
 
-  depends_on = [ module.eu_gl_rg, module.eu_gl_virtualNetwork, module.us_gl_virtualNetwork, module.us2_gl_virtualNetwork ]
+  depends_on = [module.eu_gl_rg, module.eu_gl_virtualNetwork, module.us_gl_virtualNetwork, module.us2_gl_virtualNetwork]
 }
