@@ -115,13 +115,17 @@ timeout_in_seconds           = 10
 tolerated_number_of_failures = 3
 
 #-------------------------------------------APIM--------------------------------
-apim_subnet_id_eu    = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-EU-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-EU-NonProd/subnets/Subnet-APIM"
-apim_subnet_id_us    = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-US-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US-NonProd/subnets/Subnet-APIM"
-apim_subnet_id_us2   = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-US2-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US2-NonProd/subnets/Subnet-APIM"
-apim_name            = "elxapimglnonprod"
-apim_publisher_name  = "Electrolux"
-apim_publisher_email = "chirag.panchal@electrolux.com"
-apim_sku_name        = "Premium_1"
+apim_subnet_id_eu         = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-EU-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-EU-NonProd/subnets/Subnet-APIM"
+apim_subnet_id_us         = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-US-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US-NonProd/subnets/Subnet-APIM"
+apim_subnet_id_us2        = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-US2-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US2-NonProd/subnets/Subnet-APIM"
+apim_name                 = "elxapimglnonprod"
+apim_publisher_name       = "Electrolux"
+apim_publisher_email      = "chirag.panchal@electrolux.com"
+apim_sku_name             = "Premium_1"
+gateway_hostname          = "api-nonprod.electrolux.com"
+developer_portal_hostname = "portal-nonprod.electrolux.com"
+management_hostname       = "management-nonprod.electrolux.com"
+scm_hostname              = "scm-nonprod.electrolux.com"
 #---------------------------Tags--------------------------------------------------
 env_tag          = "NonProd"
 owner_tag        = "Arun Nalliannan"
