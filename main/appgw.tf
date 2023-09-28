@@ -1,5 +1,5 @@
 module "eu_gl_appgw" {
-  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-AppGw//module?ref=v0.0.7"
+  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-AppGw//module?ref=v0.0.8"
   tenant_id               = var.tenant_id
   subscription_id         = var.subscription_id
   resource_group_name     = var.resource_group_name_eu
@@ -30,7 +30,7 @@ module "eu_gl_appgw" {
 
 
 module "us_gl_appgw" {
-  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-AppGw//module?ref=v0.0.7"
+  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-AppGw//module?ref=v0.0.8"
   tenant_id               = var.tenant_id
   subscription_id         = var.subscription_id
   resource_group_name     = var.resource_group_name_us
@@ -60,7 +60,7 @@ module "us_gl_appgw" {
 }
 
 module "us2_gl_appgw" {
-  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-AppGw//module?ref=v0.0.7"
+  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-AppGw//module?ref=v0.0.8"
   tenant_id               = var.tenant_id
   subscription_id         = var.subscription_id
   resource_group_name     = var.resource_group_name_us2
