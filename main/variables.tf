@@ -240,6 +240,21 @@ variable "apim_address_pool_us2" {
   type        = string
 }
 
+variable "user_managed_identity_eu" {
+  description = "The identifier for the user-managed identity in the West Europe region"
+  type        = string
+}
+
+variable "user_managed_identity_us" {
+  description = "The identifier for the user-managed identity in the US region"
+  type        = string
+}
+
+variable "user_managed_identity_us2" {
+  description = "The identifier for the user-managed identity in the US2 region"
+  type        = string
+}
+
 #---------------------------------------US--------------------------------
 variable "appgw_pip_name_us" {
   type        = string
