@@ -190,10 +190,10 @@ variable "appgw_sku_tier_eu" {
   description = "Tier of the Application Gateway SKU for EU region."
 }
 
-variable "appgw_sku_capacity_eu" {
-  type        = number
-  description = "Capacity of the Application Gateway SKU for EU region."
-}
+# variable "appgw_sku_capacity_eu" {
+#   type        = number
+#   description = "Capacity of the Application Gateway SKU for EU region."
+# }
 
 variable "appgw_ip_config_name_eu" {
   type        = string
@@ -322,10 +322,10 @@ variable "appgw_sku_tier_us2" {
   description = "Tier of the Application Gateway SKU for US2 region."
 }
 
-variable "appgw_sku_capacity_us2" {
-  type        = number
-  description = "Capacity of the Application Gateway SKU for US2 region."
-}
+# variable "appgw_sku_capacity_us2" {
+#   type        = number
+#   description = "Capacity of the Application Gateway SKU for US2 region."
+# }
 
 variable "appgw_ip_config_name_us2" {
   type        = string
