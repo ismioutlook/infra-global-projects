@@ -12,6 +12,10 @@ module "eu_gl_appgw" {
   appgw_sku_capacity      = var.appgw_sku_capacity_eu
   appgw_ip_config_name    = var.appgw_ip_config_name_eu
   subnet_id               = var.subnet_id_eu #module.eu_gl_virtualNetwork.subnet_name[1]
+  subnet_frontend_id      = "/subscriptions/${var.subscription_id}/resourceGroups/${resource_group_name_eu}/providers/Microsoft.Network/virtualNetworks/${virtual_network_name_eu}/subnets/Subnet-fe"
+  ssl_certificare_name    = var.ssl_certificare_name
+  key_vault_secret_id = var.key_vault_secret_id
+  hostname = var.hostname
   #WAF Configurations
   waf_enabled                  = var.waf_enabled
   waf_firewall_mode            = var.waf_firewall_mode
@@ -38,6 +42,10 @@ module "us_gl_appgw" {
   appgw_sku_capacity      = var.appgw_sku_capacity_us
   appgw_ip_config_name    = var.appgw_ip_config_name_us
   subnet_id               = var.subnet_id_us #module.eu_gl_virtualNetwork.subnet_name[1]
+  subnet_frontend_id      = "/subscriptions/${var.subscription_id}/resourceGroups/${resource_group_name_us}/providers/Microsoft.Network/virtualNetworks/${virtual_network_name_us}/subnets/Subnet-fe"
+  ssl_certificare_name    = var.ssl_certificare_name
+  key_vault_secret_id = var.key_vault_secret_id
+  hostname = var.hostname
   #WAF Configurations
   waf_enabled                  = var.waf_enabled
   waf_firewall_mode            = var.waf_firewall_mode
@@ -63,6 +71,10 @@ module "us2_gl_appgw" {
   appgw_sku_capacity      = var.appgw_sku_capacity_us2
   appgw_ip_config_name    = var.appgw_ip_config_name_us2
   subnet_id               = var.subnet_id_us2 #module.eu_gl_virtualNetwork.subnet_name[1]
+  subnet_frontend_id      = "/subscriptions/${var.subscription_id}/resourceGroups/${resource_group_name_us2}/providers/Microsoft.Network/virtualNetworks/${virtual_network_name_us2}/subnets/Subnet-fe"
+  ssl_certificare_name    = var.ssl_certificare_name
+  key_vault_secret_id = var.key_vault_secret_id
+  hostname = var.hostname
   #WAF Configurations
   waf_enabled                  = var.waf_enabled
   waf_firewall_mode            = var.waf_firewall_mode

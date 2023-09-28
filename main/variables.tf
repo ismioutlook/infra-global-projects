@@ -204,6 +204,27 @@ variable "subnet_id_eu" {
   type        = string
   description = "ID of the subnet for the Application Gateway IP configuration in EU region."
 }
+
+# variable "subnet_frontend_id" {
+#   description = "The ID of the frontend subnet"
+#   type        = string
+# }
+
+variable "ssl_certificare_name" {
+  description = "The name of the SSL certificate"
+  type        = string
+}
+
+variable "key_vault_secret_id" {
+  description = "The ID of the Key Vault secret"
+  type        = string
+}
+
+variable "hostname" {
+  description = "The hostname of the application"
+  type        = string
+}
+
 #---------------------------------------US--------------------------------
 variable "appgw_pip_name_us" {
   type        = string

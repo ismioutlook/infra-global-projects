@@ -7,7 +7,7 @@ resource_group_name_eu      = "RG-GL-ELX-EU-NonProd"
 node_resource_group_name_eu = "RG-GL-ELX-EU-AKS-Node-Cluster-NonProd"
 virtual_network_name_eu     = "VN-GL-ELX-EU-NonProd"
 vnet_address_space_eu       = ["10.216.0.0/16"]
-subnet_address_space_eu     = ["10.216.3.0/24", "10.216.2.192/27", "10.216.2.0/25"]
+subnet_address_space_eu     = ["10.216.3.0/24", "10.216.2.192/27", "10.216.2.0/25", "10.216.3.1/25"]
 
 appgw_pip_name_eu       = "AAG-GL-ELX-EU-NonProd-PIP"
 appgw_pip_allocation_eu = "Static"
@@ -16,14 +16,17 @@ appgw_sku_name_eu       = "WAF_v2"
 appgw_sku_tier_eu       = "WAF_v2"
 appgw_sku_capacity_eu   = 2
 appgw_ip_config_name_eu = "AppGw-GL-ELX-EU-IP-Config"
-subnet_id_eu            = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-EU-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-EU-NonProd/subnets/Subnet-GW"
+subnet_id_eu            = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-EL-EU-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-EU-NonProd/subnets/Subnet-GW"
+ssl_certificare_name    = "nonprod-electrolux-com"
+key_vault_secret_id     = "https://elxkv-cert-nonprod-gl-01.vault.azure.net/secrets/nonprod-electrolux-com"
+hostname = "nonprod.electrolux.com"
 #----------------------------Resource Group Module Details for US region ------------------------------
 resource_group_location_us  = "East US"
 resource_group_name_us      = "RG-GL-ELX-US-NonProd"
 node_resource_group_name_us = "RG-GL-ELX-US-AKS-Node-Cluster-NonProd"
 virtual_network_name_us     = "VN-GL-ELX-US-NonProd"
 vnet_address_space_us       = ["10.217.0.0/16"]
-subnet_address_space_us     = ["10.217.3.0/24", "10.217.2.192/27", "10.217.2.0/25"]
+subnet_address_space_us     = ["10.217.3.0/24", "10.217.2.192/27", "10.217.2.0/25", "10.217.3.1/25"]
 
 appgw_pip_name_us       = "AAG-GL-ELX-US-NonProd-PIP"
 appgw_pip_allocation_us = "Static"
@@ -40,7 +43,7 @@ resource_group_name_us2      = "RG-GL-ELX-US2-NonProd"
 node_resource_group_name_us2 = "RG-GL-ELX-US2-AKS-Node-Cluster-NonProd"
 virtual_network_name_us2     = "VN-GL-ELX-US2-NonProd"
 vnet_address_space_us2       = ["10.218.0.0/16"]
-subnet_address_space_us2     = ["10.218.3.0/24", "10.218.2.192/27", "10.218.2.0/25"]
+subnet_address_space_us2     = ["10.218.3.0/24", "10.218.2.192/27", "10.218.2.0/25", "10.218.3.1/25"]
 
 appgw_pip_name_us2       = "AAG-GL-ELX-US2-NonProd-PIP1"
 appgw_pip_allocation_us2 = "Static"
@@ -85,13 +88,13 @@ log_analytics_name_us = "LA-GL-ELX-AKS-US-NonProd"
 cluster_name_us       = "AKS-Global-US-NonProd"
 # Network profile
 aks_subnet_id_us = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-US-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US-NonProd/subnets/Subnet-AKS"
-#----------------------------------------AKS US2------------------------------------------------
+# #----------------------------------------AKS US2------------------------------------------------
 log_analytics_name_us2 = "LA-GL-ELX-AKS-US2-NonProd"
 cluster_name_us2       = "AKS-Global-US2-NonProd"
 # Network profile
 aks_subnet_id_us2 = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-US2-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US2-NonProd/subnets/Subnet-AKS"
 #------------------------------------------------------------------------------------------
-subnet_name       = ["Subnet-APIM", "Subnet-GW", "Subnet-AKS"]
+subnet_name       = ["Subnet-APIM", "Subnet-GW", "Subnet-AKS", "Subnet-fe"]
 service_endpoints = ["Microsoft.Sql", "Microsoft.KeyVault"]
 
 #----------------------------------Traffic Manager-----------------------------------------
@@ -109,9 +112,9 @@ tolerated_number_of_failures = 3
 apim_subnet_id_eu    = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-EU-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-EU-NonProd/subnets/Subnet-APIM"
 apim_subnet_id_us    = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-US-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US-NonProd/subnets/Subnet-APIM"
 apim_subnet_id_us2   = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-US2-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US2-NonProd/subnets/Subnet-APIM"
-apim_name            = "apimeluxglnonprod"
+apim_name            = "elxapimglnonprod"
 apim_publisher_name  = "Electrolux"
-apim_publisher_email = "ram.patreddy@electrolux.com"
+apim_publisher_email = "chirag.panchal@electrolux.com"
 apim_sku_name        = "Premium_1"
 #---------------------------Tags--------------------------------------------------
 env_tag          = "NonProd"
@@ -120,4 +123,4 @@ account_tag      = "623065"
 billingid_tag    = "POC"
 costcenterit_tag = "10350645"
 sector_tag       = "Europe"
-created_by_tag   = "PETeam"
+created_by_tag   = "PanchChi(PETeam)"
