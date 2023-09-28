@@ -662,25 +662,25 @@ variable "apim_sku_name" {
   #default     = "Premium_1"
 }
 
-variable "gateway_hostname" {
-  description = "The hostname for the gateway of the API Management service."
-  type        = string
-}
+# variable "gateway_hostname" {
+#   description = "The hostname for the gateway of the API Management service."
+#   type        = string
+# }
 
-variable "developer_portal_hostname" {
-  description = "The hostname for the developer portal of the API Management service."
-  type        = string
-}
+# variable "developer_portal_hostname" {
+#   description = "The hostname for the developer portal of the API Management service."
+#   type        = string
+# }
 
-variable "management_hostname" {
-  description = "The hostname for the management endpoint of the API Management service."
-  type        = string
-}
+# variable "management_hostname" {
+#   description = "The hostname for the management endpoint of the API Management service."
+#   type        = string
+# }
 
-variable "scm_hostname" {
-  description = "The hostname for the SCM endpoint of the API Management service."
-  type        = string
-}
+# variable "scm_hostname" {
+#   description = "The hostname for the SCM endpoint of the API Management service."
+#   type        = string
+# }
 #-----------------------------------------------------Tags--------------------------------------------------------
 variable "owner_tag" {
   type = string
