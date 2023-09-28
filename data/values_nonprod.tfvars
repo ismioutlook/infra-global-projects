@@ -7,7 +7,7 @@ resource_group_name_eu      = "RG-GL-ELX-EU-NonProd"
 node_resource_group_name_eu = "RG-GL-ELX-EU-AKS-Node-Cluster-NonProd"
 virtual_network_name_eu     = "VN-GL-ELX-EU-NonProd"
 vnet_address_space_eu       = ["10.216.0.0/16"]
-subnet_address_space_eu     = ["10.216.3.0/24", "10.216.2.192/27", "10.216.2.0/25", "10.216.3.1/25"]
+subnet_address_space_eu     = ["10.216.3.0/24", "10.216.2.192/27", "10.216.2.0/25", "10.216.4.0/25"]
 
 appgw_pip_name_eu         = "AAG-GL-ELX-EU-NonProd-PIP"
 appgw_pip_allocation_eu   = "Static"
@@ -32,7 +32,7 @@ resource_group_name_us      = "RG-GL-ELX-US-NonProd"
 node_resource_group_name_us = "RG-GL-ELX-US-AKS-Node-Cluster-NonProd"
 virtual_network_name_us     = "VN-GL-ELX-US-NonProd"
 vnet_address_space_us       = ["10.217.0.0/16"]
-subnet_address_space_us     = ["10.217.3.0/24", "10.217.2.192/27", "10.217.2.0/25", "10.217.3.1/25"]
+subnet_address_space_us     = ["10.217.3.0/24", "10.217.2.192/27", "10.217.2.0/25", "10.217.4.0/25"]
 
 appgw_pip_name_us       = "AAG-GL-ELX-US-NonProd-PIP"
 appgw_pip_allocation_us = "Static"
@@ -49,7 +49,7 @@ resource_group_name_us2      = "RG-GL-ELX-US2-NonProd"
 node_resource_group_name_us2 = "RG-GL-ELX-US2-AKS-Node-Cluster-NonProd"
 virtual_network_name_us2     = "VN-GL-ELX-US2-NonProd"
 vnet_address_space_us2       = ["10.218.0.0/16"]
-subnet_address_space_us2     = ["10.218.3.0/24", "10.218.2.192/27", "10.218.2.0/25", "10.218.3.1/25"]
+subnet_address_space_us2     = ["10.218.3.0/24", "10.218.2.192/27", "10.218.2.0/25", "10.218.4.0/25"]
 
 appgw_pip_name_us2       = "AAG-GL-ELX-US2-NonProd-PIP1"
 appgw_pip_allocation_us2 = "Static"
