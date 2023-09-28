@@ -210,7 +210,7 @@ variable "subnet_id_eu" {
 #   type        = string
 # }
 
-variable "ssl_certificare_name" {
+variable "ssl_certificate_name" {
   description = "The name of the SSL certificate"
   type        = string
 }
@@ -222,6 +222,21 @@ variable "key_vault_secret_id" {
 
 variable "hostname" {
   description = "The hostname of the application"
+  type        = string
+}
+
+variable "apim_address_pool_eu" {
+  description = "The address pool for APIM (API Management) in the EU region"
+  type        = string
+}
+
+variable "apim_address_pool_us" {
+  description = "The address pool for APIM (API Management) in the US region"
+  type        = string
+}
+
+variable "apim_address_pool_us2" {
+  description = "The address pool for APIM (API Management) in the US2 region"
   type        = string
 }
 

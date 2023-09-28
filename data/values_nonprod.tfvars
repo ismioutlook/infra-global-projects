@@ -17,9 +17,12 @@ appgw_sku_tier_eu       = "WAF_v2"
 appgw_sku_capacity_eu   = 2
 appgw_ip_config_name_eu = "AppGw-GL-ELX-EU-IP-Config"
 subnet_id_eu            = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-EL-EU-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-EU-NonProd/subnets/Subnet-GW"
-ssl_certificare_name    = "nonprod-electrolux-com"
+ssl_certificate_name    = "nonprod-electrolux-com"
 key_vault_secret_id     = "https://elxkv-cert-nonprod-gl-01.vault.azure.net/secrets/nonprod-electrolux-com"
 hostname = "nonprod.electrolux.com"
+apim_address_pool_eu = "10.216.3.6"
+apim_address_pool_us = "10.217.3.6"
+apim_address_pool_us2 = "10.218.3.6"
 #----------------------------Resource Group Module Details for US region ------------------------------
 resource_group_location_us  = "East US"
 resource_group_name_us      = "RG-GL-ELX-US-NonProd"
