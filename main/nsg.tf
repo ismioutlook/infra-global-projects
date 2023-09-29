@@ -406,11 +406,11 @@ resource "azurerm_network_security_group" "nsg_apim_mgmt" {
   depends_on = [module.eu_gl_virtualNetwork]
 }
 
-resource "azurerm_subnet_network_security_group_association" "nsg_apim_mgmt_association" {
-  subnet_id                 = "/subscriptions/${var.subscription_id}/resourceGroups/${var.resource_group_name_eu}/providers/Microsoft.Network/virtualNetworks/${var.resource_group_name_eu}/subnets/Subnet-MGMT"
-  network_security_group_id = azurerm_network_security_group.nsg_apim_mgmt.id
-  depends_on                = [module.eu_gl_virtualNetwork]
-}
+# resource "azurerm_subnet_network_security_group_association" "nsg_apim_mgmt_association" {
+#   subnet_id                 = "/subscriptions/${var.subscription_id}/resourceGroups/${var.resource_group_name_eu}/providers/Microsoft.Network/virtualNetworks/${var.resource_group_name_eu}/subnets/Subnet-MGMT"
+#   network_security_group_id = azurerm_network_security_group.nsg_apim_mgmt.id
+#   depends_on                = [module.eu_gl_virtualNetwork]
+# }
 
 resource "azurerm_network_security_group" "nsg_apim_gw" {
   location            = var.resource_group_location_eu
@@ -515,9 +515,9 @@ resource "azurerm_network_security_group" "nsg_apim_gw" {
   depends_on = [module.eu_gl_virtualNetwork]
 }
 
-resource "azurerm_subnet_network_security_group_association" "nsg_apim_mgmt_association" {
-  subnet_id                 = "/subscriptions/${var.subscription_id}/resourceGroups/${var.resource_group_name_eu}/providers/Microsoft.Network/virtualNetworks/${var.resource_group_name_eu}/subnets/Subnet-GW"
-  network_security_group_id = azurerm_network_security_group.nsg_apim_gw.id
-  depends_on                = [module.eu_gl_virtualNetwork]
-}
+# resource "azurerm_subnet_network_security_group_association" "nsg_apim_mgmt_association" {
+#   subnet_id                 = "/subscriptions/${var.subscription_id}/resourceGroups/${var.resource_group_name_eu}/providers/Microsoft.Network/virtualNetworks/${var.resource_group_name_eu}/subnets/Subnet-GW"
+#   network_security_group_id = azurerm_network_security_group.nsg_apim_gw.id
+#   depends_on                = [module.eu_gl_virtualNetwork]
+# }
 
