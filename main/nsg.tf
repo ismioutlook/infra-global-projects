@@ -1,7 +1,7 @@
 resource "azurerm_network_security_group" "nsg_apim" {
-  location            = var.resource_group_location_eu
+  location            = var.eu_vars.resource_group.resource_group_location_eu
+  resource_group_name = var.eu_vars.resource_group.resource_group_name_eu
   name                = "nsg-apim-gl-nonprod"
-  resource_group_name = var.resource_group_name_eu
   security_rule {
     access                     = "Allow"
     destination_address_prefix = "VirtualNetwork"
@@ -249,16 +249,16 @@ resource "azurerm_network_security_group" "nsg_apim" {
   depends_on = [module.eu_gl_virtualNetwork]
 }
 
-resource "azurerm_subnet_network_security_group_association" "nsg_apim_association" {
-  subnet_id                 = "/subscriptions/${var.subscription_id}/resourceGroups/${var.resource_group_name_eu}/providers/Microsoft.Network/virtualNetworks/${var.resource_group_name_eu}/subnets/Subnet-APIM"
-  network_security_group_id = azurerm_network_security_group.nsg_apim.id
-  depends_on                = [module.eu_gl_virtualNetwork]
-}
+# resource "azurerm_subnet_network_security_group_association" "nsg_apim_association" {
+#   subnet_id                 = "/subscriptions/${var.subscription.nonprod.subscription_id}/resourceGroups/${var.eu_vars.resource_group.resource_group_name_eu}/providers/Microsoft.Network/virtualNetworks/${var.eu_vars.resource_group.resource_group_name_eu}/subnets/Subnet-APIM"
+#   network_security_group_id = azurerm_network_security_group.nsg_apim.id
+#   depends_on                = [module.eu_gl_virtualNetwork]
+# }
 
 resource "azurerm_network_security_group" "nsg_apim_mgmt" {
-  location            = var.resource_group_location_eu
+  location            = var.eu_vars.resource_group.resource_group_location_eu
+  resource_group_name = var.eu_vars.resource_group.resource_group_name_eu
   name                = "nsg-mgmt-gl-nonprod"
-  resource_group_name = var.resource_group_name_eu
   security_rule {
     access                     = "Allow"
     destination_address_prefix = "10.219.0.64/27"
@@ -407,15 +407,15 @@ resource "azurerm_network_security_group" "nsg_apim_mgmt" {
 }
 
 # resource "azurerm_subnet_network_security_group_association" "nsg_apim_mgmt_association" {
-#   subnet_id                 = "/subscriptions/${var.subscription_id}/resourceGroups/${var.resource_group_name_eu}/providers/Microsoft.Network/virtualNetworks/${var.resource_group_name_eu}/subnets/Subnet-MGMT"
+#   subnet_id                 = "/subscriptions/${var.subscription.nonprod.subscription_id}/resourceGroups/${var.eu_vars.resource_group.resource_group_name_eu}/providers/Microsoft.Network/virtualNetworks/${var.eu_vars.resource_group.resource_group_name_eu}/subnets/Subnet-MGMT"
 #   network_security_group_id = azurerm_network_security_group.nsg_apim_mgmt.id
 #   depends_on                = [module.eu_gl_virtualNetwork]
 # }
 
 resource "azurerm_network_security_group" "nsg_apim_gw" {
-  location            = var.resource_group_location_eu
+  location            = var.eu_vars.resource_group.resource_group_location_eu
+  resource_group_name = var.eu_vars.resource_group.resource_group_name_eu
   name                = "nsg-gw-gl-nonprod"
-  resource_group_name = var.resource_group_name_eu
   security_rule {
     access                     = "Allow"
     destination_address_prefix = "*"
@@ -516,7 +516,7 @@ resource "azurerm_network_security_group" "nsg_apim_gw" {
 }
 
 # resource "azurerm_subnet_network_security_group_association" "nsg_apim_mgmt_association" {
-#   subnet_id                 = "/subscriptions/${var.subscription_id}/resourceGroups/${var.resource_group_name_eu}/providers/Microsoft.Network/virtualNetworks/${var.resource_group_name_eu}/subnets/Subnet-GW"
+#   subnet_id                 = "/subscriptions/${var.subscription.nonprod.subscription_id}/resourceGroups/${var.eu_vars.resource_group.resource_group_name_eu}/providers/Microsoft.Network/virtualNetworks/${var.eu_vars.resource_group.resource_group_name_eu}/subnets/Subnet-GW"
 #   network_security_group_id = azurerm_network_security_group.nsg_apim_gw.id
 #   depends_on                = [module.eu_gl_virtualNetwork]
 # }
