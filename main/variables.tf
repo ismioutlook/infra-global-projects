@@ -92,6 +92,8 @@ variable "us_vars" {
       appgw_sku_capacity   = number
       appgw_ip_config_name = string
       subnet_id            = string
+      user_managed_identity = string
+      apim_address_pool     = list(string)
     })
     tags = object({
       env_tag          = string
@@ -128,6 +130,8 @@ variable "us2_vars" {
       appgw_sku_capacity   = number
       appgw_ip_config_name = string
       subnet_id            = string
+      user_managed_identity = string
+      apim_address_pool     = list(string)
     })
     tags = object({
       env_tag          = string
@@ -654,22 +658,22 @@ variable "waf_max_request_body_size_kb" {
 
 # # Addons node pool
 
-# variable "node_pools" {
-#   description = "Addons node pools"
-#   type = list(object({
-#     name                = string
-#     vm_size             = string
-#     os_disk_size_gb     = number
-#     enable_auto_scaling = bool
-#     node_count          = number
-#     min_count           = number
-#     max_count           = number
-#     max_pods            = number
-#     node_taints         = list(string)
-#     node_labels         = map(string)
-#   }))
-#   default = []
-# }
+variable "node_pools" {
+  description = "Addons node pools"
+  type = list(object({
+    name                = string
+    vm_size             = string
+    os_disk_size_gb     = number
+    enable_auto_scaling = bool
+    node_count          = number
+    min_count           = number
+    max_count           = number
+    max_pods            = number
+    node_taints         = list(string)
+    node_labels         = map(string)
+  }))
+  default = []
+}
 
 # # Network profile
 

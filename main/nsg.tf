@@ -1,6 +1,6 @@
 resource "azurerm_network_security_group" "nsg_apim" {
-  location            = var.eu_vars.resource_group.resource_group_location_eu
-  resource_group_name = var.eu_vars.resource_group.resource_group_name_eu
+  location            = var.eu_vars.resource_group.resource_group_location
+  resource_group_name = var.eu_vars.resource_group.resource_group_name
   name                = "nsg-apim-gl-nonprod"
   security_rule {
     access                     = "Allow"
@@ -250,14 +250,14 @@ resource "azurerm_network_security_group" "nsg_apim" {
 }
 
 # resource "azurerm_subnet_network_security_group_association" "nsg_apim_association" {
-#   subnet_id                 = "/subscriptions/${var.subscription.nonprod.subscription_id}/resourceGroups/${var.eu_vars.resource_group.resource_group_name_eu}/providers/Microsoft.Network/virtualNetworks/${var.eu_vars.resource_group.resource_group_name_eu}/subnets/Subnet-APIM"
+#   subnet_id                 = "/subscriptions/${var.subscription.nonprod.subscription_id}/resourceGroups/${var.eu_vars.resource_group.resource_group_name}/providers/Microsoft.Network/virtualNetworks/${var.eu_vars.resource_group.resource_group_name}/subnets/Subnet-APIM"
 #   network_security_group_id = azurerm_network_security_group.nsg_apim.id
 #   depends_on                = [module.eu_gl_virtualNetwork]
 # }
 
 resource "azurerm_network_security_group" "nsg_apim_mgmt" {
-  location            = var.eu_vars.resource_group.resource_group_location_eu
-  resource_group_name = var.eu_vars.resource_group.resource_group_name_eu
+  location            = var.eu_vars.resource_group.resource_group_location
+  resource_group_name = var.eu_vars.resource_group.resource_group_name
   name                = "nsg-mgmt-gl-nonprod"
   security_rule {
     access                     = "Allow"
@@ -407,14 +407,14 @@ resource "azurerm_network_security_group" "nsg_apim_mgmt" {
 }
 
 # resource "azurerm_subnet_network_security_group_association" "nsg_apim_mgmt_association" {
-#   subnet_id                 = "/subscriptions/${var.subscription.nonprod.subscription_id}/resourceGroups/${var.eu_vars.resource_group.resource_group_name_eu}/providers/Microsoft.Network/virtualNetworks/${var.eu_vars.resource_group.resource_group_name_eu}/subnets/Subnet-MGMT"
+#   subnet_id                 = "/subscriptions/${var.subscription.nonprod.subscription_id}/resourceGroups/${var.eu_vars.resource_group.resource_group_name}/providers/Microsoft.Network/virtualNetworks/${var.eu_vars.resource_group.resource_group_name_eu}/subnets/Subnet-MGMT"
 #   network_security_group_id = azurerm_network_security_group.nsg_apim_mgmt.id
 #   depends_on                = [module.eu_gl_virtualNetwork]
 # }
 
 resource "azurerm_network_security_group" "nsg_apim_gw" {
-  location            = var.eu_vars.resource_group.resource_group_location_eu
-  resource_group_name = var.eu_vars.resource_group.resource_group_name_eu
+  location            = var.eu_vars.resource_group.resource_group_location
+  resource_group_name = var.eu_vars.resource_group.resource_group_name
   name                = "nsg-gw-gl-nonprod"
   security_rule {
     access                     = "Allow"

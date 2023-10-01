@@ -41,9 +41,9 @@ module "us_gl_appgw" {
   appgw_sku_tier          = var.us_vars.app_gateway.appgw_sku_tier
   appgw_ip_config_name    = var.us_vars.app_gateway.appgw_ip_config_name
   subnet_frontend_id      = var.us_vars.app_gateway.subnet_id #module.eu_gl_virtualNetwork.subnet_name[1]
-  ssl_certificate_name    = var.us_vars.app_gateway.ssl_certificate_name
-  key_vault_secret_id     = var.us_vars.app_gateway.key_vault_secret_id
-  hostname                = var.us_vars.app_gateway.hostname
+  ssl_certificate_name    = var.eu_vars.app_gateway.ssl_certificate_name
+  key_vault_secret_id     = var.eu_vars.app_gateway.key_vault_secret_id
+  hostname                = var.eu_vars.app_gateway.hostname
   apim_address_pool       = var.us_vars.app_gateway.apim_address_pool
   user_managed_identity   = var.us_vars.app_gateway.user_managed_identity
   #WAF Configurations
@@ -70,9 +70,9 @@ module "us2_gl_appgw" {
   appgw_sku_tier          = var.us2_vars.app_gateway.appgw_sku_tier
   appgw_ip_config_name    = var.us2_vars.app_gateway.appgw_ip_config_name
   subnet_frontend_id      = var.us2_vars.app_gateway.subnet_id #module.eu_gl_virtualNetwork.subnet_name[1]
-  ssl_certificate_name    = var.us2_vars.app_gateway.ssl_certificate_name
-  key_vault_secret_id     = var.us2_vars.app_gateway.key_vault_secret_id
-  hostname                = var.us2_vars.app_gateway.hostname
+  ssl_certificate_name    = var.eu_vars.app_gateway.ssl_certificate_name
+  key_vault_secret_id     = var.eu_vars.app_gateway.key_vault_secret_id
+  hostname                = var.eu_vars.app_gateway.hostname
   apim_address_pool       = var.us2_vars.app_gateway.apim_address_pool
   user_managed_identity   = var.us2_vars.app_gateway.user_managed_identity
   #WAF Configurations

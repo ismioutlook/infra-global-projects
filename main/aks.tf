@@ -19,7 +19,7 @@ module "eu_gl_aks" {
   node_max_pods       = var.aks_vars.azure_k8s_service.node_max_pods
   node_taints         = var.aks_vars.azure_k8s_service.node_taints
   node_labels         = var.aks_vars.azure_k8s_service.node_labels
-  node_pools          = var.aks_vars.azure_k8s_service.node_pools
+  node_pools          = var.node_pools
   node_resource_group_name = var.aks_vars.azure_k8s_service.node_resource_group_name_eu
   # Network profile
   network_plugin     = var.aks_vars.azure_k8s_service.network_plugin
@@ -71,7 +71,7 @@ module "us_gl_aks" {
   node_max_pods       = var.aks_vars.azure_k8s_service.node_max_pods
   node_taints         = var.aks_vars.azure_k8s_service.node_taints
   node_labels         = var.aks_vars.azure_k8s_service.node_labels
-  node_pools          = var.aks_vars.azure_k8s_service.node_pools
+  node_pools          = var.node_pools
   # Network profile
   network_plugin      = var.aks_vars.azure_k8s_service.network_plugin
   network_policy      = var.aks_vars.azure_k8s_service.network_policy
@@ -122,7 +122,7 @@ module "us2_gl_aks" {
   node_max_pods       = var.aks_vars.azure_k8s_service.node_max_pods
   node_taints         = var.aks_vars.azure_k8s_service.node_taints
   node_labels         = var.aks_vars.azure_k8s_service.node_labels
-  node_pools          = var.aks_vars.azure_k8s_service.node_pools
+  node_pools          = var.node_pools
   # Network profile
   network_plugin     = var.aks_vars.azure_k8s_service.network_plugin
   network_policy     = var.aks_vars.azure_k8s_service.network_policy

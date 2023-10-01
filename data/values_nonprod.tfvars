@@ -89,7 +89,8 @@ us_vars = {
     appgw_sku_capacity   = 2
     appgw_ip_config_name = "AppGw-GL-ELX-US-IP-Config"
     subnet_id           = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-US-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US-NonProd/subnets/Subnet-GW"
-
+    user_managed_identity  = "id-appgw-gl-us"
+    apim_address_pool = ["10.217.3.6"]
   }
   tags = {
     env_tag          = "NonProd"
@@ -124,7 +125,8 @@ us2_vars = {
     appgw_sku_capacity   = 2
     appgw_ip_config_name = "AppGw-GL-ELX-US2-IP-Config"
     subnet_id            = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-US2-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US2-NonProd/subnets/Subnet-GW"
-
+    user_managed_identity  = "id-appgw-gl-us2"
+    apim_address_pool = ["10.218.3.6"]
   }
   tags = {
     env_tag          = "NonProd"
