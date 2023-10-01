@@ -16,6 +16,7 @@ variable "eu_vars" {
       virtual_network_name = string
       vnet_address_space = list(string)
       subnet_address_space = list(string)
+      service_endpoints = list(string)
     })
     app_gateway = object({
       appgw_pip_name_eu     = string
@@ -78,6 +79,7 @@ variable "us_vars" {
       virtual_network_name = string
       vnet_address_space = list(string)
       subnet_address_space = list(string)
+      service_endpoints = list(string)
     })
     app_gateway = object({
       appgw_pip_name       = string
@@ -112,6 +114,7 @@ variable "us2_vars" {
       virtual_network_name = string
       vnet_address_space = list(string)
       subnet_address_space = list(string)
+      service_endpoints = list(string)
     })
     app_gateway = object({
       appgw_pip_name       = string
