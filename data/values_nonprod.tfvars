@@ -18,7 +18,7 @@ eu_vars = {
     subnet_name       = ["Subnet-APIM", "Subnet-GW", "Subnet-AKS", "Subnet-fe"]
   }
   app_gateway = {
-    appgw_pip_name_eu         = "AAG-GL-ELX-EU-NonProd-PIP"
+    appgw_pip_name         = "AAG-GL-ELX-EU-NonProd-PIP"
     appgw_pip_allocation   = "Static"
     appgw_name             = "AppGw-GL-ELX-EU-NonProd"
     appgw_sku_name         = "WAF_v2"

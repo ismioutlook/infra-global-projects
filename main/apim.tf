@@ -1,7 +1,7 @@
 module "apim-multi-location" {
   source                    = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-apim//module?ref=v0.0.3"
-  tenant_id                 = var.subscription.nonpeod.tenant_id
-  subscription_id           = var.subscription.nonpeod.subscription_id
+  tenant_id                 = var.subscription.nonprod.tenant_id
+  subscription_id           = var.subscription.nonprod.subscription_id
   resource_group_name       = var.eu_vars.resource_group.resource_group_name
   resource_group_location   = var.eu_vars.resource_group.resource_group_location
   subnet_id1                = var.eu_vars.api_management.apim_subnet_id_eu
