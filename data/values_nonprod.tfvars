@@ -15,6 +15,7 @@ eu_vars = {
     vnet_address_space       = ["10.216.0.0/16"]
     subnet_address_space  = ["10.216.3.0/24", "10.216.2.192/27", "10.216.2.0/25", "10.216.4.0/25"]
     service_endpoints = ["Microsoft.Sql", "Microsoft.KeyVault"]
+    subnet_name       = ["Subnet-APIM", "Subnet-GW", "Subnet-AKS", "Subnet-fe"]
   }
   app_gateway = {
     appgw_pip_name_eu         = "AAG-GL-ELX-EU-NonProd-PIP"
@@ -77,6 +78,7 @@ us_vars = {
     vnet_address_space       = ["10.217.0.0/16"]
     subnet_address_space    = ["10.217.3.0/24", "10.217.2.192/27", "10.217.2.0/25", "10.217.4.0/25"]
     service_endpoints = ["Microsoft.Sql", "Microsoft.KeyVault"]
+    subnet_name       = ["Subnet-APIM", "Subnet-GW", "Subnet-AKS", "Subnet-fe"]
   }
   app_gateway = {
     appgw_pip_name       = "AAG-GL-ELX-US-NonProd-PIP"
@@ -111,6 +113,7 @@ us2_vars = {
     vnet_address_space     = ["10.218.0.0/16"]
     subnet_address_space     = ["10.218.3.0/24", "10.218.2.192/27", "10.218.2.0/25", "10.218.4.0/25"]
     service_endpoints = ["Microsoft.Sql", "Microsoft.KeyVault"]
+    subnet_name       = ["Subnet-APIM", "Subnet-GW", "Subnet-AKS", "Subnet-fe"]
   }
   app_gateway = {
     appgw_pip_name       = "AAG-GL-ELX-US2-NonProd-PIP1"
