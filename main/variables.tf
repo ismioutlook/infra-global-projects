@@ -190,10 +190,10 @@ variable "appgw_sku_tier_eu" {
   description = "Tier of the Application Gateway SKU for EU region."
 }
 
-variable "appgw_sku_capacity_eu" {
-  type        = number
-  description = "Capacity of the Application Gateway SKU for EU region."
-}
+# variable "appgw_sku_capacity_eu" {
+#   type        = number
+#   description = "Capacity of the Application Gateway SKU for EU region."
+# }
 
 variable "appgw_ip_config_name_eu" {
   type        = string
@@ -204,6 +204,57 @@ variable "subnet_id_eu" {
   type        = string
   description = "ID of the subnet for the Application Gateway IP configuration in EU region."
 }
+
+# variable "subnet_frontend_id" {
+#   description = "The ID of the frontend subnet"
+#   type        = string
+# }
+
+variable "ssl_certificate_name" {
+  description = "The name of the SSL certificate"
+  type        = string
+}
+
+variable "key_vault_secret_id" {
+  description = "The ID of the Key Vault secret"
+  type        = string
+}
+
+variable "hostname" {
+  description = "The hostname of the application"
+  type        = string
+}
+
+variable "apim_address_pool_eu" {
+  description = "The address pool for APIM (API Management) in the EU region"
+  type        = list(string)
+}
+
+variable "apim_address_pool_us" {
+  description = "The address pool for APIM (API Management) in the US region"
+  type        = list(string)
+}
+
+variable "apim_address_pool_us2" {
+  description = "The address pool for APIM (API Management) in the US2 region"
+  type        = list(string)
+}
+
+variable "user_managed_identity_eu" {
+  description = "The identifier for the user-managed identity in the West Europe region"
+  type        = string
+}
+
+variable "user_managed_identity_us" {
+  description = "The identifier for the user-managed identity in the US region"
+  type        = string
+}
+
+variable "user_managed_identity_us2" {
+  description = "The identifier for the user-managed identity in the US2 region"
+  type        = string
+}
+
 #---------------------------------------US--------------------------------
 variable "appgw_pip_name_us" {
   type        = string
@@ -230,10 +281,10 @@ variable "appgw_sku_tier_us" {
   description = "Tier of the Application Gateway SKU for US region."
 }
 
-variable "appgw_sku_capacity_us" {
-  type        = number
-  description = "Capacity of the Application Gateway SKU for US region."
-}
+# variable "appgw_sku_capacity_us" {
+#   type        = number
+#   description = "Capacity of the Application Gateway SKU for US region."
+# }
 
 variable "appgw_ip_config_name_us" {
   type        = string
@@ -271,10 +322,10 @@ variable "appgw_sku_tier_us2" {
   description = "Tier of the Application Gateway SKU for US2 region."
 }
 
-variable "appgw_sku_capacity_us2" {
-  type        = number
-  description = "Capacity of the Application Gateway SKU for US2 region."
-}
+# variable "appgw_sku_capacity_us2" {
+#   type        = number
+#   description = "Capacity of the Application Gateway SKU for US2 region."
+# }
 
 variable "appgw_ip_config_name_us2" {
   type        = string
@@ -609,6 +660,26 @@ variable "apim_sku_name" {
   type        = string
   description = "APIM SKU type"
   #default     = "Premium_1"
+}
+
+variable "gateway_hostname" {
+  description = "The hostname for the gateway of the API Management service."
+  type        = string
+}
+
+variable "developer_portal_hostname" {
+  description = "The hostname for the developer portal of the API Management service."
+  type        = string
+}
+
+variable "management_hostname" {
+  description = "The hostname for the management endpoint of the API Management service."
+  type        = string
+}
+
+variable "scm_hostname" {
+  description = "The hostname for the SCM endpoint of the API Management service."
+  type        = string
 }
 #-----------------------------------------------------Tags--------------------------------------------------------
 variable "owner_tag" {
