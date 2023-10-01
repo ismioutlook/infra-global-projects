@@ -20,7 +20,7 @@ variable "eu_vars" {
       subnet_name = list(string)
     })
     app_gateway = object({
-      appgw_pip_name_eu     = string
+      appgw_pip_name     = string
       appgw_pip_allocation  = string
       appgw_name            = string
       appgw_sku_name        = string
