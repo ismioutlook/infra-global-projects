@@ -52,12 +52,12 @@ module "eu_gl_aks" {
 #-----------------------------------------------------------------------------------
 module "us_gl_aks" {
   source                   = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//module?ref=v0.0.10"
-  resource_group_name      = var.us_vars.resource_group.resource_group_name_us
-  resource_group_location  = var.us_vars.resource_group.resource_group_location_us
-  log_analytics_name       = var.aks_vars.azure_k8s_service.log_analytics_name_us
+  resource_group_name      = var.us_vars.resource_group.resource_group_name
+  resource_group_location  = var.us_vars.resource_group.resource_group_location
+  log_analytics_name       = var.aks_vars.azure_k8s_service.log_analytics_name
   la_sku                   = var.aks_vars.azure_k8s_service.la_sku
   la_solution_name         = var.aks_vars.azure_k8s_service.la_solution_name
-  cluster_name             = var.aks_vars.azure_k8s_service.cluster_name_us
+  cluster_name             = var.aks_vars.azure_k8s_service.cluster_name
   kubernetes_version       = var.aks_vars.azure_k8s_service.kubernetes_version
   pod_security_policy      = var.aks_vars.azure_k8s_service.pod_security_policy
   # Default node pool
@@ -103,12 +103,12 @@ module "us_gl_aks" {
 #------------------------------------------------------------------------------------
 module "us2_gl_aks" {
   source                   = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//module?ref=v0.0.10"
-  resource_group_name      = var.us2_vars.resource_group.resource_group_name_us2
-  resource_group_location  = var.us2_vars.resource_group.resource_group_location_us2
-  log_analytics_name       = var.aks_vars.azure_k8s_service.log_analytics_name_us2
+  resource_group_name      = var.us2_vars.resource_group.resource_group_name
+  resource_group_location  = var.us2_vars.resource_group.resource_group_location
+  log_analytics_name       = var.aks_vars.azure_k8s_service.log_analytics_name
   la_sku                   = var.aks_vars.azure_k8s_service.la_sku
   la_solution_name         = var.aks_vars.azure_k8s_service.la_solution_name
-  cluster_name             = var.aks_vars.azure_k8s_service.cluster_name_us2
+  cluster_name             = var.aks_vars.azure_k8s_service.cluster_name
   kubernetes_version       = var.aks_vars.azure_k8s_service.kubernetes_version
   pod_security_policy      = var.aks_vars.azure_k8s_service.pod_security_policy
   # Default node pool

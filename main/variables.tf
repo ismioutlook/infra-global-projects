@@ -27,7 +27,7 @@ variable "eu_vars" {
       appgw_sku_tier        = string
       appgw_sku_capacity    = number
       appgw_ip_config_name  = string
-      subnet_id_eu          = string
+      subnet_id          = string
       ssl_certificate_name  = string
       key_vault_secret_id   = string
       hostname              = string
