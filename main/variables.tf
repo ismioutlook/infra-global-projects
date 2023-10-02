@@ -151,7 +151,9 @@ variable "aks_vars" {
       log_analytics_name = string
       la_sku             = string
       la_solution_name   = string
-      cluster_name       = string 
+      cluster_name1       = string
+      cluster_name2       = string
+      cluster_name3       = string
       kubernetes_version = string
       pod_security_policy   = bool
       node_count            = number

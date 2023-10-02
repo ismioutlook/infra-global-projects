@@ -5,7 +5,7 @@ module "eu_gl_aks" {
   log_analytics_name       = var.aks_vars.azure_k8s_service.log_analytics_name
   la_sku                   = var.aks_vars.azure_k8s_service.la_sku
   la_solution_name         = var.aks_vars.azure_k8s_service.la_solution_name
-  cluster_name             = var.aks_vars.azure_k8s_service.cluster_name
+  cluster_name             = var.aks_vars.azure_k8s_service.cluster_name1
   kubernetes_version       = var.aks_vars.azure_k8s_service.kubernetes_version
   pod_security_policy      = var.aks_vars.azure_k8s_service.pod_security_policy
   # Default node pool
@@ -57,7 +57,7 @@ module "us_gl_aks" {
   log_analytics_name       = var.aks_vars.azure_k8s_service.log_analytics_name
   la_sku                   = var.aks_vars.azure_k8s_service.la_sku
   la_solution_name         = var.aks_vars.azure_k8s_service.la_solution_name
-  cluster_name             = var.aks_vars.azure_k8s_service.cluster_name
+  cluster_name             = var.aks_vars.azure_k8s_service.cluster_name2
   kubernetes_version       = var.aks_vars.azure_k8s_service.kubernetes_version
   pod_security_policy      = var.aks_vars.azure_k8s_service.pod_security_policy
   # Default node pool
@@ -108,7 +108,7 @@ module "us2_gl_aks" {
   log_analytics_name       = var.aks_vars.azure_k8s_service.log_analytics_name
   la_sku                   = var.aks_vars.azure_k8s_service.la_sku
   la_solution_name         = var.aks_vars.azure_k8s_service.la_solution_name
-  cluster_name             = var.aks_vars.azure_k8s_service.cluster_name
+  cluster_name             = var.aks_vars.azure_k8s_service.cluster_name3
   kubernetes_version       = var.aks_vars.azure_k8s_service.kubernetes_version
   pod_security_policy      = var.aks_vars.azure_k8s_service.pod_security_policy
   # Default node pool
