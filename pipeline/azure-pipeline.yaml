@@ -78,19 +78,19 @@ stages:
       stateKey:                 ${{ variables.stateKey }}
       countresource:            ${{ parameters.countresource }}
 
-  # - template: stages/azure_terraform_validaterequest_stage_destroy.yaml@oneyamlpipeline
-  #   parameters:
-  #     tfEnv:                    ${{ parameters.tfEnv }}
-  #     nameSuffix:               ${{ variables.nameSuffix }}
+  - template: stages/azure_terraform_validaterequest_stage_destroy.yaml@oneyamlpipeline
+    parameters:
+      tfEnv:                    ${{ parameters.tfEnv }}
+      nameSuffix:               ${{ variables.nameSuffix }}
 
-  # - template: stages/azure_terraform_destroy_stage.yaml@oneyamlpipeline
-  #   parameters:
-  #     tfEnv:                    ${{ parameters.tfEnv }}
-  #     serviceCon:               ${{ variables.serviceCon }}
-  #     workingDir:               ${{ parameters.workingDir }}
-  #     nameSuffix:               ${{ variables.nameSuffix }}
-  #     beRGName:                 ${{ variables.beRGName }}
-  #     beStorageAccountName:     ${{ variables.beStorageAccountName }}
-  #     beContainerName:          ${{ variables.beContainerName }}
-  #     stateKey:                 ${{ variables.stateKey }}
-  #     countresource:            ${{ parameters.countresource }}
+  - template: stages/azure_terraform_destroy_stage.yaml@oneyamlpipeline
+    parameters:
+      tfEnv:                    ${{ parameters.tfEnv }}
+      serviceCon:               ${{ variables.serviceCon }}
+      workingDir:               ${{ parameters.workingDir }}
+      nameSuffix:               ${{ variables.nameSuffix }}
+      beRGName:                 ${{ variables.beRGName }}
+      beStorageAccountName:     ${{ variables.beStorageAccountName }}
+      beContainerName:          ${{ variables.beContainerName }}
+      stateKey:                 ${{ variables.stateKey }}
+      countresource:            ${{ parameters.countresource }}
