@@ -58,6 +58,11 @@ variable "eu_vars" {
       management_hostname       = string
       scm_hostname              = string
     })
+    acr = object({
+      acr_name = string
+      acr_sku = string
+      acr_admin_enabled = bool
+    })
     dns_records = list(object({
       name    = string
       ttl     = number
@@ -142,11 +147,6 @@ variable "us2_vars" {
       subnet_id            = string
       user_managed_identity = string
       apim_address_pool     = list(string)
-    })
-    acr = object({
-      acr_name = string
-      acr_sku = string
-      acr_admin_enabled = bool
     })
     dns_records = list(object({
       name    = string
