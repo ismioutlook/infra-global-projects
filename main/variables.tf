@@ -146,7 +146,6 @@ variable "us2_vars" {
     acr = object({
       acr_name = string
       acr_sku = string
-      acr_identity = string
       acr_admin_enabled = bool
     })
     dns_records = list(object({
