@@ -58,6 +58,11 @@ variable "eu_vars" {
       management_hostname       = string
       scm_hostname              = string
     })
+    dns_records = list(object({
+      name    = string
+      ttl     = number
+      records = list(string)
+    }))
     tags = object({
       env_tag          = string
       owner_tag        = string

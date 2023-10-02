@@ -56,6 +56,48 @@ eu_vars = {
     management_hostname       = "management-nonprod.electrolux.com"
     scm_hostname              = "scm-nonprod.electrolux.com"
   }
+  dns_records = [
+    {
+      name    = "api"
+      ttl     = 60
+      records = ["10.216.3.6"]
+    },
+    {
+      name    = "origin-api"
+      ttl     = 1
+      records = ["20.229.95.27"]
+    },
+    {
+      name    = "portal"
+      ttl     = 60
+      records = ["10.216.3.6"]
+    },
+    {
+      name    = "origin-portal"
+      ttl     = 1
+      records = ["20.229.95.27"]
+    },
+    {
+      name    = "management"
+      ttl     = 60
+      records = ["10.216.3.6"]
+    },
+    {
+      name    = "origin-management"
+      ttl     = 1
+      records = ["20.229.95.27"]
+    },
+    {
+      name    = "scm"
+      ttl     = 60
+      records = ["10.216.3.6"]
+    },
+    {
+      name    = "origin-scm"
+      ttl     = 1
+      records = ["20.229.95.27"]
+    },
+  ]
   tags = {
     env_tag          = "NonProd"
     owner_tag        = "Arun Nalliannan"
