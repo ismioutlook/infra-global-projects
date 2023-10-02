@@ -143,6 +143,12 @@ variable "us2_vars" {
       user_managed_identity = string
       apim_address_pool     = list(string)
     })
+    acr = object({
+      acr_name = string
+      acr_sku = string
+      acr_identity = string
+      acr_admin_enabled = bool
+    })
     dns_records = list(object({
       name    = string
       ttl     = number

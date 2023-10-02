@@ -56,6 +56,11 @@ eu_vars = {
     management_hostname       = "management-nonprod.electrolux.com"
     scm_hostname              = "scm-nonprod.electrolux.com"
   }
+  acr = {
+    acr_name = "elxacrglnonprod"
+    acr_sku = "Basic"
+    acr_admin_enabled = true
+  }
   dns_records = [
     {
       name    = "api"
