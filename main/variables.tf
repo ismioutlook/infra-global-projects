@@ -119,49 +119,6 @@ variable "us_vars" {
   })
 }
 
-
-variable "us2_vars" {
-  type = object({
-    resource_group = object({
-      resource_group_location = string
-      resource_group_name     = string
-    })
-    virtual_network = object({
-      virtual_network_name = string
-      vnet_address_space   = list(string)
-      subnet_address_space = list(string)
-      service_endpoints    = list(string)
-      subnet_name          = list(string)
-    })
-    app_gateway = object({
-      appgw_pip_name        = string
-      appgw_pip_allocation  = string
-      appgw_name            = string
-      appgw_sku_name        = string
-      appgw_sku_tier        = string
-      appgw_sku_capacity    = number
-      appgw_ip_config_name  = string
-      subnet_id             = string
-      user_managed_identity = string
-      apim_address_pool     = list(string)
-    })
-    dns_records = list(object({
-      name    = string
-      ttl     = number
-      records = list(string)
-    }))
-    tags = object({
-      env_tag          = string
-      owner_tag        = string
-      account_tag      = string
-      billingid_tag    = string
-      costcenterit_tag = string
-      sector_tag       = string
-      created_by_tag   = string
-    })
-  })
-}
-
 variable "aks_vars" {
   type = object({
     azure_k8s_service = object({
