@@ -10,7 +10,7 @@ module "eu_gl_appgw" {
   appgw_sku_name          = var.eu_vars.app_gateway.appgw_sku_name
   appgw_sku_tier          = var.eu_vars.app_gateway.appgw_sku_tier
   appgw_ip_config_name    = var.eu_vars.app_gateway.appgw_ip_config_name
-  subnet_frontend_id      = data.azurerm_subnet.subnet_gw_eu.name
+  subnet_frontend_id      = var.eu_vars.app_gateway.subnet_id
   ssl_certificate_name    = var.eu_vars.app_gateway.ssl_certificate_name
   key_vault_secret_id     = var.eu_vars.app_gateway.key_vault_secret_id
   hostname                = var.eu_vars.app_gateway.hostname

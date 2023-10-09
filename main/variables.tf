@@ -27,7 +27,7 @@ variable "eu_vars" {
       appgw_sku_tier       = string
       appgw_sku_capacity   = number
       appgw_ip_config_name = string
-      #subnet_id          = string
+      subnet_id          = string
       ssl_certificate_name  = string
       key_vault_secret_id   = string
       hostname              = string
@@ -98,7 +98,7 @@ variable "us_vars" {
       appgw_sku_tier       = string
       appgw_sku_capacity   = number
       appgw_ip_config_name = string
-      #subnet_id            = string
+      subnet_id            = string
       user_managed_identity = string
       apim_address_pool     = list(string)
     })
@@ -141,8 +141,8 @@ variable "aks_vars" {
       node_resource_group_name_eu = string
       node_resource_group_name_us = string
       #network profile
-      # aks_subnet_id_eu = string
-      # aks_subnet_id_us = string
+      aks_subnet_id_eu = string
+      aks_subnet_id_us = string
       network_plugin     = string
       network_policy     = string
       pod_cidr           = string

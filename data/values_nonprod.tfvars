@@ -25,7 +25,7 @@ eu_vars = {
     appgw_sku_tier       = "WAF_v2"
     appgw_sku_capacity   = 2
     appgw_ip_config_name = "AppGw-GL-ELX-EU-IP-Config"
-    #subnet_id              = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-EU-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-EU-NonProd/subnets/Subnet-GW"
+    subnet_id              = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-001/subnets/AppGW-SBT-01"
     ssl_certificate_name  = "nonprod-electrolux-com"
     key_vault_secret_id   = "https://elxkv-cert-nonprod-gl-01.vault.azure.net/secrets/nonprod-electrolux-com"
     hostname              = "nonprod.electrolux.com"
@@ -132,7 +132,7 @@ us_vars = {
     appgw_sku_tier       = "WAF_v2"
     appgw_sku_capacity   = 2
     appgw_ip_config_name = "AppGw-GL-ELX-US-IP-Config"
-    #subnet_id           = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-US-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US-NonProd/subnets/Subnet-GW"
+    subnet_id           = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/AppGW-SBT-01"
     user_managed_identity = "id-appgw-gl-us"
     apim_address_pool     = ["10.217.3.6"]
   }
@@ -215,6 +215,9 @@ aks_vars = {
     node_resource_group_name_eu = "RG-GL-ELX-EU-AKS-Node-Cluster-NonProd"
     node_resource_group_name_us = "RG-GL-ELX-US-AKS-Node-Cluster-NonProd"
     # Network profile
+    aks_subnet_id_eu   = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-001/subnets/AKS-SBT-01"
+    aks_subnet_id_us = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/AKS-SBT-01"
+    
     network_plugin     = "azure"
     network_policy     = "azure"
     pod_cidr           = "10.0.16.0/20"
