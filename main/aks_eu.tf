@@ -1,25 +1,25 @@
 module "eu_gl_aks" {
-  source                   = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//module?ref=v0.0.10"
-  resource_group_name      = var.eu_vars.resource_group.resource_group_name
-  resource_group_location  = var.eu_vars.resource_group.resource_group_location
-  log_analytics_name       = var.aks_vars.azure_k8s_service.log_analytics_name
-  la_sku                   = var.aks_vars.azure_k8s_service.la_sku
-  la_solution_name         = var.aks_vars.azure_k8s_service.la_solution_name
-  cluster_name             = var.aks_vars.azure_k8s_service.cluster_name1
-  kubernetes_version       = var.aks_vars.azure_k8s_service.kubernetes_version
-  pod_security_policy      = var.aks_vars.azure_k8s_service.pod_security_policy
+  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//module?ref=v0.0.10"
+  resource_group_name     = var.eu_vars.resource_group.resource_group_name
+  resource_group_location = var.eu_vars.resource_group.resource_group_location
+  log_analytics_name      = var.aks_vars.azure_k8s_service.log_analytics_name
+  la_sku                  = var.aks_vars.azure_k8s_service.la_sku
+  la_solution_name        = var.aks_vars.azure_k8s_service.la_solution_name
+  cluster_name            = var.aks_vars.azure_k8s_service.cluster_name1
+  kubernetes_version      = var.aks_vars.azure_k8s_service.kubernetes_version
+  pod_security_policy     = var.aks_vars.azure_k8s_service.pod_security_policy
   # Default node pool
-  node_count          = var.aks_vars.azure_k8s_service.node_count
-  node_vm_size        = var.aks_vars.azure_k8s_service.node_vm_size
-  os_disk_size_gb     = var.aks_vars.azure_k8s_service.os_disk_size_gb
-  aks_subnet_id       = data.azurerm_subnet.subnet_aks_eu.name
-  enable_auto_scaling = var.aks_vars.azure_k8s_service.enable_auto_scaling
-  node_min_count      = var.aks_vars.azure_k8s_service.node_min_count
-  node_max_count      = var.aks_vars.azure_k8s_service.node_max_count
-  node_max_pods       = var.aks_vars.azure_k8s_service.node_max_pods
-  node_taints         = var.aks_vars.azure_k8s_service.node_taints
-  node_labels         = var.aks_vars.azure_k8s_service.node_labels
-  node_pools          = var.node_pools
+  node_count               = var.aks_vars.azure_k8s_service.node_count
+  node_vm_size             = var.aks_vars.azure_k8s_service.node_vm_size
+  os_disk_size_gb          = var.aks_vars.azure_k8s_service.os_disk_size_gb
+  aks_subnet_id            = data.azurerm_subnet.subnet_aks_eu.name
+  enable_auto_scaling      = var.aks_vars.azure_k8s_service.enable_auto_scaling
+  node_min_count           = var.aks_vars.azure_k8s_service.node_min_count
+  node_max_count           = var.aks_vars.azure_k8s_service.node_max_count
+  node_max_pods            = var.aks_vars.azure_k8s_service.node_max_pods
+  node_taints              = var.aks_vars.azure_k8s_service.node_taints
+  node_labels              = var.aks_vars.azure_k8s_service.node_labels
+  node_pools               = var.node_pools
   node_resource_group_name = var.aks_vars.azure_k8s_service.node_resource_group_name_eu
   # Network profile
   network_plugin     = var.aks_vars.azure_k8s_service.network_plugin
@@ -39,7 +39,7 @@ module "eu_gl_aks" {
   scale_down_unneeded              = var.scale_down_unneeded
   scale_down_unready               = var.scale_down_unready
   scale_down_utilization_threshold = var.scale_down_utilization_threshold
-  depends_on                       = [module.eu_gl_rg, module.eu_gl_virtualNetwork]
+  depends_on                       = [module.eu_gl_rg]
 
   # Tags
   owner_tag        = var.eu_vars.tags.owner_tag

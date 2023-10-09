@@ -246,14 +246,7 @@ resource "azurerm_network_security_group" "nsg_apim" {
     source_address_prefix      = "VirtualNetwork"
     source_port_range          = "*"
   }
-  depends_on = [module.eu_gl_virtualNetwork]
 }
-
-# resource "azurerm_subnet_network_security_group_association" "nsg_apim_association" {
-#   subnet_id                 = "/subscriptions/${var.subscription.nonprod.subscription_id}/resourceGroups/${var.eu_vars.resource_group.resource_group_name}/providers/Microsoft.Network/virtualNetworks/${var.eu_vars.resource_group.resource_group_name}/subnets/Subnet-APIM"
-#   network_security_group_id = azurerm_network_security_group.nsg_apim.id
-#   depends_on                = [module.eu_gl_virtualNetwork]
-# }
 
 resource "azurerm_network_security_group" "nsg_apim_mgmt" {
   location            = var.eu_vars.resource_group.resource_group_location
@@ -403,14 +396,7 @@ resource "azurerm_network_security_group" "nsg_apim_mgmt" {
     source_address_prefixes    = ["10.5.34.241", "10.5.34.242"]
     source_port_range          = "*"
   }
-  depends_on = [module.eu_gl_virtualNetwork]
 }
-
-# resource "azurerm_subnet_network_security_group_association" "nsg_apim_mgmt_association" {
-#   subnet_id                 = "/subscriptions/${var.subscription.nonprod.subscription_id}/resourceGroups/${var.eu_vars.resource_group.resource_group_name}/providers/Microsoft.Network/virtualNetworks/${var.eu_vars.resource_group.resource_group_name_eu}/subnets/Subnet-MGMT"
-#   network_security_group_id = azurerm_network_security_group.nsg_apim_mgmt.id
-#   depends_on                = [module.eu_gl_virtualNetwork]
-# }
 
 resource "azurerm_network_security_group" "nsg_apim_gw" {
   location            = var.eu_vars.resource_group.resource_group_location
@@ -512,12 +498,4 @@ resource "azurerm_network_security_group" "nsg_apim_gw" {
     source_address_prefixes    = ["194.246.0.0/19", "62.252.197.0/24", "217.169.51.0/24", "204.17.245.4"]
     source_port_range          = "*"
   }
-  depends_on = [module.eu_gl_virtualNetwork]
 }
-
-# resource "azurerm_subnet_network_security_group_association" "nsg_apim_mgmt_association" {
-#   subnet_id                 = "/subscriptions/${var.subscription.nonprod.subscription_id}/resourceGroups/${var.eu_vars.resource_group.resource_group_name_eu}/providers/Microsoft.Network/virtualNetworks/${var.eu_vars.resource_group.resource_group_name_eu}/subnets/Subnet-GW"
-#   network_security_group_id = azurerm_network_security_group.nsg_apim_gw.id
-#   depends_on                = [module.eu_gl_virtualNetwork]
-# }
-

@@ -1,7 +1,7 @@
 variable "subscription" {
   type = object({
     nonprod = object({
-      tenant_id = string
+      tenant_id       = string
       subscription_id = string
     })
   })
@@ -10,23 +10,23 @@ variable "eu_vars" {
   type = object({
     resource_group = object({
       resource_group_location = string
-      resource_group_name = string
+      resource_group_name     = string
     })
     virtual_network = object({
       virtual_network_name = string
-      vnet_address_space = list(string)
+      vnet_address_space   = list(string)
       subnet_address_space = list(string)
-      service_endpoints = list(string)
-      subnet_name = list(string)
+      service_endpoints    = list(string)
+      subnet_name          = list(string)
     })
     app_gateway = object({
-      appgw_pip_name     = string
-      appgw_pip_allocation  = string
-      appgw_name            = string
-      appgw_sku_name        = string
-      appgw_sku_tier        = string
-      appgw_sku_capacity    = number
-      appgw_ip_config_name  = string
+      appgw_pip_name       = string
+      appgw_pip_allocation = string
+      appgw_name           = string
+      appgw_sku_name       = string
+      appgw_sku_tier       = string
+      appgw_sku_capacity   = number
+      appgw_ip_config_name = string
       #subnet_id          = string
       ssl_certificate_name  = string
       key_vault_secret_id   = string
@@ -35,7 +35,7 @@ variable "eu_vars" {
       user_managed_identity = string
     })
     traffic_manager = object({
-      traffic_manager_name         = string 
+      traffic_manager_name         = string
       traffic_routing_method       = string
       ttl_value                    = number
       protocol                     = string
@@ -59,8 +59,8 @@ variable "eu_vars" {
       scm_hostname              = string
     })
     acr = object({
-      acr_name = string
-      acr_sku = string
+      acr_name          = string
+      acr_sku           = string
       acr_admin_enabled = bool
     })
     dns_records = list(object({
@@ -84,14 +84,14 @@ variable "us_vars" {
   type = object({
     resource_group = object({
       resource_group_location = string
-      resource_group_name = string
+      resource_group_name     = string
     })
     virtual_network = object({
       virtual_network_name = string
-      vnet_address_space = list(string)
+      vnet_address_space   = list(string)
       subnet_address_space = list(string)
-      service_endpoints = list(string)
-      subnet_name = list(string)
+      service_endpoints    = list(string)
+      subnet_name          = list(string)
     })
     app_gateway = object({
       appgw_pip_name       = string
@@ -127,24 +127,24 @@ variable "us2_vars" {
   type = object({
     resource_group = object({
       resource_group_location = string
-      resource_group_name = string
+      resource_group_name     = string
     })
     virtual_network = object({
       virtual_network_name = string
-      vnet_address_space = list(string)
+      vnet_address_space   = list(string)
       subnet_address_space = list(string)
-      service_endpoints = list(string)
-      subnet_name = list(string)
+      service_endpoints    = list(string)
+      subnet_name          = list(string)
     })
     app_gateway = object({
-      appgw_pip_name       = string
-      appgw_pip_allocation = string
-      appgw_name           = string
-      appgw_sku_name       = string
-      appgw_sku_tier       = string
-      appgw_sku_capacity   = number
-      appgw_ip_config_name = string
-      subnet_id            = string
+      appgw_pip_name        = string
+      appgw_pip_allocation  = string
+      appgw_name            = string
+      appgw_sku_name        = string
+      appgw_sku_tier        = string
+      appgw_sku_capacity    = number
+      appgw_ip_config_name  = string
+      subnet_id             = string
       user_managed_identity = string
       apim_address_pool     = list(string)
     })
@@ -168,33 +168,33 @@ variable "us2_vars" {
 variable "aks_vars" {
   type = object({
     azure_k8s_service = object({
-      log_analytics_name = string
-      la_sku             = string
-      la_solution_name   = string
-      cluster_name1       = string
-      cluster_name2       = string
-      kubernetes_version = string
-      pod_security_policy   = bool
-      node_count            = number
-      node_vm_size          = string
-      os_disk_size_gb       = number
-      enable_auto_scaling   = bool
-      node_min_count        = number
-      node_max_count        = number
-      node_max_pods         = number
-      node_taints           = list(string)
-      node_labels = map(any)
+      log_analytics_name          = string
+      la_sku                      = string
+      la_solution_name            = string
+      cluster_name1               = string
+      cluster_name2               = string
+      kubernetes_version          = string
+      pod_security_policy         = bool
+      node_count                  = number
+      node_vm_size                = string
+      os_disk_size_gb             = number
+      enable_auto_scaling         = bool
+      node_min_count              = number
+      node_max_count              = number
+      node_max_pods               = number
+      node_taints                 = list(string)
+      node_labels                 = map(any)
       node_resource_group_name_eu = string
       node_resource_group_name_us = string
       #network profile
       # aks_subnet_id_eu = string
       # aks_subnet_id_us = string
-      network_plugin       = string
-      network_policy       = string
-      pod_cidr             = string
-      service_cidr         = string
-      dns_service_ip       = string
-      docker_bridge_cidr   = string
+      network_plugin     = string
+      network_policy     = string
+      pod_cidr           = string
+      service_cidr       = string
+      dns_service_ip     = string
+      docker_bridge_cidr = string
     })
   })
 }

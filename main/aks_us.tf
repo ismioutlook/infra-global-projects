@@ -1,13 +1,13 @@
 module "us_gl_aks" {
-  source                   = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//module?ref=v0.0.10"
-  resource_group_name      = var.us_vars.resource_group.resource_group_name
-  resource_group_location  = var.us_vars.resource_group.resource_group_location
-  log_analytics_name       = var.aks_vars.azure_k8s_service.log_analytics_name
-  la_sku                   = var.aks_vars.azure_k8s_service.la_sku
-  la_solution_name         = var.aks_vars.azure_k8s_service.la_solution_name
-  cluster_name             = var.aks_vars.azure_k8s_service.cluster_name2
-  kubernetes_version       = var.aks_vars.azure_k8s_service.kubernetes_version
-  pod_security_policy      = var.aks_vars.azure_k8s_service.pod_security_policy
+  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//module?ref=v0.0.10"
+  resource_group_name     = var.us_vars.resource_group.resource_group_name
+  resource_group_location = var.us_vars.resource_group.resource_group_location
+  log_analytics_name      = var.aks_vars.azure_k8s_service.log_analytics_name
+  la_sku                  = var.aks_vars.azure_k8s_service.la_sku
+  la_solution_name        = var.aks_vars.azure_k8s_service.la_solution_name
+  cluster_name            = var.aks_vars.azure_k8s_service.cluster_name2
+  kubernetes_version      = var.aks_vars.azure_k8s_service.kubernetes_version
+  pod_security_policy     = var.aks_vars.azure_k8s_service.pod_security_policy
   # Default node pool
   node_count          = var.aks_vars.azure_k8s_service.node_count
   node_vm_size        = var.aks_vars.azure_k8s_service.node_vm_size
@@ -21,12 +21,12 @@ module "us_gl_aks" {
   node_labels         = var.aks_vars.azure_k8s_service.node_labels
   node_pools          = var.node_pools
   # Network profile
-  network_plugin      = var.aks_vars.azure_k8s_service.network_plugin
-  network_policy      = var.aks_vars.azure_k8s_service.network_policy
-  pod_cidr            = var.aks_vars.azure_k8s_service.pod_cidr
-  service_cidr        = var.aks_vars.azure_k8s_service.service_cidr
-  dns_service_ip      = var.aks_vars.azure_k8s_service.dns_service_ip
-  docker_bridge_cidr  = var.aks_vars.azure_k8s_service.docker_bridge_cidr
+  network_plugin           = var.aks_vars.azure_k8s_service.network_plugin
+  network_policy           = var.aks_vars.azure_k8s_service.network_policy
+  pod_cidr                 = var.aks_vars.azure_k8s_service.pod_cidr
+  service_cidr             = var.aks_vars.azure_k8s_service.service_cidr
+  dns_service_ip           = var.aks_vars.azure_k8s_service.dns_service_ip
+  docker_bridge_cidr       = var.aks_vars.azure_k8s_service.docker_bridge_cidr
   node_resource_group_name = var.aks_vars.azure_k8s_service.node_resource_group_name_us
   # Autoscaler profile
   balance_similar_node_groups      = var.balance_similar_node_groups
@@ -38,7 +38,7 @@ module "us_gl_aks" {
   scale_down_unneeded              = var.scale_down_unneeded
   scale_down_unready               = var.scale_down_unready
   scale_down_utilization_threshold = var.scale_down_utilization_threshold
-  depends_on                       = [module.us_gl_rg, module.us_gl_virtualNetwork]
+  depends_on                       = [module.us_gl_rg]
 
   # Tags
   owner_tag        = var.us_vars.tags.owner_tag
