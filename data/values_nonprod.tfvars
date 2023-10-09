@@ -215,9 +215,7 @@ aks_vars = {
     node_resource_group_name_eu = "RG-GL-ELX-EU-AKS-Node-Cluster-NonProd"
     node_resource_group_name_us = "RG-GL-ELX-US-AKS-Node-Cluster-NonProd"
     # Network profile
-    # aks_subnet_id_eu   = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-EU-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-EU-NonProd/subnets/Subnet-AKS"
-    # aks_subnet_id_us = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-US-NonProd/providers/Microsoft.Network/virtualNetworks/VN-GL-ELX-US-NonProd/subnets/Subnet-AKS"
-    # network_plugin     = "azure"
+    network_plugin     = "azure"
     network_policy     = "azure"
     pod_cidr           = "10.0.16.0/20"
     service_cidr       = "10.0.32.0/20"
