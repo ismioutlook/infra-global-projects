@@ -34,30 +34,27 @@ variable "eu_vars" {
       apim_address_pool     = list(string)
       user_managed_identity = string
     })
-    traffic_manager = object({
-      traffic_manager_name         = string
-      traffic_routing_method       = string
-      ttl_value                    = number
-      protocol                     = string
-      port                         = number
-      path                         = string
-      interval_in_seconds          = number
-      timeout_in_seconds           = number
-      tolerated_number_of_failures = number
-    })
-    api_management = object({
-      # apim_subnet_id_eu         = string
-      # apim_subnet_id_us         = string
-      # apim_subnet_id_us2        = string
-      apim_name                 = string
-      apim_publisher_name       = string
-      apim_publisher_email      = string
-      apim_sku_name             = string
-      gateway_hostname          = string
-      developer_portal_hostname = string
-      management_hostname       = string
-      scm_hostname              = string
-    })
+    # traffic_manager = object({
+    #   traffic_manager_name         = string
+    #   traffic_routing_method       = string
+    #   ttl_value                    = number
+    #   protocol                     = string
+    #   port                         = number
+    #   path                         = string
+    #   interval_in_seconds          = number
+    #   timeout_in_seconds           = number
+    #   tolerated_number_of_failures = number
+    # })
+    # api_management = object({
+    #   apim_name                 = string
+    #   apim_publisher_name       = string
+    #   apim_publisher_email      = string
+    #   apim_sku_name             = string
+    #   gateway_hostname          = string
+    #   developer_portal_hostname = string
+    #   management_hostname       = string
+    #   scm_hostname              = string
+    # })
     acr = object({
       acr_name          = string
       acr_sku           = string
