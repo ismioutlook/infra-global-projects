@@ -1,33 +1,33 @@
 module "eu_gl_aks" {
   source                   = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//module?ref=v0.0.10"
-  resource_group_name      = var.resource_group_name_eu
-  node_resource_group_name = var.node_resource_group_name_eu
-  resource_group_location  = var.resource_group_location_eu
-  log_analytics_name       = var.log_analytics_name_eu
-  la_sku                   = var.la_sku
-  la_solution_name         = var.la_solution_name
-  cluster_name             = var.cluster_name_eu
-  kubernetes_version       = var.kubernetes_version
-  pod_security_policy      = var.pod_security_policy
+  resource_group_name      = var.eu_vars.resource_group.resource_group_name
+  resource_group_location  = var.eu_vars.resource_group.resource_group_location
+  log_analytics_name       = var.aks_vars.azure_k8s_service.log_analytics_name
+  la_sku                   = var.aks_vars.azure_k8s_service.la_sku
+  la_solution_name         = var.aks_vars.azure_k8s_service.la_solution_name
+  cluster_name             = var.aks_vars.azure_k8s_service.cluster_name1
+  kubernetes_version       = var.aks_vars.azure_k8s_service.kubernetes_version
+  pod_security_policy      = var.aks_vars.azure_k8s_service.pod_security_policy
   # Default node pool
-  node_count          = var.node_count
-  node_vm_size        = var.node_vm_size
-  os_disk_size_gb     = var.os_disk_size_gb
-  aks_subnet_id       = var.aks_subnet_id_eu
-  enable_auto_scaling = var.enable_auto_scaling
-  node_min_count      = var.node_min_count
-  node_max_count      = var.node_max_count
-  node_max_pods       = var.node_max_pods
-  node_taints         = var.node_taints
-  node_labels         = var.node_labels
+  node_count          = var.aks_vars.azure_k8s_service.node_count
+  node_vm_size        = var.aks_vars.azure_k8s_service.node_vm_size
+  os_disk_size_gb     = var.aks_vars.azure_k8s_service.os_disk_size_gb
+  aks_subnet_id       = var.aks_vars.azure_k8s_service.aks_subnet_id_eu
+  enable_auto_scaling = var.aks_vars.azure_k8s_service.enable_auto_scaling
+  node_min_count      = var.aks_vars.azure_k8s_service.node_min_count
+  node_max_count      = var.aks_vars.azure_k8s_service.node_max_count
+  node_max_pods       = var.aks_vars.azure_k8s_service.node_max_pods
+  node_taints         = var.aks_vars.azure_k8s_service.node_taints
+  node_labels         = var.aks_vars.azure_k8s_service.node_labels
   node_pools          = var.node_pools
+  node_resource_group_name = var.aks_vars.azure_k8s_service.node_resource_group_name_eu
   # Network profile
-  network_plugin     = var.network_plugin
-  network_policy     = var.network_policy
-  pod_cidr           = var.pod_cidr
-  service_cidr       = var.service_cidr
-  dns_service_ip     = var.dns_service_ip
-  docker_bridge_cidr = var.docker_bridge_cidr
+  network_plugin     = var.aks_vars.azure_k8s_service.network_plugin
+  network_policy     = var.aks_vars.azure_k8s_service.network_policy
+  pod_cidr           = var.aks_vars.azure_k8s_service.pod_cidr
+  service_cidr       = var.aks_vars.azure_k8s_service.service_cidr
+  dns_service_ip     = var.aks_vars.azure_k8s_service.dns_service_ip
+  docker_bridge_cidr = var.aks_vars.azure_k8s_service.docker_bridge_cidr
 
   # Autoscaler profile
   balance_similar_node_groups      = var.balance_similar_node_groups
@@ -42,45 +42,44 @@ module "eu_gl_aks" {
   depends_on                       = [module.eu_gl_rg, module.eu_gl_virtualNetwork]
 
   # Tags
-  owner_tag        = var.owner_tag
-  account_tag      = var.account_tag
-  billingid_tag    = var.billingid_tag
-  costcenterit_tag = var.costcenterit_tag
-  sector_tag       = var.sector_tag
-  env_tag          = var.env_tag
+  owner_tag        = var.eu_vars.tags.owner_tag
+  account_tag      = var.eu_vars.tags.account_tag
+  billingid_tag    = var.eu_vars.tags.billingid_tag
+  costcenterit_tag = var.eu_vars.tags.costcenterit_tag
+  sector_tag       = var.eu_vars.tags.sector_tag
+  env_tag          = var.eu_vars.tags.env_tag
 }
 #-----------------------------------------------------------------------------------
 module "us_gl_aks" {
   source                   = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//module?ref=v0.0.10"
-  resource_group_name      = var.resource_group_name_us
-  node_resource_group_name = var.node_resource_group_name_us
-  resource_group_location  = var.resource_group_location_us
-  log_analytics_name       = var.log_analytics_name_us
-  la_sku                   = var.la_sku
-  la_solution_name         = var.la_solution_name
-  cluster_name             = var.cluster_name_us
-  kubernetes_version       = var.kubernetes_version
-  pod_security_policy      = var.pod_security_policy
+  resource_group_name      = var.us_vars.resource_group.resource_group_name
+  resource_group_location  = var.us_vars.resource_group.resource_group_location
+  log_analytics_name       = var.aks_vars.azure_k8s_service.log_analytics_name
+  la_sku                   = var.aks_vars.azure_k8s_service.la_sku
+  la_solution_name         = var.aks_vars.azure_k8s_service.la_solution_name
+  cluster_name             = var.aks_vars.azure_k8s_service.cluster_name2
+  kubernetes_version       = var.aks_vars.azure_k8s_service.kubernetes_version
+  pod_security_policy      = var.aks_vars.azure_k8s_service.pod_security_policy
   # Default node pool
-  node_count          = var.node_count
-  node_vm_size        = var.node_vm_size
-  os_disk_size_gb     = var.os_disk_size_gb
-  aks_subnet_id       = var.aks_subnet_id_us
-  enable_auto_scaling = var.enable_auto_scaling
-  node_min_count      = var.node_min_count
-  node_max_count      = var.node_max_count
-  node_max_pods       = var.node_max_pods
-  node_taints         = var.node_taints
-  node_labels         = var.node_labels
+  node_count          = var.aks_vars.azure_k8s_service.node_count
+  node_vm_size        = var.aks_vars.azure_k8s_service.node_vm_size
+  os_disk_size_gb     = var.aks_vars.azure_k8s_service.os_disk_size_gb
+  aks_subnet_id       = var.aks_vars.azure_k8s_service.aks_subnet_id_us
+  enable_auto_scaling = var.aks_vars.azure_k8s_service.enable_auto_scaling
+  node_min_count      = var.aks_vars.azure_k8s_service.node_min_count
+  node_max_count      = var.aks_vars.azure_k8s_service.node_max_count
+  node_max_pods       = var.aks_vars.azure_k8s_service.node_max_pods
+  node_taints         = var.aks_vars.azure_k8s_service.node_taints
+  node_labels         = var.aks_vars.azure_k8s_service.node_labels
   node_pools          = var.node_pools
   # Network profile
-  network_plugin     = var.network_plugin
-  network_policy     = var.network_policy
-  pod_cidr           = var.pod_cidr
-  service_cidr       = var.service_cidr
-  dns_service_ip     = var.dns_service_ip
-  docker_bridge_cidr = var.docker_bridge_cidr
-
+  network_plugin      = var.aks_vars.azure_k8s_service.network_plugin
+  network_policy      = var.aks_vars.azure_k8s_service.network_policy
+  pod_cidr            = var.aks_vars.azure_k8s_service.pod_cidr
+  service_cidr        = var.aks_vars.azure_k8s_service.service_cidr
+  dns_service_ip      = var.aks_vars.azure_k8s_service.dns_service_ip
+  docker_bridge_cidr  = var.aks_vars.azure_k8s_service.docker_bridge_cidr
+  node_resource_group_name = var.aks_vars.azure_k8s_service.node_resource_group_name_us
   # Autoscaler profile
   balance_similar_node_groups      = var.balance_similar_node_groups
   max_graceful_termination_sec     = var.max_graceful_termination_sec
@@ -94,45 +93,44 @@ module "us_gl_aks" {
   depends_on                       = [module.us_gl_rg, module.us_gl_virtualNetwork]
 
   # Tags
-  owner_tag        = var.owner_tag
-  account_tag      = var.account_tag
-  billingid_tag    = var.billingid_tag
-  costcenterit_tag = var.costcenterit_tag
-  sector_tag       = var.sector_tag
-  env_tag          = var.env_tag
+  owner_tag        = var.us_vars.tags.owner_tag
+  account_tag      = var.us_vars.tags.account_tag
+  billingid_tag    = var.us_vars.tags.billingid_tag
+  costcenterit_tag = var.us_vars.tags.costcenterit_tag
+  sector_tag       = var.us_vars.tags.sector_tag
+  env_tag          = var.us_vars.tags.env_tag
 }
 #------------------------------------------------------------------------------------
 module "us2_gl_aks" {
   source                   = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//module?ref=v0.0.10"
-  resource_group_name      = var.resource_group_name_us2
-  node_resource_group_name = var.node_resource_group_name_us2
-  resource_group_location  = var.resource_group_location_us2
-  log_analytics_name       = var.log_analytics_name_us2
-  la_sku                   = var.la_sku
-  la_solution_name         = var.la_solution_name
-  cluster_name             = var.cluster_name_us2
-  kubernetes_version       = var.kubernetes_version
-  pod_security_policy      = var.pod_security_policy
+  resource_group_name      = var.us2_vars.resource_group.resource_group_name
+  resource_group_location  = var.us2_vars.resource_group.resource_group_location
+  log_analytics_name       = var.aks_vars.azure_k8s_service.log_analytics_name
+  la_sku                   = var.aks_vars.azure_k8s_service.la_sku
+  la_solution_name         = var.aks_vars.azure_k8s_service.la_solution_name
+  cluster_name             = var.aks_vars.azure_k8s_service.cluster_name3
+  kubernetes_version       = var.aks_vars.azure_k8s_service.kubernetes_version
+  pod_security_policy      = var.aks_vars.azure_k8s_service.pod_security_policy
   # Default node pool
-  node_count          = var.node_count
-  node_vm_size        = var.node_vm_size
-  os_disk_size_gb     = var.os_disk_size_gb
-  aks_subnet_id       = var.aks_subnet_id_us2
-  enable_auto_scaling = var.enable_auto_scaling
-  node_min_count      = var.node_min_count
-  node_max_count      = var.node_max_count
-  node_max_pods       = var.node_max_pods
-  node_taints         = var.node_taints
-  node_labels         = var.node_labels
+  node_count          = var.aks_vars.azure_k8s_service.node_count
+  node_vm_size        = var.aks_vars.azure_k8s_service.node_vm_size
+  os_disk_size_gb     = var.aks_vars.azure_k8s_service.os_disk_size_gb
+  aks_subnet_id       = var.aks_vars.azure_k8s_service.aks_subnet_id_us2
+  enable_auto_scaling = var.aks_vars.azure_k8s_service.enable_auto_scaling
+  node_min_count      = var.aks_vars.azure_k8s_service.node_min_count
+  node_max_count      = var.aks_vars.azure_k8s_service.node_max_count
+  node_max_pods       = var.aks_vars.azure_k8s_service.node_max_pods
+  node_taints         = var.aks_vars.azure_k8s_service.node_taints
+  node_labels         = var.aks_vars.azure_k8s_service.node_labels
   node_pools          = var.node_pools
   # Network profile
-  network_plugin     = var.network_plugin
-  network_policy     = var.network_policy
-  pod_cidr           = var.pod_cidr
-  service_cidr       = var.service_cidr
-  dns_service_ip     = var.dns_service_ip
-  docker_bridge_cidr = var.docker_bridge_cidr
-
+  network_plugin     = var.aks_vars.azure_k8s_service.network_plugin
+  network_policy     = var.aks_vars.azure_k8s_service.network_policy
+  pod_cidr           = var.aks_vars.azure_k8s_service.pod_cidr
+  service_cidr       = var.aks_vars.azure_k8s_service.service_cidr
+  dns_service_ip     = var.aks_vars.azure_k8s_service.dns_service_ip
+  docker_bridge_cidr = var.aks_vars.azure_k8s_service.docker_bridge_cidr
+  node_resource_group_name = var.aks_vars.azure_k8s_service.node_resource_group_name_us2
   # Autoscaler profile
   balance_similar_node_groups      = var.balance_similar_node_groups
   max_graceful_termination_sec     = var.max_graceful_termination_sec
@@ -146,10 +144,10 @@ module "us2_gl_aks" {
   depends_on                       = [module.us2_gl_rg, module.us2_gl_virtualNetwork]
 
   # Tags
-  owner_tag        = var.owner_tag
-  account_tag      = var.account_tag
-  billingid_tag    = var.billingid_tag
-  costcenterit_tag = var.costcenterit_tag
-  sector_tag       = var.sector_tag
-  env_tag          = var.env_tag
+  owner_tag        = var.us2_vars.tags.owner_tag
+  account_tag      = var.us2_vars.tags.account_tag
+  billingid_tag    = var.us2_vars.tags.billingid_tag
+  costcenterit_tag = var.us2_vars.tags.costcenterit_tag
+  sector_tag       = var.us2_vars.tags.sector_tag
+  env_tag          = var.us2_vars.tags.env_tag
 }

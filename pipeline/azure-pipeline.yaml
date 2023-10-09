@@ -94,9 +94,3 @@ stages:
       beContainerName:          ${{ variables.beContainerName }}
       stateKey:                 ${{ variables.stateKey }}
       countresource:            ${{ parameters.countresource }}
-
-  # - template: stages/azure_terraform_push_changes_stage.yaml@oneyamlpipeline
-  #   parameters:
-  #     tfEnv:                    ${{ parameters.tfEnv }}
-  #     sourceBranchName:         $(Build.Repository.Name)
-  #     nameSuffix:               ${{ variables.nameSuffix }}
