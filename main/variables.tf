@@ -27,7 +27,7 @@ variable "eu_vars" {
       appgw_sku_tier        = string
       appgw_sku_capacity    = number
       appgw_ip_config_name  = string
-      subnet_id          = string
+      #subnet_id          = string
       ssl_certificate_name  = string
       key_vault_secret_id   = string
       hostname              = string
@@ -46,9 +46,9 @@ variable "eu_vars" {
       tolerated_number_of_failures = number
     })
     api_management = object({
-      apim_subnet_id_eu         = string
-      apim_subnet_id_us         = string
-      apim_subnet_id_us2        = string
+      # apim_subnet_id_eu         = string
+      # apim_subnet_id_us         = string
+      # apim_subnet_id_us2        = string
       apim_name                 = string
       apim_publisher_name       = string
       apim_publisher_email      = string
@@ -101,7 +101,7 @@ variable "us_vars" {
       appgw_sku_tier       = string
       appgw_sku_capacity   = number
       appgw_ip_config_name = string
-      subnet_id            = string
+      #subnet_id            = string
       user_managed_identity = string
       apim_address_pool     = list(string)
     })
@@ -173,7 +173,6 @@ variable "aks_vars" {
       la_solution_name   = string
       cluster_name1       = string
       cluster_name2       = string
-      cluster_name3       = string
       kubernetes_version = string
       pod_security_policy   = bool
       node_count            = number
@@ -187,11 +186,9 @@ variable "aks_vars" {
       node_labels = map(any)
       node_resource_group_name_eu = string
       node_resource_group_name_us = string
-      node_resource_group_name_us2 = string
       #network profile
-      aks_subnet_id_eu = string
-      aks_subnet_id_us = string
-      aks_subnet_id_us2 = string
+      # aks_subnet_id_eu = string
+      # aks_subnet_id_us = string
       network_plugin       = string
       network_policy       = string
       pod_cidr             = string

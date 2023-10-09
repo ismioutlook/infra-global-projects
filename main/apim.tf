@@ -1,14 +1,12 @@
 module "apim-multi-location" {
-  source                    = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-apim//module?ref=v0.0.3"
+  source                    = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-apim//module?ref=v0.0.4"
   tenant_id                 = var.subscription.nonprod.tenant_id
   subscription_id           = var.subscription.nonprod.subscription_id
   resource_group_name       = var.eu_vars.resource_group.resource_group_name
   resource_group_location   = var.eu_vars.resource_group.resource_group_location
-  subnet_id1                = var.eu_vars.api_management.apim_subnet_id_eu
-  subnet_id2                = var.eu_vars.api_management.apim_subnet_id_us
-  subnet_id3                = var.eu_vars.api_management.apim_subnet_id_us2
+  subnet_id1                = data.azurerm_subnet.subnet_apim_eu.name
+  subnet_id2                = data.azurerm_subnet.subnet_apim_us.name
   additional_location1      = var.us_vars.resource_group.resource_group_location
-  additional_location2      = var.us2_vars.resource_group.resource_group_location
   apim_name                 = var.eu_vars.api_management.apim_name
   apim_publisher_name       = var.eu_vars.api_management.apim_publisher_name
   apim_publisher_email      = var.eu_vars.api_management.apim_publisher_email
