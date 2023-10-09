@@ -12,7 +12,7 @@ module "eu_gl_aks" {
   node_count               = var.aks_vars.azure_k8s_service.node_count
   node_vm_size             = var.aks_vars.azure_k8s_service.node_vm_size
   os_disk_size_gb          = var.aks_vars.azure_k8s_service.os_disk_size_gb
-  aks_subnet_id            = data.azurerm_subnet.subnet_aks_eu.name
+  aks_subnet_id            = local.aks_subnet_id_eu
   enable_auto_scaling      = var.aks_vars.azure_k8s_service.enable_auto_scaling
   node_min_count           = var.aks_vars.azure_k8s_service.node_min_count
   node_max_count           = var.aks_vars.azure_k8s_service.node_max_count
