@@ -58,48 +58,48 @@ eu_vars = {
     acr_sku           = "Basic"
     acr_admin_enabled = true
   }
-  dns_records = [
-    {
-      name    = "api"
-      ttl     = 60
-      records = ["10.216.3.6"]
-    },
-    {
-      name    = "origin-api"
-      ttl     = 1
-      records = ["20.229.95.27"]
-    },
-    {
-      name    = "portal"
-      ttl     = 60
-      records = ["10.216.3.6"]
-    },
-    {
-      name    = "origin-portal"
-      ttl     = 1
-      records = ["20.229.95.27"]
-    },
-    {
-      name    = "management"
-      ttl     = 60
-      records = ["10.216.3.6"]
-    },
-    {
-      name    = "origin-management"
-      ttl     = 1
-      records = ["20.229.95.27"]
-    },
-    {
-      name    = "scm"
-      ttl     = 60
-      records = ["10.216.3.6"]
-    },
-    {
-      name    = "origin-scm"
-      ttl     = 1
-      records = ["20.229.95.27"]
-    },
-  ]
+  # dns_records = [
+  #   {
+  #     name    = "api"
+  #     ttl     = 60
+  #     records = ["10.216.3.6"]
+  #   },
+  #   {
+  #     name    = "origin-api"
+  #     ttl     = 1
+  #     records = ["20.229.95.27"]
+  #   },
+  #   {
+  #     name    = "portal"
+  #     ttl     = 60
+  #     records = ["10.216.3.6"]
+  #   },
+  #   {
+  #     name    = "origin-portal"
+  #     ttl     = 1
+  #     records = ["20.229.95.27"]
+  #   },
+  #   {
+  #     name    = "management"
+  #     ttl     = 60
+  #     records = ["10.216.3.6"]
+  #   },
+  #   {
+  #     name    = "origin-management"
+  #     ttl     = 1
+  #     records = ["20.229.95.27"]
+  #   },
+  #   {
+  #     name    = "scm"
+  #     ttl     = 60
+  #     records = ["10.216.3.6"]
+  #   },
+  #   {
+  #     name    = "origin-scm"
+  #     ttl     = 1
+  #     records = ["20.229.95.27"]
+  #   },
+  # ]
   tags = {
     env_tag          = "NonProd"
     owner_tag        = "Arun Nalliannan"
@@ -136,48 +136,48 @@ us_vars = {
   #   user_managed_identity = "id-appgw-gl-us"
   #   apim_address_pool     = ["10.217.3.6"]
   # }
-  dns_records = [
-    {
-      name    = "api"
-      ttl     = 60
-      records = ["10.217.3.6"]
-    },
-    {
-      name    = "origin-api"
-      ttl     = 1
-      records = ["20.231.55.27"]
-    },
-    {
-      name    = "portal"
-      ttl     = 60
-      records = ["10.217.3.6"]
-    },
-    {
-      name    = "origin-portal"
-      ttl     = 1
-      records = ["20.231.55.27"]
-    },
-    {
-      name    = "management"
-      ttl     = 60
-      records = ["10.217.3.6"]
-    },
-    {
-      name    = "origin-management"
-      ttl     = 1
-      records = ["20.231.55.27"]
-    },
-    {
-      name    = "scm"
-      ttl     = 60
-      records = ["10.217.3.6"]
-    },
-    {
-      name    = "origin-scm"
-      ttl     = 1
-      records = ["20.231.55.27"]
-    },
-  ]
+  # dns_records = [
+  #   {
+  #     name    = "api"
+  #     ttl     = 60
+  #     records = ["10.217.3.6"]
+  #   },
+  #   {
+  #     name    = "origin-api"
+  #     ttl     = 1
+  #     records = ["20.231.55.27"]
+  #   },
+  #   {
+  #     name    = "portal"
+  #     ttl     = 60
+  #     records = ["10.217.3.6"]
+  #   },
+  #   {
+  #     name    = "origin-portal"
+  #     ttl     = 1
+  #     records = ["20.231.55.27"]
+  #   },
+  #   {
+  #     name    = "management"
+  #     ttl     = 60
+  #     records = ["10.217.3.6"]
+  #   },
+  #   {
+  #     name    = "origin-management"
+  #     ttl     = 1
+  #     records = ["20.231.55.27"]
+  #   },
+  #   {
+  #     name    = "scm"
+  #     ttl     = 60
+  #     records = ["10.217.3.6"]
+  #   },
+  #   {
+  #     name    = "origin-scm"
+  #     ttl     = 1
+  #     records = ["20.231.55.27"]
+  #   },
+  # ]
   tags = {
     env_tag          = "NonProd"
     owner_tag        = "Arun Nalliannan"

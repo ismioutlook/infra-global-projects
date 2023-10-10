@@ -60,11 +60,11 @@ variable "eu_vars" {
       acr_sku           = string
       acr_admin_enabled = bool
     })
-    dns_records = list(object({
-      name    = string
-      ttl     = number
-      records = list(string)
-    }))
+    # dns_records = list(object({
+    #   name    = string
+    #   ttl     = number
+    #   records = list(string)
+    # }))
     tags = object({
       env_tag          = string
       owner_tag        = string
@@ -102,11 +102,11 @@ variable "us_vars" {
     #   user_managed_identity = string
     #   apim_address_pool     = list(string)
     # })
-    dns_records = list(object({
-      name    = string
-      ttl     = number
-      records = list(string)
-    }))
+    # dns_records = list(object({
+    #   name    = string
+    #   ttl     = number
+    #   records = list(string)
+    # }))
     tags = object({
       env_tag          = string
       owner_tag        = string
