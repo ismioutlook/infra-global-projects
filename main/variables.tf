@@ -19,21 +19,21 @@ variable "eu_vars" {
       service_endpoints    = list(string)
       subnet_name          = list(string)
     })
-    app_gateway = object({
-      appgw_pip_name       = string
-      appgw_pip_allocation = string
-      appgw_name           = string
-      appgw_sku_name       = string
-      appgw_sku_tier       = string
-      appgw_sku_capacity   = number
-      appgw_ip_config_name = string
-      subnet_id          = string
-      ssl_certificate_name  = string
-      key_vault_secret_id   = string
-      hostname              = string
-      apim_address_pool     = list(string)
-      user_managed_identity = string
-    })
+    # app_gateway = object({
+    #   appgw_pip_name       = string
+    #   appgw_pip_allocation = string
+    #   appgw_name           = string
+    #   appgw_sku_name       = string
+    #   appgw_sku_tier       = string
+    #   appgw_sku_capacity   = number
+    #   appgw_ip_config_name = string
+    #   subnet_id          = string
+    #   ssl_certificate_name  = string
+    #   key_vault_secret_id   = string
+    #   hostname              = string
+    #   apim_address_pool     = list(string)
+    #   user_managed_identity = string
+    # })
     # traffic_manager = object({
     #   traffic_manager_name         = string
     #   traffic_routing_method       = string
@@ -90,18 +90,18 @@ variable "us_vars" {
       service_endpoints    = list(string)
       subnet_name          = list(string)
     })
-    app_gateway = object({
-      appgw_pip_name       = string
-      appgw_pip_allocation = string
-      appgw_name           = string
-      appgw_sku_name       = string
-      appgw_sku_tier       = string
-      appgw_sku_capacity   = number
-      appgw_ip_config_name = string
-      subnet_id            = string
-      user_managed_identity = string
-      apim_address_pool     = list(string)
-    })
+    # app_gateway = object({
+    #   appgw_pip_name       = string
+    #   appgw_pip_allocation = string
+    #   appgw_name           = string
+    #   appgw_sku_name       = string
+    #   appgw_sku_tier       = string
+    #   appgw_sku_capacity   = number
+    #   appgw_ip_config_name = string
+    #   subnet_id            = string
+    #   user_managed_identity = string
+    #   apim_address_pool     = list(string)
+    # })
     dns_records = list(object({
       name    = string
       ttl     = number
