@@ -1,5 +1,5 @@
 module "eu_gl_aks" {
-  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//module?ref=v0.0.10"
+  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//module?ref=v0.0.11"
   resource_group_name     = var.eu_vars.resource_group.resource_group_name
   resource_group_location = var.eu_vars.resource_group.resource_group_location
   log_analytics_name      = var.aks_vars.azure_k8s_service.log_analytics_name
@@ -20,6 +20,7 @@ module "eu_gl_aks" {
   node_taints              = var.aks_vars.azure_k8s_service.node_taints
   node_labels              = var.aks_vars.azure_k8s_service.node_labels
   node_pools               = var.node_pools
+  nsg_id                   = var.nsg_id
   node_resource_group_name = var.aks_vars.azure_k8s_service.node_resource_group_name_eu
   # Network profile
   network_plugin     = var.aks_vars.azure_k8s_service.network_plugin
