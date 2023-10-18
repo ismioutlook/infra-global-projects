@@ -20,7 +20,6 @@ module "eu_gl_aks" {
   node_taints              = var.aks_vars.azure_k8s_service.node_taints
   node_labels              = var.aks_vars.azure_k8s_service.node_labels
   node_pools               = var.node_pools
-  nsg_id                   = var.nsg_id
   node_resource_group_name = var.aks_vars.azure_k8s_service.node_resource_group_name_eu
   # Network profile
   network_plugin     = var.aks_vars.azure_k8s_service.network_plugin

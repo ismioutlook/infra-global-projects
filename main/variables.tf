@@ -212,11 +212,6 @@ variable "node_pools" {
   default = []
 }
 
-variable "nsg_id" {
-  type = string
-  description = "network security group id for agentpool"
-  default = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-EU-NonProd/providers/Microsoft.Network/networkSecurityGroups/nsg-gw-gl-nonprod"
-}
 # # Auto-scaler profile
 
 variable "balance_similar_node_groups" {
