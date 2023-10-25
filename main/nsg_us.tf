@@ -1,7 +1,7 @@
 resource "azurerm_network_security_group" "nsg_us_apim" {
   location            = var.eu_vars.resource_group.resource_group_location
   resource_group_name = var.eu_vars.resource_group.resource_group_name
-  name                = "nsg-apim-gl-nonprod"
+  name                = "nsg-us-apim-gl-nonprod"
   security_rule {
     access                     = "Allow"
     destination_address_prefix = "VirtualNetwork"
@@ -251,7 +251,7 @@ resource "azurerm_network_security_group" "nsg_us_apim" {
 resource "azurerm_network_security_group" "nsg_us_apim_mgmt" {
   location            = var.eu_vars.resource_group.resource_group_location
   resource_group_name = var.eu_vars.resource_group.resource_group_name
-  name                = "nsg-mgmt-gl-nonprod"
+  name                = "nsg-us-mgmt-gl-nonprod"
   security_rule {
     access                     = "Allow"
     destination_address_prefix = "10.219.0.64/27"
@@ -401,7 +401,7 @@ resource "azurerm_network_security_group" "nsg_us_apim_mgmt" {
 resource "azurerm_network_security_group" "nsg_us_apim_gw" {
   location            = var.eu_vars.resource_group.resource_group_location
   resource_group_name = var.eu_vars.resource_group.resource_group_name
-  name                = "nsg-gw-gl-nonprod"
+  name                = "nsg-us-gw-gl-nonprod"
   security_rule {
     access                     = "Allow"
     destination_address_prefix = "*"
