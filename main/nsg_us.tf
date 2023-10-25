@@ -1,6 +1,6 @@
 resource "azurerm_network_security_group" "nsg_us_apim" {
-  location            = var.eu_vars.resource_group.resource_group_location
-  resource_group_name = var.eu_vars.resource_group.resource_group_name
+  location            = var.us_vars.resource_group.resource_group_location
+  resource_group_name = var.us_vars.resource_group.resource_group_name
   name                = "nsg-us-apim-gl-nonprod"
   security_rule {
     access                     = "Allow"
@@ -249,8 +249,8 @@ resource "azurerm_network_security_group" "nsg_us_apim" {
 }
 
 resource "azurerm_network_security_group" "nsg_us_apim_mgmt" {
-  location            = var.eu_vars.resource_group.resource_group_location
-  resource_group_name = var.eu_vars.resource_group.resource_group_name
+  location            = var.us_vars.resource_group.resource_group_location
+  resource_group_name = var.us_vars.resource_group.resource_group_name
   name                = "nsg-us-mgmt-gl-nonprod"
   security_rule {
     access                     = "Allow"
@@ -399,8 +399,8 @@ resource "azurerm_network_security_group" "nsg_us_apim_mgmt" {
 }
 
 resource "azurerm_network_security_group" "nsg_us_apim_gw" {
-  location            = var.eu_vars.resource_group.resource_group_location
-  resource_group_name = var.eu_vars.resource_group.resource_group_name
+  location            = var.us_vars.resource_group.resource_group_location
+  resource_group_name = var.us_vars.resource_group.resource_group_name
   name                = "nsg-us-gw-gl-nonprod"
   security_rule {
     access                     = "Allow"
