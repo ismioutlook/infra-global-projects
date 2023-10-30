@@ -1,6 +1,6 @@
 # #--------------------------------------EU Private DNS------------------------------------------------------------
 # resource "azurerm_private_dns_zone" "eu_private_dns" {
-#   name                = "nonprod.electrolux.com"
+#   name                = "electrolux.com"
 #   resource_group_name = var.eu_vars.resource_group.resource_group_name
 # }
 
@@ -16,7 +16,7 @@
 
 # #--------------------------------------US Private DNS------------------------------------------------------------
 # resource "azurerm_private_dns_zone" "us_private_dns" {
-#   name                = "nonprod.electrolux.com"
+#   name                = "electrolux.com"
 #   resource_group_name = var.us_vars.resource_group.resource_group_name
 # }
 
