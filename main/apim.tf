@@ -4,8 +4,8 @@ module "apim-multi-location" {
   subscription_id           = var.subscription.nonprod.subscription_id
   resource_group_name       = var.eu_vars.resource_group.resource_group_name
   resource_group_location   = var.eu_vars.resource_group.resource_group_location
-  subnet_id1                = data.azurerm_subnet.subnet_apim_eu.name
-  subnet_id2                = data.azurerm_subnet.subnet_apim_us.name
+  subnet_id1                = var.eu_vars.api_management.apim_subnet_id_eu
+  subnet_id2                = var.eu_vars.api_management.apim_subnet_id_us
   additional_location1      = var.us_vars.resource_group.resource_group_location
   apim_name                 = var.eu_vars.api_management.apim_name
   apim_publisher_name       = var.eu_vars.api_management.apim_publisher_name
