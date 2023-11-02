@@ -246,6 +246,9 @@ resource "azurerm_network_security_group" "nsg_apim" {
     source_address_prefix      = "VirtualNetwork"
     source_port_range          = "*"
   }
+  lifecycle {
+    ignore_changes = [ security_rule ]
+  }
 }
 
 resource "azurerm_network_security_group" "nsg_apim_mgmt" {
@@ -396,6 +399,9 @@ resource "azurerm_network_security_group" "nsg_apim_mgmt" {
     source_address_prefixes    = ["10.5.34.241", "10.5.34.242"]
     source_port_range          = "*"
   }
+  lifecycle {
+    ignore_changes = [ security_rule ]
+  }
 }
 
 resource "azurerm_network_security_group" "nsg_apim_gw" {
@@ -497,5 +503,8 @@ resource "azurerm_network_security_group" "nsg_apim_gw" {
     protocol                   = "Tcp"
     source_address_prefixes    = ["194.246.0.0/19", "62.252.197.0/24", "217.169.51.0/24", "204.17.245.4"]
     source_port_range          = "*"
+  }
+  lifecycle {
+    ignore_changes = [ security_rule ]
   }
 }
