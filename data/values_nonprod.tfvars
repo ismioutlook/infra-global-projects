@@ -17,21 +17,21 @@ eu_vars = {
     service_endpoints    = ["Microsoft.Sql", "Microsoft.KeyVault"]
     subnet_name          = ["Subnet-APIM", "Subnet-GW", "Subnet-AKS", "Subnet-fe"]
   }
-  # app_gateway = {
-  #   appgw_pip_name       = "AAG-GL-ELX-EU-NonProd-PIP"
-  #   appgw_pip_allocation = "Static"
-  #   appgw_name           = "AppGw-GL-ELX-EU-NonProd"
-  #   appgw_sku_name       = "WAF_v2"
-  #   appgw_sku_tier       = "WAF_v2"
-  #   appgw_sku_capacity   = 2
-  #   appgw_ip_config_name = "AppGw-GL-ELX-EU-IP-Config"
-  #   subnet_id              = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-001/subnets/AppGW-SBT-01"
-  #   ssl_certificate_name  = "nonprod-electrolux-com"
-  #   key_vault_secret_id   = "https://elxkv-cert-nonprod-gl-01.vault.azure.net/secrets/nonprod-electrolux-com"
-  #   hostname              = "nonprod.electrolux.com"
-  #   apim_address_pool     = ["10.216.3.6"]
-  #   user_managed_identity = "id-appgw-gl-westeu"
-  # }
+  app_gateway = {
+    # appgw_pip_name       = "AAG-GL-ELX-EU-NonProd-PIP"
+    # appgw_pip_allocation = "Static"
+    # appgw_name           = "AppGw-GL-ELX-EU-NonProd"
+    # appgw_sku_name       = "WAF_v2"
+    # appgw_sku_tier       = "WAF_v2"
+    # appgw_sku_capacity   = 2
+    # appgw_ip_config_name = "AppGw-GL-ELX-EU-IP-Config"
+    # subnet_id              = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-001/subnets/AppGW-SBT-01"
+    # ssl_certificate_name  = "nonprod-electrolux-com"
+    key_vault_secret_id   = "https://elxkv-cert-nonprod-gl-01.vault.azure.net/secrets/int-electrolux-com"
+    # hostname              = "int.electrolux.com"
+    # apim_address_pool     = ["10.216.3.6"]
+    # user_managed_identity = "id-appgw-gl-westeu"
+  }
   # traffic_manager = {
   #   traffic_manager_name         = "tmelxglobalnonprod01"
   #   traffic_routing_method       = "Performance"
@@ -43,16 +43,16 @@ eu_vars = {
   #   timeout_in_seconds           = 10
   #   tolerated_number_of_failures = 3
   # }
-  # api_management = {
-  #   apim_name                 = "elxapimglnonprod"
-  #   apim_publisher_name       = "Electrolux"
-  #   apim_publisher_email      = "chirag.panchal@electrolux.com"
-  #   apim_sku_name             = "Premium_1"
-  #   gateway_hostname          = "api-nonprod.electrolux.com"
-  #   developer_portal_hostname = "portal-nonprod.electrolux.com"
-  #   management_hostname       = "management-nonprod.electrolux.com"
-  #   scm_hostname              = "scm-nonprod.electrolux.com"
-  # }
+  api_management = {
+    apim_name                 = "elxapimglnonprod"
+    apim_publisher_name       = "Electrolux"
+    apim_publisher_email      = "chirag.panchal@electrolux.com"
+    apim_sku_name             = "Premium_1"
+    gateway_hostname          = "api-eu-nonprod.int.electrolux.com"
+    developer_portal_hostname = "portal-eu-nonprod.int.electrolux.com"
+    management_hostname       = "mss-eu-nonprod.int.electrolux.com"
+    scm_hostname              = "mss-nonprod.int.electrolux.com"
+  }
   acr = {
     acr_name          = "elxacrglnonprod"
     acr_sku           = "Basic"

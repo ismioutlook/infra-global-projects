@@ -19,21 +19,21 @@ variable "eu_vars" {
       service_endpoints    = list(string)
       subnet_name          = list(string)
     })
-    # app_gateway = object({
-    #   appgw_pip_name       = string
-    #   appgw_pip_allocation = string
-    #   appgw_name           = string
-    #   appgw_sku_name       = string
-    #   appgw_sku_tier       = string
-    #   appgw_sku_capacity   = number
-    #   appgw_ip_config_name = string
-    #   subnet_id          = string
-    #   ssl_certificate_name  = string
-    #   key_vault_secret_id   = string
-    #   hostname              = string
-    #   apim_address_pool     = list(string)
-    #   user_managed_identity = string
-    # })
+    app_gateway = object({
+      # appgw_pip_name       = string
+      # appgw_pip_allocation = string
+      # appgw_name           = string
+      # appgw_sku_name       = string
+      # appgw_sku_tier       = string
+      # appgw_sku_capacity   = number
+      # appgw_ip_config_name = string
+      # subnet_id          = string
+      # ssl_certificate_name  = string
+      key_vault_secret_id   = string
+      # hostname              = string
+      # apim_address_pool     = list(string)
+      # user_managed_identity = string
+    })
     # traffic_manager = object({
     #   traffic_manager_name         = string
     #   traffic_routing_method       = string
@@ -45,16 +45,16 @@ variable "eu_vars" {
     #   timeout_in_seconds           = number
     #   tolerated_number_of_failures = number
     # })
-    # api_management = object({
-    #   apim_name                 = string
-    #   apim_publisher_name       = string
-    #   apim_publisher_email      = string
-    #   apim_sku_name             = string
-    #   gateway_hostname          = string
-    #   developer_portal_hostname = string
-    #   management_hostname       = string
-    #   scm_hostname              = string
-    # })
+    api_management = object({
+      apim_name                 = string
+      apim_publisher_name       = string
+      apim_publisher_email      = string
+      apim_sku_name             = string
+      gateway_hostname          = string
+      developer_portal_hostname = string
+      management_hostname       = string
+      scm_hostname              = string
+    })
     acr = object({
       acr_name          = string
       acr_sku           = string
