@@ -10,17 +10,17 @@
 #   resource_group_name  = "RG-ELX-EUS-Concent-NonProd-Networking"
 # }
 
-# data "azurerm_subnet" "subnet_apim_eu" {
-#   name                 = "APIM-SBT-01"
-#   virtual_network_name = "VN-ELX-GL-Concent-NonProd-Spoke-001"
-#   resource_group_name  = "RG-ELX-GL-Concent-NonProd-Networking"
-# }
+data "azurerm_subnet" "subnet_apim_eu" {
+  name                 = "APIM-SBT-01"
+  virtual_network_name = "VN-ELX-GL-Concent-NonProd-Spoke-001"
+  resource_group_name  = "RG-ELX-GL-Concent-NonProd-Networking"
+}
 
-# data "azurerm_subnet" "subnet_apim_us" {
-#   name                 = "APIM-SBT-01"
-#   virtual_network_name = "VN-ELX-EUS-Concent-NonProd-Spoke-001"
-#   resource_group_name  = "RG-ELX-EUS-Concent-NonProd-Networking"
-# }
+data "azurerm_subnet" "subnet_apim_us" {
+  name                 = "APIM-SBT-01"
+  virtual_network_name = "VN-ELX-EUS-Concent-NonProd-Spoke-001"
+  resource_group_name  = "RG-ELX-EUS-Concent-NonProd-Networking"
+}
 
 # data "azurerm_subnet" "subnet_aks_eu" {
 #   name                 = "AKS-SBT-01"
