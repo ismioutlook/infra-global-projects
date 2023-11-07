@@ -60,7 +60,7 @@ variable "eu_vars" {
       management_hostname       = string
       scm_hostname              = string
       apim_subnet_id_eu         = string
-      #apim_subnet_id_us         = string
+      apim_subnet_id_us         = string
     })
     acr = object({
       acr_name          = string
