@@ -28,7 +28,12 @@ eu_vars = {
     subnet_id              = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-001/subnets/AppGW-SBT-01"
     ssl_certificate_name  = "int-electrolux-com"
     key_vault_secret_id   = "https://elxkv-cert-nonprod-gl-01.vault.azure.net/secrets/int-electrolux-com"
-    hostname              = "int.electrolux.com"
+    # hostname              = "int.electrolux.com"
+    api_hostname = "api-eu-nonprod.int.electrolux.com"
+    mgmt_hostname = "mss-eu-nonprod.int.electrolux.com"
+    portal_hostname = "portal-eu-nonprod.int.electrolux.com"
+    origin_mgmt_hostname = "mss-eu-nonprod.int.electrolux.com"
+    origin_scm_hostname = "mss-nonprod.int.electrolux.com"
     apim_address_pool     = ["10.221.170.6"]
     user_managed_identity = "id-appgw-gl-westeu"
   }

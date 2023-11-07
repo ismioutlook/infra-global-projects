@@ -30,7 +30,11 @@ variable "eu_vars" {
       subnet_id          = string
       ssl_certificate_name  = string
       key_vault_secret_id   = string
-      hostname              = string
+      api_hostname = string
+      mgmt_hostname = string
+      portal_hostname = string
+      origin_mgmt_hostname = string
+      origin_scm_hostname = string
       apim_address_pool     = list(string)
       user_managed_identity = string
     })
