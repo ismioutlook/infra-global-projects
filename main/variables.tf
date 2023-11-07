@@ -35,6 +35,7 @@ variable "eu_vars" {
       portal_hostname = string
       origin_mgmt_hostname = string
       origin_scm_hostname = string
+      scm_hostname = string
       apim_address_pool     = list(string)
       user_managed_identity = string
     })

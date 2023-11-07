@@ -19,6 +19,7 @@ module "eu_gl_appgw" {
   portal_hostname = var.eu_vars.app_gateway.portal_hostname
   origin_mgmt_hostname = var.eu_vars.app_gateway.origin_mgmt_hostname
   origin_scm_hostname = var.eu_vars.app_gateway.origin_scm_hostname
+  scm_hostname = var.eu_vars.app_gateway.scm_hostname
   apim_address_pool       = var.eu_vars.app_gateway.apim_address_pool
   user_managed_identity   = var.eu_vars.app_gateway.user_managed_identity
   #WAF Configurations
