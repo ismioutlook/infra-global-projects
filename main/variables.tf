@@ -20,22 +20,22 @@ variable "eu_vars" {
       subnet_name          = list(string)
     })
     app_gateway = object({
-      appgw_pip_name       = string
-      appgw_pip_allocation = string
-      appgw_name           = string
-      appgw_sku_name       = string
-      appgw_sku_tier       = string
-      appgw_sku_capacity   = number
-      appgw_ip_config_name = string
-      subnet_id          = string
+      appgw_pip_name        = string
+      appgw_pip_allocation  = string
+      appgw_name            = string
+      appgw_sku_name        = string
+      appgw_sku_tier        = string
+      appgw_sku_capacity    = number
+      appgw_ip_config_name  = string
+      subnet_id             = string
       ssl_certificate_name  = string
       key_vault_secret_id   = string
-      api_hostname = string
-      mgmt_hostname = string
-      portal_hostname = string
-      origin_mgmt_hostname = string
-      origin_scm_hostname = string
-      scm_hostname = string
+      api_hostname          = string
+      mgmt_hostname         = string
+      portal_hostname       = string
+      origin_mgmt_hostname  = string
+      origin_scm_hostname   = string
+      scm_hostname          = string
       apim_address_pool     = list(string)
       user_managed_identity = string
     })
@@ -55,12 +55,17 @@ variable "eu_vars" {
       apim_publisher_name       = string
       apim_publisher_email      = string
       apim_sku_name             = string
-      gateway_hostname          = string
+      gateway_hostnames         = list(string)
       developer_portal_hostname = string
       management_hostname       = string
       scm_hostname              = string
       apim_subnet_id_eu         = string
       apim_subnet_id_us         = string
+      additional_locations = list(object({
+        location  = string
+        capacity  = number
+        subnet_id = string
+      }))
     })
     acr = object({
       acr_name          = string
@@ -148,8 +153,8 @@ variable "aks_vars" {
       node_resource_group_name_eu = string
       node_resource_group_name_us = string
       #network profile
-      aks_subnet_id_eu = string
-      aks_subnet_id_us = string
+      aks_subnet_id_eu   = string
+      aks_subnet_id_us   = string
       network_plugin     = string
       network_policy     = string
       pod_cidr           = string

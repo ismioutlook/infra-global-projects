@@ -14,14 +14,14 @@ module "eu_gl_appgw" {
   ssl_certificate_name    = var.eu_vars.app_gateway.ssl_certificate_name
   key_vault_secret_id     = var.eu_vars.app_gateway.key_vault_secret_id
   # hostname                = var.eu_vars.app_gateway.hostname
-  api_hostname = var.eu_vars.app_gateway.api_hostname
-  mgmt_hostname = var.eu_vars.app_gateway.mgmt_hostname
-  portal_hostname = var.eu_vars.app_gateway.portal_hostname
-  origin_mgmt_hostname = var.eu_vars.app_gateway.origin_mgmt_hostname
-  origin_scm_hostname = var.eu_vars.app_gateway.origin_scm_hostname
-  scm_hostname = var.eu_vars.app_gateway.scm_hostname
-  apim_address_pool       = var.eu_vars.app_gateway.apim_address_pool
-  user_managed_identity   = var.eu_vars.app_gateway.user_managed_identity
+  api_hostname          = var.eu_vars.app_gateway.api_hostname
+  mgmt_hostname         = var.eu_vars.app_gateway.mgmt_hostname
+  portal_hostname       = var.eu_vars.app_gateway.portal_hostname
+  origin_mgmt_hostname  = var.eu_vars.app_gateway.origin_mgmt_hostname
+  origin_scm_hostname   = var.eu_vars.app_gateway.origin_scm_hostname
+  scm_hostname          = var.eu_vars.app_gateway.scm_hostname
+  apim_address_pool     = var.eu_vars.app_gateway.apim_address_pool
+  user_managed_identity = var.eu_vars.app_gateway.user_managed_identity
   #WAF Configurations
   waf_enabled                  = var.waf_enabled
   waf_firewall_mode            = var.waf_firewall_mode
