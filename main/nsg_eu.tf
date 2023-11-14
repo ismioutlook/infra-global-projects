@@ -3,17 +3,17 @@ resource "azurerm_network_security_group" "nsg_apim" {
   resource_group_name = var.eu_vars.resource_group.resource_group_name
   name                = "nsg-apim-gl-nonprod"
 
-  security_rule {
-    name                       = "Client_communication_to_API"
-    priority                   = 100
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "80,443"
-    source_address_prefix      = "Internet"
-    destination_address_prefix = "VirtualNetwork"
-  }
+  # security_rule {
+  #   name                       = "Client_communication_to_API"
+  #   priority                   = 100
+  #   direction                  = "Inbound"
+  #   access                     = "Allow"
+  #   protocol                   = "Tcp"
+  #   source_port_range          = "*"
+  #   destination_port_range     = "80,443"
+  #   source_address_prefix      = "Internet"
+  #   destination_address_prefix = "VirtualNetwork"
+  # }
 
   security_rule {
     name                       = "Secure_Client_communication"
@@ -51,17 +51,17 @@ resource "azurerm_network_security_group" "nsg_apim" {
     destination_address_prefix = "VirtualNetwork"
   }
 
-  security_rule {
-    name                       = "Azure_Infrastructure_Load_Balancer"
-    priority                   = 180
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "Any"
-    source_address_prefix      = "AzureLoadBalancer"
-    destination_address_prefix = "VirtualNetwork"
-  }
+  # security_rule {
+  #   name                       = "Azure_Infrastructure_Load_Balancer"
+  #   priority                   = 180
+  #   direction                  = "Inbound"
+  #   access                     = "Allow"
+  #   protocol                   = "Tcp"
+  #   source_port_range          = "*"
+  #   destination_port_range     = "Any"
+  #   source_address_prefix      = "AzureLoadBalancer"
+  #   destination_address_prefix = "VirtualNetwork"
+  # }
 
   security_rule {
     name                       = "AllowTagForIntraLoadBalancer"
@@ -122,6 +122,7 @@ resource "azurerm_network_security_group" "nsg_apim" {
     source_address_prefix      = "ApiManagement"
     destination_address_prefix = "GatewayManager"
   }
+
   security_rule {
     name                       = "Dependency_on_Azure_Storage"
     priority                   = 100
@@ -218,29 +219,29 @@ resource "azurerm_network_security_group" "nsg_apim" {
     destination_address_prefix = "AzureMonitor"
   }
 
-  security_rule {
-    name                       = "Connect_To_SMTP_Relay_For_Email"
-    priority                   = 190
-    direction                  = "Outbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "587,25,25028"
-    source_address_prefix      = "VirtualNetwork"
-    destination_address_prefix = "Internet"
-  }
+  # security_rule {
+  #   name                       = "Connect_To_SMTP_Relay_For_Email"
+  #   priority                   = 190
+  #   direction                  = "Outbound"
+  #   access                     = "Allow"
+  #   protocol                   = "Tcp"
+  #   source_port_range          = "*"
+  #   destination_port_range     = "587,25,25028"
+  #   source_address_prefix      = "VirtualNetwork"
+  #   destination_address_prefix = "Internet"
+  # }
 
-  security_rule {
-    name                       = "Authenticate_To_Azure_Active_Directory"
-    priority                   = 200
-    direction                  = "Outbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "80,443"
-    source_address_prefix      = "VirtualNetwork"
-    destination_address_prefix = "AzureActiveDirectory"
-  }
+  # security_rule {
+  #   name                       = "Authenticate_To_Azure_Active_Directory"
+  #   priority                   = 200
+  #   direction                  = "Outbound"
+  #   access                     = "Allow"
+  #   protocol                   = "Tcp"
+  #   source_port_range          = "*"
+  #   destination_port_range     = "80,443"
+  #   source_address_prefix      = "VirtualNetwork"
+  #   destination_address_prefix = "AzureActiveDirectory"
+  # }
 
   security_rule {
     name                       = "Publish_Monitoring_Logs"
@@ -278,6 +279,7 @@ resource "azurerm_network_security_group" "nsg_apim" {
     destination_address_prefix = "Sql"
   }
 }
+
 # resource "azurerm_network_security_group" "nsg_apim" {
 #   location            = var.eu_vars.resource_group.resource_group_location
 #   resource_group_name = var.eu_vars.resource_group.resource_group_name
