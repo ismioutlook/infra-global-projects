@@ -187,7 +187,7 @@ resource "azurerm_network_security_group" "nsg_apim" {
     priority                   = 160
     direction                  = "Outbound"
     access                     = "Allow"
-    protocol                   = "TCP"
+    protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "6381-6395"
     source_address_prefix      = "VirtualNetwork"
@@ -199,7 +199,7 @@ resource "azurerm_network_security_group" "nsg_apim" {
     priority                   = 170
     direction                  = "Outbound"
     access                     = "Allow"
-    protocol                   = "TCP"
+    protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "443"
     source_address_prefix      = "VirtualNetwork"
@@ -259,7 +259,7 @@ resource "azurerm_network_security_group" "nsg_apim" {
     priority                   = 330
     direction                  = "Outbound"
     access                     = "Allow"
-    protocol                   = "TCP"
+    protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "443"
     source_address_prefix      = "VirtualNetwork"
@@ -271,7 +271,7 @@ resource "azurerm_network_security_group" "nsg_apim" {
     priority                   = 340
     direction                  = "Outbound"
     access                     = "Allow"
-    protocol                   = "TCP"
+    protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "1443"
     source_address_prefix      = "Any"
