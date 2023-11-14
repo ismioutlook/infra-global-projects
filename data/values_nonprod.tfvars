@@ -25,16 +25,16 @@ eu_vars = {
     appgw_sku_tier       = "WAF_v2"
     appgw_sku_capacity   = 2
     appgw_ip_config_name = "AppGw-GL-ELX-EU-IP-Config"
-    subnet_id              = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-001/subnets/AppGW-SBT-01"
-    ssl_certificate_name  = "int-electrolux-com"
-    key_vault_secret_id   = "https://elxkv-cert-nonprod-gl-01.vault.azure.net/secrets/int-electrolux-com"
+    subnet_id            = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-001/subnets/AppGW-SBT-01"
+    ssl_certificate_name = "int-electrolux-com"
+    key_vault_secret_id  = "https://elxkv-cert-nonprod-gl-01.vault.azure.net/secrets/int-electrolux-com"
     # hostname              = "int.electrolux.com"
-    api_hostname = "api-eu-nonprod.int.electrolux.com"
-    mgmt_hostname = "mss-eu-nonprod.int.electrolux.com"
-    portal_hostname = "portal-eu-nonprod.int.electrolux.com"
-    origin_mgmt_hostname = "mss-eu-nonprod.int.electrolux.com"
-    origin_scm_hostname = "mss-nonprod.int.electrolux.com"
-    scm_hostname = "mss-nonprod.int.electrolux.com"
+    api_hostname          = "api-eu-nonprod.int.electrolux.com"
+    mgmt_hostname         = "mss-eu-nonprod.int.electrolux.com"
+    portal_hostname       = "portal-eu-nonprod.int.electrolux.com"
+    origin_mgmt_hostname  = "origin-mss-eu-nonprod.electrolux.com" #"origin-portal-eu-nonprod.electrolux.com"
+    origin_scm_hostname   = "origin-scm-eu-nonprod.electrolux.com"  #"origin-api-eu-nonprod.electrolux.com"
+    scm_hostname          = "scm-eu-nonprod.int.electrolux.com"
     apim_address_pool     = ["10.221.170.6"]
     user_managed_identity = "id-appgw-gl-westeu"
   }
@@ -54,13 +54,25 @@ eu_vars = {
     apim_publisher_name       = "Electrolux"
     apim_publisher_email      = "chirag.panchal@electrolux.com"
     apim_sku_name             = "Premium_1"
-    gateway_hostname          = "api-eu-nonprod.int.electrolux.com"
+    gateway_hostnames         = ["api-eu-nonprod.int.electrolux.com", "api-us-nonprod.int.electrolux.com"]
     developer_portal_hostname = "portal-eu-nonprod.int.electrolux.com"
     management_hostname       = "mss-eu-nonprod.int.electrolux.com"
-    scm_hostname              = "mss-nonprod.int.electrolux.com"
-    apim_subnet_id_eu   = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-001/subnets/APIM-SBT-01"
-    apim_subnet_id_us = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/APIM-SBT-01"
-    
+    scm_hostname              = "scm-eu-nonprod.int.electrolux.com"
+    apim_subnet_id_eu         = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-001/subnets/APIM-SBT-01"
+    apim_subnet_id_us         = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/APIM-SBT-01"
+    additional_locations = [
+      # {
+      #   location  = "West Europe"
+      #   capacity  = 1
+      #   subnet_id = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-001/subnets/APIM-SBT-01"
+      # },
+      {
+        location  = "East US"
+        capacity  = 1
+        subnet_id = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/APIM-SBT-01"
+      }
+      // Add more additional locations as needed
+    ]
   }
   acr = {
     acr_name          = "elxacrglnonprod"
@@ -224,9 +236,9 @@ aks_vars = {
     node_resource_group_name_eu = "RG-GL-ELX-EU-AKS-Node-Cluster-NonProd"
     node_resource_group_name_us = "RG-GL-ELX-US-AKS-Node-Cluster-NonProd"
     # Network profile
-    aks_subnet_id_eu   = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-001/subnets/AKS-SBT-01"
+    aks_subnet_id_eu = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-001/subnets/AKS-SBT-01"
     aks_subnet_id_us = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/AKS-SBT-01"
-    
+
     network_plugin     = "azure"
     network_policy     = "azure"
     pod_cidr           = "10.0.16.0/20"

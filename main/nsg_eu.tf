@@ -247,7 +247,7 @@ resource "azurerm_network_security_group" "nsg_apim" {
     source_port_range          = "*"
   }
   lifecycle {
-    ignore_changes = [ security_rule ]
+    ignore_changes = [security_rule]
   }
 }
 
@@ -400,7 +400,7 @@ resource "azurerm_network_security_group" "nsg_apim_mgmt" {
     source_port_range          = "*"
   }
   lifecycle {
-    ignore_changes = [ security_rule ]
+    ignore_changes = [security_rule]
   }
 }
 
@@ -505,6 +505,6 @@ resource "azurerm_network_security_group" "nsg_apim_gw" {
     source_port_range          = "*"
   }
   lifecycle {
-    ignore_changes = [ security_rule ]
+    ignore_changes = [security_rule]
   }
 }

@@ -1,17 +1,18 @@
 module "apim-multi-location" {
-  source                    = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-apim//module?ref=v0.0.4"
-  tenant_id                 = var.subscription.nonprod.tenant_id
-  subscription_id           = var.subscription.nonprod.subscription_id
-  resource_group_name       = var.eu_vars.resource_group.resource_group_name
-  resource_group_location   = var.eu_vars.resource_group.resource_group_location
-  subnet_id1                = var.eu_vars.api_management.apim_subnet_id_eu
-  subnet_id2                = var.eu_vars.api_management.apim_subnet_id_us
-  additional_location1      = var.us_vars.resource_group.resource_group_location
-  apim_name                 = var.eu_vars.api_management.apim_name
-  apim_publisher_name       = var.eu_vars.api_management.apim_publisher_name
-  apim_publisher_email      = var.eu_vars.api_management.apim_publisher_email
-  apim_sku_name             = var.eu_vars.api_management.apim_sku_name
-  gateway_hostname          = var.eu_vars.api_management.gateway_hostname
+  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-apim//module?ref=v0.0.7"
+  tenant_id               = var.subscription.nonprod.tenant_id
+  subscription_id         = var.subscription.nonprod.subscription_id
+  resource_group_name     = var.eu_vars.resource_group.resource_group_name
+  resource_group_location = var.eu_vars.resource_group.resource_group_location
+  subnet_id1              = var.eu_vars.api_management.apim_subnet_id_eu
+  subnet_id2              = var.eu_vars.api_management.apim_subnet_id_us
+  additional_locations    = var.eu_vars.api_management.additional_locations #var.us_vars.resource_group.resource_group_location
+  apim_name               = var.eu_vars.api_management.apim_name
+  apim_publisher_name     = var.eu_vars.api_management.apim_publisher_name
+  apim_publisher_email    = var.eu_vars.api_management.apim_publisher_email
+  apim_sku_name           = var.eu_vars.api_management.apim_sku_name
+  #gateway_hostname          = var.eu_vars.api_management.gateway_hostname
+  gateway_hostnames         = var.eu_vars.api_management.gateway_hostnames
   developer_portal_hostname = var.eu_vars.api_management.developer_portal_hostname
   management_hostname       = var.eu_vars.api_management.management_hostname
   scm_hostname              = var.eu_vars.api_management.scm_hostname
