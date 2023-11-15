@@ -2,6 +2,7 @@ resource "azurerm_network_security_group" "nsg_apim" {
   location            = var.eu_vars.resource_group.resource_group_location
   resource_group_name = var.eu_vars.resource_group.resource_group_name
   name                = "nsg-apim-gl-nonprod"
+
   security_rule {
     access                     = "Allow"
     destination_address_prefix = "VirtualNetwork"
@@ -16,11 +17,11 @@ resource "azurerm_network_security_group" "nsg_apim" {
 
   security_rule {
     access                     = "Allow"
-    destination_address_prefix = "VirtualNetwork"
-    destination_port_range     = "3443"
-    direction                  = "Inbound"
-    name                       = "Manegement_Endpoint"
-    priority                   = 105
+    destination_address_prefix = "AzureKeyVault"
+    destination_port_range     = "443"
+    direction                  = "Outbound"
+    name                       = "AllowTagForAccesstoKeyVault"
+    priority                   = 330
     protocol                   = "Tcp"
     source_address_prefix      = "VirtualNetwork"
     source_port_range          = "*"
@@ -28,13 +29,25 @@ resource "azurerm_network_security_group" "nsg_apim" {
 
   security_rule {
     access                     = "Allow"
-    destination_address_prefix = "VirtualNetwork"
-    destination_port_range     = "6381-6383"
-    direction                  = "Outbound"
-    name                       = "Dependency_on_Redis_Cache_outbound"
-    priority                   = 160
+    destination_address_prefix = "GatewayManager"
+    destination_port_ranges    = ["80", "443"]
+    direction                  = "Inbound"
+    name                       = "AllowTagForAPIMToGatewayManager"
+    priority                   = 370
     protocol                   = "Tcp"
-    source_address_prefix      = "VirtualNetwork"
+    source_address_prefix      = "ApiManagement"
+    source_port_range          = "*"
+  }
+
+  security_rule {
+    access                     = "Allow"
+    destination_address_prefix = "*"
+    destination_port_range     = "65200-65535"
+    direction                  = "Inbound"
+    name                       = "AllowInboundRangeForTrafficeManager"
+    priority                   = 350
+    protocol                   = "*"
+    source_address_prefix      = "*"
     source_port_range          = "*"
   }
 
@@ -53,18 +66,6 @@ resource "azurerm_network_security_group" "nsg_apim" {
 
   security_rule {
     access                     = "Allow"
-    destination_address_prefix = "VirtualNetwork"
-    destination_port_range     = "6381-6383"
-    direction                  = "Inbound"
-    name                       = "Dependency_on_Redis_Cache"
-    priority                   = 130
-    protocol                   = "Tcp"
-    source_address_prefix      = "VirtualNetwork"
-    source_port_range          = "*"
-  }
-
-  security_rule {
-    access                     = "Allow"
     destination_address_prefix = "EventHub"
     destination_port_range     = "5671"
     direction                  = "Outbound"
@@ -76,13 +77,25 @@ resource "azurerm_network_security_group" "nsg_apim" {
   }
 
   security_rule {
-    access                     = "Deny"
-    destination_address_prefix = "Internet"
-    destination_port_range     = "*"
+    access                     = "Allow"
+    destination_address_prefix = "Sql"
+    destination_port_range     = "1443"
     direction                  = "Outbound"
-    name                       = "Deny_All_Internet_Outbound"
-    priority                   = 999
-    protocol                   = "*"
+    name                       = "AllowAnySQLOutbound"
+    priority                   = 340
+    protocol                   = "Tcp"
+    source_address_prefix      = "*"
+    source_port_range          = "*"
+  }
+
+  security_rule {
+    access                     = "Allow"
+    destination_address_prefix = "VirtualNetwork"
+    destination_port_range     = "3443"
+    direction                  = "Inbound"
+    name                       = "AllowAPIMToTrafficeManager"
+    priority                   = 360
+    protocol                   = "Tcp"
     source_address_prefix      = "VirtualNetwork"
     source_port_range          = "*"
   }
@@ -125,23 +138,23 @@ resource "azurerm_network_security_group" "nsg_apim" {
 
   security_rule {
     access                     = "Allow"
-    destination_address_prefix = "Sql"
-    destination_port_range     = "1433"
-    direction                  = "Outbound"
-    name                       = "Dependency_on_Azure_SQL"
-    priority                   = 140
-    protocol                   = "Tcp"
-    source_address_prefix      = "VirtualNetwork"
+    destination_address_prefix = "VirtualNetwork"
+    destination_port_range     = "6390"
+    direction                  = "Inbound"
+    name                       = "AllowTagForInfraLoadBalancer"
+    priority                   = 310
+    protocol                   = "*"
+    source_address_prefix      = "AzureLoadBalancer"
     source_port_range          = "*"
   }
 
   security_rule {
     access                     = "Allow"
-    destination_address_prefix = "VirtualNetwork"
-    destination_port_range     = "80"
-    direction                  = "Inbound"
-    name                       = "Client_communication_to_API_Management"
-    priority                   = 100
+    destination_address_prefix = "Sql"
+    destination_port_range     = "1433"
+    direction                  = "Outbound"
+    name                       = "Dependency_on_Azure_SQL"
+    priority                   = 140
     protocol                   = "Tcp"
     source_address_prefix      = "VirtualNetwork"
     source_port_range          = "*"
@@ -187,6 +200,18 @@ resource "azurerm_network_security_group" "nsg_apim" {
 
   security_rule {
     access                     = "Allow"
+    destination_address_prefix = "Storage"
+    destination_port_range     = "443"
+    direction                  = "Outbound"
+    name                       = "Dependency_on_Azure_File_Share_for_GIT"
+    priority                   = 170
+    protocol                   = "Tcp"
+    source_address_prefix      = "VirtualNetwork"
+    source_port_range          = "*"
+  }
+
+  security_rule {
+    access                     = "Allow"
     destination_address_prefix = "VirtualNetwork"
     destination_port_range     = "3443"
     direction                  = "Inbound"
@@ -194,6 +219,18 @@ resource "azurerm_network_security_group" "nsg_apim" {
     priority                   = 120
     protocol                   = "Tcp"
     source_address_prefix      = "ApiManagement"
+    source_port_range          = "*"
+  }
+
+  security_rule {
+    access                     = "Allow"
+    destination_address_prefix = "VirtualNetwork"
+    destination_port_ranges    = ["80", "443"]
+    direction                  = "Inbound"
+    name                       = "Client_communication_to_API_Management"
+    priority                   = 100
+    protocol                   = "Tcp"
+    source_address_prefix      = "Internet"
     source_port_range          = "*"
   }
 
@@ -212,11 +249,11 @@ resource "azurerm_network_security_group" "nsg_apim" {
 
   security_rule {
     access                     = "Allow"
-    destination_address_prefix = "Storage"
-    destination_port_range     = "445"
-    direction                  = "Outbound"
-    name                       = "Dependency_on_Azure_File_Share_for_GIT"
-    priority                   = 170
+    destination_address_prefix = "VirtualNetwork"
+    destination_port_range     = "6381-6385"
+    direction                  = "Inbound"
+    name                       = "Dependency_on_Redis_Cache"
+    priority                   = 130
     protocol                   = "Tcp"
     source_address_prefix      = "VirtualNetwork"
     source_port_range          = "*"
@@ -224,32 +261,280 @@ resource "azurerm_network_security_group" "nsg_apim" {
 
   security_rule {
     access                     = "Allow"
-    description                = "CCV2API Internal APIM Configuration"
-    destination_address_prefix = "13.95.194.43"
-    destination_port_ranges    = ["80", "443"]
-    direction                  = "Outbound"
-    name                       = "AllowCCv2Outbound"
-    priority                   = 240
+    destination_address_prefix = "VirtualNetwork"
+    destination_port_range     = "443"
+    direction                  = "Inbound"
+    name                       = "AllowTagForTrafficManagerRouting"
+    priority                   = 320
     protocol                   = "Tcp"
-    source_address_prefix      = "VirtualNetwork"
+    source_address_prefix      = "AzureTrafficManager"
     source_port_range          = "*"
   }
 
   security_rule {
     access                     = "Allow"
-    destination_address_prefix = "194.246.1.65"
-    destination_port_ranges    = ["80", "443"]
+    destination_address_prefix = "VirtualNetwork"
+    destination_port_range     = "6381-6395"
     direction                  = "Outbound"
-    name                       = "AllowWgateExternal"
-    priority                   = 230
+    name                       = "Dependency_on_Redis_Cache_outbound"
+    priority                   = 160
     protocol                   = "Tcp"
     source_address_prefix      = "VirtualNetwork"
     source_port_range          = "*"
-  }
-  lifecycle {
-    ignore_changes = [security_rule]
   }
 }
+# resource "azurerm_network_security_group" "nsg_apim" {
+#   location            = var.eu_vars.resource_group.resource_group_location
+#   resource_group_name = var.eu_vars.resource_group.resource_group_name
+#   name                = "nsg-apim-gl-nonprod"
+#   security_rule {
+#     access                     = "Allow"
+#     destination_address_prefix = "VirtualNetwork"
+#     destination_port_range     = "*"
+#     direction                  = "Inbound"
+#     name                       = "Azure_Infrastructure_Load_Balancer"
+#     priority                   = 180
+#     protocol                   = "Tcp"
+#     source_address_prefix      = "AzureLoadBalancer"
+#     source_port_range          = "*"
+#   }
+
+#   security_rule {
+#     access                     = "Allow"
+#     destination_address_prefix = "VirtualNetwork"
+#     destination_port_range     = "3443"
+#     direction                  = "Inbound"
+#     name                       = "Manegement_Endpoint"
+#     priority                   = 105
+#     protocol                   = "Tcp"
+#     source_address_prefix      = "VirtualNetwork"
+#     source_port_range          = "*"
+#   }
+
+#   security_rule {
+#     access                     = "Allow"
+#     destination_address_prefix = "VirtualNetwork"
+#     destination_port_range     = "6381-6383"
+#     direction                  = "Outbound"
+#     name                       = "Dependency_on_Redis_Cache_outbound"
+#     priority                   = 160
+#     protocol                   = "Tcp"
+#     source_address_prefix      = "VirtualNetwork"
+#     source_port_range          = "*"
+#   }
+
+#   security_rule {
+#     access                     = "Allow"
+#     description                = "APIM Logs and Metrics for consumption by admins and your IT team are all part of the management plane"
+#     destination_address_prefix = "AzureMonitor"
+#     destination_port_ranges    = ["1886", "443", "12000"]
+#     direction                  = "Outbound"
+#     name                       = "Publish_DiagnosticLogs_And_Metrics"
+#     priority                   = 185
+#     protocol                   = "Tcp"
+#     source_address_prefix      = "VirtualNetwork"
+#     source_port_range          = "*"
+#   }
+
+#   security_rule {
+#     access                     = "Allow"
+#     destination_address_prefix = "VirtualNetwork"
+#     destination_port_range     = "6381-6383"
+#     direction                  = "Inbound"
+#     name                       = "Dependency_on_Redis_Cache"
+#     priority                   = 130
+#     protocol                   = "Tcp"
+#     source_address_prefix      = "VirtualNetwork"
+#     source_port_range          = "*"
+#   }
+
+#   security_rule {
+#     access                     = "Allow"
+#     destination_address_prefix = "EventHub"
+#     destination_port_range     = "5671"
+#     direction                  = "Outbound"
+#     name                       = "Dependency_for_Log_to_event_Hub_policy"
+#     priority                   = 150
+#     protocol                   = "*"
+#     source_address_prefix      = "VirtualNetwork"
+#     source_port_range          = "*"
+#   }
+
+#   security_rule {
+#     access                     = "Deny"
+#     destination_address_prefix = "Internet"
+#     destination_port_range     = "*"
+#     direction                  = "Outbound"
+#     name                       = "Deny_All_Internet_Outbound"
+#     priority                   = 999
+#     protocol                   = "*"
+#     source_address_prefix      = "VirtualNetwork"
+#     source_port_range          = "*"
+#   }
+
+#   security_rule {
+#     access                     = "Allow"
+#     destination_address_prefix = "VirtualNetwork"
+#     destination_port_range     = "443"
+#     direction                  = "Inbound"
+#     name                       = "Secure_Client_communication_to_API_Management"
+#     priority                   = 110
+#     protocol                   = "Tcp"
+#     source_address_prefix      = "VirtualNetwork"
+#     source_port_range          = "*"
+#   }
+
+#   security_rule {
+#     access                     = "Allow"
+#     destination_address_prefix = "*"
+#     destination_port_range     = "53"
+#     direction                  = "Outbound"
+#     name                       = "Allow_DNS_Communication"
+#     priority                   = 105
+#     protocol                   = "*"
+#     source_address_prefix      = "VirtualNetwork"
+#     source_port_range          = "*"
+#   }
+
+#   security_rule {
+#     access                     = "Allow"
+#     destination_address_prefix = "Internet"
+#     destination_port_range     = "*"
+#     direction                  = "Outbound"
+#     name                       = "Allow_Internet_Outbound"
+#     priority                   = 110
+#     protocol                   = "Tcp"
+#     source_address_prefix      = "VirtualNetwork"
+#     source_port_range          = "*"
+#   }
+
+#   security_rule {
+#     access                     = "Allow"
+#     destination_address_prefix = "Sql"
+#     destination_port_range     = "1433"
+#     direction                  = "Outbound"
+#     name                       = "Dependency_on_Azure_SQL"
+#     priority                   = 140
+#     protocol                   = "Tcp"
+#     source_address_prefix      = "VirtualNetwork"
+#     source_port_range          = "*"
+#   }
+
+#   security_rule {
+#     access                     = "Allow"
+#     destination_address_prefix = "VirtualNetwork"
+#     destination_port_range     = "80"
+#     direction                  = "Inbound"
+#     name                       = "Client_communication_to_API_Management"
+#     priority                   = 100
+#     protocol                   = "Tcp"
+#     source_address_prefix      = "VirtualNetwork"
+#     source_port_range          = "*"
+#   }
+
+#   security_rule {
+#     access                     = "Allow"
+#     description                = "Connect to Azure Active Directory for Developer Portal Authentication or for Oauth2 flow during any Proxy Authentication"
+#     destination_address_prefix = "AzureActiveDirectory"
+#     destination_port_ranges    = ["80", "443"]
+#     direction                  = "Outbound"
+#     name                       = "Authenticate_To_Azure_Active_Directory"
+#     priority                   = 200
+#     protocol                   = "Tcp"
+#     source_address_prefix      = "VirtualNetwork"
+#     source_port_range          = "*"
+#   }
+
+#   security_rule {
+#     access                     = "Allow"
+#     destination_address_prefix = "AzureCloud"
+#     destination_port_range     = "443"
+#     direction                  = "Outbound"
+#     name                       = "Publish_Monitoring_Logs"
+#     priority                   = 300
+#     protocol                   = "Tcp"
+#     source_address_prefix      = "VirtualNetwork"
+#     source_port_range          = "*"
+#   }
+
+#   security_rule {
+#     access                     = "Allow"
+#     description                = "APIM service dependency on Azure Blob and Azure Table Storage"
+#     destination_address_prefix = "Storage"
+#     destination_port_ranges    = ["80", "443"]
+#     direction                  = "Outbound"
+#     name                       = "Dependency_on_Azure_Storage"
+#     priority                   = 100
+#     protocol                   = "Tcp"
+#     source_address_prefix      = "VirtualNetwork"
+#     source_port_range          = "*"
+#   }
+
+#   security_rule {
+#     access                     = "Allow"
+#     destination_address_prefix = "VirtualNetwork"
+#     destination_port_range     = "3443"
+#     direction                  = "Inbound"
+#     name                       = "Management_endpoint_for_Azure_portal_and_Powershell"
+#     priority                   = 120
+#     protocol                   = "Tcp"
+#     source_address_prefix      = "ApiManagement"
+#     source_port_range          = "*"
+#   }
+
+#   security_rule {
+#     access                     = "Allow"
+#     description                = "APIM features the ability to generate email traffic as part of the data plane and the management plane"
+#     destination_address_prefix = "Internet"
+#     destination_port_ranges    = ["587", "25", "25028"]
+#     direction                  = "Outbound"
+#     name                       = "Connect_To_SMTP_Relay_For_SendingEmails"
+#     priority                   = 190
+#     protocol                   = "Tcp"
+#     source_address_prefix      = "VirtualNetwork"
+#     source_port_range          = "*"
+#   }
+
+#   security_rule {
+#     access                     = "Allow"
+#     destination_address_prefix = "Storage"
+#     destination_port_range     = "445"
+#     direction                  = "Outbound"
+#     name                       = "Dependency_on_Azure_File_Share_for_GIT"
+#     priority                   = 170
+#     protocol                   = "Tcp"
+#     source_address_prefix      = "VirtualNetwork"
+#     source_port_range          = "*"
+#   }
+
+#   security_rule {
+#     access                     = "Allow"
+#     description                = "CCV2API Internal APIM Configuration"
+#     destination_address_prefix = "13.95.194.43"
+#     destination_port_ranges    = ["80", "443"]
+#     direction                  = "Outbound"
+#     name                       = "AllowCCv2Outbound"
+#     priority                   = 240
+#     protocol                   = "Tcp"
+#     source_address_prefix      = "VirtualNetwork"
+#     source_port_range          = "*"
+#   }
+
+#   security_rule {
+#     access                     = "Allow"
+#     destination_address_prefix = "194.246.1.65"
+#     destination_port_ranges    = ["80", "443"]
+#     direction                  = "Outbound"
+#     name                       = "AllowWgateExternal"
+#     priority                   = 230
+#     protocol                   = "Tcp"
+#     source_address_prefix      = "VirtualNetwork"
+#     source_port_range          = "*"
+#   }
+#   lifecycle {
+#     ignore_changes = [security_rule]
+#   }
+# }
 
 resource "azurerm_network_security_group" "nsg_apim_mgmt" {
   location            = var.eu_vars.resource_group.resource_group_location
