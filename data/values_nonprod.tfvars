@@ -10,13 +10,6 @@ eu_vars = {
     resource_group_location = "West Europe"
     resource_group_name     = "RG-GL-ELX-EU-NonProd"
   }
-  virtual_network = {
-    virtual_network_name = "VN-GL-ELX-EU-NonProd"
-    vnet_address_space   = ["10.216.0.0/16"]
-    subnet_address_space = ["10.216.3.0/24", "10.216.2.192/27", "10.216.2.0/25", "10.216.4.0/25"]
-    service_endpoints    = ["Microsoft.Sql", "Microsoft.KeyVault"]
-    subnet_name          = ["Subnet-APIM", "Subnet-GW", "Subnet-AKS", "Subnet-fe"]
-  }
   app_gateway = {
     appgw_pip_name       = "AAG-GL-ELX-EU-NonProd-PIP"
     appgw_pip_allocation = "Static"
@@ -138,13 +131,6 @@ us_vars = {
     resource_group_location = "East US"
     resource_group_name     = "RG-GL-ELX-US-NonProd"
   }
-  virtual_network = {
-    virtual_network_name = "VN-GL-ELX-US-NonProd"
-    vnet_address_space   = ["10.217.0.0/16"]
-    subnet_address_space = ["10.217.3.0/24", "10.217.2.192/27", "10.217.2.0/25", "10.217.4.0/25"]
-    service_endpoints    = ["Microsoft.Sql", "Microsoft.KeyVault"]
-    subnet_name          = ["Subnet-APIM", "Subnet-GW", "Subnet-AKS", "Subnet-fe"]
-  }
   # app_gateway = {
   #   appgw_pip_name       = "AAG-GL-ELX-US-NonProd-PIP"
   #   appgw_pip_allocation = "Static"
@@ -155,13 +141,13 @@ us_vars = {
   #   appgw_ip_config_name = "AppGw-GL-ELX-US-IP-Config"
   #   subnet_id           = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/AppGW-SBT-01"
   #   user_managed_identity = "id-appgw-gl-us"
-  #   apim_address_pool     = ["10.217.3.6"]
+  #   apim_address_pool     = ["10.216.118.6"]
   # }
   # dns_records = [
   #   {
   #     name    = "api"
   #     ttl     = 60
-  #     records = ["10.217.3.6"]
+  #     records = ["10.216.118.6"]
   #   },
   #   {
   #     name    = "origin-api"
@@ -171,7 +157,7 @@ us_vars = {
   #   {
   #     name    = "portal"
   #     ttl     = 60
-  #     records = ["10.217.3.6"]
+  #     records = ["10.216.118.6"]
   #   },
   #   {
   #     name    = "origin-portal"
@@ -181,7 +167,7 @@ us_vars = {
   #   {
   #     name    = "management"
   #     ttl     = 60
-  #     records = ["10.217.3.6"]
+  #     records = ["10.216.118.6"]
   #   },
   #   {
   #     name    = "origin-management"
@@ -191,7 +177,7 @@ us_vars = {
   #   {
   #     name    = "scm"
   #     ttl     = 60
-  #     records = ["10.217.3.6"]
+  #     records = ["10.216.118.6"]
   #   },
   #   {
   #     name    = "origin-scm"
@@ -209,6 +195,35 @@ us_vars = {
     created_by_tag   = "PETeam(PanchChi)"
   }
 }
+
+#---------------------------------------------------APAC Vars group-------------------------------------------------------------------
+apac_vars = {
+  resource_group = {
+    resource_group_location = "Southeast Asia"
+    resource_group_name     = "RG-GL-ELX-APAC-NonProd"
+  }
+  # app_gateway = {
+  #   appgw_pip_name       = "AAG-GL-ELX-APAC-NonProd-PIP"
+  #   appgw_pip_allocation = "Static"
+  #   appgw_name           = "AppGw-GL-ELX-APAC-NonProd"
+  #   appgw_sku_name       = "WAF_v2"
+  #   appgw_sku_tier       = "WAF_v2"
+  #   appgw_sku_capacity   = 2
+  #   appgw_ip_config_name = "AppGw-GL-ELX-US-IP-Config"
+  #   subnet_id           = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-APAC-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-APAC-Concent-NonProd-Spoke-001/subnets/AppGW-SBT-01"
+  #   user_managed_identity = "id-appgw-gl-apac"
+  #   apim_address_pool     = [""]
+  # }
+  tags = {
+    env_tag          = "NonProd"
+    owner_tag        = "Arun Nalliannan"
+    account_tag      = "623065"
+    billingid_tag    = "Global"
+    costcenterit_tag = "10350645"
+    sector_tag       = "Southeast Asia"
+    created_by_tag   = "PETeam(PanchChi)"
+  }
+}
 #---------------------------------------------------US Vars group-------------------------------------------------------------------
 
 aks_vars = {
@@ -218,6 +233,7 @@ aks_vars = {
     la_solution_name    = "ContainerInsights"
     cluster_name1       = "AKS-Global-EU-NonProd"
     cluster_name2       = "AKS-Global-US-NonProd"
+    #cluster_name3       = "AKS-Global-APAC-NonProd"
     kubernetes_version  = "1.26.6"
     pod_security_policy = false
     node_count          = 2
@@ -235,10 +251,11 @@ aks_vars = {
     }
     node_resource_group_name_eu = "RG-GL-ELX-EU-AKS-Node-Cluster-NonProd"
     node_resource_group_name_us = "RG-GL-ELX-US-AKS-Node-Cluster-NonProd"
+    #node_resource_group_name_apac = "RG-GL-ELX-APAC-AKS-Node-Cluster-NonProd"
     # Network profile
     aks_subnet_id_eu = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-001/subnets/AKS-SBT-01"
     aks_subnet_id_us = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/AKS-SBT-01"
-
+    #aks_subnet_id_apac = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-APAC-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-APAC-Concent-NonProd-Spoke-001/subnets/AKS-SBT-01"
     network_plugin     = "azure"
     network_policy     = "azure"
     pod_cidr           = "10.0.16.0/20"
