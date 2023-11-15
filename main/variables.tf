@@ -13,24 +13,26 @@ variable "eu_vars" {
       resource_group_name     = string
     })
     app_gateway = object({
-      appgw_pip_name        = string
-      appgw_pip_allocation  = string
-      appgw_name            = string
-      appgw_sku_name        = string
-      appgw_sku_tier        = string
-      appgw_sku_capacity    = number
-      appgw_ip_config_name  = string
-      subnet_id             = string
-      ssl_certificate_name  = string
-      key_vault_secret_id   = string
-      api_hostname          = string
-      mgmt_hostname         = string
-      portal_hostname       = string
-      origin_mgmt_hostname  = string
-      origin_scm_hostname   = string
-      scm_hostname          = string
-      apim_address_pool     = list(string)
-      user_managed_identity = string
+      appgw_pip_name         = string
+      appgw_pip_allocation   = string
+      appgw_name             = string
+      appgw_sku_name         = string
+      appgw_sku_tier         = string
+      appgw_sku_capacity     = number
+      appgw_ip_config_name   = string
+      subnet_id              = string
+      ssl_certificate_name   = string
+      key_vault_secret_id    = string
+      api_hostname           = string
+      origin_api_hostname    = string
+      mgmt_hostname          = string
+      portal_hostname        = string
+      origin_portal_hostname = string
+      origin_mgmt_hostname   = string
+      origin_scm_hostname    = string
+      scm_hostname           = string
+      apim_address_pool      = list(string)
+      user_managed_identity  = string
     })
     # traffic_manager = object({
     #   traffic_manager_name         = string
@@ -156,11 +158,11 @@ variable "apac_vars" {
 variable "aks_vars" {
   type = object({
     azure_k8s_service = object({
-      log_analytics_name          = string
-      la_sku                      = string
-      la_solution_name            = string
-      cluster_name1               = string
-      cluster_name2               = string
+      log_analytics_name = string
+      la_sku             = string
+      la_solution_name   = string
+      cluster_name1      = string
+      cluster_name2      = string
       #cluster_name3               = string
       kubernetes_version          = string
       pod_security_policy         = bool
@@ -177,8 +179,8 @@ variable "aks_vars" {
       node_resource_group_name_us = string
       #node_resource_group_name_apac = string
       #network profile
-      aks_subnet_id_eu   = string
-      aks_subnet_id_us   = string
+      aks_subnet_id_eu = string
+      aks_subnet_id_us = string
       #aks_subnet_id_apac   = string
       network_plugin     = string
       network_policy     = string

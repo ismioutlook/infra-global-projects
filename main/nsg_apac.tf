@@ -282,7 +282,7 @@ resource "azurerm_network_security_group" "nsg_apac_apim" {
     source_address_prefix      = "VirtualNetwork"
     source_port_range          = "*"
   }
-  depends_on = [ module.apac_gl_rg ]
+  depends_on = [module.apac_gl_rg]
   lifecycle {
     ignore_changes = [security_rule]
   }
@@ -437,7 +437,7 @@ resource "azurerm_network_security_group" "nsg_apac_apim_mgmt" {
     source_port_range          = "*"
   }
 
-  depends_on = [ module.apac_gl_rg ]
+  depends_on = [module.apac_gl_rg]
   lifecycle {
     ignore_changes = [security_rule]
   }
@@ -543,7 +543,7 @@ resource "azurerm_network_security_group" "nsg_apac_apim_gw" {
     source_address_prefixes    = ["194.246.0.0/19", "62.252.197.0/24", "217.169.51.0/24", "204.17.245.4"]
     source_port_range          = "*"
   }
-  depends_on = [ module.apac_gl_rg ]
+  depends_on = [module.apac_gl_rg]
   lifecycle {
     ignore_changes = [security_rule]
   }
