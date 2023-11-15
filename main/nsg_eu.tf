@@ -282,6 +282,9 @@ resource "azurerm_network_security_group" "nsg_apim" {
     source_address_prefix      = "VirtualNetwork"
     source_port_range          = "*"
   }
+  lifecycle {
+    ignore_changes = [security_rule]
+  }
 }
 # resource "azurerm_network_security_group" "nsg_apim" {
 #   location            = var.eu_vars.resource_group.resource_group_location
