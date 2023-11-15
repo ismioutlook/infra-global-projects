@@ -12,13 +12,6 @@ variable "eu_vars" {
       resource_group_location = string
       resource_group_name     = string
     })
-    virtual_network = object({
-      virtual_network_name = string
-      vnet_address_space   = list(string)
-      subnet_address_space = list(string)
-      service_endpoints    = list(string)
-      subnet_name          = list(string)
-    })
     app_gateway = object({
       appgw_pip_name        = string
       appgw_pip_allocation  = string
@@ -95,12 +88,40 @@ variable "us_vars" {
       resource_group_location = string
       resource_group_name     = string
     })
-    virtual_network = object({
-      virtual_network_name = string
-      vnet_address_space   = list(string)
-      subnet_address_space = list(string)
-      service_endpoints    = list(string)
-      subnet_name          = list(string)
+    # app_gateway = object({
+    #   appgw_pip_name       = string
+    #   appgw_pip_allocation = string
+    #   appgw_name           = string
+    #   appgw_sku_name       = string
+    #   appgw_sku_tier       = string
+    #   appgw_sku_capacity   = number
+    #   appgw_ip_config_name = string
+    #   subnet_id            = string
+    #   user_managed_identity = string
+    #   apim_address_pool     = list(string)
+    # })
+    # dns_records = list(object({
+    #   name    = string
+    #   ttl     = number
+    #   records = list(string)
+    # }))
+    tags = object({
+      env_tag          = string
+      owner_tag        = string
+      account_tag      = string
+      billingid_tag    = string
+      costcenterit_tag = string
+      sector_tag       = string
+      created_by_tag   = string
+    })
+  })
+}
+
+variable "apac_vars" {
+  type = object({
+    resource_group = object({
+      resource_group_location = string
+      resource_group_name     = string
     })
     # app_gateway = object({
     #   appgw_pip_name       = string
@@ -139,6 +160,7 @@ variable "aks_vars" {
       la_solution_name            = string
       cluster_name1               = string
       cluster_name2               = string
+      #cluster_name3               = string
       kubernetes_version          = string
       pod_security_policy         = bool
       node_count                  = number
@@ -152,9 +174,11 @@ variable "aks_vars" {
       node_labels                 = map(any)
       node_resource_group_name_eu = string
       node_resource_group_name_us = string
+      #node_resource_group_name_apac = string
       #network profile
       aks_subnet_id_eu   = string
       aks_subnet_id_us   = string
+      #aks_subnet_id_apac   = string
       network_plugin     = string
       network_policy     = string
       pod_cidr           = string
