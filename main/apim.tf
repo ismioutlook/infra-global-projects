@@ -16,7 +16,7 @@ module "apim-multi-location" {
   developer_portal_hostname = var.eu_vars.api_management.developer_portal_hostname
   management_hostname       = var.eu_vars.api_management.management_hostname
   scm_hostname              = var.eu_vars.api_management.scm_hostname
-  key_vault_secret_id       = var.eu_vars.app_gateway.key_vault_secret_id
+  key_vault_secret_id       = var.eu_vars.api_management.key_vault_secret_id
   #Tags    
   env_tag          = var.eu_vars.tags.env_tag
   owner_tag        = var.eu_vars.tags.owner_tag
