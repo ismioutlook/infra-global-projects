@@ -23,7 +23,7 @@ variable "eu_vars" {
       subnet_id                   = string
       ssl_certificate_name        = string
       key_vault_secret_id         = string
-      trusted_root_certificate_id = string
+      #trusted_root_certificate_id = string
       api_hostname                = string
       origin_api_hostname         = string
       mgmt_hostname               = string

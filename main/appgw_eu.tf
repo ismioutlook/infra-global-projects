@@ -13,7 +13,7 @@ module "eu_gl_appgw" {
   subnet_frontend_id          = var.eu_vars.app_gateway.subnet_id
   ssl_certificate_name        = var.eu_vars.app_gateway.ssl_certificate_name
   key_vault_secret_id         = var.eu_vars.app_gateway.key_vault_secret_id
-  trusted_root_certificate_id = var.eu_vars.app_gateway.trusted_root_certificate_id
+  #trusted_root_certificate_id = var.eu_vars.app_gateway.trusted_root_certificate_id
   # hostname                = var.eu_vars.app_gateway.hostname
   api_hostname           = var.eu_vars.app_gateway.api_hostname
   origin_api_hostname    = var.eu_vars.app_gateway.origin_api_hostname
