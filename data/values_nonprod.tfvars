@@ -10,6 +10,10 @@ eu_vars = {
     resource_group_location = "West Europe"
     resource_group_name     = "RG-GL-ELX-EU-NonProd"
   }
+  # application_insights = {
+  #   app_insights_name = "AI-GL-ELX-EU-NonProd-01"
+  #   app_insights_type = "web"
+  # }
   app_gateway = {
     appgw_pip_name              = "AAG-GL-ELX-EU-NonProd-PIP"
     appgw_pip_allocation        = "Static"
@@ -240,7 +244,7 @@ aks_vars = {
     kubernetes_version  = "1.26.6"
     pod_security_policy = false
     node_count          = 2
-    node_vm_size        = "Standard_D2s_v3"
+    node_vm_size        = "Standard_DS4_v2"  #"Standard_D4s_v3"
     os_disk_size_gb     = 80
     enable_auto_scaling = true
     node_min_count      = 1
@@ -265,5 +269,13 @@ aks_vars = {
     service_cidr       = "10.0.32.0/20"
     dns_service_ip     = "10.0.32.10"
     docker_bridge_cidr = "172.0.0.1/8"
+    #User Node Pool
+    user_os_disk_size_gb = 120 
+    user_node_vm_size = "Standard_D4s_v3"
+    user_node_count = 1
+    user_enable_auto_scaling = true
+    user_node_min_count = 1
+    user_node_max_count = 2
+    user_node_max_pods = 60
   }
 }

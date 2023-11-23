@@ -12,6 +12,10 @@ variable "eu_vars" {
       resource_group_location = string
       resource_group_name     = string
     })
+    # application_insights = object ({
+    #   app_insights_name = string
+    #   app_insights_type = string
+    # })
     app_gateway = object({
       appgw_pip_name              = string
       appgw_pip_allocation        = string
@@ -199,6 +203,16 @@ variable "aks_vars" {
       service_cidr       = string
       dns_service_ip     = string
       docker_bridge_cidr = string
+      #User nodepool
+      user_os_disk_size_gb = number 
+      user_node_vm_size = string
+      user_node_count = number
+      user_enable_auto_scaling = bool
+      user_node_min_count = number
+      user_node_max_count = number
+      user_node_max_pods = number
+      # user_node_taints = list(string)
+      # user_node_labels = map(any)
     })
   })
 }
