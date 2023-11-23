@@ -240,6 +240,7 @@ aks_vars = {
     la_solution_name   = "ContainerInsights"
     cluster_name1      = "AKS-Global-EU-NonProd"
     cluster_name2      = "AKS-Global-US-NonProd"
+    sku_tier = "Standard"
     #cluster_name3       = "AKS-Global-APAC-NonProd"
     kubernetes_version  = "1.26.6"
     pod_security_policy = false

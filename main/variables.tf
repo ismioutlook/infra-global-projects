@@ -178,6 +178,7 @@ variable "aks_vars" {
       la_solution_name   = string
       cluster_name1      = string
       cluster_name2      = string
+      sku_tier = string
       #cluster_name3               = string
       kubernetes_version          = string
       pod_security_policy         = bool

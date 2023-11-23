@@ -8,6 +8,7 @@ module "eu_gl_aks" {
   cluster_name            = var.aks_vars.azure_k8s_service.cluster_name1
   kubernetes_version      = var.aks_vars.azure_k8s_service.kubernetes_version
   pod_security_policy     = var.aks_vars.azure_k8s_service.pod_security_policy
+  sku_tier = var.aks_vars.azure_k8s_service.sku_tier
   # Default node pool
   node_count               = var.aks_vars.azure_k8s_service.node_count
   node_vm_size             = var.aks_vars.azure_k8s_service.node_vm_size
