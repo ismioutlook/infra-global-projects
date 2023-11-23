@@ -8,7 +8,7 @@ module "eu_gl_aks" {
   cluster_name            = var.aks_vars.azure_k8s_service.cluster_name1
   kubernetes_version      = var.aks_vars.azure_k8s_service.kubernetes_version
   pod_security_policy     = var.aks_vars.azure_k8s_service.pod_security_policy
-  sku_tier = var.aks_vars.azure_k8s_service.sku_tier
+  sku_tier                = var.aks_vars.azure_k8s_service.sku_tier
   # Default node pool
   node_count               = var.aks_vars.azure_k8s_service.node_count
   node_vm_size             = var.aks_vars.azure_k8s_service.node_vm_size
@@ -42,15 +42,15 @@ module "eu_gl_aks" {
   scale_down_utilization_threshold = var.scale_down_utilization_threshold
   depends_on                       = [module.eu_gl_rg]
 
-# user Node pool
+  # user Node pool
 
-  user_os_disk_size_gb = var.aks_vars.azure_k8s_service.user_os_disk_size_gb
-  user_node_vm_size = var.aks_vars.azure_k8s_service.user_node_vm_size
-  user_node_count = var.aks_vars.azure_k8s_service.user_node_count
+  user_os_disk_size_gb     = var.aks_vars.azure_k8s_service.user_os_disk_size_gb
+  user_node_vm_size        = var.aks_vars.azure_k8s_service.user_node_vm_size
+  user_node_count          = var.aks_vars.azure_k8s_service.user_node_count
   user_enable_auto_scaling = var.aks_vars.azure_k8s_service.user_enable_auto_scaling
-  user_node_min_count = var.aks_vars.azure_k8s_service.user_node_min_count
-  user_node_max_count = var.aks_vars.azure_k8s_service.user_node_max_count
-  user_node_max_pods = var.aks_vars.azure_k8s_service.user_node_max_pods
+  user_node_min_count      = var.aks_vars.azure_k8s_service.user_node_min_count
+  user_node_max_count      = var.aks_vars.azure_k8s_service.user_node_max_count
+  user_node_max_pods       = var.aks_vars.azure_k8s_service.user_node_max_pods
   # Tags
   owner_tag        = var.eu_vars.tags.owner_tag
   account_tag      = var.eu_vars.tags.account_tag

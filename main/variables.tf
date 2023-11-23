@@ -17,27 +17,27 @@ variable "eu_vars" {
     #   app_insights_type = string
     # })
     app_gateway = object({
-      appgw_pip_name              = string
-      appgw_pip_allocation        = string
-      appgw_name                  = string
-      appgw_sku_name              = string
-      appgw_sku_tier              = string
-      appgw_sku_capacity          = number
-      appgw_ip_config_name        = string
-      subnet_id                   = string
-      ssl_certificate_name        = string
-      key_vault_secret_id         = string
+      appgw_pip_name       = string
+      appgw_pip_allocation = string
+      appgw_name           = string
+      appgw_sku_name       = string
+      appgw_sku_tier       = string
+      appgw_sku_capacity   = number
+      appgw_ip_config_name = string
+      subnet_id            = string
+      ssl_certificate_name = string
+      key_vault_secret_id  = string
       #trusted_root_certificate_id = string
-      api_hostname                = string
-      origin_api_hostname         = string
-      mgmt_hostname               = string
-      portal_hostname             = string
-      origin_portal_hostname      = string
-      origin_mgmt_hostname        = string
-      origin_scm_hostname         = string
-      scm_hostname                = string
-      apim_address_pool           = list(string)
-      user_managed_identity       = string
+      api_hostname           = string
+      origin_api_hostname    = string
+      mgmt_hostname          = string
+      portal_hostname        = string
+      origin_portal_hostname = string
+      origin_mgmt_hostname   = string
+      origin_scm_hostname    = string
+      scm_hostname           = string
+      apim_address_pool      = list(string)
+      user_managed_identity  = string
     })
     # traffic_manager = object({
     #   traffic_manager_name         = string
@@ -178,7 +178,7 @@ variable "aks_vars" {
       la_solution_name   = string
       cluster_name1      = string
       cluster_name2      = string
-      sku_tier = string
+      sku_tier           = string
       #cluster_name3               = string
       kubernetes_version          = string
       pod_security_policy         = bool
@@ -205,13 +205,13 @@ variable "aks_vars" {
       dns_service_ip     = string
       docker_bridge_cidr = string
       #User nodepool
-      user_os_disk_size_gb = number 
-      user_node_vm_size = string
-      user_node_count = number
+      user_os_disk_size_gb     = number
+      user_node_vm_size        = string
+      user_node_count          = number
       user_enable_auto_scaling = bool
-      user_node_min_count = number
-      user_node_max_count = number
-      user_node_max_pods = number
+      user_node_min_count      = number
+      user_node_max_count      = number
+      user_node_max_pods       = number
       # user_node_taints = list(string)
       # user_node_labels = map(any)
     })
