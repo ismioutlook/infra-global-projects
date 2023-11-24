@@ -278,5 +278,9 @@ aks_vars = {
     user_node_min_count      = 1
     user_node_max_count      = 2
     user_node_max_pods       = 60
+    user_node_taints         = ["CriticalAddonsOnly=true:NoSchedule"]
+    user_node_labels = {
+      "mode" = "user"
+    }
   }
 }

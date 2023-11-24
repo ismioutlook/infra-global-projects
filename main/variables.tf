@@ -212,8 +212,8 @@ variable "aks_vars" {
       user_node_min_count      = number
       user_node_max_count      = number
       user_node_max_pods       = number
-      # user_node_taints = list(string)
-      # user_node_labels = map(any)
+      user_node_taints         = list(string)
+      user_node_labels         = map(any)
     })
   })
 }

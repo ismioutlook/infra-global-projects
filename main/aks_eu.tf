@@ -51,6 +51,8 @@ module "eu_gl_aks" {
   user_node_min_count      = var.aks_vars.azure_k8s_service.user_node_min_count
   user_node_max_count      = var.aks_vars.azure_k8s_service.user_node_max_count
   user_node_max_pods       = var.aks_vars.azure_k8s_service.user_node_max_pods
+  user_node_taints         = var.aks_vars.azure_k8s_service.user_node_taints
+  user_node_labels         = var.aks_vars.azure_k8s_service.user_node_labels
   # Tags
   owner_tag        = var.eu_vars.tags.owner_tag
   account_tag      = var.eu_vars.tags.account_tag
