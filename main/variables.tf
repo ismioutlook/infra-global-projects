@@ -200,6 +200,8 @@ variable "aks_vars" {
       #aks_subnet_id_apac   = string
       network_plugin     = string
       network_policy     = string
+      kubenet_network_plugin     = string
+      kubenet_network_policy     = string
       pod_cidr           = string
       service_cidr       = string
       dns_service_ip     = string
