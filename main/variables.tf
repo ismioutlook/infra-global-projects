@@ -179,7 +179,7 @@ variable "aks_vars" {
       cluster_name1      = string
       cluster_name2      = string
       sku_tier           = string
-      #cluster_name3               = string
+      cluster_name3               = string
       kubernetes_version          = string
       pod_security_policy         = bool
       node_count                  = number
@@ -193,15 +193,15 @@ variable "aks_vars" {
       node_labels                 = map(any)
       node_resource_group_name_eu = string
       node_resource_group_name_us = string
-      #node_resource_group_name_apac = string
+      node_resource_group_name_apac = string
       #network profile
       aks_subnet_id_eu = string
       aks_subnet_id_us = string
-      #aks_subnet_id_apac   = string
+      aks_subnet_id_apac   = string
       network_plugin     = string
       network_policy     = string
-      kubenet_network_plugin     = string
-      kubenet_network_policy     = string
+      # kubenet_network_plugin     = string
+      # kubenet_network_policy     = string
       pod_cidr           = string
       service_cidr       = string
       dns_service_ip     = string
