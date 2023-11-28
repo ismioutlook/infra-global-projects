@@ -1,5 +1,5 @@
 module "apac_gl_appgw" {
-  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-AppGw//module?ref=v0.0.16"
+  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-AppGw//module?ref=v0.0.17"
   tenant_id               = var.subscription.nonprod.tenant_id
   subscription_id         = var.subscription.nonprod.subscription_id
   resource_group_name     = var.apac_vars.resource_group.resource_group_name
