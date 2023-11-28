@@ -209,18 +209,24 @@ apac_vars = {
     resource_group_location = "Southeast Asia"
     resource_group_name     = "RG-GL-ELX-APAC-NonProd"
   }
-  # app_gateway = {
-  #   appgw_pip_name       = "AAG-GL-ELX-APAC-NonProd-PIP"
-  #   appgw_pip_allocation = "Static"
-  #   appgw_name           = "AppGw-GL-ELX-APAC-NonProd"
-  #   appgw_sku_name       = "WAF_v2"
-  #   appgw_sku_tier       = "WAF_v2"
-  #   appgw_sku_capacity   = 2
-  #   appgw_ip_config_name = "AppGw-GL-ELX-US-IP-Config"
-  #   subnet_id           = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-APAC-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-APAC-Concent-NonProd-Spoke-001/subnets/AppGW-SBT-01"
-  #   user_managed_identity = "id-appgw-gl-apac"
-  #   apim_address_pool     = [""]
-  # }
+  app_gateway = {
+    appgw_pip_name        = "AAG-GL-ELX-APAC-NonProd-PIP"
+    appgw_pip_allocation  = "Static"
+    appgw_name            = "AppGw-GL-ELX-APAC-NonProd"
+    appgw_sku_name        = "WAF_v2"
+    appgw_sku_tier        = "WAF_v2"
+    appgw_sku_capacity    = 2
+    appgw_ip_config_name  = "AppGw-GL-ELX-APAC-IP-Config"
+    subnet_id             = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-APAC-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-APAC-Concent-NonProd-Spoke-001/subnets/AppGW-SBT-01"
+    ssl_certificate_name  = "san-external-electrolux-com"
+    key_vault_secret_id   = "https://elxkv-cert-nonprod-gl-01.vault.azure.net/secrets/san-external-electrolux-com"
+    api_hostname          = "api-apac-nonprod.int.electrolux.com"
+    mgmt_hostname         = "mss-apac-nonprod.int.electrolux.com"
+    origin_api_hostname   = "origin-api-apac-nonprod.electrolux.com"
+    origin_mgmt_hostname  = "origin-mss-apac-nonprod.electrolux.com"
+    apim_address_pool     = ["10.216.118.6"]
+    user_managed_identity = "id-appgw-gl-apac"
+  }
   tags = {
     env_tag          = "NonProd"
     owner_tag        = "Arun Nalliannan"
