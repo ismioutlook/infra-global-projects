@@ -6,6 +6,7 @@ variable "subscription" {
     })
   })
 }
+
 variable "eu_vars" {
   type = object({
     resource_group = object({
@@ -16,70 +17,55 @@ variable "eu_vars" {
     #   app_insights_name = string
     #   app_insights_type = string
     # })
-    app_gateway = object({
-      appgw_pip_name       = string
-      appgw_pip_allocation = string
-      appgw_name           = string
-      appgw_sku_name       = string
-      appgw_sku_tier       = string
-      appgw_sku_capacity   = number
-      appgw_ip_config_name = string
-      subnet_id            = string
-      ssl_certificate_name = string
-      key_vault_secret_id  = string
-      #trusted_root_certificate_id = string
-      api_hostname           = string
-      origin_api_hostname    = string
-      mgmt_hostname          = string
-      portal_hostname        = string
-      origin_portal_hostname = string
-      origin_mgmt_hostname   = string
-      origin_scm_hostname    = string
-      scm_hostname           = string
-      apim_address_pool      = list(string)
-      user_managed_identity  = string
-    })
-    # traffic_manager = object({
-    #   traffic_manager_name         = string
-    #   traffic_routing_method       = string
-    #   ttl_value                    = number
-    #   protocol                     = string
-    #   port                         = number
-    #   path                         = string
-    #   interval_in_seconds          = number
-    #   timeout_in_seconds           = number
-    #   tolerated_number_of_failures = number
+    # app_gateway = object({
+    #   appgw_pip_name       = string
+    #   appgw_pip_allocation = string
+    #   appgw_name           = string
+    #   appgw_sku_name       = string
+    #   appgw_sku_tier       = string
+    #   appgw_sku_capacity   = number
+    #   appgw_ip_config_name = string
+    #   subnet_id            = string
+    #   ssl_certificate_name = string
+    #   key_vault_secret_id  = string
+    #   #trusted_root_certificate_id = string
+    #   api_hostname           = string
+    #   origin_api_hostname    = string
+    #   mgmt_hostname          = string
+    #   portal_hostname        = string
+    #   origin_portal_hostname = string
+    #   origin_mgmt_hostname   = string
+    #   origin_scm_hostname    = string
+    #   scm_hostname           = string
+    #   apim_address_pool      = list(string)
+    #   user_managed_identity  = string
     # })
-    api_management = object({
-      apim_name                 = string
-      apim_publisher_name       = string
-      apim_publisher_email      = string
-      apim_sku_name             = string
-      gateway_hostnames         = list(string)
-      developer_portal_hostname = string
-      management_hostname       = string
-      scm_hostname              = string
-      apim_subnet_id_eu         = string
-      apim_subnet_id_us         = string
-      key_vault_secret_id       = string
-      additional_locations = list(object({
-        location  = string
-        capacity  = number
-        subnet_id = string
-        pip_name   = string
-        domain_name = string
-      }))
-    })
+    # api_management = object({
+    #   apim_name                 = string
+    #   apim_publisher_name       = string
+    #   apim_publisher_email      = string
+    #   apim_sku_name             = string
+    #   gateway_hostnames         = list(string)
+    #   developer_portal_hostname = string
+    #   management_hostname       = string
+    #   scm_hostname              = string
+    #   apim_subnet_id_eu         = string
+    #   apim_subnet_id_us         = string
+    #   key_vault_secret_id       = string
+    #   additional_locations = list(object({
+    #     location  = string
+    #     capacity  = number
+    #     subnet_id = string
+    #     pip_name   = string
+    #     domain_name = string
+    #   }))
+    # })
     acr = object({
       acr_name          = string
       acr_sku           = string
       acr_admin_enabled = bool
     })
-    # dns_records = list(object({
-    #   name    = string
-    #   ttl     = number
-    #   records = list(string)
-    # }))
+
     tags = object({
       env_tag          = string
       owner_tag        = string
