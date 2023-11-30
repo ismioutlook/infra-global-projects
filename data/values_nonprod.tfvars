@@ -93,123 +93,123 @@ eu_vars = {
   }
 }
 
-#---------------------------------------------------US Vars group-------------------------------------------------------------------
-us_vars = {
-  resource_group = {
-    resource_group_location = "East US"
-    resource_group_name     = "RG-GL-ELX-US-NonProd"
-  }
-  # app_gateway = {
-  #   appgw_pip_name       = "AAG-GL-ELX-US-NonProd-PIP"
-  #   appgw_pip_allocation = "Static"
-  #   appgw_name           = "AppGw-GL-ELX-US-NonProd"
-  #   appgw_sku_name       = "WAF_v2"
-  #   appgw_sku_tier       = "WAF_v2"
-  #   appgw_sku_capacity   = 2
-  #   appgw_ip_config_name = "AppGw-GL-ELX-US-IP-Config"
-  #   subnet_id           = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/AppGW-SBT-01"
-  #   user_managed_identity = "id-appgw-gl-us"
-  #   apim_address_pool     = ["10.216.118.6"]
-  # }
+# #---------------------------------------------------US Vars group-------------------------------------------------------------------
+# us_vars = {
+#   resource_group = {
+#     resource_group_location = "East US"
+#     resource_group_name     = "RG-GL-ELX-US-NonProd"
+#   }
+#   # app_gateway = {
+#   #   appgw_pip_name       = "AAG-GL-ELX-US-NonProd-PIP"
+#   #   appgw_pip_allocation = "Static"
+#   #   appgw_name           = "AppGw-GL-ELX-US-NonProd"
+#   #   appgw_sku_name       = "WAF_v2"
+#   #   appgw_sku_tier       = "WAF_v2"
+#   #   appgw_sku_capacity   = 2
+#   #   appgw_ip_config_name = "AppGw-GL-ELX-US-IP-Config"
+#   #   subnet_id           = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/AppGW-SBT-01"
+#   #   user_managed_identity = "id-appgw-gl-us"
+#   #   apim_address_pool     = ["10.216.118.6"]
+#   # }
 
-  tags = {
-    env_tag          = "NonProd"
-    owner_tag        = "Arun Nalliannan"
-    account_tag      = "623065"
-    billingid_tag    = "Global"
-    costcenterit_tag = "10350645"
-    sector_tag       = "East US"
-    created_by_tag   = "PETeam(PanchChi)"
-  }
-}
+#   tags = {
+#     env_tag          = "NonProd"
+#     owner_tag        = "Arun Nalliannan"
+#     account_tag      = "623065"
+#     billingid_tag    = "Global"
+#     costcenterit_tag = "10350645"
+#     sector_tag       = "East US"
+#     created_by_tag   = "PETeam(PanchChi)"
+#   }
+# }
 
-#---------------------------------------------------APAC Vars group-------------------------------------------------------------------
-apac_vars = {
-  resource_group = {
-    resource_group_location = "Southeast Asia"
-    resource_group_name     = "RG-GL-ELX-APAC-NonProd"
-  }
-  app_gateway = {
-    appgw_pip_name        = "AAG-GL-ELX-APAC-NonProd-PIP"
-    appgw_pip_allocation  = "Static"
-    appgw_name            = "AppGw-GL-ELX-APAC-NonProd"
-    appgw_sku_name        = "WAF_v2"
-    appgw_sku_tier        = "WAF_v2"
-    appgw_sku_capacity    = 2
-    appgw_ip_config_name  = "AppGw-GL-ELX-APAC-IP-Config"
-    subnet_id             = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-APAC-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-APAC-Concent-NonProd-Spoke-001/subnets/AppGW-SBT-01"
-    ssl_certificate_name  = "san-external-electrolux-com"
-    key_vault_secret_id   = "https://elxkv-cert-nonprod-gl-01.vault.azure.net/secrets/san-external-electrolux-com"
-    api_hostname          = "api-apac-nonprod.int.electrolux.com"
-    mgmt_hostname         = "mss-apac-nonprod.int.electrolux.com"
-    origin_api_hostname   = "origin-api-apac-nonprod.electrolux.com"
-    origin_mgmt_hostname  = "origin-mss-apac-nonprod.electrolux.com"
-    apim_address_pool     = ["10.216.118.6"]
-    user_managed_identity = "id-appgw-gl-apac"
-  }
-  tags = {
-    env_tag          = "NonProd"
-    owner_tag        = "Arun Nalliannan"
-    account_tag      = "623065"
-    billingid_tag    = "Global"
-    costcenterit_tag = "10350645"
-    sector_tag       = "Southeast Asia"
-    created_by_tag   = "PETeam(PanchChi)"
-  }
-}
-#---------------------------------------------------US Vars group-------------------------------------------------------------------
+# #---------------------------------------------------APAC Vars group-------------------------------------------------------------------
+# apac_vars = {
+#   resource_group = {
+#     resource_group_location = "Southeast Asia"
+#     resource_group_name     = "RG-GL-ELX-APAC-NonProd"
+#   }
+#   app_gateway = {
+#     appgw_pip_name        = "AAG-GL-ELX-APAC-NonProd-PIP"
+#     appgw_pip_allocation  = "Static"
+#     appgw_name            = "AppGw-GL-ELX-APAC-NonProd"
+#     appgw_sku_name        = "WAF_v2"
+#     appgw_sku_tier        = "WAF_v2"
+#     appgw_sku_capacity    = 2
+#     appgw_ip_config_name  = "AppGw-GL-ELX-APAC-IP-Config"
+#     subnet_id             = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-APAC-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-APAC-Concent-NonProd-Spoke-001/subnets/AppGW-SBT-01"
+#     ssl_certificate_name  = "san-external-electrolux-com"
+#     key_vault_secret_id   = "https://elxkv-cert-nonprod-gl-01.vault.azure.net/secrets/san-external-electrolux-com"
+#     api_hostname          = "api-apac-nonprod.int.electrolux.com"
+#     mgmt_hostname         = "mss-apac-nonprod.int.electrolux.com"
+#     origin_api_hostname   = "origin-api-apac-nonprod.electrolux.com"
+#     origin_mgmt_hostname  = "origin-mss-apac-nonprod.electrolux.com"
+#     apim_address_pool     = ["10.216.118.6"]
+#     user_managed_identity = "id-appgw-gl-apac"
+#   }
+#   tags = {
+#     env_tag          = "NonProd"
+#     owner_tag        = "Arun Nalliannan"
+#     account_tag      = "623065"
+#     billingid_tag    = "Global"
+#     costcenterit_tag = "10350645"
+#     sector_tag       = "Southeast Asia"
+#     created_by_tag   = "PETeam(PanchChi)"
+#   }
+# }
+# #---------------------------------------------------US Vars group-------------------------------------------------------------------
 
-aks_vars = {
-  azure_k8s_service = {
-    log_analytics_name      = "LA-GL-ELX-AKS-WS-NonProd"
-    log_analytics_name_apac = "LA-GL-ELX-AKS-WS-US-NonProd"
-    la_sku                  = "PerGB2018"
-    la_solution_name        = "ContainerInsights"
-    cluster_name1           = "AKS-Global-EU-NonProd"
-    cluster_name2           = "AKS-Global-US-NonProd"
-    cluster_name3           = "AKS-Global-APAC-NonProd"
-    sku_tier                = "Paid"
-    kubernetes_version      = "1.26.6"
-    pod_security_policy     = false
-    node_count              = 2
-    node_vm_size            = "Standard_DS4_v2" #"Standard_D4s_v3"
-    os_disk_size_gb         = 80
-    enable_auto_scaling     = true
-    node_min_count          = 1
-    node_max_count          = 10
-    node_max_pods           = 60
-    node_taints             = []
-    node_labels = {
-      "service" = "kubernetes"
-      "env"     = "nonprod"
-      "project" = "myproject"
-    }
-    node_resource_group_name_eu   = "RG-GL-ELX-EU-AKS-Node-Cluster-NonProd"
-    node_resource_group_name_us   = "RG-GL-ELX-US-AKS-Node-Cluster-NonProd"
-    node_resource_group_name_apac = "RG-GL-ELX-APAC-AKS-Node-Cluster-NonProd"
-    # Network profile
-    aks_subnet_id_eu   = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-001/subnets/AKS-SBT-01"
-    aks_subnet_id_us   = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/AKS-SBT-01"
-    aks_subnet_id_apac = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-APAC-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-APAC-Concent-NonProd-Spoke-001/subnets/AKS-SBT-01"
-    network_plugin     = "azure"
-    network_policy     = "azure"
-    # kubenet_network_plugin     = "kubenet"
-    # kubenet_network_policy     = "kubenet"
-    pod_cidr           = "10.0.16.0/20"
-    service_cidr       = "10.0.32.0/20"
-    dns_service_ip     = "10.0.32.10"
-    docker_bridge_cidr = "172.0.0.1/8"
-    #User Node Pool
-    user_os_disk_size_gb     = 120
-    user_node_vm_size        = "Standard_D4s_v3"
-    user_node_count          = 1
-    user_enable_auto_scaling = true
-    user_node_min_count      = 1
-    user_node_max_count      = 2
-    user_node_max_pods       = 60
-    user_node_taints         = ["CriticalAddonsOnly=true:NoSchedule"]
-    user_node_labels = {
-      "mode" = "user"
-    }
-  }
-}
+# aks_vars = {
+#   azure_k8s_service = {
+#     log_analytics_name      = "LA-GL-ELX-AKS-WS-NonProd"
+#     log_analytics_name_apac = "LA-GL-ELX-AKS-WS-US-NonProd"
+#     la_sku                  = "PerGB2018"
+#     la_solution_name        = "ContainerInsights"
+#     cluster_name1           = "AKS-Global-EU-NonProd"
+#     cluster_name2           = "AKS-Global-US-NonProd"
+#     cluster_name3           = "AKS-Global-APAC-NonProd"
+#     sku_tier                = "Paid"
+#     kubernetes_version      = "1.26.6"
+#     pod_security_policy     = false
+#     node_count              = 2
+#     node_vm_size            = "Standard_DS4_v2" #"Standard_D4s_v3"
+#     os_disk_size_gb         = 80
+#     enable_auto_scaling     = true
+#     node_min_count          = 1
+#     node_max_count          = 10
+#     node_max_pods           = 60
+#     node_taints             = []
+#     node_labels = {
+#       "service" = "kubernetes"
+#       "env"     = "nonprod"
+#       "project" = "myproject"
+#     }
+#     node_resource_group_name_eu   = "RG-GL-ELX-EU-AKS-Node-Cluster-NonProd"
+#     node_resource_group_name_us   = "RG-GL-ELX-US-AKS-Node-Cluster-NonProd"
+#     node_resource_group_name_apac = "RG-GL-ELX-APAC-AKS-Node-Cluster-NonProd"
+#     # Network profile
+#     aks_subnet_id_eu   = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-001/subnets/AKS-SBT-01"
+#     aks_subnet_id_us   = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/AKS-SBT-01"
+#     aks_subnet_id_apac = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-APAC-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-APAC-Concent-NonProd-Spoke-001/subnets/AKS-SBT-01"
+#     network_plugin     = "azure"
+#     network_policy     = "azure"
+#     # kubenet_network_plugin     = "kubenet"
+#     # kubenet_network_policy     = "kubenet"
+#     pod_cidr           = "10.0.16.0/20"
+#     service_cidr       = "10.0.32.0/20"
+#     dns_service_ip     = "10.0.32.10"
+#     docker_bridge_cidr = "172.0.0.1/8"
+#     #User Node Pool
+#     user_os_disk_size_gb     = 120
+#     user_node_vm_size        = "Standard_D4s_v3"
+#     user_node_count          = 1
+#     user_enable_auto_scaling = true
+#     user_node_min_count      = 1
+#     user_node_max_count      = 2
+#     user_node_max_pods       = 60
+#     user_node_taints         = ["CriticalAddonsOnly=true:NoSchedule"]
+#     user_node_labels = {
+#       "mode" = "user"
+#     }
+#   }
+# }
