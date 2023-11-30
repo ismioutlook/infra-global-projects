@@ -49,8 +49,8 @@ variable "eu_vars" {
       developer_portal_hostname = string
       management_hostname       = string
       scm_hostname              = string
-      apim_subnet_id_eu         = string
-      apim_subnet_id_us         = string
+      # apim_subnet_id_eu         = string
+      # apim_subnet_id_us         = string
       key_vault_secret_id       = string
       additional_locations = list(object({
         location  = string
