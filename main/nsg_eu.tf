@@ -451,5 +451,5 @@ resource "azurerm_network_security_group" "nsg_apim_gw" {
 
 resource "azurerm_subnet_network_security_group_association" "nsg_apim_association" {
   subnet_id                 = data.azurerm_subnet.subnet_apim.id
-  network_security_group_id = azurerm_network_security_group.nsg_apim
+  network_security_group_id = azurerm_network_security_group.nsg_apim.id
 }
