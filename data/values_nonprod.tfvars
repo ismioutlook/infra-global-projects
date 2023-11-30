@@ -49,13 +49,13 @@ eu_vars = {
     apim_subnet_id_eu         = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-002/subnets/APIM-SBNT-001"
     key_vault_secret_id       = "https://elxkv-cert-nonprod-gl-01.vault.azure.net/secrets/int-electrolux-com"
     additional_locations = [
-      {
-        location  = "East US"
-        capacity  = 1
-        subnet_id = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/APIM-SBT-01"
-        pip_name = "pip-elxapimglnonprod01-eus"
-        domain_name = "elxapimglnonprod01"
-      }
+      # {
+      #   location  = "East US"
+      #   capacity  = 1
+      #   subnet_id = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/APIM-SBT-01"
+      #   pip_name = "pip-elxapimglnonprod01-eus"
+      #   domain_name = "elxapimglnonprod01"
+      # }
       // Add more additional locations as needed
     ]
   }
