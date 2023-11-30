@@ -453,3 +453,18 @@ resource "azurerm_subnet_network_security_group_association" "nsg_apim_associati
   subnet_id                 = data.azurerm_subnet.subnet_apim.id
   network_security_group_id = azurerm_network_security_group.nsg_apim.id
 }
+
+resource "azurerm_subnet_network_security_group_association" "nsg_appgw_association" {
+  subnet_id                 = data.azurerm_subnet.subnet_appgw.id
+  network_security_group_id = azurerm_network_security_group.nsg_apim_gw.id
+}
+
+resource "azurerm_subnet_network_security_group_association" "nsg_aks_association" {
+  subnet_id                 = data.azurerm_subnet.subnet_aks.id
+  network_security_group_id = azurerm_network_security_group.nsg_apim_gw.id
+}
+
+resource "azurerm_subnet_network_security_group_association" "nsg_pv_endpoint_association" {
+  subnet_id                 = data.azurerm_subnet.subnet_pv_endpoints.id
+  network_security_group_id = azurerm_network_security_group.nsg_apim_gw.id
+}
