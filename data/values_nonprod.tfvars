@@ -34,7 +34,7 @@ eu_vars = {
     origin_portal_hostname = "origin-portal-eu-nonprod.electrolux.com"
     origin_mgmt_hostname   = "origin-mss-eu-nonprod.electrolux.com"
     origin_scm_hostname    = "origin-scm-eu-nonprod.electrolux.com"
-    apim_address_pool      = ["10.221.170.6"]
+    apim_address_pool      = ["10.221.188.4"]
     user_managed_identity  = "id-appgw-gl-westeu"
   }
   api_management = {
