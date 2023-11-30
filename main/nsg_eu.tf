@@ -448,3 +448,8 @@ resource "azurerm_network_security_group" "nsg_apim_gw" {
   }
   depends_on = [ module.eu_gl_rg ]
 }
+
+resource "azurerm_subnet_network_security_group_association" "nsg_apim_association" {
+  subnet_id                 = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-002/subnets/APIM-SBNT-001"
+  network_security_group_id = azurerm_network_security_group.nsg_apim
+}
