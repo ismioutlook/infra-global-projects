@@ -37,34 +37,34 @@ eu_vars = {
     apim_address_pool      = ["10.221.170.6"]
     user_managed_identity  = "id-appgw-gl-westeu"
   }
-  # api_management = {
-  #   apim_name                 = "elxapimglnonprod01"
-  #   apim_publisher_name       = "Electrolux"
-  #   apim_publisher_email      = "chirag.panchal@electrolux.com"
-  #   apim_sku_name             = "Premium_1"
-  #   gateway_hostnames         = ["api-eu-nonprod.int.electrolux.com"] #, "api-us-nonprod.int.electrolux.com"]
-  #   developer_portal_hostname = "portal-eu-nonprod.int.electrolux.com"
-  #   management_hostname       = "mss-eu-nonprod.int.electrolux.com"
-  #   scm_hostname              = "scm-eu-nonprod.int.electrolux.com"
-  #   apim_subnet_id_eu         = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-002/subnets/APIM-SBNT-001"
-  #   #apim_subnet_id_us         = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/APIM-SBT-01"
-  #   key_vault_secret_id       = "https://elxkv-cert-nonprod-gl-01.vault.azure.net/secrets/int-electrolux-com"
-  #   additional_locations = [
-  #     {
-  #       location  = "West Europe"
-  #       capacity  = 1
-  #       subnet_id = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-002/subnets/APIM-SBNT-001"
-  #       pip_name = "pip-elxapimglnonprod01-eu"
-  #       domain_name = "elxapimglnonprod01"
-  #     }
-  #     # {
-  #     #   location  = "East US"
-  #     #   capacity  = 1
-  #     #   subnet_id = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/APIM-SBT-01"
-  #     # }
-  #     // Add more additional locations as needed
-  #   ]
-  # }
+  api_management = {
+    apim_name                 = "elxapimglnonprod01"
+    apim_publisher_name       = "Electrolux"
+    apim_publisher_email      = "chirag.panchal@electrolux.com"
+    apim_sku_name             = "Premium_1"
+    gateway_hostnames         = ["api-eu-nonprod.int.electrolux.com"] #, "api-us-nonprod.int.electrolux.com"]
+    developer_portal_hostname = "portal-eu-nonprod.int.electrolux.com"
+    management_hostname       = "mss-eu-nonprod.int.electrolux.com"
+    scm_hostname              = "scm-eu-nonprod.int.electrolux.com"
+    apim_subnet_id_eu         = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-002/subnets/APIM-SBNT-001"
+    #apim_subnet_id_us         = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/APIM-SBT-01"
+    key_vault_secret_id       = "https://elxkv-cert-nonprod-gl-01.vault.azure.net/secrets/int-electrolux-com"
+    additional_locations = [
+      {
+        location  = "West Europe"
+        capacity  = 1
+        subnet_id = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-002/subnets/APIM-SBNT-001"
+        pip_name = "pip-elxapimglnonprod01-eu"
+        domain_name = "elxapimglnonprod01"
+      }
+      # {
+      #   location  = "East US"
+      #   capacity  = 1
+      #   subnet_id = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/APIM-SBT-01"
+      # }
+      // Add more additional locations as needed
+    ]
+  }
   acr = {
     acr_name          = "elxacrglnonprod01"
     acr_sku           = "Basic"

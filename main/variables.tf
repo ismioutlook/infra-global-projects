@@ -40,26 +40,26 @@ variable "eu_vars" {
       apim_address_pool      = list(string)
       user_managed_identity  = string
     })
-    # api_management = object({
-    #   apim_name                 = string
-    #   apim_publisher_name       = string
-    #   apim_publisher_email      = string
-    #   apim_sku_name             = string
-    #   gateway_hostnames         = list(string)
-    #   developer_portal_hostname = string
-    #   management_hostname       = string
-    #   scm_hostname              = string
-    #   apim_subnet_id_eu         = string
-    #   apim_subnet_id_us         = string
-    #   key_vault_secret_id       = string
-    #   additional_locations = list(object({
-    #     location  = string
-    #     capacity  = number
-    #     subnet_id = string
-    #     pip_name   = string
-    #     domain_name = string
-    #   }))
-    # })
+    api_management = object({
+      apim_name                 = string
+      apim_publisher_name       = string
+      apim_publisher_email      = string
+      apim_sku_name             = string
+      gateway_hostnames         = list(string)
+      developer_portal_hostname = string
+      management_hostname       = string
+      scm_hostname              = string
+      apim_subnet_id_eu         = string
+      apim_subnet_id_us         = string
+      key_vault_secret_id       = string
+      additional_locations = list(object({
+        location  = string
+        capacity  = number
+        subnet_id = string
+        pip_name   = string
+        domain_name = string
+      }))
+    })
     acr = object({
       acr_name          = string
       acr_sku           = string
