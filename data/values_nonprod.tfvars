@@ -8,21 +8,21 @@ subscription = {
 eu_vars = {
   resource_group = {
     resource_group_location = "West Europe"
-    resource_group_name     = "RG-GL-ELX-EU-NonProd"
+    resource_group_name     = "RG-GL-ELX-EU-NonProd-01"
   }
   # application_insights = {
   #   app_insights_name = "AI-GL-ELX-EU-NonProd-01"
   #   app_insights_type = "web"
   # }
   app_gateway = {
-    appgw_pip_name       = "AAG-GL-ELX-EU-NonProd-PIP"
+    appgw_pip_name       = "pip-appgw-gl-elx-eu-nonprod-01"#"AAG-GL-ELX-EU-NonProd-PIP"
     appgw_pip_allocation = "Static"
-    appgw_name           = "AppGw-GL-ELX-EU-NonProd"
+    appgw_name           = "AppGw-GL-ELX-EU-NonProd-01"
     appgw_sku_name       = "WAF_v2"
     appgw_sku_tier       = "WAF_v2"
     appgw_sku_capacity   = 2
-    appgw_ip_config_name = "AppGw-GL-ELX-EU-IP-Config"
-    subnet_id            = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-001/subnets/AppGW-SBT-01"
+    appgw_ip_config_name = "AppGw-GL-ELX-EU-IP-Config-01"
+    subnet_id            = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-002/subnets/APPGW-SBNT-001"
     ssl_certificate_name = "san-external-electrolux-com"
     key_vault_secret_id  = "https://elxkv-cert-nonprod-gl-01.vault.azure.net/secrets/san-external-electrolux-com"
     #trusted_root_certificate_id = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-EU-NonProd/providers/Microsoft.Network/applicationGateways/AppGw-GL-ELX-EU-NonProd/trustedRootCertificates/ElectroluxRootCA2"
@@ -49,78 +49,39 @@ eu_vars = {
   #   tolerated_number_of_failures = 3
   # }
   api_management = {
-    apim_name                 = "elxapimglnonprod"
+    apim_name                 = "elxapimglnonprod01"
     apim_publisher_name       = "Electrolux"
     apim_publisher_email      = "chirag.panchal@electrolux.com"
     apim_sku_name             = "Premium_1"
-    gateway_hostnames         = ["api-eu-nonprod.int.electrolux.com", "api-us-nonprod.int.electrolux.com"]
+    gateway_hostnames         = ["api-eu-nonprod.int.electrolux.com"] #, "api-us-nonprod.int.electrolux.com"]
     developer_portal_hostname = "portal-eu-nonprod.int.electrolux.com"
     management_hostname       = "mss-eu-nonprod.int.electrolux.com"
     scm_hostname              = "scm-eu-nonprod.int.electrolux.com"
-    apim_subnet_id_eu         = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-001/subnets/APIM-SBT-01"
-    apim_subnet_id_us         = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/APIM-SBT-01"
+    apim_subnet_id_eu         = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-002/subnets/APIM-SBNT-001"
+    #apim_subnet_id_us         = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/APIM-SBT-01"
     key_vault_secret_id       = "https://elxkv-cert-nonprod-gl-01.vault.azure.net/secrets/int-electrolux-com"
     additional_locations = [
-      # {
-      #   location  = "West Europe"
-      #   capacity  = 1
-      #   subnet_id = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-001/subnets/APIM-SBT-01"
-      # },
       {
-        location  = "East US"
+        location  = "West Europe"
         capacity  = 1
-        subnet_id = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/APIM-SBT-01"
+        subnet_id = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-002/subnets/APIM-SBNT-001"
+        pip_name = "pip-elxapimglnonprod01-eu"
+        domain_name = "elxapimglnonprod01"
       }
+      # {
+      #   location  = "East US"
+      #   capacity  = 1
+      #   subnet_id = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/APIM-SBT-01"
+      # }
       // Add more additional locations as needed
     ]
   }
   acr = {
-    acr_name          = "elxacrglnonprod"
+    acr_name          = "elxacrglnonprod01"
     acr_sku           = "Basic"
     acr_admin_enabled = true
   }
-  # dns_records = [
-  #   {
-  #     name    = "api-eu-nonprod"
-  #     ttl     = 60
-  #     records = ["10.221.170.6"]
-  #   },
-  #   {
-  #     name    = "origin-api-eu-nonprod"
-  #     ttl     = 1
-  #     records = ["51.136.54.139"]
-  #   },
-  #   {
-  #     name    = "portal-eu-nonprod"
-  #     ttl     = 60
-  #     records = ["10.221.170.6"]
-  #   },
-  #   {
-  #     name    = "origin-portal-eu-nonprod"
-  #     ttl     = 1
-  #     records = ["51.136.54.139"]
-  #   },
-  #   {
-  #     name    = "mss-eu-nonprod"
-  #     ttl     = 60
-  #     records = ["10.221.170.6"]
-  #   },
-  #   {
-  #     name    = "origin-mss-eu-nonprod"
-  #     ttl     = 1
-  #     records = ["51.136.54.139"]
-  #   },
-  #   {
-  #     name    = "scm-eu-nonprod"
-  #     ttl     = 60
-  #     records = ["10.221.170.6"]
-  #   },
-  #   {
-  #     name    = "origin-scm-eu-nonprod"
-  #     ttl     = 1
-  #     records = ["51.136.54.139"]
-  #   },
-  # ]
+
   tags = {
     env_tag          = "NonProd"
     owner_tag        = "Arun Nalliannan"
@@ -150,48 +111,7 @@ us_vars = {
   #   user_managed_identity = "id-appgw-gl-us"
   #   apim_address_pool     = ["10.216.118.6"]
   # }
-  # dns_records = [
-  #   {
-  #     name    = "api"
-  #     ttl     = 60
-  #     records = ["10.216.118.6"]
-  #   },
-  #   {
-  #     name    = "origin-api"
-  #     ttl     = 1
-  #     records = ["20.231.55.27"]
-  #   },
-  #   {
-  #     name    = "portal"
-  #     ttl     = 60
-  #     records = ["10.216.118.6"]
-  #   },
-  #   {
-  #     name    = "origin-portal"
-  #     ttl     = 1
-  #     records = ["20.231.55.27"]
-  #   },
-  #   {
-  #     name    = "management"
-  #     ttl     = 60
-  #     records = ["10.216.118.6"]
-  #   },
-  #   {
-  #     name    = "origin-management"
-  #     ttl     = 1
-  #     records = ["20.231.55.27"]
-  #   },
-  #   {
-  #     name    = "scm"
-  #     ttl     = 60
-  #     records = ["10.216.118.6"]
-  #   },
-  #   {
-  #     name    = "origin-scm"
-  #     ttl     = 1
-  #     records = ["20.231.55.27"]
-  #   },
-  # ]
+
   tags = {
     env_tag          = "NonProd"
     owner_tag        = "Arun Nalliannan"

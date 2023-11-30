@@ -66,6 +66,8 @@ variable "eu_vars" {
         location  = string
         capacity  = number
         subnet_id = string
+        pip_name   = string
+        domain_name = string
       }))
     })
     acr = object({
