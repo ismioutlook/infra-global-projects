@@ -294,7 +294,7 @@ resource "azurerm_network_security_group" "nsg_apim" {
     source_address_prefix      = "VirtualNetwork"
     source_port_range          = "*"
   }
-  depends_on = [ module.eu_gl_rg ]
+  depends_on = [module.eu_gl_rg]
 }
 
 resource "azurerm_network_security_group" "nsg_apim_gw" {
@@ -446,7 +446,7 @@ resource "azurerm_network_security_group" "nsg_apim_gw" {
     source_address_prefixes    = ["194.246.0.0/19", "62.252.197.0/24", "217.169.51.0/24", "204.17.245.4"]
     source_port_range          = "*"
   }
-  depends_on = [ module.eu_gl_rg ]
+  depends_on = [module.eu_gl_rg]
 }
 
 resource "azurerm_subnet_network_security_group_association" "nsg_apim_association" {

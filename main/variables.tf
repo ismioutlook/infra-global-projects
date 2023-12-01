@@ -52,10 +52,10 @@ variable "eu_vars" {
       apim_subnet_id_eu         = string
       key_vault_secret_id       = string
       additional_locations = list(object({
-        location  = string
-        capacity  = number
-        subnet_id = string
-        pip_name   = string
+        location    = string
+        capacity    = number
+        subnet_id   = string
+        pip_name    = string
         domain_name = string
       }))
     })
@@ -166,22 +166,22 @@ variable "eu_vars" {
 variable "aks_vars" {
   type = object({
     azure_k8s_service = object({
-      cluster_name1                 = string
-      cluster_name2                 = string
-      sku_tier                      = string
-      cluster_name3                 = string
-      kubernetes_version            = string
-      pod_security_policy           = bool
-      node_count                    = number
-      node_vm_size                  = string
-      os_disk_size_gb               = number
-      enable_auto_scaling           = bool
-      node_min_count                = number
-      node_max_count                = number
-      node_max_pods                 = number
-      node_taints                   = list(string)
-      node_labels                   = map(any)
-      node_resource_group_name_eu   = string
+      cluster_name1               = string
+      cluster_name2               = string
+      sku_tier                    = string
+      cluster_name3               = string
+      kubernetes_version          = string
+      pod_security_policy         = bool
+      node_count                  = number
+      node_vm_size                = string
+      os_disk_size_gb             = number
+      enable_auto_scaling         = bool
+      node_min_count              = number
+      node_max_count              = number
+      node_max_pods               = number
+      node_taints                 = list(string)
+      node_labels                 = map(any)
+      node_resource_group_name_eu = string
       # node_resource_group_name_us   = string
       # node_resource_group_name_apac = string
       #network profile
