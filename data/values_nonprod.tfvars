@@ -171,7 +171,7 @@ aks_vars = {
     # node_resource_group_name_us   = "RG-GL-ELX-US-AKS-Node-Cluster-NonProd"
     # node_resource_group_name_apac = "RG-GL-ELX-APAC-AKS-Node-Cluster-NonProd"
     # Network profile
-    aks_subnet_id_eu = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-002/subnets/AKS-SBNT-01"
+    aks_subnet_id_eu = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-002/subnets/AKS-SBNT-001"
     # aks_subnet_id_us   = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/AKS-SBT-01"
     # aks_subnet_id_apac = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-APAC-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-APAC-Concent-NonProd-Spoke-001/subnets/AKS-SBT-01"
     network_plugin = "azure"
