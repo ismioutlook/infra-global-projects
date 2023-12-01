@@ -252,76 +252,76 @@ variable "waf_max_request_body_size_kb" {
   default     = 128
 }
 
-# variable "node_pools" {
-#   description = "Addons node pools"
-#   type = list(object({
-#     name                = string
-#     vm_size             = string
-#     os_disk_size_gb     = number
-#     enable_auto_scaling = bool
-#     node_count          = number
-#     min_count           = number
-#     max_count           = number
-#     max_pods            = number
-#     node_taints         = list(string)
-#     node_labels         = map(string)
-#   }))
-#   default = []
-# }
+variable "node_pools" {
+  description = "Addons node pools"
+  type = list(object({
+    name                = string
+    vm_size             = string
+    os_disk_size_gb     = number
+    enable_auto_scaling = bool
+    node_count          = number
+    min_count           = number
+    max_count           = number
+    max_pods            = number
+    node_taints         = list(string)
+    node_labels         = map(string)
+  }))
+  default = []
+}
 
-# # # Auto-scaler profile
+# # Auto-scaler profile
 
-# variable "balance_similar_node_groups" {
-#   description = "Detect similar node groups and balance the number of nodes between them"
-#   type        = bool
-#   default     = false
-# }
+variable "balance_similar_node_groups" {
+  description = "Detect similar node groups and balance the number of nodes between them"
+  type        = bool
+  default     = false
+}
 
-# variable "max_graceful_termination_sec" {
-#   description = "Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node"
-#   type        = string
-#   default     = "600"
-# }
+variable "max_graceful_termination_sec" {
+  description = "Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node"
+  type        = string
+  default     = "600"
+}
 
-# variable "scan_interval" {
-#   description = "How often the AKS Cluster should be re-evaluated for scale up/down"
-#   type        = string
-#   default     = "10s"
-# }
+variable "scan_interval" {
+  description = "How often the AKS Cluster should be re-evaluated for scale up/down"
+  type        = string
+  default     = "10s"
+}
 
 
-# variable "scale_down_delay_after_add" {
-#   description = "How long after the scale up of AKS nodes the scale down evaluation resumes"
-#   type        = string
-#   default     = "10m"
-# }
+variable "scale_down_delay_after_add" {
+  description = "How long after the scale up of AKS nodes the scale down evaluation resumes"
+  type        = string
+  default     = "10m"
+}
 
-# variable "scale_down_delay_after_delete" {
-#   type        = string
-#   description = "How long after node deletion that scale down evaluation resumes"
-#   default     = "10s"
-# }
+variable "scale_down_delay_after_delete" {
+  type        = string
+  description = "How long after node deletion that scale down evaluation resumes"
+  default     = "10s"
+}
 
-# variable "scale_down_delay_after_failure" {
-#   description = "How long after scale down failure that scale down evaluation resumes"
-#   type        = string
-#   default     = "10m"
-# }
+variable "scale_down_delay_after_failure" {
+  description = "How long after scale down failure that scale down evaluation resumes"
+  type        = string
+  default     = "10m"
+}
 
-# variable "scale_down_unneeded" {
-#   description = "How long a node should be unneeded before it is eligible for scale down"
-#   type        = string
-#   default     = "10m"
-# }
+variable "scale_down_unneeded" {
+  description = "How long a node should be unneeded before it is eligible for scale down"
+  type        = string
+  default     = "10m"
+}
 
-# variable "scale_down_unready" {
-#   description = "How long an unready node should be unneeded before it is eligible for scale down"
-#   type        = string
-#   default     = "10m"
-# }
+variable "scale_down_unready" {
+  description = "How long an unready node should be unneeded before it is eligible for scale down"
+  type        = string
+  default     = "10m"
+}
 
-# variable "scale_down_utilization_threshold" {
-#   description = "Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down"
-#   type        = string
-#   default     = "0.5"
-# }
+variable "scale_down_utilization_threshold" {
+  description = "Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down"
+  type        = string
+  default     = "0.5"
+}
