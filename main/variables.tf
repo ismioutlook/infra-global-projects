@@ -168,6 +168,9 @@ variable "aks_vars" {
     azure_k8s_service = object({
       cluster_name1               = string
       cluster_name2               = string
+      log_analytics_name          = string
+      la_sku                      = string
+      la_solution_name            = string
       sku_tier                    = string
       cluster_name3               = string
       kubernetes_version          = string
