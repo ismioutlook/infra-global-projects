@@ -167,12 +167,12 @@ variable "aks_vars" {
   type = object({
     azure_k8s_service = object({
       cluster_name1               = string
-      cluster_name2               = string
+      # cluster_name2               = string
       log_analytics_name          = string
       la_sku                      = string
       la_solution_name            = string
       sku_tier                    = string
-      cluster_name3               = string
+      # cluster_name3               = string
       kubernetes_version          = string
       pod_security_policy         = bool
       node_count                  = number
@@ -189,8 +189,8 @@ variable "aks_vars" {
       # node_resource_group_name_apac = string
       #network profile
       aks_subnet_id_eu   = string
-      aks_subnet_id_us   = string
-      aks_subnet_id_apac = string
+      # aks_subnet_id_us   = string
+      # aks_subnet_id_apac = string
       network_plugin     = string
       network_policy     = string
       # kubenet_network_plugin     = string
