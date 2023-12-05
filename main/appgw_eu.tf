@@ -33,5 +33,5 @@ module "eu_gl_appgw" {
   waf_file_upload_limit_mb     = var.waf_file_upload_limit_mb
   waf_request_body_check       = var.waf_request_body_check
   waf_max_request_body_size_kb = var.waf_max_request_body_size_kb
-  depends_on                   = [module.eu_gl_rg]
+  depends_on                   = [module.eu_gl_rg, module.apim-multi-location]
 }
