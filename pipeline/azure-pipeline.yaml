@@ -1,10 +1,10 @@
 trigger:
-- none
+- feature/enable-apac-resources
 
 parameters:
 - name: tfEnv
   type: string
-  default: test
+  default: nonprod
   values:
   - nonprod
   - test
