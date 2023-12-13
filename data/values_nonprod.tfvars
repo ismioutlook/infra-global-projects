@@ -53,7 +53,7 @@ eu_vars = {
         location  = "Southeast Asia"
         capacity  = 1
         subnet_id = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-APAC-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-APAC-Concent-NonProd-Spoke-001/subnets/APIM-SBT-01"
-        pip_name = "pip-elxapimglnonprod01-eus"
+        pip_name = "pip-elxapimglnonprod01-apac"
         domain_name = "elxapimglnonprod01"
       }
       // Add more additional locations as needed
