@@ -77,92 +77,6 @@ variable "eu_vars" {
   })
 }
 
-# variable "us_vars" {
-#   type = object({
-#     resource_group = object({
-#       resource_group_location = string
-#       resource_group_name     = string
-#     })
-#     # app_gateway = object({
-#     #   appgw_pip_name         = string
-#     #   appgw_pip_allocation   = string
-#     #   appgw_name             = string
-#     #   appgw_sku_name         = string
-#     #   appgw_sku_tier         = string
-#     #   appgw_sku_capacity     = number
-#     #   appgw_ip_config_name   = string
-#     #   subnet_id              = string
-#     #   ssl_certificate_name   = string
-#     #   key_vault_secret_id    = string
-#     #   api_hostname           = string
-#     #   origin_api_hostname    = string
-#     #   mgmt_hostname          = string
-#     #   portal_hostname        = string
-#     #   origin_portal_hostname = string
-#     #   origin_mgmt_hostname   = string
-#     #   origin_scm_hostname    = string
-#     #   scm_hostname           = string
-#     #   apim_address_pool      = list(string)
-#     #   user_managed_identity  = string
-#     # })
-#     # dns_records = list(object({
-#     #   name    = string
-#     #   ttl     = number
-#     #   records = list(string)
-#     # }))
-#     tags = object({
-#       env_tag          = string
-#       owner_tag        = string
-#       account_tag      = string
-#       billingid_tag    = string
-#       costcenterit_tag = string
-#       sector_tag       = string
-#       created_by_tag   = string
-#     })
-#   })
-# }
-
-# variable "apac_vars" {
-#   type = object({
-#     resource_group = object({
-#       resource_group_location = string
-#       resource_group_name     = string
-#     })
-#     app_gateway = object({
-#       appgw_pip_name        = string
-#       appgw_pip_allocation  = string
-#       appgw_name            = string
-#       appgw_sku_name        = string
-#       appgw_sku_tier        = string
-#       appgw_sku_capacity    = number
-#       appgw_ip_config_name  = string
-#       subnet_id             = string
-#       ssl_certificate_name  = string
-#       key_vault_secret_id   = string
-#       api_hostname          = string
-#       origin_api_hostname   = string
-#       mgmt_hostname         = string
-#       origin_mgmt_hostname  = string
-#       apim_address_pool     = list(string)
-#       user_managed_identity = string
-#     })
-#     # dns_records = list(object({
-#     #   name    = string
-#     #   ttl     = number
-#     #   records = list(string)
-#     # }))
-#     tags = object({
-#       env_tag          = string
-#       owner_tag        = string
-#       account_tag      = string
-#       billingid_tag    = string
-#       costcenterit_tag = string
-#       sector_tag       = string
-#       created_by_tag   = string
-#     })
-#   })
-# }
-
 variable "aks_vars" {
   type = object({
     azure_k8s_service = object({
@@ -185,16 +99,10 @@ variable "aks_vars" {
       node_taints                 = list(string)
       node_labels                 = map(any)
       node_resource_group_name_eu = string
-      # node_resource_group_name_us   = string
-      # node_resource_group_name_apac = string
       #network profile
       aks_subnet_id_eu   = string
-      # aks_subnet_id_us   = string
-      # aks_subnet_id_apac = string
       network_plugin     = string
       network_policy     = string
-      # kubenet_network_plugin     = string
-      # kubenet_network_policy     = string
       pod_cidr           = string
       service_cidr       = string
       dns_service_ip     = string
