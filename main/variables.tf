@@ -121,47 +121,47 @@ variable "aks_vars" {
   })
 }
 
-variable "waf_enabled" {
-  type        = bool
-  description = "Whether the Web Application Firewall should be enabled. Default to true"
-  default     = true
-}
+# variable "waf_enabled" {
+#   type        = bool
+#   description = "Whether the Web Application Firewall should be enabled. Default to true"
+#   default     = true
+# }
 
-variable "waf_firewall_mode" {
-  type        = string
-  description = "The Web Application Firewall mode. Possible values are 'Detection' and 'Prevention'."
-  default     = "Detection"
-}
+# variable "waf_firewall_mode" {
+#   type        = string
+#   description = "The Web Application Firewall mode. Possible values are 'Detection' and 'Prevention'."
+#   default     = "Detection"
+# }
 
-variable "waf_rule_set_type" {
-  type        = string
-  description = "The type of rule set that should be used by the Web Application Firewall."
-  default     = "OWASP"
-}
+# variable "waf_rule_set_type" {
+#   type        = string
+#   description = "The type of rule set that should be used by the Web Application Firewall."
+#   default     = "OWASP"
+# }
 
-variable "waf_rule_set_version" {
-  type        = string
-  description = "The version of the rule set used for the Web Application Firewall."
-  default     = "3.0"
-}
+# variable "waf_rule_set_version" {
+#   type        = string
+#   description = "The version of the rule set used for the Web Application Firewall."
+#   default     = "3.0"
+# }
 
-variable "waf_file_upload_limit_mb" {
-  type        = number
-  description = "(Optional) The file upload limit in megabytes. Defaults to 100MB"
-  default     = 100
-}
+# variable "waf_file_upload_limit_mb" {
+#   type        = number
+#   description = "(Optional) The file upload limit in megabytes. Defaults to 100MB"
+#   default     = 100
+# }
 
-variable "waf_request_body_check" {
-  type        = bool
-  description = "(Optional) Whether request body inspection should be enabled. Defaults to true"
-  default     = true
-}
+# variable "waf_request_body_check" {
+#   type        = bool
+#   description = "(Optional) Whether request body inspection should be enabled. Defaults to true"
+#   default     = true
+# }
 
-variable "waf_max_request_body_size_kb" {
-  type        = number
-  description = "(Optional) The maximum request body size in kilobytes. Defaults to 128KB"
-  default     = 128
-}
+# variable "waf_max_request_body_size_kb" {
+#   type        = number
+#   description = "(Optional) The maximum request body size in kilobytes. Defaults to 128KB"
+#   default     = 128
+# }
 
 variable "node_pools" {
   description = "Addons node pools"
