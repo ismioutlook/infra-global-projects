@@ -4,14 +4,14 @@ trigger:
 parameters:
 - name: tfEnv
   type: string
-  default: nonprod
+  default: prod
   values:
   - nonprod
   - test
   - dev
   - sit
   - e2e
-  - prd
+  - prod
   - global
 - name: workingDir
   type: string
@@ -27,10 +27,7 @@ resources:
     type: git
     name: Electrolux-Scripts/TheOneYAMLPipeline
     ref: develop-global # This branch having the git pushing feature which will need to be test with the different environment.
-  # - repository: repoforpush
-#   type: git
-#   name: dynamic-repos/multi-module-files
-#   ref: main
+
 pool:
   vmImage: 'ubuntu-latest'
 
