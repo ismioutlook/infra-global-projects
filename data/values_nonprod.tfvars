@@ -59,6 +59,10 @@ eu_vars = {
       // Add more additional locations as needed
     ]
   }
+  network_security_group = {
+    nsg_apim_name = "nsg-apim-gl-nonprod"
+    nsg_appgw_name = "nsg-gw-gl-nonprod"
+  }
   acr = {
     acr_name          = "elxacrglnonprod01"
     acr_sku           = "Basic"

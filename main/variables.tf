@@ -68,7 +68,10 @@ variable "eu_vars" {
       acr_sku           = string
       acr_admin_enabled = bool
     })
-
+    network_security_group = object({
+      nsg_apim_name = string
+      nsg_appgw_name = string
+    })
     tags = object({
       env_tag          = string
       owner_tag        = string
