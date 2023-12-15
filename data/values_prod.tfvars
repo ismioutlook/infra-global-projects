@@ -22,7 +22,7 @@ eu_vars = {
     appgw_sku_tier         = "WAF_v2"
     appgw_sku_capacity     = 2
     appgw_ip_config_name   = "AppGw-GL-ELX-EU-IP-Config-01"
-    subnet_id              = "/subscriptions/9a44d85a-3cf1-4938-9509-c8f94b1aee10/resourceGroups/RG-ELX-GL-Concent-Prod-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EU-Concent-Prod-Spoke-001/subnets/APPGW-SBNT-001"
+    subnet_id              = "/subscriptions/9a44d85a-3cf1-4938-9509-c8f94b1aee10/resourceGroups/RG-ELX-EU-Concent-Prod-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EU-Concent-Prod-Spoke-001/subnets/APPGW-SBNT-001"
     ssl_certificate_name   = "electrolux-com-prod"
     key_vault_secret_id    = "https://elxkv-cert-prod-gl-01.vault.azure.net/secrets/electrolux-com-prod"
     api_hostname           = "api-eu-prod.int.electrolux.com"
@@ -45,7 +45,7 @@ eu_vars = {
     developer_portal_hostname = "portal-eu-prod.int.electrolux.com"
     management_hostname       = "mss-eu-prod.int.electrolux.com"
     scm_hostname              = "scm-eu-prod.int.electrolux.com"
-    apim_subnet_id_eu         = "/subscriptions/9a44d85a-3cf1-4938-9509-c8f94b1aee10/resourceGroups/RG-ELX-GL-Concent-Prod-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EU-Concent-Prod-Spoke-001/subnets/APIM-SBNT-001"
+    apim_subnet_id_eu         = "/subscriptions/9a44d85a-3cf1-4938-9509-c8f94b1aee10/resourceGroups/RG-ELX-EU-Concent-Prod-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EU-Concent-Prod-Spoke-001/subnets/APIM-SBNT-001"
     key_vault_secret_id       = "https://elxkv-cert-prod-gl-01.vault.azure.net/secrets/int-electrolux-com-prod"
     additional_locations = [
       # {
@@ -102,7 +102,7 @@ aks_vars = {
     }
     node_resource_group_name_eu = "RG-AKS-MSS-Node-Config-Prod-EU-01"
     # Network profile
-    aks_subnet_id_eu   = "/subscriptions/9a44d85a-3cf1-4938-9509-c8f94b1aee10/resourceGroups/RG-ELX-GL-Concent-Prod-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EU-Concent-Prod-Spoke-001/subnets/AKS-SBNT-001"
+    aks_subnet_id_eu   = "/subscriptions/9a44d85a-3cf1-4938-9509-c8f94b1aee10/resourceGroups/RG-ELX-EU-Concent-Prod-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EU-Concent-Prod-Spoke-001/subnets/AKS-SBNT-001"
     network_plugin     = "azure"
     network_policy     = "azure"
     pod_cidr           = "10.0.16.0/20"
