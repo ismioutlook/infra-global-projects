@@ -13,6 +13,10 @@ variable "eu_vars" {
       resource_group_location = string
       resource_group_name     = string
     })
+    virtual_network = object({
+      vnet_resource_group_name     = string
+      virtual_network_name = string
+    })
     # application_insights = object ({
     #   app_insights_name = string
     #   app_insights_type = string

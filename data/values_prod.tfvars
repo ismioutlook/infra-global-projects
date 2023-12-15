@@ -10,6 +10,10 @@ eu_vars = {
     resource_group_location = "West Europe"
     resource_group_name     = "RG-GL-ELX-EU-Prod-01"
   }
+  virtual_network = {
+    vnet_resource_group_name = "RG-ELX-EU-Concent-Prod-Networking"
+    virtual_network_name = "VN-ELX-EU-Concent-Prod-Spoke-001"
+  }
   app_gateway = {
     appgw_pip_name         = "pip-appgw-gl-elx-eu-prod-01"
     appgw_pip_allocation   = "Static"
