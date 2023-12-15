@@ -50,10 +50,10 @@ eu_vars = {
     key_vault_secret_id       = "https://elxkv-cert-nonprod-gl-01.vault.azure.net/secrets/int-electrolux-com"
     additional_locations = [
       {
-        location  = "Southeast Asia"
-        capacity  = 1
-        subnet_id = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-APAC-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-APAC-Concent-NonProd-Spoke-001/subnets/APIM-SBT-01"
-        pip_name = "pip-elxapimglnonprod01-apac"
+        location    = "Southeast Asia"
+        capacity    = 1
+        subnet_id   = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-APAC-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-APAC-Concent-NonProd-Spoke-001/subnets/APIM-SBT-01"
+        pip_name    = "pip-elxapimglnonprod01-apac"
         domain_name = "elxapimglnonprod01"
       }
       // Add more additional locations as needed
@@ -80,9 +80,9 @@ aks_vars = {
   azure_k8s_service = {
     cluster_name1 = "AKS-MSS-NonProd-EU-01"
     # cluster_name2           = "AKS-Global-US-NonProd"
-    log_analytics_name      = "LA-GL-WS-NonProd-EU-01"
-    la_sku                  = "PerGB2018"
-    la_solution_name        = "ContainerInsights"
+    log_analytics_name = "LA-GL-WS-NonProd-EU-01"
+    la_sku             = "PerGB2018"
+    la_solution_name   = "ContainerInsights"
     # cluster_name3           = "AKS-Global-APAC-NonProd"
     sku_tier            = "Paid"
     kubernetes_version  = "1.27.7"
@@ -103,9 +103,9 @@ aks_vars = {
     }
     node_resource_group_name_eu = "RG-AKS-MSS-Node-Config-NonProd-EU-01"
     # Network profile
-    aks_subnet_id_eu = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-002/subnets/AKS-SBNT-001"
-    network_plugin = "azure"
-    network_policy = "azure"
+    aks_subnet_id_eu   = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-002/subnets/AKS-SBNT-001"
+    network_plugin     = "azure"
+    network_policy     = "azure"
     pod_cidr           = "10.0.16.0/20"
     service_cidr       = "10.0.32.0/20"
     dns_service_ip     = "10.0.32.10"

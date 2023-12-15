@@ -295,9 +295,9 @@ resource "azurerm_network_security_group" "nsg_apim" {
     source_port_range          = "*"
   }
   lifecycle {
-    ignore_changes = [ 
+    ignore_changes = [
       security_rule
-     ]
+    ]
   }
   depends_on = [module.eu_gl_rg]
 }
@@ -453,7 +453,7 @@ resource "azurerm_network_security_group" "nsg_apim_gw" {
   }
   depends_on = [module.eu_gl_rg]
   lifecycle {
-    ignore_changes = [ security_rule ]
+    ignore_changes = [security_rule]
   }
 }
 
