@@ -75,51 +75,51 @@ eu_vars = {
   }
 }
 
-aks_vars = {
-  azure_k8s_service = {
-    cluster_name1 = "AKS-MSS-Prod-EU-01"
-    # cluster_name2           = "AKS-Global-US-Prod"
-    log_analytics_name = "LA-GL-WS-Prod-EU-01"
-    la_sku             = "PerGB2018"
-    la_solution_name   = "ContainerInsights"
-    # cluster_name3           = "AKS-Global-APAC-Prod"
-    sku_tier            = "Paid"
-    kubernetes_version  = "1.27.7"
-    pod_security_policy = false
-    node_count          = 4
-    node_vm_size        = "Standard_D4s_v3"
-    os_disk_size_gb     = 120
-    enable_auto_scaling = true
-    node_min_count      = 2
-    node_max_count      = 4
-    node_max_pods       = 60
-    node_taints         = []
-    node_labels = {
-      "service" = "microservices"
-      "env"     = "prod"
-      "project" = "mss"
-      "mode"    = "system"
-    }
-    node_resource_group_name_eu = "RG-AKS-MSS-Node-Config-Prod-EU-01"
-    # Network profile
-    aks_subnet_id_eu   = "/subscriptions/9a44d85a-3cf1-4938-9509-c8f94b1aee10/resourceGroups/RG-ELX-EU-Concent-Prod-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EU-Concent-Prod-Spoke-001/subnets/AKS-SBNT-001"
-    network_plugin     = "azure"
-    network_policy     = "azure"
-    pod_cidr           = "10.0.16.0/20"
-    service_cidr       = "10.0.32.0/20"
-    dns_service_ip     = "10.0.32.10"
-    docker_bridge_cidr = "172.0.0.1/8"
-    #User Node Pool
-    user_os_disk_size_gb     = 512
-    user_node_vm_size        = "Standard_DS4_v2"
-    user_node_count          = 10
-    user_enable_auto_scaling = true
-    user_node_min_count      = 4
-    user_node_max_count      = 10
-    user_node_max_pods       = 60
-    user_node_taints         = []
-    user_node_labels = {
-      "mode" = "user"
-    }
-  }
-}
+# aks_vars = {
+#   azure_k8s_service = {
+#     cluster_name1 = "AKS-MSS-Prod-EU-01"
+#     # cluster_name2           = "AKS-Global-US-Prod"
+#     log_analytics_name = "LA-GL-WS-Prod-EU-01"
+#     la_sku             = "PerGB2018"
+#     la_solution_name   = "ContainerInsights"
+#     # cluster_name3           = "AKS-Global-APAC-Prod"
+#     sku_tier            = "Paid"
+#     kubernetes_version  = "1.27.7"
+#     pod_security_policy = false
+#     node_count          = 4
+#     node_vm_size        = "Standard_D4s_v3"
+#     os_disk_size_gb     = 120
+#     enable_auto_scaling = true
+#     node_min_count      = 2
+#     node_max_count      = 4
+#     node_max_pods       = 60
+#     node_taints         = []
+#     node_labels = {
+#       "service" = "microservices"
+#       "env"     = "prod"
+#       "project" = "mss"
+#       "mode"    = "system"
+#     }
+#     node_resource_group_name_eu = "RG-AKS-MSS-Node-Config-Prod-EU-01"
+#     # Network profile
+#     aks_subnet_id_eu   = "/subscriptions/9a44d85a-3cf1-4938-9509-c8f94b1aee10/resourceGroups/RG-ELX-EU-Concent-Prod-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EU-Concent-Prod-Spoke-001/subnets/AKS-SBNT-001"
+#     network_plugin     = "azure"
+#     network_policy     = "azure"
+#     pod_cidr           = "10.0.16.0/20"
+#     service_cidr       = "10.0.32.0/20"
+#     dns_service_ip     = "10.0.32.10"
+#     docker_bridge_cidr = "172.0.0.1/8"
+#     #User Node Pool
+#     user_os_disk_size_gb     = 512
+#     user_node_vm_size        = "Standard_DS4_v2"
+#     user_node_count          = 10
+#     user_enable_auto_scaling = true
+#     user_node_min_count      = 4
+#     user_node_max_count      = 10
+#     user_node_max_pods       = 60
+#     user_node_taints         = []
+#     user_node_labels = {
+#       "mode" = "user"
+#     }
+#   }
+# }

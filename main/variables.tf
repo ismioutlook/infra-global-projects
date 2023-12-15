@@ -81,49 +81,49 @@ variable "eu_vars" {
   })
 }
 
-variable "aks_vars" {
-  type = object({
-    azure_k8s_service = object({
-      cluster_name1 = string
-      # cluster_name2               = string
-      log_analytics_name = string
-      la_sku             = string
-      la_solution_name   = string
-      sku_tier           = string
-      # cluster_name3               = string
-      kubernetes_version          = string
-      pod_security_policy         = bool
-      node_count                  = number
-      node_vm_size                = string
-      os_disk_size_gb             = number
-      enable_auto_scaling         = bool
-      node_min_count              = number
-      node_max_count              = number
-      node_max_pods               = number
-      node_taints                 = list(string)
-      node_labels                 = map(any)
-      node_resource_group_name_eu = string
-      #network profile
-      aks_subnet_id_eu   = string
-      network_plugin     = string
-      network_policy     = string
-      pod_cidr           = string
-      service_cidr       = string
-      dns_service_ip     = string
-      docker_bridge_cidr = string
-      #User nodepool
-      user_os_disk_size_gb     = number
-      user_node_vm_size        = string
-      user_node_count          = number
-      user_enable_auto_scaling = bool
-      user_node_min_count      = number
-      user_node_max_count      = number
-      user_node_max_pods       = number
-      user_node_taints         = list(string)
-      user_node_labels         = map(any)
-    })
-  })
-}
+# variable "aks_vars" {
+#   type = object({
+#     azure_k8s_service = object({
+#       cluster_name1 = string
+#       # cluster_name2               = string
+#       log_analytics_name = string
+#       la_sku             = string
+#       la_solution_name   = string
+#       sku_tier           = string
+#       # cluster_name3               = string
+#       kubernetes_version          = string
+#       pod_security_policy         = bool
+#       node_count                  = number
+#       node_vm_size                = string
+#       os_disk_size_gb             = number
+#       enable_auto_scaling         = bool
+#       node_min_count              = number
+#       node_max_count              = number
+#       node_max_pods               = number
+#       node_taints                 = list(string)
+#       node_labels                 = map(any)
+#       node_resource_group_name_eu = string
+#       #network profile
+#       aks_subnet_id_eu   = string
+#       network_plugin     = string
+#       network_policy     = string
+#       pod_cidr           = string
+#       service_cidr       = string
+#       dns_service_ip     = string
+#       docker_bridge_cidr = string
+#       #User nodepool
+#       user_os_disk_size_gb     = number
+#       user_node_vm_size        = string
+#       user_node_count          = number
+#       user_enable_auto_scaling = bool
+#       user_node_min_count      = number
+#       user_node_max_count      = number
+#       user_node_max_pods       = number
+#       user_node_taints         = list(string)
+#       user_node_labels         = map(any)
+#     })
+#   })
+# }
 
 # variable "waf_enabled" {
 #   type        = bool
