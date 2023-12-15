@@ -1,5 +1,5 @@
 subscription = {
-  prod = {
+  subscription = {
     tenant_id       = "d2007bef-127d-4591-97ac-10d72fe28031"
     subscription_id = "9a44d85a-3cf1-4938-9509-c8f94b1aee10"
   }

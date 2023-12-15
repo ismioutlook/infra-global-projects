@@ -1,6 +1,6 @@
 variable "subscription" {
   type = object({
-    nonprod = object({
+    subscription = object({
       tenant_id       = string
       subscription_id = string
     })

@@ -1,5 +1,5 @@
 subscription = {
-  nonprod = {
+  subscription = {
     tenant_id       = "d2007bef-127d-4591-97ac-10d72fe28031"
     subscription_id = "4731e47d-991b-4fbd-86aa-1e861607b82f"
   }
