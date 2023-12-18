@@ -37,7 +37,7 @@ eu_vars = {
     user_managed_identity  = "id-appgw-gl-westeu"
   }
   api_management = {
-    apim_name                 = "elxapimglprod01"
+    apim_name                 = "elxapimglprod-01"
     apim_publisher_name       = "Electrolux"
     apim_publisher_email      = "chirag.panchal@electrolux.com"
     apim_sku_name             = "Premium_1"
