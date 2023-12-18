@@ -116,7 +116,7 @@ aks_vars = {
     #User Node Pool
     user_os_disk_size_gb     = 512
     user_node_vm_size        = "Standard_DS4_v2"
-    user_node_count          = 10
+    user_node_count          = 4
     user_enable_auto_scaling = true
     user_node_min_count      = 4
     user_node_max_count      = 10
