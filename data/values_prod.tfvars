@@ -33,7 +33,7 @@ eu_vars = {
     origin_portal_hostname = "origin-portal-eu-prod.electrolux.com"
     origin_mgmt_hostname   = "origin-mss-eu-prod.electrolux.com"
     origin_scm_hostname    = "origin-scm-eu-prod.electrolux.com"
-    apim_address_pool      = ["10.221.188.4"]
+    apim_address_pool      = ["10.221.196.4"]
     user_managed_identity  = "id-appgw-gl-westeu"
   }
   api_management = {
@@ -48,20 +48,20 @@ eu_vars = {
     apim_subnet_id_eu         = "/subscriptions/9a44d85a-3cf1-4938-9509-c8f94b1aee10/resourceGroups/RG-ELX-EU-Concent-Prod-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EU-Concent-Prod-Spoke-001/subnets/APIM-SBNT-001"
     key_vault_secret_id       = "https://elxkv-cert-prod-gl-01.vault.azure.net/secrets/int-electrolux-com-prod"
     additional_locations = [
-      {
-        location  = "Southeast Asia"
-        capacity  = 1
-        subnet_id = "/subscriptions/9a44d85a-3cf1-4938-9509-c8f94b1aee10/resourceGroups/RG-ELX-APAC-Concent-Prod-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-APAC-Concent-Prod-Spoke-001/subnets/APIM-SBT-01"
-        pip_name = "pip-elxapimglprod01-apac"
-        domain_name = "elxapimglprod01"
-      },
-      {
-        location  = "East US"
-        capacity  = 1
-        subnet_id = "/subscriptions/9a44d85a-3cf1-4938-9509-c8f94b1aee10/resourceGroups/RG-ELX-EUS-Concent-Prod-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-Prod-Spoke-001/subnets/APIM-SBT-01"
-        pip_name = "pip-elxapimglprod01-eus"
-        domain_name = "elxapimglprod01"
-      }
+      # {
+      #   location  = "Southeast Asia"
+      #   capacity  = 1
+      #   subnet_id = "/subscriptions/9a44d85a-3cf1-4938-9509-c8f94b1aee10/resourceGroups/RG-ELX-APAC-Concent-Prod-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-APAC-Concent-Prod-Spoke-001/subnets/APIM-SBT-01"
+      #   pip_name = "pip-elxapimglprod01-apac"
+      #   domain_name = "elxapimglprod01"
+      # },
+      # {
+      #   location  = "East US"
+      #   capacity  = 1
+      #   subnet_id = "/subscriptions/9a44d85a-3cf1-4938-9509-c8f94b1aee10/resourceGroups/RG-ELX-EUS-Concent-Prod-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-Prod-Spoke-001/subnets/APIM-SBT-01"
+      #   pip_name = "pip-elxapimglprod01-eus"
+      #   domain_name = "elxapimglprod01"
+      # }
       // Add more additional locations as needed
     ]
   }
