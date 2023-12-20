@@ -16,6 +16,10 @@ variable "eu_vars" {
     virtual_network = object({
       vnet_resource_group_name     = string
       virtual_network_name = string
+      apim_subnet_name = string
+      appgw_subnet_name = string
+      aks_subnet_name = string
+      pv_endpoint_subnet_name = string
     })
     # application_insights = object ({
     #   app_insights_name = string

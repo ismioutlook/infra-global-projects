@@ -59,6 +59,14 @@ eu_vars = {
       // Add more additional locations as needed
     ]
   }
+  virtual_network = {
+    vnet_resource_group_name = "RG-ELX-GL-Concent-NonProd-Networking"
+    virtual_network_name = "VN-ELX-GL-Concent-NonProd-Spoke-002"
+    apim_subnet_name = "APIM-SBNT-001"
+    appgw_subnet_name = "APPGW-SBNT-001"
+    aks_subnet_name = "AKS-SBNT-001"
+    pv_endpoint_subnet_name = "PV-ENDPOINTS-SBNT-001"
+  }
   network_security_group = {
     nsg_apim_name = "nsg-apim-gl-nonprod"
     nsg_appgw_name = "nsg-gw-gl-nonprod"

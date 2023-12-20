@@ -13,6 +13,10 @@ eu_vars = {
   virtual_network = {
     vnet_resource_group_name = "RG-ELX-EU-Concent-Prod-Networking"
     virtual_network_name = "VN-ELX-EU-Concent-Prod-Spoke-001"
+    apim_subnet_name = "APIM-SBNT-001"
+    appgw_subnet_name = "APPGW-SBNT-001"
+    aks_subnet_name = "AKS-SBNT-001"
+    pv_endpoint_subnet_name = "PV-ENDPOINTS-SBNT-001"
   }
   app_gateway = {
     appgw_pip_name         = "pip-appgw-gl-elx-eu-prod-01"
