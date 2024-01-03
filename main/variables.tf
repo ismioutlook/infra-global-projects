@@ -1,6 +1,6 @@
 variable "subscription" {
   type = object({
-    nonprod = object({
+    subscription = object({
       tenant_id       = string
       subscription_id = string
     })
@@ -12,6 +12,14 @@ variable "eu_vars" {
     resource_group = object({
       resource_group_location = string
       resource_group_name     = string
+    })
+    virtual_network = object({
+      vnet_resource_group_name     = string
+      virtual_network_name = string
+      apim_subnet_name = string
+      appgw_subnet_name = string
+      aks_subnet_name = string
+      pv_endpoint_subnet_name = string
     })
     # application_insights = object ({
     #   app_insights_name = string
@@ -64,7 +72,10 @@ variable "eu_vars" {
       acr_sku           = string
       acr_admin_enabled = bool
     })
-
+    network_security_group = object({
+      nsg_apim_name = string
+      nsg_appgw_name = string
+    })
     tags = object({
       env_tag          = string
       owner_tag        = string
@@ -80,12 +91,12 @@ variable "eu_vars" {
 variable "aks_vars" {
   type = object({
     azure_k8s_service = object({
-      cluster_name1               = string
+      cluster_name1 = string
       # cluster_name2               = string
-      log_analytics_name          = string
-      la_sku                      = string
-      la_solution_name            = string
-      sku_tier                    = string
+      log_analytics_name = string
+      la_sku             = string
+      la_solution_name   = string
+      sku_tier           = string
       # cluster_name3               = string
       kubernetes_version          = string
       pod_security_policy         = bool

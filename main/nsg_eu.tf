@@ -1,7 +1,7 @@
 resource "azurerm_network_security_group" "nsg_apim" {
   location            = var.eu_vars.resource_group.resource_group_location
   resource_group_name = var.eu_vars.resource_group.resource_group_name
-  name                = "nsg-apim-gl-nonprod"
+  name                = var.eu_vars.network_security_group.nsg_apim_name
 
   security_rule {
     access                     = "Allow"
@@ -79,7 +79,7 @@ resource "azurerm_network_security_group" "nsg_apim" {
   security_rule {
     access                     = "Allow"
     destination_address_prefix = "EventHub"
-    destination_port_range     = "5671"
+    destination_port_ranges     = ["5671", "5672", "443"]
     direction                  = "Outbound"
     name                       = "Dependency_for_Log_to_event_Hub_policy"
     priority                   = 150
@@ -295,9 +295,9 @@ resource "azurerm_network_security_group" "nsg_apim" {
     source_port_range          = "*"
   }
   lifecycle {
-    ignore_changes = [ 
+    ignore_changes = [
       security_rule
-     ]
+    ]
   }
   depends_on = [module.eu_gl_rg]
 }
@@ -305,7 +305,7 @@ resource "azurerm_network_security_group" "nsg_apim" {
 resource "azurerm_network_security_group" "nsg_apim_gw" {
   location            = var.eu_vars.resource_group.resource_group_location
   resource_group_name = var.eu_vars.resource_group.resource_group_name
-  name                = "nsg-gw-gl-nonprod"
+  name                = var.eu_vars.network_security_group.nsg_appgw_name
 
   security_rule {
     access                     = "Allow"
@@ -453,7 +453,7 @@ resource "azurerm_network_security_group" "nsg_apim_gw" {
   }
   depends_on = [module.eu_gl_rg]
   lifecycle {
-    ignore_changes = [ security_rule ]
+    ignore_changes = [security_rule]
   }
 }
 

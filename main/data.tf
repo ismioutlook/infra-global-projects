@@ -1,23 +1,23 @@
 data "azurerm_subnet" "subnet_apim" {
-  name                 = "APIM-SBNT-001"
-  resource_group_name  = "RG-ELX-GL-Concent-NonProd-Networking"
-  virtual_network_name = "VN-ELX-GL-Concent-NonProd-Spoke-002"
+  name                 = var.eu_vars.virtual_network.apim_subnet_name
+  resource_group_name  = var.eu_vars.virtual_network.vnet_resource_group_name
+  virtual_network_name = var.eu_vars.virtual_network.virtual_network_name
 }
 
 data "azurerm_subnet" "subnet_appgw" {
-  name                 = "APPGW-SBNT-001"
-  resource_group_name  = "RG-ELX-GL-Concent-NonProd-Networking"
-  virtual_network_name = "VN-ELX-GL-Concent-NonProd-Spoke-002"
+  name                 = var.eu_vars.virtual_network.appgw_subnet_name
+  resource_group_name  = var.eu_vars.virtual_network.vnet_resource_group_name
+  virtual_network_name = var.eu_vars.virtual_network.virtual_network_name
 }
 
 data "azurerm_subnet" "subnet_aks" {
-  name                 = "AKS-SBNT-001"
-  resource_group_name  = "RG-ELX-GL-Concent-NonProd-Networking"
-  virtual_network_name = "VN-ELX-GL-Concent-NonProd-Spoke-002"
+  name                 = var.eu_vars.virtual_network.aks_subnet_name
+  resource_group_name  = var.eu_vars.virtual_network.vnet_resource_group_name
+  virtual_network_name = var.eu_vars.virtual_network.virtual_network_name
 }
 
 data "azurerm_subnet" "subnet_pv_endpoints" {
-  name                 = "PV-ENDPOINTS-SBNT-001"
-  resource_group_name  = "RG-ELX-GL-Concent-NonProd-Networking"
-  virtual_network_name = "VN-ELX-GL-Concent-NonProd-Spoke-002"
+  name                 = var.eu_vars.virtual_network.pv_endpoint_subnet_name
+  resource_group_name  = var.eu_vars.virtual_network.vnet_resource_group_name
+  virtual_network_name = var.eu_vars.virtual_network.virtual_network_name
 }
