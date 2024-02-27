@@ -68,14 +68,14 @@ eu_vars = {
   }
   virtual_network = {
     vnet_resource_group_name = "RG-ELX-GL-Concent-NonProd-Networking"
-    virtual_network_name = "VN-ELX-GL-Concent-NonProd-Spoke-002"
-    apim_subnet_name = "APIM-SBNT-001"
-    appgw_subnet_name = "APPGW-SBNT-001"
-    aks_subnet_name = "AKS-SBNT-001"
-    pv_endpoint_subnet_name = "PV-ENDPOINTS-SBNT-001"
+    virtual_network_name     = "VN-ELX-GL-Concent-NonProd-Spoke-002"
+    apim_subnet_name         = "APIM-SBNT-001"
+    appgw_subnet_name        = "APPGW-SBNT-001"
+    aks_subnet_name          = "AKS-SBNT-001"
+    pv_endpoint_subnet_name  = "PV-ENDPOINTS-SBNT-001"
   }
   network_security_group = {
-    nsg_apim_name = "nsg-apim-gl-nonprod"
+    nsg_apim_name  = "nsg-apim-gl-nonprod"
     nsg_appgw_name = "nsg-gw-gl-nonprod"
   }
   acr = {
@@ -143,3 +143,34 @@ aks_vars = {
     }
   }
 }
+
+node_pools = [
+  {
+    name                = "odlnodepool"
+    vm_size             = "Standard_DS2_v2"
+    os_disk_size_gb     = 512
+    enable_auto_scaling = true
+    node_count          = 2
+    min_count           = 1
+    max_count           = 2
+    max_pods            = 60
+    node_taints         = ["odl-legacy=import-services:NoSchedule"]
+    node_labels = {
+      "mode" = "user"
+    }
+  },
+  {
+    name                = "odlcorepool"
+    vm_size             = "Standard_DS2_v2"
+    os_disk_size_gb     = 512
+    enable_auto_scaling = true
+    node_count          = 2
+    min_count           = 1
+    max_count           = 2
+    max_pods            = 60
+    node_taints         = ["odl-core=spark:NoSchedule"]
+    node_labels = {
+      "mode" = "user"
+    }
+  }
+]
