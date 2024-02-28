@@ -35,6 +35,7 @@ eu_vars = {
     origin_mgmt_hostname   = "origin-mss-eu-nonprod.electrolux.com"
     origin_scm_hostname    = "origin-scm-eu-nonprod.electrolux.com"
     apim_address_pool      = ["10.221.188.4"]
+    grafana_address_pool   = ["10.221.184.103"]
     user_managed_identity  = "id-appgw-gl-westeu"
   }
   api_management = {

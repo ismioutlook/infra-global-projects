@@ -1,5 +1,5 @@
 module "eu_gl_appgw" {
-  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-AppGw//module?ref=v0.0.15.1"
+  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-AppGw//module?ref=v0.0.15.3"
   tenant_id               = var.subscription.subscription.tenant_id
   subscription_id         = var.subscription.subscription.subscription_id
   resource_group_name     = var.eu_vars.resource_group.resource_group_name
@@ -24,6 +24,7 @@ module "eu_gl_appgw" {
   origin_scm_hostname    = var.eu_vars.app_gateway.origin_scm_hostname
   scm_hostname           = var.eu_vars.app_gateway.scm_hostname
   apim_address_pool      = var.eu_vars.app_gateway.apim_address_pool
+  grafana_address_pool   = var.eu_vars.app_gateway.grafana_address_pool
   user_managed_identity  = var.eu_vars.app_gateway.user_managed_identity
   #WAF Configurations
   waf_enabled                  = var.waf_enabled
