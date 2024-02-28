@@ -1,5 +1,5 @@
 module "eu_gl_aks" {
-  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//iasc?ref=v0.1.9"
+  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//iasc?ref=v0.1.10"
   resource_group_name     = var.eu_vars.resource_group.resource_group_name
   resource_group_location = var.eu_vars.resource_group.resource_group_location
   log_analytics_name      = var.aks_vars.azure_k8s_service.log_analytics_name
