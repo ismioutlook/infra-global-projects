@@ -32,7 +32,6 @@ eu_vars = {
     scm_hostname                  = "scm-eu-nonprod.int.electrolux.com"
     grafana_hostname              = "grafana-eu-nonprod.int.electrolux.com"
     k8s_dashboard_hostname        = "k8sdashboard-eu-nonprod.int.electrolux.com"
-    origin_k8s_dashboard_hostname = "origin-k8sdashboard-eu-nonprod.electrolux.com"
     origin_api_hostname           = "origin-api-eu-nonprod.electrolux.com"
     origin_portal_hostname        = "origin-portal-eu-nonprod.electrolux.com"
     origin_mgmt_hostname          = "origin-mss-eu-nonprod.electrolux.com"
