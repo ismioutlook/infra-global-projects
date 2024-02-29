@@ -1,5 +1,5 @@
 module "eu_gl_appgw" {
-  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-AppGw//module?ref=v0.0.15.3"
+  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-AppGw//module?ref=v0.0.15.4"
   tenant_id               = var.subscription.subscription.tenant_id
   subscription_id         = var.subscription.subscription.subscription_id
   resource_group_name     = var.eu_vars.resource_group.resource_group_name
