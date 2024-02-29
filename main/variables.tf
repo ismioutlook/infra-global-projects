@@ -1,256 +1,182 @@
-#-----------------------------resource group module variables-----------------------------------------
-
-variable "resource_group_name_eu" {
-  type        = string
-  description = "Name of the resource group in the EU region."
+variable "subscription" {
+  type = object({
+    subscription = object({
+      tenant_id       = string
+      subscription_id = string
+    })
+  })
 }
 
-variable "resource_group_location_eu" {
-  type        = string
-  description = "Location of the resource group in the EU region."
+variable "eu_vars" {
+  type = object({
+    resource_group = object({
+      resource_group_location = string
+      resource_group_name     = string
+    })
+    virtual_network = object({
+      vnet_resource_group_name = string
+      virtual_network_name     = string
+      apim_subnet_name         = string
+      appgw_subnet_name        = string
+      aks_subnet_name          = string
+      pv_endpoint_subnet_name  = string
+    })
+    # application_insights = object ({
+    #   app_insights_name = string
+    #   app_insights_type = string
+    # })
+    app_gateway = object({
+      appgw_pip_name       = string
+      appgw_pip_allocation = string
+      appgw_name           = string
+      appgw_sku_name       = string
+      appgw_sku_tier       = string
+      appgw_sku_capacity   = number
+      appgw_ip_config_name = string
+      subnet_id            = string
+      ssl_certificate_name = string
+      key_vault_secret_id  = string
+      #trusted_root_certificate_id = string
+      api_hostname                  = string
+      origin_api_hostname           = string
+      grafana_hostname              = string
+      origin_grafana_hostname       = string
+      mgmt_hostname                 = string
+      portal_hostname               = string
+      origin_portal_hostname        = string
+      origin_mgmt_hostname          = string
+      origin_scm_hostname           = string
+      scm_hostname                  = string
+      k8s_dashboard_hostname        = string
+      apim_address_pool             = list(string)
+      grafana_address_pool          = list(string)
+      user_managed_identity         = string
+    })
+    api_management = object({
+      apim_name                 = string
+      apim_publisher_name       = string
+      apim_publisher_email      = string
+      apim_sku_name             = string
+      gateway_hostnames         = list(string)
+      developer_portal_hostname = string
+      management_hostname       = string
+      scm_hostname              = string
+      apim_subnet_id_eu         = string
+      key_vault_secret_id       = string
+      additional_locations = list(object({
+        location    = string
+        capacity    = number
+        subnet_id   = string
+        pip_name    = string
+        domain_name = string
+      }))
+    })
+    acr = object({
+      acr_name          = string
+      acr_sku           = string
+      acr_admin_enabled = bool
+    })
+    network_security_group = object({
+      nsg_apim_name  = string
+      nsg_appgw_name = string
+    })
+    tags = object({
+      env_tag          = string
+      owner_tag        = string
+      account_tag      = string
+      billingid_tag    = string
+      costcenterit_tag = string
+      sector_tag       = string
+      created_by_tag   = string
+    })
+  })
 }
 
-variable "resource_group_location_us" {
-  type        = string
-  description = "Location of the resource group in the US region."
+variable "aks_vars" {
+  type = object({
+    azure_k8s_service = object({
+      cluster_name1 = string
+      # cluster_name2               = string
+      log_analytics_name = string
+      la_sku             = string
+      la_solution_name   = string
+      sku_tier           = string
+      # cluster_name3               = string
+      kubernetes_version          = string
+      pod_security_policy         = bool
+      node_count                  = number
+      node_vm_size                = string
+      os_disk_size_gb             = number
+      enable_auto_scaling         = bool
+      node_min_count              = number
+      node_max_count              = number
+      node_max_pods               = number
+      node_taints                 = list(string)
+      node_labels                 = map(any)
+      node_resource_group_name_eu = string
+      #network profile
+      aks_subnet_id_eu   = string
+      network_plugin     = string
+      network_policy     = string
+      pod_cidr           = string
+      service_cidr       = string
+      dns_service_ip     = string
+      docker_bridge_cidr = string
+      #User nodepool
+      user_os_disk_size_gb     = number
+      user_node_vm_size        = string
+      user_node_count          = number
+      user_enable_auto_scaling = bool
+      user_node_min_count      = number
+      user_node_max_count      = number
+      user_node_max_pods       = number
+      user_node_taints         = list(string)
+      user_node_labels         = map(any)
+    })
+  })
 }
 
-variable "resource_group_name_us" {
-  type        = string
-  description = "Name of the resource group in the US region."
-}
-
-variable "resource_group_location_au" {
-  type        = string
-  description = "Location of the resource group in the Australia region."
-}
-
-variable "resource_group_name_au" {
-  type        = string
-  description = "Name of the resource group in the Australia region."
-}
-
-#-----------------------------Virtual Network module variables-----------------------------------------
-variable "virtual_network_name_eu" {
-  type        = string
-  description = "Name of the virtual network in the EU region."
-}
-
-variable "virtual_network_name_us" {
-  type        = string
-  description = "Name of the virtual network in the US region."
-}
-
-variable "virtual_network_name_au" {
-  type        = string
-  description = "Name of the virtual network in the Australia region."
-}
-
-variable "vnet_address_space_eu" {
-  type        = list(string)
-  description = "Address space of the virtual network in the EU region."
-}
-
-variable "vnet_address_space_us" {
-  type        = list(string)
-  description = "Address space of the virtual network in the US region."
-}
-
-variable "vnet_address_space_au" {
-  type        = list(string)
-  description = "Address space of the virtual network in the Australia region."
-}
-
-variable "subnet_name" {
-  type        = list(string)
-  description = "Name of the subnet."
-}
-
-variable "subnet_address_space_eu" {
-  type        = list(string)
-  description = "Address space of the subnet in the EU region."
-}
-
-variable "subnet_address_space_us" {
-  type        = list(string)
-  description = "Address space of the subnet in the US region."
-}
-
-variable "subnet_address_space_au" {
-  type        = list(string)
-  description = "Address space of the subnet in the Australia region."
-}
-
-variable "service_endpoints" {
-  type        = list(string)
-  description = "List of service endpoints."
-}
-
-
-#--------------------------------------Traffic Manager--------------------------------------------------
-
-
-variable "traffic_manager_name" {
-  type        = string
-  description = "Name of the Traffic Manager."
-}
-
-variable "traffic_routing_method" {
-  type        = string
-  description = "Traffic routing method for the Traffic Manager."
-}
-
-variable "ttl_value" {
-  type        = number
-  description = "TTL value for DNS records."
-}
-
-variable "protocol" {
-  type        = string
-  description = "Protocol for health checks."
-}
-
-variable "port" {
-  type        = number
-  description = "Port number for health checks."
-}
-
-variable "path" {
-  type        = string
-  description = "Path for health checks."
-}
-
-variable "interval_in_seconds" {
-  type        = number
-  description = "Interval between health checks in seconds."
-}
-
-variable "timeout_in_seconds" {
-  type        = number
-  description = "Timeout for health checks in seconds."
-}
-
-variable "tolerated_number_of_failures" {
-  type        = number
-  description = "Number of tolerated failures for health checks."
-}
-
-# Azure Subscription 
-variable "tenant_id" {
-  type        = string
-  description = "Tenant id"
-  default     = "d2007bef-127d-4591-97ac-10d72fe28031"
-}
-
-variable "subscription_id" {
-  type        = string
-  description = "Azure Subscription ID"
-  default     = "f28071b5-e402-4c1a-83cc-ed0744ce8e0a"
-}
-
-#------------------------------------------AKS Cluster EU------------------------------------#
-
-# LogAnalytics workspace & Solution details
-
-variable "log_analytics_name" {
-  type        = string
-  description = "The Name of the log analytics workspace "
-}
-
-variable "la_sku" {
-  type        = string
-  description = "log analytics workspace sku or pricing tier"
-  #default     = "PerGB2018"
-}
-
-variable "la_solution_name" {
-  type        = string
-  description = "log analytics solution name"
-  #default     = "ContainerInsights"
-}
-
-# Kubernetes cluster
-
-variable "cluster_name" {
-  type        = string
-  description = "Name of the AKS cluster"
-}
-
-
-variable "kubernetes_version" {
-  type        = string
-  description = "The AKS Kubernetes version"
-}
-
-
-variable "pod_security_policy" {
+variable "waf_enabled" {
   type        = bool
-  description = "Enable PodSecurityPolicy the Kubernetes API"
+  description = "Whether the Web Application Firewall should be enabled. Default to true"
+  default     = true
 }
 
-
-
-# Default node pool
-
-variable "node_count" {
-  type        = number
-  description = "The default node pool instance count"
-}
-
-variable "node_vm_size" {
+variable "waf_firewall_mode" {
   type        = string
-  description = "The Azure VM instance type"
-  # default     = "Standard_D2s_v3"
+  description = "The Web Application Firewall mode. Possible values are 'Detection' and 'Prevention'."
+  default     = "Detection"
 }
 
-variable "os_disk_size_gb" {
-  default     = 80
-  type        = number
-  description = "Default node pool disk size"
-}
-
-variable "subnet_id" {
+variable "waf_rule_set_type" {
   type        = string
-  description = "vnet subnet id"
+  description = "The type of rule set that should be used by the Web Application Firewall."
+  default     = "OWASP"
 }
 
-variable "enable_auto_scaling" {
+variable "waf_rule_set_version" {
+  type        = string
+  description = "The version of the rule set used for the Web Application Firewall."
+  default     = "3.0"
+}
+
+variable "waf_file_upload_limit_mb" {
+  type        = number
+  description = "(Optional) The file upload limit in megabytes. Defaults to 100MB"
+  default     = 100
+}
+
+variable "waf_request_body_check" {
   type        = bool
-  description = "Enable autoscaling on the default node pool"
+  description = "(Optional) Whether request body inspection should be enabled. Defaults to true"
+  default     = true
 }
 
-variable "node_min_count" {
-  default     = 1
+variable "waf_max_request_body_size_kb" {
   type        = number
-  description = "Default node pool intial count (used with autoscaling)"
+  description = "(Optional) The maximum request body size in kilobytes. Defaults to 128KB"
+  default     = 128
 }
-
-variable "node_max_count" {
-  default     = 5
-  type        = number
-  description = "Default node pool max count (use with autoscaling)"
-}
-
-variable "node_max_pods" {
-  default     = 60
-  type        = number
-  description = "Total amount of pods allowed per node"
-}
-
-variable "node_taints" {
-  type        = list(string)
-  description = "Taints for default pool nodes"
-}
-
-variable "node_labels" {
-  description = "A map of Kubernetes labels which should be applied to nodes in the Default Node Pool"
-  type        = map(any)
-  default = {
-    "service" = "kubernetes"
-  }
-}
-
-# Addons node pool
 
 variable "node_pools" {
   description = "Addons node pools"
@@ -269,40 +195,7 @@ variable "node_pools" {
   default = []
 }
 
-# Network profile
-
-variable "network_plugin" {
-  type        = string
-  description = "The CNI network plugin to use (only azure, or kubenet)"
-}
-
-variable "network_policy" {
-  type        = string
-  description = "The network polcy for the CNI. Only used when network_plugin is set to azure. Supported values: calico, azure"
-}
-
-variable "pod_cidr" {
-  type        = string
-  description = "The CIDR for the pod network"
-}
-
-variable "service_cidr" {
-  type        = string
-  description = "The CIDR for kubernetes services"
-}
-
-variable "dns_service_ip" {
-  type        = string
-  description = "IP address within the Kubernetes service address range that will be used by cluster service discovery"
-}
-
-variable "docker_bridge_cidr" {
-  type        = string
-  description = " IP address (in CIDR notation) used as the Docker bridge IP address on nodes"
-}
-
-
-# Auto-scaler profile
+# # Auto-scaler profile
 
 variable "balance_similar_node_groups" {
   description = "Detect similar node groups and balance the number of nodes between them"
@@ -357,47 +250,4 @@ variable "scale_down_utilization_threshold" {
   description = "Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down"
   type        = string
   default     = "0.5"
-}
-
-#-----------------------------------------------------Tags--------------------------------------------------------
-variable "owner_tag" {
-  type = string
-  #default     = "Arun Nalliannan"
-  description = "Owner of the resource"
-}
-
-variable "account_tag" {
-  type = string
-  #default     = "623065"
-  description = "Account"
-}
-
-variable "billingid_tag" {
-  type = string
-  #default     = "MyAccounts"
-  description = "Billing ID"
-}
-
-variable "costcenterit_tag" {
-  type = string
-  #default     = "10350645"
-  description = "Cost Center"
-}
-
-variable "sector_tag" {
-  type = string
-  #default     = "BAEurope"
-  description = "Sector"
-}
-
-variable "env_tag" {
-  type = string
-  #default     = "DEV"
-  description = "Environment used in the tags of the resources"
-}
-
-variable "created_by_tag" {
-  type = string
-  #default     = "PETeam"
-  description = "mention created by tag"
 }
