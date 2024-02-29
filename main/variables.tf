@@ -48,7 +48,6 @@ variable "eu_vars" {
       origin_scm_hostname           = string
       scm_hostname                  = string
       k8s_dashboard_hostname        = string
-      origin_k8s_dashboard_hostname = string
       apim_address_pool             = list(string)
       grafana_address_pool          = list(string)
       user_managed_identity         = string
