@@ -17,7 +17,6 @@ module "eu_gl_appgw" {
   # hostname                = var.eu_vars.app_gateway.hostname
   api_hostname                  = var.eu_vars.app_gateway.api_hostname
   k8s_dashboard_hostname        = var.eu_vars.app_gateway.k8s_dashboard_hostname
-  origin_k8s_dashboard_hostname = var.eu_vars.app_gateway.origin_k8s_dashboard_hostname
   origin_api_hostname           = var.eu_vars.app_gateway.origin_api_hostname
   mgmt_hostname                 = var.eu_vars.app_gateway.mgmt_hostname
   portal_hostname               = var.eu_vars.app_gateway.portal_hostname
