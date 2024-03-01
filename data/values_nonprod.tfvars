@@ -154,9 +154,9 @@ node_pools = [
     vm_size             = "Standard_DS2_v2"
     os_disk_size_gb     = 512
     enable_auto_scaling = true
-    node_count          = 2
-    min_count           = 1
-    max_count           = 2
+    node_count          = 4
+    min_count           = 2
+    max_count           = 4
     max_pods            = 60
     node_taints         = ["odl-legacy=import-services:NoSchedule"]
     node_labels = {
