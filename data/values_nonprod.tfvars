@@ -161,7 +161,7 @@ node_pools = [
     max_pods            = 60
     node_taints         = ["odl-legacy=import-services:NoSchedule"]
     node_labels = {
-      "mode" = "user"
+      "odl-legacy" = "import-services"
     }
   },
   {
@@ -175,7 +175,7 @@ node_pools = [
     max_pods            = 60
     node_taints         = ["odl-core=spark:NoSchedule"]
     node_labels = {
-      "mode" = "user"
+      "odl-core" = "spark"
     }
   }
 ]
