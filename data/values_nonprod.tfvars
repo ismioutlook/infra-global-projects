@@ -150,7 +150,7 @@ aks_vars = {
 node_pools = [
   {
     name                = "odlnodepool"
-    vm_size             = "Standard_DS2_v2"
+    vm_size             = "Standard_DS3_v2"
     os_disk_size_gb     = 512
     enable_auto_scaling = true
     node_count          = 2
