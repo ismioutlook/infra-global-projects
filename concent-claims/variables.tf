@@ -1,6 +1,6 @@
 variable "enabled" {
   type        = bool
-  default     = false
+  default     = true
   description = "Global flag to control resource provisioning"
 }
 
