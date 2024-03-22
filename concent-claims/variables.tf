@@ -85,3 +85,20 @@ variable "subscription_id" {
   type        = string
   description = "subscription id"
 }
+
+# Keyvault Variables
+
+variable "key_vault_name" {
+  type        = string
+  description = "key_vault name"
+}
+
+variable "soft_delete_retention_days" {
+  type        = string
+  description = "soft_delete_retention_days"
+}
+
+variable "kv_sku_name" {
+  type        = string
+  description = "Key Vault SKU"
+}
