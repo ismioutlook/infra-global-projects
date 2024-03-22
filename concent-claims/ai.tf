@@ -8,4 +8,5 @@ module "app_insights" {
   app_insights_type       = var.app_insights_type
   app_insights_name       = var.app_insights_name
   workspace_id            = module.law[0].workspace_id
+  depends_on              = [module.law]
 }
