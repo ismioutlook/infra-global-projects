@@ -1,9 +1,9 @@
-enabled                 = true
-resource_group_name     = "RG-ELX-TPA-Claim-Dev-NA"
-resource_group_location = "eastus"
-key_vault_name             = "elxkv-tpa-claims-dev-01"
-soft_delete_retention_days = 90
-kv_sku_name                = "standard"
+enabled                                   = true
+resource_group_name                       = "RG-ELX-TPA-Claim-Dev-NA"
+resource_group_location                   = "eastus"
+key_vault_name                            = "elxkv-tpa-claims-dev-01"
+soft_delete_retention_days                = 90
+kv_sku_name                               = "standard"
 log_analytics_workspace_name              = "LA-ELX-EMEA-TPA-Claim-Dev"
 log_analytics_workspace_sku               = "PerGB2018"
 log_analytics_workspace_retention_in_days = "90"

@@ -75,17 +75,6 @@ variable "data_factory_name" {
   type        = string
   description = "Name of Azure Data Factory"
 }
-# ----- provider values ---
-variable "tenant_id" {
-  type        = string
-  description = "tenant id"
-}
-
-variable "subscription_id" {
-  type        = string
-  description = "subscription id"
-}
-
 # Keyvault Variables
 
 variable "key_vault_name" {
