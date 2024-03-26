@@ -1,4 +1,4 @@
-enabled = false
+enabled                                   = false
 resource_group_name                       = "RG-ELX-TPA-Claim-Dev-NA"
 resource_group_location                   = "eastus"
 key_vault_name                            = "elxkv-tpa-claims-dev-01"
