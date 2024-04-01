@@ -37,6 +37,9 @@ eu_vars = {
     origin_portal_hostname = "origin-portal-eu-prod.electrolux.com"
     origin_mgmt_hostname   = "origin-mss-eu-prod.electrolux.com"
     origin_scm_hostname    = "origin-scm-eu-prod.electrolux.com"
+    grafana_hostname       = "grafana-eu-prod.int.electrolux.com"
+    origin_grafana_hostname= "origin-grafana-eu-prod.electrolux.com"
+    grafana_address_pool   = ["10.221.192.103"]
     apim_address_pool      = ["10.221.196.4"]
     user_managed_identity  = "id-appgw-gl-westeu"
   }
