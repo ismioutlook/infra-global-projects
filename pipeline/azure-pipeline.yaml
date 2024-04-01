@@ -26,7 +26,7 @@ resources:
   - repository: oneyamlpipeline
     type: git
     name: Electrolux-Scripts/TheOneYAMLPipeline
-    ref: develop # This branch having the git pushing feature which will need to be test with the different environment.
+    ref: develop-global # This branch having the git pushing feature which will need to be test with the different environment.
 
 pool:
   vmImage: 'ubuntu-latest'
