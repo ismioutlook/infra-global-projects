@@ -33,6 +33,7 @@ eu_vars = {
     mgmt_hostname          = "mss-eu-prod.int.electrolux.com"
     portal_hostname        = "portal-eu-prod.int.electrolux.com"
     scm_hostname           = "scm-eu-prod.int.electrolux.com"
+    k8s_dashboard_hostname = "k8sdashboard-eu-prod.int.electrolux.com"
     origin_api_hostname    = "origin-api-eu-prod.electrolux.com"
     origin_portal_hostname = "origin-portal-eu-prod.electrolux.com"
     origin_mgmt_hostname   = "origin-mss-eu-prod.electrolux.com"
