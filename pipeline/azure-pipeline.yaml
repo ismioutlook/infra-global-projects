@@ -4,7 +4,7 @@ trigger:
 parameters:
 - name: tfEnv
   type: string
-  default: nonprod
+  default: prod
   values:
   - nonprod
   - test
