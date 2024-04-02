@@ -62,14 +62,14 @@ eu_vars = {
       //   subnet_id = "/subscriptions/9a44d85a-3cf1-4938-9509-c8f94b1aee10/resourceGroups/RG-ELX-APAC-Concent-Prod-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-APAC-Concent-Prod-Spoke-001/subnets/APIM-SBT-01"
       //   pip_name = "pip-elxapimglprod01-apac"
       //   domain_name = "elxapimglprod01"
+      // },
+      // {
+      //   location  = "East US"
+      //   capacity  = 1
+      //   subnet_id = "/subscriptions/9a44d85a-3cf1-4938-9509-c8f94b1aee10/resourceGroups/RG-ELX-EUS-Concent-Prod-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-Prod-Spoke-001/subnets/APIM-SBT-01"
+      //   pip_name = "pip-elxapimglprod01-eus"
+      //   domain_name = "elxapimglprod01"
       // }
-      {
-        location  = "East US"
-        capacity  = 1
-        subnet_id = "/subscriptions/9a44d85a-3cf1-4938-9509-c8f94b1aee10/resourceGroups/RG-ELX-EUS-Concent-Prod-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-Prod-Spoke-001/subnets/APIM-SBT-01"
-        pip_name = "pip-elxapimglprod01-eus"
-        domain_name = "elxapimglprod01"
-      }
       // Add more additional locations as needed
     ]
   }
