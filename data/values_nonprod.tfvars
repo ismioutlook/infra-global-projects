@@ -149,31 +149,31 @@ aks_vars = {
 }
 node_pools = [
   {
-    name                = "odlnodepool"
-    vm_size             = "Standard_DS3_v2"
-    os_disk_size_gb     = 512
-    enable_auto_scaling = true
-    node_count          = 3
-    min_count           = 2
-    max_count           = 3
-    max_pods            = 60
-    node_taints         = ["workloadtype=import-services:NoSchedule"]
-    node_labels = {
-      "workloadtype" = "import-services"
-    }
-  },
-  {
     name                = "odlcorepool"
     vm_size             = "Standard_DS3_v2"
     os_disk_size_gb     = 512
     enable_auto_scaling = true
     node_count          = 2
     min_count           = 1
-    max_count           = 2
+    max_count           = 3
     max_pods            = 60
     node_taints         = ["workloadtype=spark:NoSchedule"]
     node_labels = {
       "workloadtype" = "spark"
+    }
+  },
+  {
+    name                = "odlnodepool"
+    vm_size             = "Standard_DS3_v2"
+    os_disk_size_gb     = 512
+    enable_auto_scaling = true
+    node_count          = 3
+    min_count           = 1
+    max_count           = 3
+    max_pods            = 60
+    node_taints         = ["workloadtype=import-services:NoSchedule"]
+    node_labels = {
+      "workloadtype" = "import-services"
     }
   }
 ]
