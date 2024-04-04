@@ -33,10 +33,14 @@ eu_vars = {
     mgmt_hostname          = "mss-eu-prod.int.electrolux.com"
     portal_hostname        = "portal-eu-prod.int.electrolux.com"
     scm_hostname           = "scm-eu-prod.int.electrolux.com"
+    k8s_dashboard_hostname = "k8sdashboard-eu-prod.int.electrolux.com"
     origin_api_hostname    = "origin-api-eu-prod.electrolux.com"
     origin_portal_hostname = "origin-portal-eu-prod.electrolux.com"
     origin_mgmt_hostname   = "origin-mss-eu-prod.electrolux.com"
     origin_scm_hostname    = "origin-scm-eu-prod.electrolux.com"
+    grafana_hostname       = "grafana-eu-prod.int.electrolux.com"
+    origin_grafana_hostname= "origin-grafana-eu-prod.electrolux.com"
+    grafana_address_pool   = ["10.221.192.103"]
     apim_address_pool      = ["10.221.196.4"]
     user_managed_identity  = "id-appgw-gl-westeu"
   }
@@ -45,7 +49,7 @@ eu_vars = {
     apim_publisher_name       = "Electrolux"
     apim_publisher_email      = "chirag.panchal@electrolux.com"
     apim_sku_name             = "Premium_1"
-    gateway_hostnames         = ["api-eu-prod.int.electrolux.com"] #, "api-us-prod.int.electrolux.com"]
+    gateway_hostnames         = ["api-eu-prod.int.electrolux.com", "api-us-prod.int.electrolux.com"]
     developer_portal_hostname = "portal-eu-prod.int.electrolux.com"
     management_hostname       = "mss-eu-prod.int.electrolux.com"
     scm_hostname              = "scm-eu-prod.int.electrolux.com"
@@ -53,19 +57,12 @@ eu_vars = {
     key_vault_secret_id       = "https://elxkv-cert-prod-gl-01.vault.azure.net/secrets/int-electrolux-com-prod"
     additional_locations = [
       {
-        location  = "Southeast Asia"
+        location  = "East US"
         capacity  = 1
-        subnet_id = "/subscriptions/9a44d85a-3cf1-4938-9509-c8f94b1aee10/resourceGroups/RG-ELX-APAC-Concent-Prod-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-APAC-Concent-Prod-Spoke-001/subnets/APIM-SBT-01"
-        pip_name = "pip-elxapimglprod01-apac"
+        subnet_id = "/subscriptions/9a44d85a-3cf1-4938-9509-c8f94b1aee10/resourceGroups/RG-ELX-EUS-Concent-Prod-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-Prod-Spoke-001/subnets/APIM-SBT-01"
+        pip_name = "pip-elxapimglprod01-eus"
         domain_name = "elxapimglprod01"
       }
-      # {
-      #   location  = "East US"
-      #   capacity  = 1
-      #   subnet_id = "/subscriptions/9a44d85a-3cf1-4938-9509-c8f94b1aee10/resourceGroups/RG-ELX-EUS-Concent-Prod-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-Prod-Spoke-001/subnets/APIM-SBT-01"
-      #   pip_name = "pip-elxapimglprod01-eus"
-      #   domain_name = "elxapimglprod01"
-      # }
       // Add more additional locations as needed
     ]
   }
@@ -98,7 +95,7 @@ aks_vars = {
     la_sku             = "PerGB2018"
     la_solution_name   = "ContainerInsights"
     # cluster_name3           = "AKS-Global-APAC-Prod"
-    sku_tier            = "Paid"
+    sku_tier            = "Standard"
     kubernetes_version  = "1.27.7"
     pod_security_policy = false
     node_count          = 4
@@ -138,3 +135,33 @@ aks_vars = {
     }
   }
 }
+node_pools = [
+  {
+    name                = "odlcorepool"
+    vm_size             = "Standard_DS3_v2"
+    os_disk_size_gb     = 512
+    enable_auto_scaling = true
+    node_count          = 2
+    min_count           = 1
+    max_count           = 2
+    max_pods            = 60
+    node_taints         = ["workloadtype=spark:NoSchedule"]
+    node_labels = {
+      "workloadtype" = "spark"
+    }
+  },
+  {
+    name                = "odlnodepool"
+    vm_size             = "Standard_DS3_v2"
+    os_disk_size_gb     = 512
+    enable_auto_scaling = true
+    node_count          = 1
+    min_count           = 1
+    max_count           = 4
+    max_pods            = 60
+    node_taints         = ["workloadtype=import-services:NoSchedule"]
+    node_labels = {
+      "workloadtype" = "import-services"
+    }
+  }
+]

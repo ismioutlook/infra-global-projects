@@ -1,5 +1,5 @@
 trigger:
-- feature/enable-apac-resources
+- none
 
 parameters:
 - name: tfEnv

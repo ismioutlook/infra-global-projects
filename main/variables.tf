@@ -14,12 +14,12 @@ variable "eu_vars" {
       resource_group_name     = string
     })
     virtual_network = object({
-      vnet_resource_group_name     = string
-      virtual_network_name = string
-      apim_subnet_name = string
-      appgw_subnet_name = string
-      aks_subnet_name = string
-      pv_endpoint_subnet_name = string
+      vnet_resource_group_name = string
+      virtual_network_name     = string
+      apim_subnet_name         = string
+      appgw_subnet_name        = string
+      aks_subnet_name          = string
+      pv_endpoint_subnet_name  = string
     })
     # application_insights = object ({
     #   app_insights_name = string
@@ -37,16 +37,20 @@ variable "eu_vars" {
       ssl_certificate_name = string
       key_vault_secret_id  = string
       #trusted_root_certificate_id = string
-      api_hostname           = string
-      origin_api_hostname    = string
-      mgmt_hostname          = string
-      portal_hostname        = string
-      origin_portal_hostname = string
-      origin_mgmt_hostname   = string
-      origin_scm_hostname    = string
-      scm_hostname           = string
-      apim_address_pool      = list(string)
-      user_managed_identity  = string
+      api_hostname                  = string
+      origin_api_hostname           = string
+      grafana_hostname              = string
+      origin_grafana_hostname       = string
+      mgmt_hostname                 = string
+      portal_hostname               = string
+      origin_portal_hostname        = string
+      origin_mgmt_hostname          = string
+      origin_scm_hostname           = string
+      scm_hostname                  = string
+      k8s_dashboard_hostname        = string
+      apim_address_pool             = list(string)
+      grafana_address_pool          = list(string)
+      user_managed_identity         = string
     })
     api_management = object({
       apim_name                 = string
@@ -73,7 +77,7 @@ variable "eu_vars" {
       acr_admin_enabled = bool
     })
     network_security_group = object({
-      nsg_apim_name = string
+      nsg_apim_name  = string
       nsg_appgw_name = string
     })
     tags = object({

@@ -26,34 +26,45 @@ eu_vars = {
     ssl_certificate_name = "san-external-electrolux-com"
     key_vault_secret_id  = "https://elxkv-cert-nonprod-gl-01.vault.azure.net/secrets/san-external-electrolux-com"
     #trusted_root_certificate_id = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-GL-ELX-EU-NonProd/providers/Microsoft.Network/applicationGateways/AppGw-GL-ELX-EU-NonProd/trustedRootCertificates/ElectroluxRootCA2"
-    api_hostname           = "api-eu-nonprod.int.electrolux.com"
-    mgmt_hostname          = "mss-eu-nonprod.int.electrolux.com"
-    portal_hostname        = "portal-eu-nonprod.int.electrolux.com"
-    scm_hostname           = "scm-eu-nonprod.int.electrolux.com"
-    origin_api_hostname    = "origin-api-eu-nonprod.electrolux.com"
-    origin_portal_hostname = "origin-portal-eu-nonprod.electrolux.com"
-    origin_mgmt_hostname   = "origin-mss-eu-nonprod.electrolux.com"
-    origin_scm_hostname    = "origin-scm-eu-nonprod.electrolux.com"
-    apim_address_pool      = ["10.221.188.4"]
-    user_managed_identity  = "id-appgw-gl-westeu"
+    api_hostname                  = "api-eu-nonprod.int.electrolux.com"
+    mgmt_hostname                 = "mss-eu-nonprod.int.electrolux.com"
+    portal_hostname               = "portal-eu-nonprod.int.electrolux.com"
+    scm_hostname                  = "scm-eu-nonprod.int.electrolux.com"
+    grafana_hostname              = "grafana-eu-nonprod.int.electrolux.com"
+    k8s_dashboard_hostname        = "k8sdashboard-eu-nonprod.int.electrolux.com"
+    origin_api_hostname           = "origin-api-eu-nonprod.electrolux.com"
+    origin_portal_hostname        = "origin-portal-eu-nonprod.electrolux.com"
+    origin_mgmt_hostname          = "origin-mss-eu-nonprod.electrolux.com"
+    origin_scm_hostname           = "origin-scm-eu-nonprod.electrolux.com"
+    origin_grafana_hostname       = "origin-grafana-eu-nonprod.electrolux.com"
+    apim_address_pool             = ["10.221.188.4"]
+    grafana_address_pool          = ["10.221.184.103"]
+    user_managed_identity         = "id-appgw-gl-westeu"
   }
   api_management = {
     apim_name                 = "elxapimglnonprod01"
     apim_publisher_name       = "Electrolux"
     apim_publisher_email      = "chirag.panchal@electrolux.com"
     apim_sku_name             = "Premium_1"
-    gateway_hostnames         = ["api-eu-nonprod.int.electrolux.com"] #, "api-us-nonprod.int.electrolux.com"]
+    gateway_hostnames         = ["api-eu-nonprod.int.electrolux.com", "api-us-nonprod.int.electrolux.com"] #, "api-us-nonprod.int.electrolux.com"]
     developer_portal_hostname = "portal-eu-nonprod.int.electrolux.com"
     management_hostname       = "mss-eu-nonprod.int.electrolux.com"
     scm_hostname              = "scm-eu-nonprod.int.electrolux.com"
     apim_subnet_id_eu         = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-002/subnets/APIM-SBNT-001"
     key_vault_secret_id       = "https://elxkv-cert-nonprod-gl-01.vault.azure.net/secrets/int-electrolux-com"
     additional_locations = [
+      # {
+      #   location    = "Southeast Asia"
+      #   capacity    = 1
+      #   subnet_id   = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-APAC-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-APAC-Concent-NonProd-Spoke-001/subnets/APIM-SBT-01"
+      #   pip_name    = "pip-elxapimglnonprod01-apac"
+      #   domain_name = "elxapimglnonprod01"
+      # }
       {
-        location    = "Southeast Asia"
+        location    = "East US"
         capacity    = 1
-        subnet_id   = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-APAC-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-APAC-Concent-NonProd-Spoke-001/subnets/APIM-SBT-01"
-        pip_name    = "pip-elxapimglnonprod01-apac"
+        subnet_id   = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/APIM-SBT-01"
+        pip_name    = "pip-elxapimglnonprod01-eus"
         domain_name = "elxapimglnonprod01"
       }
       // Add more additional locations as needed
@@ -61,14 +72,14 @@ eu_vars = {
   }
   virtual_network = {
     vnet_resource_group_name = "RG-ELX-GL-Concent-NonProd-Networking"
-    virtual_network_name = "VN-ELX-GL-Concent-NonProd-Spoke-002"
-    apim_subnet_name = "APIM-SBNT-001"
-    appgw_subnet_name = "APPGW-SBNT-001"
-    aks_subnet_name = "AKS-SBNT-001"
-    pv_endpoint_subnet_name = "PV-ENDPOINTS-SBNT-001"
+    virtual_network_name     = "VN-ELX-GL-Concent-NonProd-Spoke-002"
+    apim_subnet_name         = "APIM-SBNT-001"
+    appgw_subnet_name        = "APPGW-SBNT-001"
+    aks_subnet_name          = "AKS-SBNT-001"
+    pv_endpoint_subnet_name  = "PV-ENDPOINTS-SBNT-001"
   }
   network_security_group = {
-    nsg_apim_name = "nsg-apim-gl-nonprod"
+    nsg_apim_name  = "nsg-apim-gl-nonprod"
     nsg_appgw_name = "nsg-gw-gl-nonprod"
   }
   acr = {
@@ -96,7 +107,7 @@ aks_vars = {
     la_sku             = "PerGB2018"
     la_solution_name   = "ContainerInsights"
     # cluster_name3           = "AKS-Global-APAC-NonProd"
-    sku_tier            = "Paid"
+    sku_tier            = "Standard"
     kubernetes_version  = "1.27.7"
     pod_security_policy = false
     node_count          = 4
@@ -136,3 +147,33 @@ aks_vars = {
     }
   }
 }
+node_pools = [
+  {
+    name                = "odlcorepool"
+    vm_size             = "Standard_DS3_v2"
+    os_disk_size_gb     = 512
+    enable_auto_scaling = true
+    node_count          = 2
+    min_count           = 1
+    max_count           = 2
+    max_pods            = 60
+    node_taints         = ["workloadtype=spark:NoSchedule"]
+    node_labels = {
+      "workloadtype" = "spark"
+    }
+  },
+  {
+    name                = "odlnodepool"
+    vm_size             = "Standard_DS3_v2"
+    os_disk_size_gb     = 512
+    enable_auto_scaling = true
+    node_count          = 4
+    min_count           = 4
+    max_count           = 4
+    max_pods            = 60
+    node_taints         = ["workloadtype=import-services:NoSchedule"]
+    node_labels = {
+      "workloadtype" = "import-services"
+    }
+  }
+]
