@@ -6,4 +6,8 @@ projects:
 - dir: main
   workspace: nonprod
   workflow: nonprod_basic_workflow
-  terraform_version: 1.7.5  
+  terraform_version: 1.7.5
+- dir: main
+  workspace: prod
+  workflow: prod_basic_workflow
+  terraform_version: 1.7.5
