@@ -1,0 +1,9 @@
+version: 3
+automerge: true
+
+projects:
+
+- dir: main
+  workspace: nonprod
+  workflow: nonprod_basic_workflow
+  terraform_version: 1.7.5  

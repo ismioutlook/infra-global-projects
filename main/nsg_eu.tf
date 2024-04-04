@@ -79,7 +79,7 @@ resource "azurerm_network_security_group" "nsg_apim" {
   security_rule {
     access                     = "Allow"
     destination_address_prefix = "EventHub"
-    destination_port_ranges     = ["5671", "5672", "443"]
+    destination_port_ranges    = ["5671", "5672", "443"]
     direction                  = "Outbound"
     name                       = "Dependency_for_Log_to_event_Hub_policy"
     priority                   = 150
