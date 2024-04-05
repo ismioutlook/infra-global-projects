@@ -8,7 +8,9 @@ terraform {
       version = "=3.85.0"
     }
   }
-  backend "azurerm" {}
+  backend "azurerm" {
+    key = "infra-global-projects-v1/main/terraform.tfstate"
+  }
 }
 
 provider "azurerm" {
