@@ -12,37 +12,37 @@ eu_vars = {
   }
   virtual_network = {
     vnet_resource_group_name = "RG-ELX-EU-Concent-Prod-Networking"
-    virtual_network_name = "VN-ELX-EU-Concent-Prod-Spoke-001"
-    apim_subnet_name = "APIM-SBNT-001"
-    appgw_subnet_name = "APPGW-SBNT-001"
-    aks_subnet_name = "AKS-SBNT-001"
-    pv_endpoint_subnet_name = "PV-ENDPOINTS-SBNT-001"
+    virtual_network_name     = "VN-ELX-EU-Concent-Prod-Spoke-001"
+    apim_subnet_name         = "APIM-SBNT-001"
+    appgw_subnet_name        = "APPGW-SBNT-001"
+    aks_subnet_name          = "AKS-SBNT-001"
+    pv_endpoint_subnet_name  = "PV-ENDPOINTS-SBNT-001"
   }
   app_gateway = {
-    appgw_pip_name         = "pip-appgw-gl-elx-eu-prod-01"
-    appgw_pip_allocation   = "Static"
-    appgw_name             = "AppGw-GL-ELX-EU-Prod-01"
-    appgw_sku_name         = "WAF_v2"
-    appgw_sku_tier         = "WAF_v2"
-    appgw_sku_capacity     = 2
-    appgw_ip_config_name   = "AppGw-GL-ELX-EU-IP-Config-01"
-    subnet_id              = "/subscriptions/9a44d85a-3cf1-4938-9509-c8f94b1aee10/resourceGroups/RG-ELX-EU-Concent-Prod-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EU-Concent-Prod-Spoke-001/subnets/APPGW-SBNT-001"
-    ssl_certificate_name   = "electrolux-com-prod"
-    key_vault_secret_id    = "https://elxkv-cert-prod-gl-01.vault.azure.net/secrets/electrolux-com-prod"
-    api_hostname           = "api-eu-prod.int.electrolux.com"
-    mgmt_hostname          = "mss-eu-prod.int.electrolux.com"
-    portal_hostname        = "portal-eu-prod.int.electrolux.com"
-    scm_hostname           = "scm-eu-prod.int.electrolux.com"
-    k8s_dashboard_hostname = "k8sdashboard-eu-prod.int.electrolux.com"
-    origin_api_hostname    = "origin-api-eu-prod.electrolux.com"
-    origin_portal_hostname = "origin-portal-eu-prod.electrolux.com"
-    origin_mgmt_hostname   = "origin-mss-eu-prod.electrolux.com"
-    origin_scm_hostname    = "origin-scm-eu-prod.electrolux.com"
-    grafana_hostname       = "grafana-eu-prod.int.electrolux.com"
-    origin_grafana_hostname= "origin-grafana-eu-prod.electrolux.com"
-    grafana_address_pool   = ["10.221.192.103"]
-    apim_address_pool      = ["10.221.196.4"]
-    user_managed_identity  = "id-appgw-gl-westeu"
+    appgw_pip_name          = "pip-appgw-gl-elx-eu-prod-01"
+    appgw_pip_allocation    = "Static"
+    appgw_name              = "AppGw-GL-ELX-EU-Prod-01"
+    appgw_sku_name          = "WAF_v2"
+    appgw_sku_tier          = "WAF_v2"
+    appgw_sku_capacity      = 2
+    appgw_ip_config_name    = "AppGw-GL-ELX-EU-IP-Config-01"
+    subnet_id               = "/subscriptions/9a44d85a-3cf1-4938-9509-c8f94b1aee10/resourceGroups/RG-ELX-EU-Concent-Prod-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EU-Concent-Prod-Spoke-001/subnets/APPGW-SBNT-001"
+    ssl_certificate_name    = "electrolux-com-prod"
+    key_vault_secret_id     = "https://elxkv-cert-prod-gl-01.vault.azure.net/secrets/electrolux-com-prod"
+    api_hostname            = "api-eu-prod.int.electrolux.com"
+    mgmt_hostname           = "mss-eu-prod.int.electrolux.com"
+    portal_hostname         = "portal-eu-prod.int.electrolux.com"
+    scm_hostname            = "scm-eu-prod.int.electrolux.com"
+    k8s_dashboard_hostname  = "k8sdashboard-eu-prod.int.electrolux.com"
+    origin_api_hostname     = "origin-api-eu-prod.electrolux.com"
+    origin_portal_hostname  = "origin-portal-eu-prod.electrolux.com"
+    origin_mgmt_hostname    = "origin-mss-eu-prod.electrolux.com"
+    origin_scm_hostname     = "origin-scm-eu-prod.electrolux.com"
+    grafana_hostname        = "grafana-eu-prod.int.electrolux.com"
+    origin_grafana_hostname = "origin-grafana-eu-prod.electrolux.com"
+    grafana_address_pool    = ["10.221.192.103"]
+    apim_address_pool       = ["10.221.196.4"]
+    user_managed_identity   = "id-appgw-gl-westeu"
   }
   api_management = {
     apim_name                 = "elxapimglprod-01"
@@ -57,17 +57,17 @@ eu_vars = {
     key_vault_secret_id       = "https://elxkv-cert-prod-gl-01.vault.azure.net/secrets/int-electrolux-com-prod"
     additional_locations = [
       {
-        location  = "East US"
-        capacity  = 1
-        subnet_id = "/subscriptions/9a44d85a-3cf1-4938-9509-c8f94b1aee10/resourceGroups/RG-ELX-EUS-Concent-Prod-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-Prod-Spoke-001/subnets/APIM-SBT-01"
-        pip_name = "pip-elxapimglprod01-eus"
+        location    = "East US"
+        capacity    = 1
+        subnet_id   = "/subscriptions/9a44d85a-3cf1-4938-9509-c8f94b1aee10/resourceGroups/RG-ELX-EUS-Concent-Prod-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-Prod-Spoke-001/subnets/APIM-SBT-01"
+        pip_name    = "pip-elxapimglprod01-eus"
         domain_name = "elxapimglprod01"
       }
       // Add more additional locations as needed
     ]
   }
   network_security_group = {
-    nsg_apim_name = "nsg-apim-gl-prod"
+    nsg_apim_name  = "nsg-apim-gl-prod"
     nsg_appgw_name = "nsg-gw-gl-prod"
   }
   acr = {
