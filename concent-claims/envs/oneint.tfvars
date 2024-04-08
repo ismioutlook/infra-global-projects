@@ -34,7 +34,6 @@ access_policies = [
       "Recover",
       "Update",
     ]
-    tenant_id = "d2007bef-127d-4591-97ac-10d72fe28031"
   },
   -{
     -application_id          = ""
@@ -64,7 +63,6 @@ access_policies = [
       -"List",
     ]
     -storage_permissions = []
-    -tenant_id           = "d2007bef-127d-4591-97ac-10d72fe28031"
   },
   -{
     -application_id          = ""
@@ -79,7 +77,6 @@ access_policies = [
       -"List",
     ]
     -storage_permissions = []
-    -tenant_id           = "d2007bef-127d-4591-97ac-10d72fe28031"
   },
   -{
     -application_id          = ""
@@ -94,7 +91,6 @@ access_policies = [
       -"List",
     ]
     -storage_permissions = []
-    -tenant_id           = "d2007bef-127d-4591-97ac-10d72fe28031"
   },
   -{
     -application_id          = ""
@@ -109,6 +105,5 @@ access_policies = [
       -"List",
     ]
     -storage_permissions = []
-    -tenant_id           = "d2007bef-127d-4591-97ac-10d72fe28031"
   },
 ]

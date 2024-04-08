@@ -99,7 +99,6 @@ variable "access_policies" {
     object_id               = string
     secret_permissions      = list(string)
     storage_permissions     = list(string)
-    tenant_id               = string
   }))
   description = "List of Keyvault access policies"
 }

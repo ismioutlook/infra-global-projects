@@ -24,6 +24,7 @@ access_policies = [
       "Create",
       "Import",
     ]
+    key_vault_id =  
     object_id = "88545403-aa0f-4121-8cc4-57d35852144d"
     secret_permissions = [
       "Get",
@@ -34,7 +35,6 @@ access_policies = [
       "Recover",
       "Update",
     ]
-    tenant_id = "d2007bef-127d-4591-97ac-10d72fe28031"
   },
   -{
     -application_id          = ""
@@ -64,7 +64,6 @@ access_policies = [
       -"Restore",
     ]
     -storage_permissions = []
-    -tenant_id           = "d2007bef-127d-4591-97ac-10d72fe28031"
   },
   -{
     -application_id          = ""
@@ -94,7 +93,6 @@ access_policies = [
       -"Restore",
     ]
     -storage_permissions = []
-    -tenant_id           = "d2007bef-127d-4591-97ac-10d72fe28031"
   },
   -{
     -application_id          = ""
@@ -124,7 +122,6 @@ access_policies = [
       -"Restore",
     ]
     -storage_permissions = []
-    -tenant_id           = "d2007bef-127d-4591-97ac-10d72fe28031"
   },
   -{
     -application_id          = ""
@@ -154,7 +151,6 @@ access_policies = [
       -"Restore",
     ]
     -storage_permissions = []
-    -tenant_id           = "d2007bef-127d-4591-97ac-10d72fe28031"
   },
   -{
     -application_id          = ""
@@ -169,6 +165,5 @@ access_policies = [
       -"List",
     ]
     -storage_permissions = []
-    -tenant_id           = "d2007bef-127d-4591-97ac-10d72fe28031"
   },
 ]
