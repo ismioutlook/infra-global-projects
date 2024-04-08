@@ -7,5 +7,5 @@ module "kv" {
   key_vault_name             = var.key_vault_name
   soft_delete_retention_days = var.soft_delete_retention_days
   kv_sku_name                = var.kv_sku_name
-  access_policy              = var.access_policy
+  access_policy              = var.access_policies
 }

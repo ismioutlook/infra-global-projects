@@ -15,7 +15,7 @@ storage_account_replication               = "GRS"
 app_insights_name                         = "AI-ELX-TPA-Claim-oneintegration"
 app_insights_type                         = "web"
 data_factory_name                         = "adf-elx-tpa-claim-oneintegration"
-access_policy = [
+access_policies = [
   {
     application_id          = ""
     certificate_permissions = []
