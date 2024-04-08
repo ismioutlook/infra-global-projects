@@ -1,7 +1,7 @@
 enabled                                   = true
 resource_group_name                       = "RG-ELX-TPA-Claim-1int-NA"
 resource_group_location                   = "eastus"
-key_vault_name                            = "elxkv-tpa-claims-oneintegration-01"
+key_vault_name                            = "kv-tpa-claims-1int-01"
 soft_delete_retention_days                = 90
 kv_sku_name                               = "standard"
 log_analytics_workspace_name              = "LA-ELX-TPA-Claim-Oneintegration"
