@@ -36,134 +36,134 @@ access_policies = [
       "Update",
     ]
   },
-  -{
-    -application_id          = ""
-    -certificate_permissions = []
-    -key_permissions = [
-      -"Get",
-      -"List",
-      -"Update",
-      -"Create",
-      -"Import",
-      -"Delete",
-      -"Recover",
-      -"Backup",
-      -"Restore",
-      -"GetRotationPolicy",
-      -"SetRotationPolicy",
-      -"Rotate",
+  {
+    application_id          = ""
+    certificate_permissions = []
+    key_permissions = [
+      "Get",
+      "List",
+      "Update",
+      "Create",
+      "Import",
+      "Delete",
+      "Recover",
+      "Backup",
+      "Restore",
+      "GetRotationPolicy",
+      "SetRotationPolicy",
+      "Rotate",
     ]
-    -object_id = "d5d905fb-f135-4b3b-99ef-cd536b38f834"
-    -secret_permissions = [
-      -"Get",
-      -"List",
-      -"Set",
-      -"Delete",
-      -"Recover",
-      -"Backup",
-      -"Restore",
+    object_id = "d5d905fb-f135-4b3b-99ef-cd536b38f834"
+    secret_permissions = [
+      "Get",
+      "List",
+      "Set",
+      "Delete",
+      "Recover",
+      "Backup",
+      "Restore",
     ]
-    -storage_permissions = []
+    storage_permissions = []
   },
-  -{
-    -application_id          = ""
-    -certificate_permissions = []
-    -key_permissions = [
-      -"Get",
-      -"List",
-      -"Update",
-      -"Create",
-      -"Import",
-      -"Delete",
-      -"Recover",
-      -"Backup",
-      -"Restore",
-      -"GetRotationPolicy",
-      -"SetRotationPolicy",
-      -"Rotate",
+  {
+    application_id          = ""
+    certificate_permissions = []
+    key_permissions = [
+      "Get",
+      "List",
+      "Update",
+      "Create",
+      "Import",
+      "Delete",
+      "Recover",
+      "Backup",
+      "Restore",
+      "GetRotationPolicy",
+      "SetRotationPolicy",
+      "Rotate",
     ]
-    -object_id = "2f6bed09-77e5-4ca9-a5f8-fe53d3d1a414"
-    -secret_permissions = [
-      -"Get",
-      -"List",
-      -"Set",
-      -"Delete",
-      -"Recover",
-      -"Backup",
-      -"Restore",
+    object_id = "2f6bed09-77e5-4ca9-a5f8-fe53d3d1a414"
+    secret_permissions = [
+      "Get",
+      "List",
+      "Set",
+      "Delete",
+      "Recover",
+      "Backup",
+      "Restore",
     ]
-    -storage_permissions = []
+    storage_permissions = []
   },
-  -{
-    -application_id          = ""
-    -certificate_permissions = []
-    -key_permissions = [
-      -"Get",
-      -"List",
-      -"Update",
-      -"Create",
-      -"Import",
-      -"Delete",
-      -"Recover",
-      -"Backup",
-      -"Restore",
-      -"GetRotationPolicy",
-      -"SetRotationPolicy",
-      -"Rotate",
+  {
+    application_id          = ""
+    certificate_permissions = []
+    key_permissions = [
+      "Get",
+      "List",
+      "Update",
+      "Create",
+      "Import",
+      "Delete",
+      "Recover",
+      "Backup",
+      "Restore",
+      "GetRotationPolicy",
+      "SetRotationPolicy",
+      "Rotate",
     ]
-    -object_id = "a4e4df86-36f9-41a2-8fce-c9c09f6fccb2"
-    -secret_permissions = [
-      -"Get",
-      -"List",
-      -"Set",
-      -"Delete",
-      -"Recover",
-      -"Backup",
-      -"Restore",
+    object_id = "a4e4df86-36f9-41a2-8fce-c9c09f6fccb2"
+    secret_permissions = [
+      "Get",
+      "List",
+      "Set",
+      "Delete",
+      "Recover",
+      "Backup",
+      "Restore",
     ]
-    -storage_permissions = []
+    storage_permissions = []
   },
-  -{
-    -application_id          = ""
-    -certificate_permissions = []
-    -key_permissions = [
-      -"Get",
-      -"List",
-      -"Update",
-      -"Create",
-      -"Import",
-      -"Delete",
-      -"Recover",
-      -"Backup",
-      -"Restore",
-      -"GetRotationPolicy",
-      -"SetRotationPolicy",
-      -"Rotate",
+  {
+    application_id          = ""
+    certificate_permissions = []
+    key_permissions = [
+      "Get",
+      "List",
+      "Update",
+      "Create",
+      "Import",
+      "Delete",
+      "Recover",
+      "Backup",
+      "Restore",
+      "GetRotationPolicy",
+      "SetRotationPolicy",
+      "Rotate",
     ]
-    -object_id = "ff2822e1-8fd6-440b-871f-63961030ac60"
-    -secret_permissions = [
-      -"Get",
-      -"List",
-      -"Set",
-      -"Delete",
-      -"Recover",
-      -"Backup",
-      -"Restore",
+    object_id = "ff2822e1-8fd6-440b-871f-63961030ac60"
+    secret_permissions = [
+      "Get",
+      "List",
+      "Set",
+      "Delete",
+      "Recover",
+      "Backup",
+      "Restore",
     ]
-    -storage_permissions = []
+    storage_permissions = []
   },
-  -{
-    -application_id          = ""
-    -certificate_permissions = []
-    -key_permissions = [
-      -"Get",
-      -"List",
+  {
+    application_id          = ""
+    certificate_permissions = []
+    key_permissions = [
+      "Get",
+      "List",
     ]
-    -object_id = "416f67b6-e6cd-4ea8-8b84-e6a9c0d08bc9"
-    -secret_permissions = [
-      -"Get",
-      -"List",
+    object_id = "416f67b6-e6cd-4ea8-8b84-e6a9c0d08bc9"
+    secret_permissions = [
+      "Get",
+      "List",
     ]
-    -storage_permissions = []
+    storage_permissions = []
   },
 ]
