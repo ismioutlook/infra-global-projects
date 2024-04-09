@@ -23,8 +23,7 @@ access_policies = [
       "Get",
       "Create",
       "Import",
-    ]
-    key_vault_id =  
+    ] 
     object_id = "88545403-aa0f-4121-8cc4-57d35852144d"
     secret_permissions = [
       "Get",
