@@ -21,10 +21,12 @@ variable "storage_account_name" {
 
 variable "storage_account_tier" {
   type        = string
+  default     = "Standard"
   description = "Tier of the storage account"
 }
 
 variable "storage_account_replication_type" {
   type        = string
+  default     = "RAGRS"
   description = "Replication type of the storage account"
 }

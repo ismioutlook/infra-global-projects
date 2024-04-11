@@ -1,5 +1,3 @@
-resource_group_name              = "RG-EMEA-DDL-Sandbox"
-resource_group_location          = "westeurope"
-storage_account_name             = "sceventsingestion"
-storage_account_tier             = "Standard"
-storage_account_replication_type = "RAGRS"
+resource_group_name     = "RG-EMEA-DDL-Sandbox"
+resource_group_location = "westeurope"
+storage_account_name    = "sceventsingestion"
