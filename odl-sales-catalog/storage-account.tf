@@ -11,6 +11,6 @@ resource "azurerm_storage_account" "sales-catalog-ingestion-sa" {
 resource "azurerm_storage_container" "sales-catalog-ingestion-cont" {
   count                 = var.enabled ? 1 : 0
   name                  = var.storage_container_name
-  storage_account_name  = azurerm_storage_account.sales-catalog-ingestion-sa.name
+  storage_account_name  = azurerm_storage_account.sales-catalog-ingestion-sa[count.index].name
   container_access_type = var.storage_container_access_type
 }
