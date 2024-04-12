@@ -7,3 +7,10 @@ resource "azurerm_storage_account" "sales-catalog-ingestion" {
   account_replication_type = var.storage_account_replication_type
   tags                     = local.tags
 }
+
+resource "azurerm_storage_container" "sales-catalog-ingestion-cont" {
+  count                 = var.enabled ? 1 : 0
+  name                  = var.storage_container_name
+  storage_account_name  = azurerm_storage_account.sales-catalog-ingestion[count.index].name
+  container_access_type = var.storage_container_access_type
+}
