@@ -91,14 +91,10 @@ variable "kv_sku_name" {
   type        = string
   description = "Key Vault SKU"
 }
-variable "access_policies" {
+variable "kv_policy_objects" {
   type = list(object({
-    application_id          = string
-    certificate_permissions = list(string)
-    key_permissions         = list(string)
-    object_id               = string
-    secret_permissions      = list(string)
-    storage_permissions     = list(string)
+    admin     = bool
+    object_id = list(string)
   }))
   description = "List of Keyvault access policies"
 }
