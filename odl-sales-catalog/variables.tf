@@ -30,3 +30,16 @@ variable "storage_account_replication_type" {
   default     = "RAGRS"
   description = "Replication type of the storage account"
 }
+
+variable "storage_container_name" {
+  type        = string
+  description = "Name of the storage container"
+}
+
+variable "storage_container_access_type" {
+  type        = string
+  default     = "private"
+  description = "Name of the storage container"
+}
+
+
