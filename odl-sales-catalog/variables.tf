@@ -39,7 +39,7 @@ variable "storage_container_name" {
 variable "storage_container_access_type" {
   type        = string
   default     = "private"
-  description = "Name of the storage container"
+  description = "Access type of the storage container"
 }
 
 
