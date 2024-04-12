@@ -94,7 +94,7 @@ variable "kv_sku_name" {
 variable "kv_policy_objects" {
   type = list(object({
     admin     = bool
-    object_id = list(string)
+    object_id = string
   }))
   description = "List of Keyvault access policies"
 }
