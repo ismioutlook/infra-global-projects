@@ -14,7 +14,7 @@ variable "resource_group_location" {
   description = "Location of the resource group"
 }
 
-#----------------------------Log Analytics Workspace--------------------------------------
+# Log Analytics Workspace
 variable "log_analytics_workspace_name" {
   type        = string
   description = "Name of Log Analytics Workspace"
@@ -29,9 +29,8 @@ variable "log_analytics_workspace_retention_in_days" {
   type        = string
   description = "Log Analytics workspace retention period"
 }
-#----------------------------Storage Account and Container-----------------------------------------
 
-
+# Storage Account and Container
 variable "storage_account_name" {
   type        = string
   description = "Name of Storage Account Bucket"
@@ -44,7 +43,7 @@ variable "storage_account_tier" {
 
 variable "storage_account_replication" {
   type        = string
-  description = "Storage Account Repliaction"
+  description = "Storage Account Replication"
 }
 
 variable "storage_container_name" {
@@ -57,7 +56,7 @@ variable "storage_container_access_type" {
   description = "Storage Account Container Access type"
 }
 
-#---------Application Insights------------
+# Application Insights
 variable "app_insights_name" {
   type        = string
   description = "Application Insights Name"
@@ -68,18 +67,16 @@ variable "app_insights_type" {
   description = "Type of application insights"
 }
 
-
-#-----------Azure Data Factory-------------
-
+# Azure Data Factory
 variable "data_factory_name" {
   type        = string
   description = "Name of Azure Data Factory"
 }
-# Keyvault Variables
 
+# Keyvault Variables
 variable "key_vault_name" {
   type        = string
-  description = "key_vault name"
+  description = "Key_vault name"
 }
 
 variable "soft_delete_retention_days" {
@@ -93,10 +90,10 @@ variable "kv_sku_name" {
 }
 
 variable "kv_policy_objects_ids" {
-  type = object({
+  type        = object({
     reader_obj_ids = list(string)
     admin_obj_ids  = list(string)
   })
-  default = {}
+  default     = {}
   description = "List of Keyvault access policies"
 }
