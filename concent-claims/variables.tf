@@ -91,11 +91,12 @@ variable "kv_sku_name" {
   type        = string
   description = "Key Vault SKU"
 }
+
 variable "kv_policy_objects_ids" {
-  type = object{{
-    reader_obj_ids     = list{string}
-    admin_obj_ids      = list{string}
-  }}
+  type = object({
+    reader_obj_ids = list(string)
+    admin_obj_ids  = list(string)
+  })
   default = {}
   description = "List of Keyvault access policies"
 }
