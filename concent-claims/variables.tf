@@ -96,7 +96,7 @@ variable "kv_policy_objects_ids" {
   })
   default = {
     reader_objects_ids = []
-    reader_objects_ids = []
+    admin_objects_ids  = []
   }
   description = "List of Keyvault access policies"
 }
