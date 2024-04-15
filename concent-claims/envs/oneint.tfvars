@@ -15,5 +15,5 @@ storage_account_replication               = "GRS"
 app_insights_name                         = "AI-ELX-TPA-Claim-oneintegration"
 app_insights_type                         = "web"
 data_factory_name                         = "adf-elx-tpa-claim-oneintegration"
-reader_objects_ids                         = [ "d5d905fb-f135-4b3b-99ef-cd536b38f834", "2f6bed09-77e5-4ca9-a5f8-fe53d3d1a414", "a4e4df86-36f9-41a2-8fce-c9c09f6fccb2", "ff2822e1-8fd6-440b-871f-63961030ac60" ]
-admin_objects_ids                          = [ "88545403-aa0f-4121-8cc4-57d35852144d", "416f67b6-e6cd-4ea8-8b84-e6a9c0d08bc9" ]
+reader_objects_ids                        = ["d5d905fb-f135-4b3b-99ef-cd536b38f834", "2f6bed09-77e5-4ca9-a5f8-fe53d3d1a414", "a4e4df86-36f9-41a2-8fce-c9c09f6fccb2", "ff2822e1-8fd6-440b-871f-63961030ac60"]
+admin_objects_ids                         = ["88545403-aa0f-4121-8cc4-57d35852144d", "416f67b6-e6cd-4ea8-8b84-e6a9c0d08bc9"]

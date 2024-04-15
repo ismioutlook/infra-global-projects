@@ -90,7 +90,7 @@ variable "kv_sku_name" {
 }
 
 variable "kv_policy_objects_ids" {
-  type        = object({
+  type = object({
     reader_obj_ids = list(string)
     admin_obj_ids  = list(string)
   })
