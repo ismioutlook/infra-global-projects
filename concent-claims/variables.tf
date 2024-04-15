@@ -102,3 +102,4 @@ variable "kv_policy_objects_ids" {
   ]
   description = "List of Keyvault access policies"
 }
+
