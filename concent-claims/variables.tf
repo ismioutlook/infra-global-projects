@@ -89,28 +89,14 @@ variable "kv_sku_name" {
   description = "Key Vault SKU"
 }
 
-// variable "kv_policy_objects_ids" {
-//   type = object({
-//     reader_objects_ids = list(string)
-//     admin_objects_ids  = list(string)
-//   })
-//   default = {
-//     reader_objects_ids = []
-//     admin_objects_ids  = []
-//   }
-//   description = "List of Keyvault access policies"
-// }
-
-
-variable "reader_objects_ids" {
-  type        = list(string)
-  description = "reader_objects_ids"
-  default     = []
+variable "kv_policy_objects_ids" {
+  type = object({
+    reader_objects_ids = list(string)
+    admin_objects_ids  = list(string)
+  })
+  default = {
+    reader_objects_ids = []
+    admin_objects_ids  = []
+  }
+  description = "List of Keyvault access policies"
 }
-
-variable "admin_objects_ids" {
-  type        = list(string)
-  description = "admin_objects_ids"
-  default     = []
-}
-

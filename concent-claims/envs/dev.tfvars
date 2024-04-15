@@ -15,5 +15,8 @@ storage_account_replication               = "GRS"
 app_insights_name                         = "AI-ELX-TPA-Claim-Dev"
 app_insights_type                         = "web"
 data_factory_name                         = "adf-elx-tpa-claim-dev"
-admin_objects_ids                         = ["88545403-aa0f-4121-8cc4-57d35852144d", "416f67b6-e6cd-4ea8-8b84-e6a9c0d08bc9"]
-reader_objects_ids                        = ["88545403-aa0f-4121-8cc4-57d35852144d"]
+
+kv_policy_objects_ids = {
+  reader_objects_ids = ["88545403-aa0f-4121-8cc4-57d35852144d"]
+  admin_objects_ids  = []
+}
