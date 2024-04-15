@@ -7,8 +7,8 @@ module "kv" {
   key_vault_name             = var.key_vault_name
   soft_delete_retention_days = var.soft_delete_retention_days
   kv_sku_name                = var.kv_sku_name
-  reader_obj_ids             = var.kv_policy_objects_ids.reader_obj_ids
-  admin_obj_ids              = var.kv_policy_objects_ids.admin_obj_ids
+  reader_objects_ids         = var.kv_policy_objects_ids.reader_objects_ids
+  admin_objects_ids          = var.kv_policy_objects_ids.admin_objects_ids
 }
 
 
