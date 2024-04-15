@@ -98,11 +98,11 @@ variable "kv_policy_objects_ids" {
 }
 
 variable "reader_objects_ids" {
-  type        = list{string}
+  type        = list(string)
   description = "reader_objects_ids"
 }
 
 variable "admin_objects_ids" {
-  type        = list{string}
+  type        = list(string)
   description = "admin_objects_ids"
 }
