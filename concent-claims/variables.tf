@@ -101,12 +101,3 @@ variable "kv_policy_objects_ids" {
   description = "List of Keyvault access policies"
 }
 
-variable "reader_objects_ids" {
-  type        = list(string)
-  description = "reader_objects_ids"
-}
-
-variable "admin_objects_ids" {
-  type        = list(string)
-  description = "admin_objects_ids"
-}
