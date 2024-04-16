@@ -42,4 +42,14 @@ variable "storage_container_access_type" {
   description = "Access type of the storage container"
 }
 
+variable "service_plan_name" {
+  type        = string
+  description = "Name of the service plan"
+}
+
+variable "function_app_name" {
+  type        = string
+  description = "Name of the function app"
+}
+
 
