@@ -5,6 +5,6 @@ resource "azurerm_function_app" "sales-catalog-ingestion-fap" {
   resource_group_name        = var.resource_group_name
   app_service_plan_id        = var.service_plan_name
   storage_account_name       = var.storage_account_name
-  storage_account_access_key = azurerm_storage_account.sales-catalog-ingestion[count.index].storage_account_access_key
+  storage_account_access_key = data.azurerm_storage_account_keys.resource-instance-sa.keys[0].value
   tags                       = local.tags
 }
