@@ -7,4 +7,11 @@ resource "azurerm_function_app" "sales-catalog-ingestion-fap" {
   storage_account_name       = var.storage_account_name
   storage_account_access_key = azurerm_storage_account.sales-catalog-ingestion[count.index].primary_access_key
   tags                       = local.tags
+
+  app_settings = {
+    "FUNCTIONS_WORKER_RUNTIME" = "python"
+    "PYTHON_VERSION"           = "3.11"
+    "WEBSITE_RUN_FROM_PACKAGE" = "./src/"
+  }
+
 }
