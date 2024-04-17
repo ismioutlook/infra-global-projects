@@ -9,12 +9,13 @@ resource "azurerm_linux_function_app" "sales-catalog-ingestion-fap" {
   tags                       = local.tags
 
   site_config {
+    application_stack {
+      python_version = "3.11"
+    }
   }
 
   app_settings = {
-    "FUNCTIONS_WORKER_RUNTIME" = "python"
-    "PYTHON_VERSION"           = "3.11"
-    "WEBSITE_RUN_FROM_PACKAGE" = "./src/"
+    "WEBSITE_RUN_FROM_PACKAGE" = 1
   }
 
 }
