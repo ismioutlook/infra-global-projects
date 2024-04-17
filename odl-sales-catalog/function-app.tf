@@ -9,7 +9,6 @@ resource "azurerm_linux_function_app" "sales-catalog-ingestion-fap" {
   tags                       = local.tags
 
   site_config {
-    linux_fx_version = "PYTHON|3.11"
   }
 
   app_settings = {
