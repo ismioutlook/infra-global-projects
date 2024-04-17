@@ -1,5 +1,5 @@
 module "kv" {
-  source                     = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-keyvault//module?ref=v0.0.2"
+  source                     = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-keyvault//module?ref=v0.0.4"
   tenant_id                  = var.tenant_id
   resource_group_name        = var.kv_resource_group_name
   resource_group_location    = var.kv_resource_group_location
