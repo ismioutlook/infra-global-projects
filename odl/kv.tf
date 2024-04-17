@@ -35,8 +35,8 @@ resource "azurerm_key_vault_key" "odl-sops-dev" {
 }
 
 
-resource "azurerm_key_vault_key" "odl-sops-1int" {
-  name         = "odl-sops-1int"
+resource "azurerm_key_vault_key" "odl-sops-oneint" {
+  name         = "odl-sops-oneint"
   key_vault_id = module.kv.key_vault_id
   key_type     = "RSA"
   key_size     = 2048
