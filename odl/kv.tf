@@ -10,7 +10,7 @@ module "kv" {
 }
 
 resource "azurerm_key_vault_key" "keys" {
-  for_each     = { for idx, vaultkeys in var.kv_keys : idx => vaultkeys }
+  for_each     = var.keyvault_keys
   name         = each.value
   key_vault_id = module.kv.key_vault_id
   key_type     = "RSA"

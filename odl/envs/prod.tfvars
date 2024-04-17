@@ -12,4 +12,7 @@ key_vault_name             = "kv-odl-sops-eu-prod"
 soft_delete_retention_days = 90
 kv_sku_name                = "standard"
 
-kv_keys = ["odl-sops-prod"]
+keyvault_keys = {
+  key1 = "odl-sops-prod"
+}
+

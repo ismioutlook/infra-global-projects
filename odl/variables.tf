@@ -41,7 +41,7 @@ variable "kv_sku_name" {
 }
 
 #--- Keyvault keys
-variable "kv_keys" {
-  type        = list(string)
+variable "keyvault_keys" {
+  type        = map(string)
   description = "key vault sku name"
 }
