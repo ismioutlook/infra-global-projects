@@ -39,3 +39,9 @@ variable "kv_sku_name" {
   type        = string
   description = "key vault sku name"
 }
+
+#--- Keyvault keys
+variable "kv_keys" {
+  type        = list(string)
+  description = "key vault sku name"
+}

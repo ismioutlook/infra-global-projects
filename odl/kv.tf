@@ -9,8 +9,9 @@ module "kv" {
 
 }
 
-resource "azurerm_key_vault_key" "odl-sops-dev" {
-  name         = "odl-sops-dev"
+resource "azurerm_key_vault_key" "keys" {
+  for_each     = { for idx, vaultkeys in var.kv_keys : idx => vaultkeys }
+  name         = each.value.name
   key_vault_id = module.kv.key_vault_id
   key_type     = "RSA"
   key_size     = 2048
@@ -34,28 +35,3 @@ resource "azurerm_key_vault_key" "odl-sops-dev" {
   }
 }
 
-
-resource "azurerm_key_vault_key" "odl-sops-oneint" {
-  name         = "odl-sops-oneint"
-  key_vault_id = module.kv.key_vault_id
-  key_type     = "RSA"
-  key_size     = 2048
-
-  key_opts = [
-    "decrypt",
-    "encrypt",
-    "sign",
-    "unwrapKey",
-    "verify",
-    "wrapKey",
-  ]
-
-  rotation_policy {
-    automatic {
-      time_before_expiry = "P30D"
-    }
-
-    expire_after         = "P90D"
-    notify_before_expiry = "P29D"
-  }
-}
