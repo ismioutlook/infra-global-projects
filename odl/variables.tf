@@ -27,6 +27,12 @@ variable "kv_resource_group_location" {
 
 #---Keyvault  -----
 
+variable "enabled_keyvault" {
+  type        = bool
+  default     = true
+  description = "Flag to control provisioning of keyvault"
+}
+
 variable "key_vault_name" {
   type        = string
   description = "Name of the Azure Key Vault"
@@ -34,14 +40,10 @@ variable "key_vault_name" {
 variable "soft_delete_retention_days" {
   type        = string
   description = "kv soft delete retention days"
+  default     = "90"
 }
 variable "kv_sku_name" {
   type        = string
   description = "key vault sku name"
-}
-
-#--- Keyvault keys
-variable "keyvault_keys" {
-  type        = map(string)
-  description = "key vault sku name"
+  default     = "standard"
 }

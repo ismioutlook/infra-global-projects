@@ -1,4 +1,5 @@
 module "kv" {
+  count                      = local.enabled_keyvault ? 1 : 0
   source                     = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-keyvault//module?ref=v0.0.4"
   tenant_id                  = local.tenant_id
   resource_group_name        = var.kv_resource_group_name
@@ -10,9 +11,9 @@ module "kv" {
 }
 
 resource "azurerm_key_vault_key" "keys" {
-  for_each     = var.keyvault_keys
-  name         = each.value
-  key_vault_id = module.kv.key_vault_id
+  count        = local.enabled_keyvault ? 1 : 0
+  name         = local.sops_key_name
+  key_vault_id = module.kv[0].key_vault_id
   key_type     = "RSA"
   key_size     = 2048
 

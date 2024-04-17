@@ -8,11 +8,4 @@ kv_resource_group_location = "West Europe"
 
 
 #-----------------------------KeyVault----------------------
-key_vault_name             = "kv-odl-sops-eu-prod"
-soft_delete_retention_days = 90
-kv_sku_name                = "standard"
-
-keyvault_keys = {
-  key1 = "odl-sops-prod"
-}
-
+key_vault_name = "kv-odl-sops-eu-prod"
