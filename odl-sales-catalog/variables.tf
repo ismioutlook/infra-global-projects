@@ -52,4 +52,19 @@ variable "function_app_name" {
   description = "Name of the function app"
 }
 
+variable "virtual_network_name" {
+  type        = string
+  description = "Name of the VNet"
+}
+
+variable "subnet_name" {
+  type        = string
+  description = "Name of the subnet"
+}
+
+variable "subnet_cidrs" {
+  type        = list(any)
+  description = "CIDR range of the subnet"
+}
+
 
