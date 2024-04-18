@@ -15,7 +15,11 @@ resource "azurerm_linux_function_app" "sales-catalog-ingestion-fap" {
   }
 
   app_settings = {
-    "WEBSITE_RUN_FROM_PACKAGE" = 1
+    "FUNCTIONS_WORKER_RUNTIME"       = "python"
+    "FUNCTIONS_EXTENSION_VERSION"    = "~4"
+    "ENABLE_ORYX_BUILD"              = true
+    "SCM_DO_BUILD_DURING_DEPLOYMENT" = 1
+    "WEBSITE_RUN_FROM_PACKAGE"       = "./src/package.zip"
   }
 
 }
