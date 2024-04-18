@@ -5,5 +5,5 @@ storage_container_name  = "salescatalogupload"
 service_plan_name       = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-EMEA-DDL-Sandbox/providers/Microsoft.Web/serverFarms/ASP-RGEMEADDLSandbox-a17e"
 function_app_name       = "odl-sales-catalog-ingestion"
 virtual_network_name    = "VN-DDL-POC"
-azurerm_subnet_name     = "odl-sales-catalog-ingestion-vnet-subnet"
-azurerm_subnet_cidrs    = ["10.0.2.16/29"]
+subnet_name     = "odl-sales-catalog-ingestion-vnet-subnet"
+subnet_cidrs    = ["10.0.2.16/29"]
