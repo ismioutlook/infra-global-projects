@@ -4,4 +4,4 @@ kv_resource_group_location = "West Europe"
 
 
 #-----------------------------KeyVault----------------------
-key_vault_name = "kv-odl-sops-eu-prod"
+key_vault_name = "elxkv-odl-sops-eu-prod"
