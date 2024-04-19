@@ -67,4 +67,8 @@ variable "subnet_cidrs" {
   description = "CIDR range of the subnet"
 }
 
+variable "eventgrid_system_topic_name" {
+  type        = string
+  description = "Name of the event grid system topic"
+}
 

@@ -7,3 +7,4 @@ function_app_name       = "func-sales-catalog-sandbox-westeu"
 virtual_network_name    = "VN-DDL-POC"
 subnet_name     = "odl-sales-catalog-ingestion-vnet-subnet"
 subnet_cidrs    = ["10.0.2.16/29"]
+eventgrid_system_topic_name = "eg-s-topic-sales-catalog-ingestion"
