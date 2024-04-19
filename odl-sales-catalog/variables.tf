@@ -67,4 +67,31 @@ variable "subnet_cidrs" {
   description = "CIDR range of the subnet"
 }
 
+variable "eventgrid_system_topic_name" {
+  type        = string
+  description = "Name of the event grid system topic"
+}
 
+variable "subnet_delegation_name" {
+  type        = string
+  default     = "functionapp-delegation"
+  description = "Name of the subnet delegation"
+}
+
+variable "service_delegation_name" {
+  type        = string
+  default     = "Microsoft.Web/serverFarms"
+  description = "Name of the service delegation"
+}
+
+variable "service_delegation_actions" {
+  type        = list(string)
+  default     = ["Microsoft.Network/virtualNetworks/subnets/action"]
+  description = "Actions of the service delegation"
+}
+
+variable "eg_topic_type" {
+  type        = string
+  default     = "Microsoft.Storage.StorageAccounts"
+  description = "Type of the event grid topic"
+}     
