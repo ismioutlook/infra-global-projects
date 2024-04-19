@@ -7,7 +7,7 @@ module "kv" {
   key_vault_name             = var.key_vault_name
   soft_delete_retention_days = var.soft_delete_retention_days
   kv_sku_name                = var.kv_sku_name
-  admin_objects_ids          = [local.current_user_id]
+  admin_objects_ids          = local.kv_admin_object_ids
 }
 
 resource "azurerm_key_vault_key" "keys" {
