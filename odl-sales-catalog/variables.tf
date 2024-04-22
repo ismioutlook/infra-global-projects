@@ -107,12 +107,6 @@ variable "eventgrid_subscription_name" {
   description = "Name of the event grid subscription"
 }
 
-variable "eventgrid_subscription_subject_filter" {
-  type        = string
-  default     = "/blobServices/default/containers/${var.storage_container_name}/blobs/${var.storage_container_rex_upload_folder}"
-  description = "Filter of the subject for event grid subscription"
-}
-
 variable "eventgrid_subscription_suffix_filter" {
   type        = string
   default     = ".csv"

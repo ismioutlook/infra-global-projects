@@ -15,7 +15,7 @@ resource "azurerm_eventgrid_event_subscription" "sales-catalog-ingestion-sbsc" {
   # azure_function_endpoint = TBC
 
   subject_filter {
-    subject_begins_with = var.eventgrid_subscription_subject_filter
+    subject_begins_with = "/blobServices/default/containers/${var.storage_container_name}/blobs/${var.storage_container_rex_upload_folder}"
     subject_ends_with   = var.eventgrid_subscription_suffix_filter
   }
 
