@@ -12,7 +12,10 @@ resource "azurerm_eventgrid_event_subscription" "sales-catalog-ingestion-sbsc" {
   name                  = var.eventgrid_subscription_name
   scope                 = azurerm_eventgrid_system_topic.sales-catalog-ingestion-sytp[count.index].id
   event_delivery_schema = var.eventgrid_subscription_event_delivery_schema
-  # azure_function_endpoint = TBC
+
+  azure_function_endpoint {
+    function_id = "/subscriptions/<subId>/resourceGroups/${var.resource_group_name}/providers/Microsoft.Web/sites/odl-sales-catalog-events-vnet/functions/SCEventGridTrigger"
+  }
 
   subject_filter {
     subject_begins_with = "/blobServices/default/containers/${var.storage_container_name}/blobs/${var.storage_container_rex_upload_folder}"
