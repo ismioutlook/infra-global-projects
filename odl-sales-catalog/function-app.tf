@@ -6,6 +6,7 @@ resource "azurerm_linux_function_app" "sales-catalog-ingestion-fap" {
   service_plan_id            = var.service_plan_name
   storage_account_name       = var.storage_account_name
   storage_account_access_key = azurerm_storage_account.sales-catalog-ingestion[count.index].primary_access_key
+  zip_deploy_file            = "./src/package.zip"
   tags                       = local.tags
 
   site_config {
@@ -19,7 +20,7 @@ resource "azurerm_linux_function_app" "sales-catalog-ingestion-fap" {
     "FUNCTIONS_EXTENSION_VERSION"    = "~4"
     "ENABLE_ORYX_BUILD"              = true
     "SCM_DO_BUILD_DURING_DEPLOYMENT" = 1
-    "WEBSITE_RUN_FROM_PACKAGE"       = "./src/package.zip"
+    "WEBSITE_RUN_FROM_PACKAGE"       = 1
   }
 
 }

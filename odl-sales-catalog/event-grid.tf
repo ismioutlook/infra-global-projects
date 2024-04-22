@@ -14,7 +14,7 @@ resource "azurerm_eventgrid_event_subscription" "sales-catalog-ingestion-sbsc" {
   event_delivery_schema = var.eventgrid_subscription_event_delivery_schema
 
   azure_function_endpoint {
-    function_id = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/${var.resource_group_name}/providers/Microsoft.Web/sites/odl-sales-catalog-events-vnet/functions/SCEventGridTrigger"
+    function_id = "${azurerm_linux_function_app.sales-catalog-ingestion-fap.id}/functions/SCEventGridTrigger"
   }
 
   subject_filter {
