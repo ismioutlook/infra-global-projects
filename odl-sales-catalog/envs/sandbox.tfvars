@@ -10,5 +10,4 @@ subnet_name                                   = "odl-sales-catalog-ingestion-vne
 subnet_cidrs                                  = ["10.0.2.16/29"]
 eventgrid_system_topic_name                   = "eg-s-topic-sales-catalog-ingestion"
 eventgrid_subscription_name                   = "sbsc-sales-catalog-ingestion"
-eventgrid_subscription_subject_filter         = "/blobServices/default/containers/${var.storage_container_name}/blobs/${var.storage_container_rex_upload_folder}"
 eventgrid_subscription_advanced_filter_values = ["rex-"]
