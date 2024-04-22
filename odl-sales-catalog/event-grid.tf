@@ -6,3 +6,24 @@ resource "azurerm_eventgrid_system_topic" "sales-catalog-ingestion-sytp" {
   location               = var.resource_group_location
   topic_type             = var.eg_topic_type
 }
+
+resource "azurerm_eventgrid_event_subscription" "sales-catalog-ingestion-sbsc" {
+  count                 = var.enabled ? 1 : 0
+  name                  = var.eventgrid_subscription_name
+  scope                 = azurerm_eventgrid_system_topic.sales-catalog-ingestion-sytp[count.index].id
+  event_delivery_schema = var.eventgrid_subscription_event_delivery_schema
+  # azure_function_endpoint = TBC
+
+  subject_filter {
+    subject_begins_with = var.eventgrid_subscription_subject_filter
+    subject_ends_with   = var.eventgrid_subscription_suffix_filter
+  }
+
+  advanced_filter {
+    string_contains {
+      key    = var.eventgrid_subscription_advanced_filter_key
+      values = var.eventgrid_subscription_advanced_filter_values
+    }
+  }
+
+}
