@@ -31,4 +31,6 @@ resource "azurerm_app_service_virtual_network_swift_connection" "function-app-su
   count          = var.enabled ? 1 : 0
   app_service_id = azurerm_linux_function_app.sales-catalog-ingestion-fap[count.index].id
   subnet_id      = azurerm_subnet.sc-ingestion-sbnt.id
+
+  depends_on = [azurerm_linux_function_app.sales-catalog-ingestion-fap]
 }
