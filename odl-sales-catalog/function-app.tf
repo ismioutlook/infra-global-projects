@@ -1,13 +1,14 @@
 resource "azurerm_linux_function_app" "sales-catalog-ingestion-fap" {
-  count                      = var.enabled ? 1 : 0
-  name                       = var.function_app_name
-  location                   = var.resource_group_location
-  resource_group_name        = var.resource_group_name
-  service_plan_id            = var.service_plan_name
-  storage_account_name       = var.storage_account_name
-  storage_account_access_key = azurerm_storage_account.sales-catalog-ingestion[count.index].primary_access_key
-  zip_deploy_file            = "./src/package.zip"
-  tags                       = local.tags
+  count                       = var.enabled ? 1 : 0
+  name                        = var.function_app_name
+  location                    = var.resource_group_location
+  resource_group_name         = var.resource_group_name
+  service_plan_id             = var.service_plan_name
+  storage_account_name        = var.storage_account_name
+  storage_account_access_key  = azurerm_storage_account.sales-catalog-ingestion[count.index].primary_access_key
+  zip_deploy_file             = data.archive_file.function.output_path
+  functions_extension_version = "~4"
+  tags                        = local.tags
 
   site_config {
     application_stack {
@@ -16,12 +17,13 @@ resource "azurerm_linux_function_app" "sales-catalog-ingestion-fap" {
   }
 
   app_settings = {
-    FUNCTIONS_WORKER_RUNTIME       = "python"
-    FUNCTIONS_EXTENSION_VERSION    = "~4"
-    ENABLE_ORYX_BUILD              = true
-    SCM_DO_BUILD_DURING_DEPLOYMENT = true
-    WEBSITE_RUN_FROM_PACKAGE       = 1
+    "FUNCTIONS_WORKER_RUNTIME"       = "python"
+    "ENABLE_ORYX_BUILD"              = true
+    "SCM_DO_BUILD_DURING_DEPLOYMENT" = true
+    "AzureWebJobsFeatureFlags"       = "EnableWorkerIndexing"
   }
+
+  depends_on = [data.archive_file.function]
 
 }
 
