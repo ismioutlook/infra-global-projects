@@ -8,6 +8,7 @@ resource "azurerm_linux_function_app" "sales-catalog-ingestion-fap" {
   storage_account_access_key  = azurerm_storage_account.sales-catalog-ingestion[count.index].primary_access_key
   zip_deploy_file             = data.archive_file.function.output_path
   functions_extension_version = "~4"
+  virtual_network_subnet_id   = azurerm_subnet.sc-ingestion-sbnt.id
   tags                        = local.tags
 
   site_config {
@@ -27,8 +28,10 @@ resource "azurerm_linux_function_app" "sales-catalog-ingestion-fap" {
 
 }
 
-resource "azurerm_app_service_virtual_network_swift_connection" "function-app-subnet-map" {
-  count          = var.enabled ? 1 : 0
-  app_service_id = azurerm_linux_function_app.sales-catalog-ingestion-fap[count.index].id
-  subnet_id      = azurerm_subnet.sc-ingestion-sbnt.id
-}
+# resource "azurerm_app_service_virtual_network_swift_connection" "function-app-subnet-map" {
+#   count          = var.enabled ? 1 : 0
+#   app_service_id = azurerm_linux_function_app.sales-catalog-ingestion-fap[count.index].id
+#   subnet_id      = azurerm_subnet.sc-ingestion-sbnt.id
+
+#   depends_on = [azurerm_linux_function_app.sales-catalog-ingestion-fap]
+# }
