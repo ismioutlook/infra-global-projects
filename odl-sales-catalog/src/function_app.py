@@ -112,7 +112,7 @@ def read_rex_availability_csv(blob_client, separator):
     # Use pandas to read CSV content
     df = pd.read_csv(StringIO(content), sep=separator)
 
-    # Renaming the columns accordingly 
+    # Renaming the columns accordingly
     df.rename(columns=rex_atp_col_map, inplace=True)
 
     # Taking required columns only
