@@ -7,7 +7,7 @@ resource "azurerm_linux_function_app" "sales-catalog-ingestion-fap" {
   storage_account_name       = var.storage_account_name
   storage_account_access_key = azurerm_storage_account.sales-catalog-ingestion[count.index].primary_access_key
   zip_deploy_file            = data.archive_file.function.output_path
-  virtual_network_subnet_id  = azurerm_subnet.sc-ingestion-sbnt.id 
+  virtual_network_subnet_id  = azurerm_subnet.sc-ingestion-sbnt.id
   tags                       = local.tags
 
   site_config {
