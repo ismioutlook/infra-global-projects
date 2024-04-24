@@ -20,7 +20,7 @@ resource "azurerm_linux_function_app" "sales-catalog-ingestion-fap" {
     "FUNCTIONS_WORKER_RUNTIME"       = "python"
     "ENABLE_ORYX_BUILD"              = true
     "SCM_DO_BUILD_DURING_DEPLOYMENT" = true
-    "FUNCTIONS_EXTENSION_VERSION"    = "~4"
+    "FUNCTIONS_EXTENSION_VERSION"    = "~3"
   }
 
   depends_on = [data.archive_file.function]
