@@ -29,4 +29,6 @@ resource "azurerm_eventgrid_event_subscription" "sales-catalog-ingestion-sbsc" {
     }
   }
 
+  depends_on = [azurerm_linux_function_app.sales-catalog-ingestion-fap]  
+
 }
