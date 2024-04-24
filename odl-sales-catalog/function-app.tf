@@ -6,9 +6,9 @@ resource "azurerm_linux_function_app" "sales-catalog-ingestion-fap" {
   service_plan_id            = var.service_plan_name
   storage_account_name       = var.storage_account_name
   storage_account_access_key = azurerm_storage_account.sales-catalog-ingestion[count.index].primary_access_key
-  zip_deploy_file            = data.archive_file.function.output_path
-  virtual_network_subnet_id  = azurerm_subnet.sc-ingestion-sbnt.id
-  tags                       = local.tags
+  # zip_deploy_file            = data.archive_file.function.output_path
+  virtual_network_subnet_id = azurerm_subnet.sc-ingestion-sbnt.id
+  tags                      = local.tags
 
   site_config {
     application_stack {
@@ -24,4 +24,13 @@ resource "azurerm_linux_function_app" "sales-catalog-ingestion-fap" {
   }
 
   depends_on = [data.archive_file.function]
+
+  provisioner "local-exec" {
+    command = <<EOT
+       az functionapp deployment source config-zip
+       -g ${var.resource_group_name} 
+       -n ${var.function_app_name}
+       --src ${data.archive_file.function.output_path}
+  EOT
+  }
 }
