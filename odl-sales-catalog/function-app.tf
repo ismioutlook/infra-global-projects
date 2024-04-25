@@ -6,9 +6,9 @@ resource "azurerm_linux_function_app" "sales-catalog-ingestion-fap" {
   service_plan_id            = var.service_plan_name
   storage_account_name       = var.storage_account_name
   storage_account_access_key = azurerm_storage_account.sales-catalog-ingestion[count.index].primary_access_key
-  zip_deploy_file            = data.archive_file.function.output_path
-  virtual_network_subnet_id  = azurerm_subnet.sc-ingestion-sbnt.id
-  tags                       = local.tags
+  # zip_deploy_file            = data.archive_file.function.output_path
+  virtual_network_subnet_id = azurerm_subnet.sc-ingestion-sbnt.id
+  tags                      = local.tags
 
   site_config {
     application_stack {
@@ -21,7 +21,7 @@ resource "azurerm_linux_function_app" "sales-catalog-ingestion-fap" {
     "ENABLE_ORYX_BUILD"              = true,
     "SCM_DO_BUILD_DURING_DEPLOYMENT" = true,
     "FUNCTIONS_EXTENSION_VERSION"    = "~4",
-    "WEBSITE_RUN_FROM_PACKAGE"       = "https://${azurerm_storage_account.sales-catalog-ingestion.name}.blob.core.windows.net/${azurerm_storage_container.sales-catalog-ingestion-cont.name}/${azurerm_storage_blob.storage_blob.name}${data.azurerm_storage_account_blob_container_sas.storage_account_blob_container_sas.sas}",
+    "WEBSITE_RUN_FROM_PACKAGE"       = "https://${azurerm_storage_account.sales-catalog-ingestion[count.index].name}.blob.core.windows.net/${azurerm_storage_container.sales-catalog-ingestion-cont[count.index].name}/${azurerm_storage_blob.storage_blob[count.index].name}${data.azurerm_storage_account_blob_container_sas.storage_account_blob_container_sas[count.index].sas}",
   }
 
   depends_on = [data.archive_file.function]
