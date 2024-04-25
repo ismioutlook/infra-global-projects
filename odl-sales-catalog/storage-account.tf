@@ -14,3 +14,12 @@ resource "azurerm_storage_container" "sales-catalog-ingestion-cont" {
   storage_account_name  = azurerm_storage_account.sales-catalog-ingestion[count.index].name
   container_access_type = var.storage_container_access_type
 }
+
+resource "azurerm_storage_blob" "storage_blob" {
+  count                  = var.enabled ? 1 : 0
+  name                   = "${filesha256(data.archive_file.function.output_path)}.zip"
+  storage_account_name   = azurerm_storage_account.sales-catalog-ingestion[count.index].name
+  storage_container_name = azurerm_storage_container.sales-catalog-ingestion-cont[count.index].name
+  type                   = "Block"
+  source                 = data.archive_file.function.output_path
+}
