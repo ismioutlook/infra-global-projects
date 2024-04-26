@@ -19,10 +19,10 @@ resource "azurerm_linux_function_app" "sales-catalog-ingestion-fap" {
   app_settings = {
     "FUNCTIONS_WORKER_RUNTIME" = "python",
     # "ENABLE_ORYX_BUILD"              = true,
-    "SCM_DO_BUILD_DURING_DEPLOYMENT" = true,
-    "FUNCTIONS_EXTENSION_VERSION"    = "~4",
-    "WEBSITE_RUN_FROM_PACKAGE"       = "https://${azurerm_storage_account.sales-catalog-ingestion[count.index].name}.blob.core.windows.net/${azurerm_storage_container.sales-catalog-ingestion-cont[count.index].name}/${azurerm_storage_blob.storage_blob[count.index].name}${data.azurerm_storage_account_blob_container_sas.storage_account_blob_container_sas[count.index].sas}",
-    "AzureWebJobsDisableHomepage"    = true
+    # "SCM_DO_BUILD_DURING_DEPLOYMENT" = true,
+    "FUNCTIONS_EXTENSION_VERSION" = "~4",
+    "WEBSITE_RUN_FROM_PACKAGE"    = "https://${azurerm_storage_account.sales-catalog-ingestion[count.index].name}.blob.core.windows.net/${azurerm_storage_container.sales-catalog-ingestion-cont[count.index].name}/${azurerm_storage_blob.storage_blob[count.index].name}${data.azurerm_storage_account_blob_container_sas.storage_account_blob_container_sas[count.index].sas}",
+    "AzureWebJobsDisableHomepage" = true
   }
 
   depends_on = [data.archive_file.function]

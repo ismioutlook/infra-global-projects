@@ -14,7 +14,7 @@ from pymongo.errors import OperationFailure
 
 app = func.FunctionApp()
 
-# List of columns to use from REX
+# List of REX columns to use for import
 rex_repl_col_map = {
     "Part Number": "skuPartNumber",
     "Part Description": "description",
