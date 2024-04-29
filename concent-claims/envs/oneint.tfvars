@@ -1,4 +1,3 @@
-enabled                                   = flase
 resource_group_name                       = "RG-ELX-TPA-Claim-1int-NA"
 resource_group_location                   = "eastus"
 key_vault_name                            = "kv-tpa-claims-1int-01"
