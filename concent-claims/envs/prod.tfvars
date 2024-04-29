@@ -1,4 +1,4 @@
-use_prod_values                           = true
+enabled                                   = true
 resource_group_name                       = "RG-ELX-TPA-Claim-prod-NA"
 resource_group_location                   = "eastus"
 key_vault_name                            = "kv-tpa-claims-prod-01"
