@@ -4,12 +4,6 @@ variable "enabled" {
   description = "Global flag to control resource provisioning"
 }
 
-variable "use_prod_values" {
-  type        = bool
-  default     = true
-  description = "Global flag to control resource provisioning"
-}
-
 variable "resource_group_name" {
   type        = string
   description = "Name of the resource group to provision"
