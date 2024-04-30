@@ -12,6 +12,11 @@ projects:
   workflow: prod_basic_workflow
   terraform_version: 1.7.5
 
+- dir: eastus
+  workspace: nonprod
+  workflow: nonprod_basic_workflow
+  terraform_version: 1.7.5
+
 - dir: fsm-cosmodb
   workspace: dev
   workflow: dev_basic_workflow
