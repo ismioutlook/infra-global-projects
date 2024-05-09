@@ -31,6 +31,7 @@ resource "azurerm_linux_function_app" "sales-catalog-ingestion-fap" {
 
   provisioner "local-exec" {
     command = <<EOT
+      curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
        az functionapp deployment source config-zip
        -g ${var.resource_group_name} 
        -n ${var.function_app_name}
