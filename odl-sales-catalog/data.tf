@@ -1,6 +1,9 @@
 data "azurerm_subscription" "current" {
 }
 
+data "azurerm_client_config" "current" {
+}
+
 data "archive_file" "function" {
   type        = "zip"
   excludes    = split("\n", file("${path.root}/src/.funcignore"))
