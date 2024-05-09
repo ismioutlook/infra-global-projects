@@ -4,6 +4,29 @@ variable "enabled" {
   description = "Global flag to control resource provisioning"
 }
 
+variable "enabled_keyvault" {
+  type        = bool
+  default     = true
+  description = "Flag to control provisioning of keyvault"
+}
+
+variable "key_vault_name" {
+  type        = string
+  description = "Name of the Azure Key Vault"
+}
+
+variable "soft_delete_retention_days" {
+  type        = string
+  description = "kv soft delete retention days"
+  default     = "90"
+}
+
+variable "kv_sku_name" {
+  type        = string
+  description = "key vault sku name"
+  default     = "standard"
+}
+
 variable "resource_group_name" {
   type        = string
   description = "Name of the resource group to provision"
