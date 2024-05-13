@@ -1,5 +1,5 @@
 module "storage_account" {
-  source          = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-sa//iasc?ref=main"
+  source          = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-sa//iasc?ref=v0.0.4"
   tenant_id       = local.tenant_id
   subscription_id = local.subscription_id
 
