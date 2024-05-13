@@ -12,9 +12,6 @@ module "storage_account" {
   account_kind                = var.account_kind
   is_hns_enabled              = var.is_hns_enabled
 
-  storage_container_name        = var.storage_container_name
-  storage_container_access_type = var.storage_container_access_type
-
 }
 
 module "storage_container" {
