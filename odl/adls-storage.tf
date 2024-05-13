@@ -1,7 +1,7 @@
 module "storage_account" {
   source                        = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-sa//iasc?ref=v0.0.4"
-  tenant_id                     = var.tenant_id
-  subscription_id               = var.subscription_id
+  tenant_id                     = local.tenant_id
+  subscription_id               = local.subscription_id
   resource_group_name           = var.resource_group_name
   resource_group_location       = var.resource_group_location
   storage_account_name          = var.storage_account_name

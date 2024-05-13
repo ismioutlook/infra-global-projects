@@ -8,5 +8,13 @@ key_vault_name = "elxkv-odl-sops-eu-dev"
 
 
 # ------------------------Keyvault Resource Group Details for EU region------------------------------
-resource_group_name     = "RG-GL-ODL-CORE-DEV-EU"
-resource_group_location = "West Europe"
+resource_group_name           = "RG-GL-ODL-CORE-DEV-EU"
+resource_group_location       = "West Europe"
+storage_account_name          = "saodlcoreadlsdeveu"
+storage_account_tier          = "Standard"
+storage_container_name        = "retrieved-data"
+storage_container_access_type = "private"
+storage_account_replication   = "LRS"
+account_kind                  = "StorageV2"
+is_hns_enabled                = "true"
+

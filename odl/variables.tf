@@ -1,4 +1,4 @@
-#---Keyvault  -----
+#---Storage account ADLS  -----
 variable "resource_group_name" {
   type        = string
   description = "Name of the resource group"
@@ -9,6 +9,35 @@ variable "resource_group_location" {
   description = "Location of the resource group"
 }
 
+
+variable "storage_account_name" {
+  description = "Storage account name"
+  type        = string
+}
+
+
+variable "storage_account_tier" {
+  description = "Storage account tier"
+  #default     = "Standard"
+  type = string
+}
+
+variable "storage_account_replication" {
+  description = "Storage account tier"
+  #default     = "GRS"
+  type = string
+}
+
+
+variable "account_kind" {
+  description = "Storage account kind"
+  type        = string
+}
+
+variable "is_hns_enabled" {
+  description = "Storage is hns enabled"
+  type        = string
+}
 
 
 variable "enabled" {
