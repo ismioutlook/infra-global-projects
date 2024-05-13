@@ -28,6 +28,18 @@ variable "storage_account_replication" {
   type = string
 }
 
+variable "storage_container_name" {
+  description = "Storage container name"
+  type        = string
+}
+
+
+variable "storage_container_access_type" {
+  description = "Storage container type"
+  #default     = "private"
+  type = string
+}
+
 
 variable "account_kind" {
   description = "Storage account kind"
