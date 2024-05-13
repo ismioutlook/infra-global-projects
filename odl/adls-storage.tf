@@ -3,7 +3,7 @@ module "storage_account" {
   tenant_id       = local.tenant_id
   subscription_id = local.subscription_id
 
-  resource_group_name     = var.resource_group_name
+  resource_group_name     = data.azurerm_resource_group.rg.name
   resource_group_location = var.resource_group_location
 
   storage_account_name        = var.storage_account_name
