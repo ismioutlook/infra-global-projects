@@ -1,3 +1,16 @@
+#---Keyvault  -----
+variable "resource_group_name" {
+  type        = string
+  description = "Name of the resource group"
+}
+
+variable "resource_group_location" {
+  type        = string
+  description = "Location of the resource group"
+}
+
+
+
 variable "enabled" {
   type        = bool
   default     = true
@@ -14,6 +27,9 @@ variable "kv_resource_group_location" {
   type        = string
   description = "Location of the resource group for Keyvault"
 }
+
+
+
 variable "enabled_keyvault" {
   type        = bool
   default     = true
