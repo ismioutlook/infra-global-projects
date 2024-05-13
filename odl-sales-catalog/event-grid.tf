@@ -30,3 +30,10 @@ resource "azurerm_eventgrid_event_subscription" "sales-catalog-ingestion-sbsc" {
   }
 
 }
+
+resource "azurerm_eventgrid_topic" "sales-catalog-ingestion-csttp" {
+  count               = var.enabled ? 1 : 0
+  name                = var.eventgrid_custom_topic_name
+  resource_group_name = var.resource_group_name
+  location            = var.resource_group_location
+}

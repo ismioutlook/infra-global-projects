@@ -12,3 +12,4 @@ subnet_cidrs                                  = ["10.0.2.16/29"]
 eventgrid_system_topic_name                   = "eg-s-topic-sales-catalog-ingestion"
 eventgrid_subscription_name                   = "sbsc-sales-catalog-ingestion"
 eventgrid_subscription_advanced_filter_values = ["rex-"]
+eventgrid_custom_topic_name                   = "eg-c-topic-sales-catalog-ingestion"

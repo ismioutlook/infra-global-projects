@@ -100,6 +100,11 @@ variable "eventgrid_system_topic_name" {
   description = "Name of the event grid system topic"
 }
 
+variable "eventgrid_custom_topic_name" {
+  type        = string
+  description = "Name of the event grid custom topic"
+}
+
 variable "subnet_delegation_name" {
   type        = string
   default     = "functionapp-delegation"
