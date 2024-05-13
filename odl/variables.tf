@@ -51,6 +51,7 @@ variable "is_hns_enabled" {
   type        = string
 }
 
+#--------------------
 
 variable "enabled" {
   type        = bool
