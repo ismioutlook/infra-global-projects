@@ -4,8 +4,3 @@ module "fsm-prod-rg" {
   resource_group_name     = var.resource_group_name
   resource_group_location = var.resource_group_location
 }
-
-moved {
-  from = module.fsm-prod-rg.azurerm_resource_group.rg
-  to   = module.fsm-prod-rg[0].azurerm_resource_group.rg
-}
