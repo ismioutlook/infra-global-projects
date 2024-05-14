@@ -1,0 +1,25 @@
+module "fsm-np-cdb" {
+  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-cdb//module?ref=v0.0.3"
+  tenant_id               = var.tenant_id
+  subscription_id         = var.subscription_id
+  cosmosdb_account_name   = var.cosmosdb_account_name
+  cosmosdb_offer_type     = var.cosmosdb_offer_type
+  cosmosdb_account_kind   = var.cosmosdb_account_kind
+  geo_location            = var.geo_location
+  consistency_level       = var.consistency_level
+  max_interval_in_seconds = var.max_interval_in_seconds
+  max_staleness_prefix    = var.max_staleness_prefix
+  sql_database_name       = var.sql_database_name
+  throughput              = var.throughput
+  sql_container_name      = var.sql_container_name
+  resource_group_location = var.resource_group_location
+  resource_group_name     = var.resource_group_name
+  owner_tag               = var.owner_tag
+  account_tag             = var.account_tag
+  billingid_tag           = var.billingid_tag
+  costcenterit_tag        = var.costcenterit_tag
+  sector_tag              = var.sector_tag
+  env_tag                 = var.env_tag
+  #created_by_tag             = var.created_by_tag
+  depends_on = [module.fsm-rg]
+}
