@@ -12,8 +12,3 @@ module "fsm-rg" {
   env_tag          = var.env_tag
   #created_by_tag   = var.created_by_tag
 }
-moved {
-  from = module.fsm-rg.azurerm_resource_group.rg
-  to   = module.fsm-rg[0].azurerm_resource_group.rg
-}
-
