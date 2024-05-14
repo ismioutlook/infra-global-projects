@@ -25,3 +25,13 @@ module "fsm-np-eh" {
   created_by_tag              = var.created_by_tag
   #depends_on                  = [ module.fsm-np-rg ]
 }
+
+moved {
+  from = module.fsm-prod-eh
+  to   = module.fsm-np-eh
+}
+
+# moved {
+#   from = module.fsm-np-eh.azurerm_eventhub_consumer_group.consumer_group[5]
+#   to = module.fsm-np-eh.azurerm_eventhub_consumer_group.consumer_group[4]
+# }
