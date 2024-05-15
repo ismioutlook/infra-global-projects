@@ -17,4 +17,3 @@ storage_container_access_type = "private"
 storage_account_replication   = "LRS"
 account_kind                  = "StorageV2"
 is_hns_enabled                = "true"
-
