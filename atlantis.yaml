@@ -33,3 +33,16 @@ projects:
   workspace: prod
   workflow: prod_basic_workflow
   terraform_version: 1.7.5
+
+- dir: fsm-funcapp
+  workspace: dev
+  workflow: dev_basic_workflow
+  terraform_version: 1.8.1
+- dir: fsm-funcapp
+  workspace: oneint
+  workflow: oneint_basic_workflow
+  terraform_version: 1.8.1
+- dir: fsm-funcapp
+  workspace: prod
+  workflow: prod_basic_workflow
+  terraform_version: 1.8.1
