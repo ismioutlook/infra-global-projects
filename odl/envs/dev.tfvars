@@ -17,3 +17,35 @@ storage_container_access_type = "private"
 storage_account_replication   = "LRS"
 account_kind                  = "StorageV2"
 is_hns_enabled                = "true"
+
+# --------Event Grid Topics and subscriptions -------------
+eventgrid_topics = {
+  topic1 = {
+    eventgrid_custom_topic_name = "eg-topic-odlcore-individualcustomer-entity-stage"
+    eventgrid_custom_subscriptions = {
+      "subscription1" = {
+        name                              = "c4c-individualcustomer-webhook"
+        endpoint_url                      = "https://westeurope.azure.data.mongodb-api.com/app/odl-core-eu-cdc-pzpjr/endpoint/cdc/IndividualCustomer"
+        max_events_per_batch              = 10
+        preferred_batch_size_in_kilobytes = 640
+        subject_begins_with               = "IndividualCustomer.Root"
+        subject_ends_with                 = ""
+        case_sensitive                    = false
+      }
+    }
+  },
+  topic2 = {
+    eventgrid_custom_topic_name = "eg-topic-odlcore-registeredproduct-entity-stage"
+    eventgrid_custom_subscriptions = {
+      "subscription1" = {
+        name                              = "c4c-registeredproduct-webhook"
+        endpoint_url                      = "https://westeurope.azure.data.mongodb-api.com/app/odl-core-eu-cdc-pzpjr/endpoint/cdc/RegisteredProduct"
+        max_events_per_batch              = 10
+        preferred_batch_size_in_kilobytes = 640
+        subject_begins_with               = "InstallationPoint/RegisteredProduct.Root"
+        subject_ends_with                 = ""
+        case_sensitive                    = false
+      }
+    }
+  }
+}

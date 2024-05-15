@@ -92,3 +92,20 @@ variable "kv_sku_name" {
   description = "key vault sku name"
   default     = "standard"
 }
+
+#----- event grid topic---------------
+variable "eventgrid_topics" {
+  description = "Map of Event Grid topics and their subscriptions"
+  type = map(object({
+    eventgrid_custom_topic_name = string
+    eventgrid_custom_subscriptions = map(object({
+      name                              = string
+      endpoint_url                      = string
+      max_events_per_batch              = number
+      preferred_batch_size_in_kilobytes = number
+      subject_begins_with               = string
+      subject_ends_with                 = string
+      case_sensitive                    = bool
+    }))
+  }))
+}
