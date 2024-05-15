@@ -7,7 +7,7 @@ kv_resource_group_location = "West Europe"
 key_vault_name = "elxkv-odl-sops-eu-1int"
 
 
-# ------------------------Keyvault Resource Group Details for EU region------------------------------
+# ------------------------Storage account details for EU region------------------------------
 resource_group_name           = "RG-GL-ODL-CORE-1INT-EU"
 resource_group_location       = "East US"
 storage_account_name          = "elxdlsodlcore1inteu"
