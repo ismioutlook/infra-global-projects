@@ -21,7 +21,7 @@ is_hns_enabled                = "true"
 # --------Event Grid Topics and subscriptions -------------
 eventgrid_topics = {
   topic1 = {
-    eventgrid_custom_topic_name = "eg-topic-odlcore-individualcustomer-entity-stage"
+    eventgrid_custom_topic_name = "eg-topic-odlcore-individualcustomer-entity-oneint"
     eventgrid_custom_subscriptions = {
       "subscription1" = {
         name                              = "c4c-individualcustomer-webhook"
@@ -35,7 +35,7 @@ eventgrid_topics = {
     }
   },
   topic2 = {
-    eventgrid_custom_topic_name = "eg-topic-odlcore-registeredproduct-entity-stage"
+    eventgrid_custom_topic_name = "eg-topic-odlcore-registeredproduct-entity-oneint"
     eventgrid_custom_subscriptions = {
       "subscription1" = {
         name                              = "c4c-registeredproduct-webhook"
