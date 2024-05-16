@@ -6,6 +6,8 @@ resource "azurerm_key_vault_access_policy" "example" {
   object_id = "212ab792-786b-40d4-9cae-3e21087453f2"
 
   secret_permissions = [
-    "set",
+    "Set",
+    "Get",
+    "List"
   ]
 }

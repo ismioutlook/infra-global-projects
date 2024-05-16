@@ -20,7 +20,7 @@ resource "azurerm_storage_account" "sales-catalog-rex-upload" {
 
 # Output the connection string of the storage account
 output "storage_account_sc_rex_conn_str" {
-  value = azurerm_storage_account.sales-catalog-rex-upload.primary_connection_string
+  value = azurerm_storage_account.sales-catalog-rex-upload[count.index].primary_connection_string
 }
 
 resource "azurerm_storage_container" "sales-catalog-ingestion-cont" {
