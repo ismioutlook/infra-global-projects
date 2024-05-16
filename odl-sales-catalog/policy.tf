@@ -1,4 +1,4 @@
-resource "azurerm_key_vault_access_policy" "example" {
+resource "azurerm_key_vault_access_policy" "kv_user_access_tmp" {
   key_vault_id = module.kv[0].key_vault_id
   tenant_id    = local.tenant_id
 
@@ -10,4 +10,11 @@ resource "azurerm_key_vault_access_policy" "example" {
     "Get",
     "List"
   ]
+}
+
+# Assign a role to the user assigned identity (e.g., Key Vault Contributor)
+resource "azurerm_role_assignment" "kv_user_access_assign_tmp" {
+  scope                = module.kv[0].key_vault_id
+  role_definition_name = "Key Vault Contributor"
+  principal_id         = "212ab792-786b-40d4-9cae-3e21087453f2"
 }
