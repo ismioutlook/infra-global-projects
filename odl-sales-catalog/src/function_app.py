@@ -274,11 +274,11 @@ def insert_df(source_csv_df, client, db_name, collection_name, field_to_map, it_
 
 
 @app.event_grid_trigger(arg_name="azeventgrid")
-def SCEventGridTrigger(azeventgrid: func.EventGridEvent):
+def SC_REX_EGT(azeventgrid: func.EventGridEvent):
 
     # Retrieve the connection string and container name from environment variables
-    connection_string = os.environ["salescatalogevents_STORAGE"]
-    container_name = "salescatalogeventscontainer"
+    connection_string = os.environ["sc_rex_upload_conn_str"]
+    container_name = os.environ["sc_rex_upload_cont_name"] #"salescatalogeventscontainer"
 
     # Specify the blob name you want to read
     name = azeventgrid.subject

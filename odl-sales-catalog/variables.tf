@@ -42,6 +42,11 @@ variable "storage_account_name" {
   description = "Name of the storage account"
 }
 
+variable "storage_account_name_rex" {
+  type        = string
+  description = "Name of the REX upload storage account"
+}
+
 variable "storage_account_tier" {
   type        = string
   default     = "Standard"
@@ -54,9 +59,9 @@ variable "storage_account_replication_type" {
   description = "Replication type of the storage account"
 }
 
-variable "storage_container_name" {
+variable "storage_container_name_rex" {
   type        = string
-  description = "Name of the storage container"
+  description = "Name of the REX upload storage container"
 }
 
 variable "storage_container_access_type" {
@@ -73,6 +78,17 @@ variable "storage_container_rex_upload_folder" {
 variable "service_plan_name" {
   type        = string
   description = "Name of the service plan"
+}
+
+variable "application_insights_name" {
+  type        = string
+  description = "Name of the application insights"
+}
+
+variable "application_insights_type" {
+  type        = string
+  default     = "web"
+  description = "Type of the application insights"
 }
 
 variable "function_app_name" {

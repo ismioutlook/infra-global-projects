@@ -18,7 +18,7 @@ resource "azurerm_eventgrid_event_subscription" "sales-catalog-ingestion-sbsc" {
   }
 
   subject_filter {
-    subject_begins_with = "/blobServices/default/containers/${var.storage_container_name}/blobs/${var.storage_container_rex_upload_folder}"
+    subject_begins_with = "/blobServices/default/containers/${var.storage_container_name_rex}/blobs/${var.storage_container_rex_upload_folder}"
     subject_ends_with   = var.eventgrid_subscription_suffix_filter
   }
 
