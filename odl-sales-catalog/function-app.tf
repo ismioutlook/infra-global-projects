@@ -17,6 +17,10 @@ resource "azurerm_linux_function_app" "sales-catalog-ingestion-fap" {
   virtual_network_subnet_id  = azurerm_subnet.sc-ingestion-sbnt.id
   tags                       = local.tags
 
+  identity {
+    type = "SystemAssigned"
+  }
+
   site_config {
     application_stack {
       python_version = "3.11"
