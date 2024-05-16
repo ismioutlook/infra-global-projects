@@ -20,6 +20,10 @@ projects:
   workspace: oneint
   workflow: oneint_basic_workflow
   terraform_version: 1.7.5
+- dir: fsm-cosmodb
+  workspace: prod
+  workflow: prod_basic_workflow
+  terraform_version: 1.7.5
 
 - dir: fsm-eh
   workspace: dev
