@@ -12,9 +12,9 @@ resource "azurerm_key_vault_access_policy" "kv_user_access_tmp" {
   ]
 }
 
-# # Assign a role to the user assigned identity (e.g., Key Vault Contributor)
-# resource "azurerm_role_assignment" "kv_user_access_assign_tmp" {
-#   scope                = module.kv[0].key_vault_id
-#   role_definition_name = "Key Vault Contributor"
-#   principal_id         = "212ab792-786b-40d4-9cae-3e21087453f2"
-# }
+# Assign a role to the user https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-guide?tabs=azure-cli
+resource "azurerm_role_assignment" "kv_user_access_assign_tmp" {
+  scope                = module.kv[0].key_vault_id
+  role_definition_name = "Key Vault Secrets Officer"
+  principal_id         = "212ab792-786b-40d4-9cae-3e21087453f2"
+}
