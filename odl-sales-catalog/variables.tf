@@ -4,6 +4,29 @@ variable "enabled" {
   description = "Global flag to control resource provisioning"
 }
 
+variable "enabled_keyvault" {
+  type        = bool
+  default     = true
+  description = "Flag to control provisioning of keyvault"
+}
+
+variable "key_vault_name" {
+  type        = string
+  description = "Name of the Azure Key Vault"
+}
+
+variable "soft_delete_retention_days" {
+  type        = string
+  description = "kv soft delete retention days"
+  default     = "90"
+}
+
+variable "kv_sku_name" {
+  type        = string
+  description = "key vault sku name"
+  default     = "standard"
+}
+
 variable "resource_group_name" {
   type        = string
   description = "Name of the resource group to provision"
@@ -19,6 +42,11 @@ variable "storage_account_name" {
   description = "Name of the storage account"
 }
 
+variable "storage_account_name_rex" {
+  type        = string
+  description = "Name of the REX upload storage account"
+}
+
 variable "storage_account_tier" {
   type        = string
   default     = "Standard"
@@ -31,9 +59,9 @@ variable "storage_account_replication_type" {
   description = "Replication type of the storage account"
 }
 
-variable "storage_container_name" {
+variable "storage_container_name_rex" {
   type        = string
-  description = "Name of the storage container"
+  description = "Name of the REX upload storage container"
 }
 
 variable "storage_container_access_type" {
@@ -50,6 +78,17 @@ variable "storage_container_rex_upload_folder" {
 variable "service_plan_name" {
   type        = string
   description = "Name of the service plan"
+}
+
+variable "application_insights_name" {
+  type        = string
+  description = "Name of the application insights"
+}
+
+variable "application_insights_type" {
+  type        = string
+  default     = "web"
+  description = "Type of the application insights"
 }
 
 variable "function_app_name" {
@@ -75,6 +114,11 @@ variable "subnet_cidrs" {
 variable "eventgrid_system_topic_name" {
   type        = string
   description = "Name of the event grid system topic"
+}
+
+variable "eventgrid_custom_topic_name" {
+  type        = string
+  description = "Name of the event grid custom topic"
 }
 
 variable "subnet_delegation_name" {

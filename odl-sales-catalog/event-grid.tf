@@ -10,15 +10,15 @@ resource "azurerm_eventgrid_system_topic" "sales-catalog-ingestion-sytp" {
 resource "azurerm_eventgrid_event_subscription" "sales-catalog-ingestion-sbsc" {
   count                 = var.enabled ? 1 : 0
   name                  = var.eventgrid_subscription_name
-  scope                 = azurerm_storage_account.sales-catalog-ingestion[count.index].id
+  scope                 = azurerm_storage_account.sales-catalog-rex-upload[count.index].id
   event_delivery_schema = var.eventgrid_subscription_event_delivery_schema
 
   azure_function_endpoint {
-    function_id = "${azurerm_linux_function_app.sales-catalog-ingestion-fap[count.index].id}/functions/SCEventGridTrigger"
+    function_id = "${azurerm_linux_function_app.sales-catalog-ingestion-fap[count.index].id}/functions/SC_REX_EGT"
   }
 
   subject_filter {
-    subject_begins_with = "/blobServices/default/containers/${var.storage_container_name}/blobs/${var.storage_container_rex_upload_folder}"
+    subject_begins_with = "/blobServices/default/containers/${var.storage_container_name_rex}/blobs/${var.storage_container_rex_upload_folder}"
     subject_ends_with   = var.eventgrid_subscription_suffix_filter
   }
 
@@ -29,4 +29,11 @@ resource "azurerm_eventgrid_event_subscription" "sales-catalog-ingestion-sbsc" {
     }
   }
 
+}
+
+resource "azurerm_eventgrid_topic" "sales-catalog-ingestion-csttp" {
+  count               = var.enabled ? 1 : 0
+  name                = var.eventgrid_custom_topic_name
+  resource_group_name = var.resource_group_name
+  location            = var.resource_group_location
 }
