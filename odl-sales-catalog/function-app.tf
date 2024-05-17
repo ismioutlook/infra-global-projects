@@ -28,14 +28,15 @@ resource "azurerm_linux_function_app" "sales-catalog-ingestion-fap" {
   }
 
   app_settings = {
-    "FUNCTIONS_WORKER_RUNTIME"       = "python",
-    "SCM_DO_BUILD_DURING_DEPLOYMENT" = true,
-    "FUNCTIONS_EXTENSION_VERSION"    = "~4",
-    "APPINSIGHTS_INSTRUMENTATIONKEY" = azurerm_application_insights.sales-catalog-rex-appin.instrumentation_key
-    "sc_rex_upload_conn_str"         = azurerm_storage_account.sales-catalog-rex-upload[count.index].primary_connection_string
-    "sc_rex_upload_cont_name"        = var.storage_container_name_rex
-    "kv_uri"                         = "https://${var.key_vault_name}.vault.azure.net"
-    "kv_secret_name"                 = var.key_vault_secret_name
+    "FUNCTIONS_WORKER_RUNTIME"              = "python",
+    "SCM_DO_BUILD_DURING_DEPLOYMENT"        = true,
+    "FUNCTIONS_EXTENSION_VERSION"           = "~4",
+    "APPINSIGHTS_INSTRUMENTATIONKEY"        = azurerm_application_insights.sales-catalog-rex-appin.instrumentation_key
+    "APPLICATIONINSIGHTS_CONNECTION_STRING" = azurerm_application_insights.sales-catalog-rex-appin.connection_string
+    "sc_rex_upload_conn_str"                = azurerm_storage_account.sales-catalog-rex-upload[count.index].primary_connection_string
+    "sc_rex_upload_cont_name"               = var.storage_container_name_rex
+    "kv_uri"                                = "https://${var.key_vault_name}.vault.azure.net"
+    "kv_secret_name"                        = var.key_vault_secret_name
 
     # "ENABLE_ORYX_BUILD"                        = true,
     # "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING" = "DefaultEndpointsProtocol=https;AccountName=${azurerm_storage_account.sales-catalog-ingestion[count.index].name};AccountKey=${azurerm_storage_account.sales-catalog-ingestion[count.index].primary_access_key};EndpointSuffix=core.windows.net",
