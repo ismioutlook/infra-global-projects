@@ -49,3 +49,15 @@ eventgrid_topics = {
     }
   }
 }
+
+mongo_prv_endpoints = {
+  mongo-cdi-dev-odl-eu-001 = {
+    location            = "westeurope"
+    resource_group_name = "RG-ELX-GL-Concent-NonProd-Networking"
+    subnet_id           = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-002/subnets/PV-ENDPOINTS-SBNT-001"
+    private_service_connection = {
+      name                           = "pls_6647731abef1e23ee3296de7"
+      private_connection_resource_id = "/subscriptions/965414d2-425a-4f59-b691-3a65b282ee5f/resourceGroups/rg_6647731abef1e23ee3296de8_hwp575fn/providers/Microsoft.Network/privateLinkServices/pls_6647731abef1e23ee3296de7"
+    }
+  }
+}
