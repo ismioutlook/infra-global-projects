@@ -131,3 +131,16 @@ variable "eventgrid_topics" {
     }))
   }))
 }
+variable "mongo_prv_endpoints" {
+  description = "Private endpoints that need to be created for mongo atlas"
+  type = map(object({
+    location            = string
+    resource_group_name = string
+    subnet_id           = string
+    private_service_connection = object({
+      name                           = string
+      private_connection_resource_id = string
+    })
+  }))
+  default = {}
+}
