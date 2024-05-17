@@ -15,6 +15,11 @@ variable "key_vault_name" {
   description = "Name of the Azure Key Vault"
 }
 
+variable "key_vault_secret_name" {
+  type        = string
+  description = "Name of the Azure Key Vault secret"
+}
+
 variable "soft_delete_retention_days" {
   type        = string
   description = "kv soft delete retention days"
