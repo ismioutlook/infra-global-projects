@@ -1,6 +1,6 @@
 module "eventgrid_topics" {
   for_each                = local.eventgrid_topics
-  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-eventgrid//iasc?ref=v0.0.6"
+  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-eventgrid//iasc?ref=8d5c82ed09cb1f00837e91e91a5f70bb81f7f99f"
   tenant_id               = local.tenant_id
   subscription_id         = local.subscription_id
   resource_group_name     = azurerm_resource_group.rg.name
