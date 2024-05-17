@@ -142,4 +142,5 @@ variable "mongo_prv_endpoints" {
       private_connection_resource_id = string
     })
   }))
+  default = {}
 }
