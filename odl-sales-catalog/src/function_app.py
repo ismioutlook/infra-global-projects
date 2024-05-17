@@ -303,7 +303,7 @@ def SC_REX_EGT(azeventgrid: func.EventGridEvent):
     except Exception as e:
         logging.error(e)
 
-    mongo_uri = os.environ["MongoUri"]
+    mongo_secret_name = os.environ["sc_rex_mongodb_conn_str"]
 
     try:
         client = MongoClient(mongo_uri, server_api=ServerApi("1"))

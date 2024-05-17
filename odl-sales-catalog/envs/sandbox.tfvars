@@ -1,4 +1,5 @@
 key_vault_name                                = "sc-mongodb-constr3-sndbx"
+key_vault_secret_name                         = "sc-mongodb-odl-core-dev-eu-pe-conn-str"
 resource_group_name                           = "RG-EMEA-DDL-Sandbox"
 resource_group_location                       = "westeurope"
 storage_account_name                          = "elxnsscsandbox"

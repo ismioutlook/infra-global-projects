@@ -21,7 +21,7 @@ resource "azurerm_storage_account" "sales-catalog-rex-upload" {
 resource "azurerm_storage_container" "sales-catalog-ingestion-cont" {
   count                 = var.enabled ? 1 : 0
   name                  = var.storage_container_name_rex
-  storage_account_name  = azurerm_storage_account.sales-catalog-ingestion[count.index].name
+  storage_account_name  = azurerm_storage_account.sales-catalog-rex-upload[count.index].name
   container_access_type = var.storage_container_access_type
 }
 
