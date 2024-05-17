@@ -28,3 +28,25 @@ resource "azurerm_key_vault_key" "keys" {
 
 }
 
+resource "azurerm_key_vault_access_policy" "apim_read" {
+  for_each = tomap({
+    for i in local.apim_identities :
+    "${i.principal_id}" => i.principal_id
+  })
+
+  object_id    = each.key
+  tenant_id    = local.tenant_id
+  key_vault_id = module.kv[0].key_vault_id
+
+  secret_permissions = [
+    "Get",
+    "List"
+  ]
+}
+
+resource "azurerm_key_vault_secret" "eventgrid_topic_key" {
+  for_each     = local.eventgrid_topics
+  name         = format("%s-key1", each.value.eventgrid_custom_topic_name)
+  value        = module.eventgrid_topics[each.key].primary_access_key
+  key_vault_id = module.kv[0].key_vault_id
+}

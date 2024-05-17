@@ -9,6 +9,12 @@ variable "resource_group_location" {
   description = "Location of the resource group"
 }
 
+variable "resource_group_readers" {
+  type        = list(string)
+  default     = ["CSA-AAD-PRJ-Concent-ODL-Developer"]
+  description = "Names of the principals that need to have reader access"
+}
+
 
 variable "storage_account_name" {
   description = "Storage account name"
@@ -70,7 +76,23 @@ variable "kv_resource_group_location" {
   description = "Location of the resource group for Keyvault"
 }
 
+variable "kv_read_access_apim" {
+  type        = bool
+  description = "Granting keyvault access to apim? If true, apim_details var must be provided"
+  default     = true
+}
 
+variable "apim_details" {
+  type = object({
+    name           = string
+    resource_group = string
+  })
+  description = "Details of apim to grant keyvault read access. List and Get on secrets will be provided to attached identities"
+  default = {
+    name           = "elxapimglnonprod01"
+    resource_group = "RG-GL-ELX-EU-NonProd-01"
+  }
+}
 
 variable "enabled_keyvault" {
   type        = bool
