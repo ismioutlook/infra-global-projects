@@ -50,14 +50,43 @@ eventgrid_topics = {
   }
 }
 
+#---- private endpoints for One-integration environment to Mongo atlas
+
 mongo_prv_endpoints = {
   mongo-cdi-dev-odl-eu-001 = {
     location            = "westeurope"
     resource_group_name = "RG-ELX-GL-Concent-NonProd-Networking"
     subnet_id           = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-002/subnets/PV-ENDPOINTS-SBNT-001"
     private_service_connection = {
-      name                           = "pls_6647731abef1e23ee3296de7"
-      private_connection_resource_id = "/subscriptions/965414d2-425a-4f59-b691-3a65b282ee5f/resourceGroups/rg_6647731abef1e23ee3296de8_hwp575fn/providers/Microsoft.Network/privateLinkServices/pls_6647731abef1e23ee3296de7"
+      name                           = "pls_6647a0ff535d7609ede2f153"
+      private_connection_resource_id = "/subscriptions/965414d2-425a-4f59-b691-3a65b282ee5f/resourceGroups/rg_6647731abef1e23ee3296de8_nxhwb4p5/providers/Microsoft.Network/privateLinkServices/pls_6647a0ff535d7609ede2f153"
+    }
+  },
+  mongo-odl-core-dev-eu-001 = {
+    location            = "westeurope"
+    resource_group_name = "RG-ELX-GL-Concent-NonProd-Networking"
+    subnet_id           = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-002/subnets/PV-ENDPOINTS-SBNT-001"
+    private_service_connection = {
+      name                           = "pls_6647a0ff535d7609ede2f153"
+      private_connection_resource_id = "/subscriptions/965414d2-425a-4f59-b691-3a65b282ee5f/resourceGroups/rg_6647731abef1e23ee3296de8_nxhwb4p5/providers/Microsoft.Network/privateLinkServices/pls_6647a0ff535d7609ede2f153"
+    }
+  },
+  mongo-cdi-dev-odl-na-001 = {
+    location            = "eastus"
+    resource_group_name = "RG-ELX-EUS-Concent-NonProd-Networking"
+    subnet_id           = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/PV-ENDPOINTS-SBT-01"
+    private_service_connection = {
+      name                           = "pls_66479ddda25de05566de5fd3"
+      private_connection_resource_id = "/subscriptions/4c3b0233-bcee-4451-82c0-eeb957599ad7/resourceGroups/rg_66479ddda25de05566de5fd4_timd11bo/providers/Microsoft.Network/privateLinkServices/pls_66479ddda25de05566de5fd3"
+    }
+  },
+  mongo-development-odl-na-001 = {
+    location            = "eastus"
+    resource_group_name = "RG-ELX-EUS-Concent-NonProd-Networking"
+    subnet_id           = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/PV-ENDPOINTS-SBT-01"
+    private_service_connection = {
+      name                           = "pls_66479ffd069a162ebf3d91c5"
+      private_connection_resource_id = "/subscriptions/a21f6ec0-ce24-4dc4-a6d9-0d7a9f6aa47a/resourceGroups/rg_65e091cd3eb8bd628056b1ce_hm8tg0dy/providers/Microsoft.Network/privateLinkServices/pls_66479ffd069a162ebf3d91c5"
     }
   }
 }
