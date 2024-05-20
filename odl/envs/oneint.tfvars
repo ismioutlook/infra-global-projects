@@ -70,7 +70,7 @@ mongo_prv_endpoints = {
       private_connection_resource_id = "/subscriptions/f49c0d40-a892-48ac-a415-48e0e0481718/resourceGroups/rg_66265222295e422857b5259f_n19oy1wm/providers/Microsoft.Network/privateLinkServices/pls_6647991b117eaf178b266846"
     }
   },
-  mongo-cdi-oneintegration-odl-core-qa-eu-001 = {
+  mongo-odl-core-qa-eu-001 = {
     location            = "westeurope"
     resource_group_name = "RG-ELX-GL-Concent-NonProd-Networking"
     subnet_id           = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-002/subnets/PV-ENDPOINTS-SBNT-001"
