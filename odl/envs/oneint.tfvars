@@ -69,5 +69,14 @@ mongo_prv_endpoints = {
       name                           = "pls_6647991b117eaf178b266846"
       private_connection_resource_id = "/subscriptions/f49c0d40-a892-48ac-a415-48e0e0481718/resourceGroups/rg_66265222295e422857b5259f_n19oy1wm/providers/Microsoft.Network/privateLinkServices/pls_6647991b117eaf178b266846"
     }
+  },
+  mongo-cdi-oneintegration-odl-core-qa-eu-001 = {
+    location            = "westeurope"
+    resource_group_name = "RG-ELX-GL-Concent-NonProd-Networking"
+    subnet_id           = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-002/subnets/PV-ENDPOINTS-SBNT-001"
+    private_service_connection = {
+      name                           = "pls_664afc008a2a3a707eb7b58a"
+      private_connection_resource_id = "/subscriptions/7cdc43bc-4dae-46fc-acdb-a56ecd1c0571/resourceGroups/rg_659ffe4dcb7ef44fb0c81a6a_jvikcila/providers/Microsoft.Network/privateLinkServices/pls_664afc008a2a3a707eb7b58a"
+    }
   }
 }
