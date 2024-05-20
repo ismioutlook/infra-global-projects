@@ -76,7 +76,7 @@ mongo_prv_endpoints = {
     subnet_id           = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-002/subnets/PV-ENDPOINTS-SBNT-001"
     private_service_connection = {
       name                           = "pls_664afc008a2a3a707eb7b58a"
-      private_connection_resource_id = "/subscriptions/f676eba7-0e22-4044-936f-7a2e155d0844/resourceGroups/rg_6647a24f29900a74737f0451_xhrhitre/providers/Microsoft.Network/privateLinkServices/pls_664afc008a2a3a707eb7b58a"
+      private_connection_resource_id = "/subscriptions/7cdc43bc-4dae-46fc-acdb-a56ecd1c0571/resourceGroups/rg_659ffe4dcb7ef44fb0c81a6a_jvikcila/providers/Microsoft.Network/privateLinkServices/pls_664afc008a2a3a707eb7b58a"
     }
   }
 }
