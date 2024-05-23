@@ -15,6 +15,11 @@ variable "resource_group_readers" {
   description = "Names of the principals that need to have reader access"
 }
 
+variable "reader_and_data_access_grantees" {
+  type        = list(string)
+  default     = []
+  description = "Names of the principals that need to have Reader and Data Access role"
+}
 
 variable "storage_account_name" {
   description = "Storage account name"
