@@ -9,6 +9,11 @@ data "azuread_group" "rg_reader" {
   display_name = each.value
 }
 
+data "azuread_group" "data_access" {
+  for_each     = toset(var.reader_and_data_access_grantees)
+  display_name = each.value
+}
+
 data "azurerm_api_management" "apim" {
   count               = local.enabled_apim_kv_access ? 1 : 0
   name                = var.apim_details.name

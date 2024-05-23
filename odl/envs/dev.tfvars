@@ -90,3 +90,5 @@ mongo_prv_endpoints = {
     }
   }
 }
+
+reader_and_data_access_grantees = ["CSA-AAD-PRJ-Concent-ODL-Developer"]
