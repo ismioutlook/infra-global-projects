@@ -165,3 +165,6 @@ node_pools = [
     }
   }
 ]
+
+role_based_access_control_enabled = true
+rbac_aad                          = false

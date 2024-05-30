@@ -251,3 +251,23 @@ variable "scale_down_utilization_threshold" {
   type        = string
   default     = "0.5"
 }
+
+variable "rbac_aad" {
+  type        = bool
+  default     = true
+  description = "(Optional) Is Azure Active Directory integration enabled?"
+  nullable    = false
+}
+
+variable "rbac_aad_azure_rbac_enabled" {
+  type        = bool
+  default     = true
+  description = "(Optional) Is Role Based Access Control based on Azure AD enabled?"
+}
+
+variable "role_based_access_control_enabled" {
+  type        = bool
+  default     = true
+  description = "Enable Role Based Access Control."
+  nullable    = false
+}
