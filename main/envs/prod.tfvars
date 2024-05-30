@@ -155,7 +155,7 @@ node_pools = [
     vm_size             = "Standard_DS3_v2"
     os_disk_size_gb     = 512
     enable_auto_scaling = true
-    node_count          = 1
+    node_count          = 4
     min_count           = 1
     max_count           = 4
     max_pods            = 60
@@ -165,3 +165,6 @@ node_pools = [
     }
   }
 ]
+
+role_based_access_control_enabled = true
+rbac_aad                          = false

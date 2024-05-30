@@ -1,5 +1,5 @@
 module "apim-multi-location" {
-  source                    = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-apim//module?ref=v0.0.9.1"
+  source                    = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-apim//module?ref=align-tf-state"
   tenant_id                 = var.subscription.subscription.tenant_id
   subscription_id           = var.subscription.subscription.subscription_id
   resource_group_name       = var.eu_vars.resource_group.resource_group_name
@@ -15,6 +15,7 @@ module "apim-multi-location" {
   management_hostname       = var.eu_vars.api_management.management_hostname
   scm_hostname              = var.eu_vars.api_management.scm_hostname
   key_vault_secret_id       = var.eu_vars.api_management.key_vault_secret_id
+  ignore_public_address_id  = terraform.workspace == "prod" ? true : false //hack to align prod state
   #Tags    
   env_tag          = var.eu_vars.tags.env_tag
   owner_tag        = var.eu_vars.tags.owner_tag

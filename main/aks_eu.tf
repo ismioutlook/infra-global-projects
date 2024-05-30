@@ -1,5 +1,5 @@
 module "eu_gl_aks" {
-  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//iasc?ref=v0.1.12"
+  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-aks//iasc?ref=align-tf-state"
   resource_group_name     = var.eu_vars.resource_group.resource_group_name
   resource_group_location = var.eu_vars.resource_group.resource_group_location
   log_analytics_name      = var.aks_vars.azure_k8s_service.log_analytics_name
@@ -54,10 +54,14 @@ module "eu_gl_aks" {
   user_node_taints         = var.aks_vars.azure_k8s_service.user_node_taints
   user_node_labels         = var.aks_vars.azure_k8s_service.user_node_labels
   # Tags
-  owner_tag        = var.eu_vars.tags.owner_tag
-  account_tag      = var.eu_vars.tags.account_tag
-  billingid_tag    = var.eu_vars.tags.billingid_tag
-  costcenterit_tag = var.eu_vars.tags.costcenterit_tag
-  sector_tag       = var.eu_vars.tags.sector_tag
-  env_tag          = var.eu_vars.tags.env_tag
+  owner_tag                         = var.eu_vars.tags.owner_tag
+  account_tag                       = var.eu_vars.tags.account_tag
+  billingid_tag                     = var.eu_vars.tags.billingid_tag
+  costcenterit_tag                  = var.eu_vars.tags.costcenterit_tag
+  sector_tag                        = var.eu_vars.tags.sector_tag
+  env_tag                           = var.eu_vars.tags.env_tag
+  open_service_mesh_enabled         = terraform.workspace == "prod" ? true : false //currently it is enabled in prod so matching reality
+  role_based_access_control_enabled = var.role_based_access_control_enabled
+  rbac_aad_azure_rbac_enabled       = var.rbac_aad_azure_rbac_enabled
+  rbac_aad                          = var.rbac_aad
 }
