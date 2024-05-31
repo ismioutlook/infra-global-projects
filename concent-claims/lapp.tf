@@ -1,4 +1,4 @@
-module "app_insights_1" {
+module "logic_app" {
   count                   = var.enabled ? 1 : 0
   source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-appinsights//module?ref=v0.0.3"
   resource_group_location = azurerm_resource_group.rg[0].location
