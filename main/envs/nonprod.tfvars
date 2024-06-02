@@ -178,6 +178,11 @@ node_pools = [
   }
 ]
 
+app_insights_details = {
+  name                = "AI-ELX-MSS-NonProd-01"
+  resource_group_name = "RG-GL-ELX-EU-NonProd-01"
+}
+
 aks_builtin_role_assignments = {
   "Azure Kubernetes Service RBAC Cluster Admin" = {
     principal_group_names = ["CSA-AAD-PRJ-Concent-PE-Admin"]
@@ -192,5 +197,17 @@ aks_builtin_role_assignments = {
   }
   "Azure Kubernetes Service RBAC Writer" = {
     principal_group_names = ["CSA-AAD-PRJ-Concent-SRE-Write"]
+  }
+}
+
+apim_builtin_role_assignments = {
+  "API Management Service Reader Role" = {
+    principal_group_names = ["CSA-AAD-PRJ-Concent-ODL-Developer"]
+  }
+}
+
+app_insights_builtin_role_assignments = {
+  "Monitoring Reader" = {
+    principal_group_names = ["CSA-AAD-PRJ-Concent-ODL-Developer"]
   }
 }

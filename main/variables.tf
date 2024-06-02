@@ -291,3 +291,40 @@ variable "aks_builtin_role_assignments" {
   #   }
   # }
 }
+
+variable "apim_builtin_role_assignments" {
+  type = map(object({
+    principal_group_names = list(string)
+  }))
+  description = "Map to assign builtin APIM roles to principals. Key must be Builtin role names."
+  default     = {}
+  # currently the prod svc principal does not have priveleges to perform lookup in AAD
+  # once that permissions are granted, we should then uncomment this one for prod
+  #   "API Management Service Reader Role" = {
+  #     principal_group_names = ["CSA-AAD-PRJ-Concent-ODL-Developer"]
+  #   }
+  # }
+}
+
+variable "app_insights_details" {
+  type = object({
+    name                = string
+    resource_group_name = string
+  })
+  description = "Details of of application insights"
+  default     = null
+}
+
+variable "app_insights_builtin_role_assignments" {
+  type = map(object({
+    principal_group_names = list(string)
+  }))
+  description = "Map to assign builtin roles to principals to grant access to app insights. Key must be Builtin role names."
+  default     = {}
+  # currently the prod svc principal does not have priveleges to perform lookup in AAD
+  # once that permissions are granted, we should then uncomment this one for prod
+  #   "Monitoring Reader" = {
+  #     principal_group_names = ["CSA-AAD-PRJ-Concent-ODL-Developer"]
+  #   }
+  # }
+}
