@@ -60,7 +60,7 @@ variable "storage_container_access_type" {
 variable "logic_app_name"
 {
   type = string
-  description = "Logic App  Name"
+  description = "Logic App Name"
 }
 
 Variable "logic_app_type"
