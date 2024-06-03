@@ -21,4 +21,5 @@ resource "azurerm_role_assignment" "reader_and_data_access" {
   scope                = azurerm_storage_account.sa.id
   role_definition_name = "Reader and Data Access"
   principal_id         = data.azuread_group.data_access[each.key].object_id
+  principal_type       = "Group"
 }

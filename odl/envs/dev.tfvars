@@ -22,6 +22,8 @@ is_hns_enabled                = "true"
 eventgrid_topics = {
   topic1 = {
     eventgrid_custom_topic_name = "eg-topic-odlcore-individualcustomer-entity-dev"
+    apim_named_value_name       = "odl-core-customer-eg-topic-key-dev"
+    apim_backend_name           = "odl-core-customer-dev"
     eventgrid_custom_subscriptions = {
       "subscription1" = {
         name                              = "c4c-individualcustomer-webhook"
@@ -36,6 +38,8 @@ eventgrid_topics = {
   },
   topic2 = {
     eventgrid_custom_topic_name = "eg-topic-odlcore-registeredproduct-entity-dev"
+    apim_named_value_name       = "odl-core-regproduct-eg-topic-key-dev"
+    apim_backend_name           = "odl-core-registeredproduct-dev"
     eventgrid_custom_subscriptions = {
       "subscription1" = {
         name                              = "c4c-registeredproduct-webhook"
@@ -92,3 +96,8 @@ mongo_prv_endpoints = {
 }
 
 reader_and_data_access_grantees = ["CSA-AAD-PRJ-Concent-ODL-Developer"]
+
+api_management_srv_details = {
+  name                = "elxapimglnonprod01"
+  resource_group_name = "RG-GL-ELX-EU-NonProd-01"
+}
