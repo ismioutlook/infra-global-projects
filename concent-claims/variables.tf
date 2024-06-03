@@ -57,14 +57,12 @@ variable "storage_container_access_type" {
 }
 
 # Login App
-variable "logic_app_name"
-{
+variable "logic_app_name" {
   type = string
   description = "Logic App Name"
 }
 
-Variable "logic_app_type"
-{
+Variable "logic_app_type" {
   type = string
   description = "Logic App type"
 }
