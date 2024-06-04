@@ -38,6 +38,11 @@ data "azurerm_application_insights" "app_insights" {
   resource_group_name = var.app_insights_details.resource_group_name
 }
 
+data "azurerm_application_gateway" "app_gateway" {
+  name                = var.eu_vars.app_gateway.appgw_name
+  resource_group_name = var.eu_vars.resource_group.resource_group_name
+}
+
 
 data "azuread_group" "ad_groups" {
   for_each     = toset(local.principal_group_names)

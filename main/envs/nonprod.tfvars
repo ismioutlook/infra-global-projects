@@ -206,6 +206,12 @@ apim_builtin_role_assignments = {
   }
 }
 
+api_gw_builtin_role_assignments = {
+  "Reader" = {
+    principal_group_names = ["CSA-AAD-PRJ-Concent-ODL-Developer"]
+  }
+}
+
 app_insights_builtin_role_assignments = {
   "Monitoring Reader" = {
     principal_group_names = ["CSA-AAD-PRJ-Concent-ODL-Developer"]

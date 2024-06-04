@@ -328,3 +328,17 @@ variable "app_insights_builtin_role_assignments" {
   #   }
   # }
 }
+
+variable "api_gw_builtin_role_assignments" {
+  type = map(object({
+    principal_group_names = list(string)
+  }))
+  description = "Map to assign builtin roles to principals to grant access to api gateway. Key must be Builtin role names."
+  default     = {}
+  # currently the prod svc principal does not have priveleges to perform lookup in AAD
+  # once that permissions are granted, we should then uncomment this one for prod
+  #   "Reader" = {
+  #     principal_group_names = ["CSA-AAD-PRJ-Concent-ODL-Developer"]
+  #   }
+  # }
+}

@@ -33,4 +33,13 @@ locals {
       }
     ]
   ])
+
+  api_gw_flat_role_assign_map = flatten([
+    for k, v in var.api_gw_builtin_role_assignments : [
+      for group in v.principal_group_names : {
+        role  = k
+        group = group
+      }
+    ]
+  ])
 }
