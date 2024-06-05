@@ -9,7 +9,7 @@ terraform {
     }
   }
   backend "azurerm" {
-    key = "infra-global-projects-v1/fsm-eh/terraform.tfstate"
+    key = "infra-global-projects-v1/cdc-global/terraform.tfstate"
   }
 }
 

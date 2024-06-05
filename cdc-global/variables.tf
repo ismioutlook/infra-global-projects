@@ -72,50 +72,62 @@ variable "vnet_rg_name" {
   description = "subnet and vnet rg name"
 }
 
-# ------ TAGS ----
-variable "owner_tag" {
-  type = string
-  #default     = "Arun Nalliannan"
-  description = "Owner of the resource"
+variable "tags" {
+  description = "tags for the resource"
+  type = object({
+    env_tag          = string
+    owner_tag        = string
+    account_tag      = string
+    billingid_tag    = string
+    costcenterit_tag = string
+    sector_tag       = string
+    created_by_tag   = string
+  })
 }
+# # ------ TAGS ----
+# variable "owner_tag" {
+#   type = string
+#   #default     = "Arun Nalliannan"
+#   description = "Owner of the resource"
+# }
 
-variable "account_tag" {
-  type = string
-  #default     = "623065"
-  description = "Account"
-}
+# variable "account_tag" {
+#   type = string
+#   #default     = "623065"
+#   description = "Account"
+# }
 
-variable "billingid_tag" {
-  type = string
-  #default     = "MyAccounts"
-  description = "Billing ID"
-}
+# variable "billingid_tag" {
+#   type = string
+#   #default     = "MyAccounts"
+#   description = "Billing ID"
+# }
 
-variable "costcenterit_tag" {
-  type = string
-  #default     = "10350645"
-  description = "Cost Center"
-}
+# variable "costcenterit_tag" {
+#   type = string
+#   #default     = "10350645"
+#   description = "Cost Center"
+# }
 
-variable "sector_tag" {
-  type = string
-  #default     = "BAEurope"
-  description = "Sector"
-}
+# variable "sector_tag" {
+#   type = string
+#   #default     = "BAEurope"
+#   description = "Sector"
+# }
 
-variable "env_tag" {
-  type = string
-  #default     = "DEV"
-  description = "Environment used in the tags of the resources"
-}
+# variable "env_tag" {
+#   type = string
+#   #default     = "DEV"
+#   description = "Environment used in the tags of the resources"
+# }
 
-variable "created_by_tag" {
-  type = string
-  #default     = "PETeam"
-  description = "mention created by tag"
-}
+# variable "created_by_tag" {
+#   type = string
+#   #default     = "PETeam"
+#   description = "mention created by tag"
+# }
 
-# ----- provider values ---
+# # ----- provider values ---
 variable "tenant_id" {
   type        = string
   description = "tenant id"
