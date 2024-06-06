@@ -7,5 +7,4 @@ module "logic_app" {
   resource_group_name     = azurerm_resource_group.rg[0].name //
   logic_app_type          = var.logic_app_type
   logic_app_name          = var.logic_app_name
-  workspace_id            = module.law[0].workspace_id
 }
