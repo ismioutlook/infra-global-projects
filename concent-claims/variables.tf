@@ -59,7 +59,7 @@ variable "storage_container_access_type" {
 # Login App
 variable "logic_app_name" {
   type        = string
-  description = "Logic App Name"
+  description = "Azure Logic App name"
 }
 
 variable "logic_app_type" {
@@ -98,6 +98,34 @@ variable "soft_delete_retention_days" {
 variable "kv_sku_name" {
   type        = string
   description = "Key Vault SKU"
+}
+
+variable "app_service_plan_name" {
+  type        = string
+  description = "Azure App service plan name"
+}
+
+variable "app_kind" {
+  type        = string
+  description = "Azure App service plan name"
+  #default = "elastic"
+}
+
+variable "app_tier" {
+  type        = string
+  description = "Azure App service plan name"
+  #default = "WorkflowStandard"
+}
+
+variable "app_size" {
+  type        = string
+  description = "Azure App service plan name"
+  #default = "WS2"
+}
+
+variable "resource_group_location" {
+  type        = string
+  description = "The Azure Region where the Resource Group should exist."
 }
 
 variable "kv_policy_objects_ids" {
