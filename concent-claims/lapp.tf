@@ -1,6 +1,6 @@
 module "logic_app" {
   count                   = var.enabled ? 1 : 0
-  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-logicapp//module?ref=v1.3.0"
+  source                  = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-logicapp?ref=v1.3.0"
   resource_group_location = azurerm_resource_group.rg[0].location
   tenant_id               = local.tenant_id
   subscription_id         = local.subscription_id
