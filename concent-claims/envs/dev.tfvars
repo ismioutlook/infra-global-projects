@@ -15,7 +15,7 @@ storage_account_replication               = "GRS"
 app_insights_name                         = "AI-ELX-TPA-Claim-Dev"
 app_insights_type                         = "web"
 data_factory_name                         = "adf-elx-tpa-claim-dev"
-logic_app_name                            = "RG-Elux-TPA-Claim-ConsumptionPlan-LA-Dev"
+logic_app_name                            = "LogicApp-TPA-Claim-Dev"
 logic_app_type                            = "Microsoft.Logic/workflows"
 
 kv_policy_objects_ids = {
