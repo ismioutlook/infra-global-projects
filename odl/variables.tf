@@ -9,6 +9,15 @@ variable "resource_group_location" {
   description = "Location of the resource group"
 }
 
+variable "api_management_srv_details" {
+  type = object({
+    name                = string
+    resource_group_name = string
+  })
+  default     = null
+  description = "Provide details of the api management service. If provided, backend settings will be created"
+}
+
 variable "resource_group_readers" {
   type        = list(string)
   default     = ["CSA-AAD-PRJ-Concent-ODL-Developer"]
@@ -125,6 +134,8 @@ variable "eventgrid_topics" {
   description = "Map of Event Grid topics and their subscriptions"
   type = map(object({
     eventgrid_custom_topic_name = string
+    apim_named_value_name       = string
+    apim_backend_name           = string
     eventgrid_custom_subscriptions = map(object({
       name                              = string
       endpoint_url                      = string
