@@ -17,6 +17,7 @@ app_insights_type                         = "web"
 data_factory_name                         = "adf-elx-tpa-claim-dev"
 logic_app_name                            = "LogicApp-TPA-Claim-Dev"
 logic_app_type                            = "Microsoft.Logic/workflows"
+app_service_plan_name                     = "ASP-ELX-TPA-Claims-Dev"
 
 kv_policy_objects_ids = {
   reader_objects_ids = [
