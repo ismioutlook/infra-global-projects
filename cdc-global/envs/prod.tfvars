@@ -1,8 +1,8 @@
 tenant_id                   = "d2007bef-127d-4591-97ac-10d72fe28031"
 subscription_id             = "9a44d85a-3cf1-4938-9509-c8f94b1aee10"
 eventhub_namespace_name     = "elxevh-cdc-global-prod-01"
-eventhub_names              = ["c4c-global-consumers-prod","cdc-global-consumers-prod"]
-consumer_group_names        = ["cg-c4c-global-cmsumers-prod","cg-cdc-global-cmsumers-prod"]
+eventhub_names              = ["c4c-global-consumers-prod", "cdc-global-consumers-prod"]
+consumer_group_names        = ["cg-c4c-global-cmsumers-prod", "cg-cdc-global-cmsumers-prod"]
 resource_group_location     = "westeurope"
 resource_group_name         = "RG-GL-ELX-CDC-Prod-01"
 sku                         = "Standard"

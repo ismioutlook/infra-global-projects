@@ -1,8 +1,8 @@
-tenant_id                   = "d2007bef-127d-4591-97ac-10d72fe28031"
-subscription_id             = "4731e47d-991b-4fbd-86aa-1e861607b82f"
-eventhub_namespace_name     = "elxevh-cdc-global-dev-01"
-eventhub_names              = ["c4c-global-consumers-dev","cdc-global-consumers-dev"]
-consumer_group_names        = ["cg-c4c-global-cmsumers-dev","cg-cdc-global-cmsumers-dev"]
+tenant_id               = "d2007bef-127d-4591-97ac-10d72fe28031"
+subscription_id         = "4731e47d-991b-4fbd-86aa-1e861607b82f"
+eventhub_namespace_name = "elxevh-cdc-global-dev-01"
+# eventhub_names              = ["c4c-global-consumers-dev","cdc-global-consumers-dev"]
+# consumer_group_names        = ["cg-c4c-global-cmsumers-dev","cg-cdc-global-cmsumers-dev"]
 resource_group_location     = "westeurope"
 resource_group_name         = "RG-GL-ELX-CDC-NonProd-01"
 sku                         = "Standard"
@@ -11,13 +11,24 @@ eventhub_namespace_capacity = "2"
 auto_inflate_enabled        = true
 maximum_throughput_units    = "10"
 message_retention           = "7"
-subnet_name                 = "AKS-SBNT-001"
-vnet_name                   = "VN-ELX-GL-Concent-NonProd-Spoke-002"
-vnet_rg_name                = "RG-ELX-GL-Concent-NonProd-Networking"
-owner_tag                   = "Arun Nalliannan"
-account_tag                 = "623065"
-billingid_tag               = "Global"
-costcenterit_tag            = "10350645"
-sector_tag                  = "WestEurope"
-env_tag                     = "Dev"
-created_by_tag              = "PETeam"
+# subnet_name                 = "AKS-SBNT-001"
+# vnet_name                   = "VN-ELX-GL-Concent-NonProd-Spoke-002"
+# vnet_rg_name                = "RG-ELX-GL-Concent-NonProd-Networking"
+owner_tag        = "Arun Nalliannan"
+account_tag      = "623065"
+billingid_tag    = "Global"
+costcenterit_tag = "10350645"
+sector_tag       = "WestEurope"
+env_tag          = "Dev"
+created_by_tag   = "PETeam"
+eventhub_names = {
+  topic1 = {
+    name                 = "c4c-global-consumers-dev",
+    consumer_group_names = ["cg-c4c-global-cmsumers-dev"]
+  },
+  topic2 = {
+    name                 = "cdc-global-consumers-dev",
+    consumer_group_names = ["cg-cdc-global-cmsumers-dev", "cg-cdc-global-datalake-dev", "cg-cdc-ymkt-global-dev"]
+  }
+
+}

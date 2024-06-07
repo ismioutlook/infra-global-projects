@@ -15,9 +15,22 @@ variable "eventhub_namespace_name" {
   type        = string
 }
 
+# variable "eventhub_names" {
+#   description = "A list of Event Hub names"
+#   type        = list(string)
+# }
+
+# variable "consumer_group_names" {
+#   description = "A list of Consumer Group names"
+#   type        = list(string)
+# }
+
 variable "eventhub_names" {
-  description = "A list of Event Hub names"
-  type        = list(string)
+  type = map(object({
+    name                 = string
+    consumer_group_names = list(string)
+  }))
+  default = {}
 }
 
 variable "eventhub_namespace_capacity" {
@@ -34,10 +47,6 @@ variable "auto_inflate_enabled" {
 variable "maximum_throughput_units" {
   description = "Event Hub auto_inflate maximum_throughput_units"
   type        = number
-}
-variable "consumer_group_names" {
-  description = "A list of Consumer Group names"
-  type        = list(string)
 }
 
 variable "sku" {
@@ -57,20 +66,20 @@ variable "message_retention" {
   type        = number
 }
 
-variable "subnet_name" {
-  type        = string
-  description = "manage subnet name for eventhub namespace"
-}
+# variable "subnet_name" {
+#   type        = string
+#   description = "manage subnet name for eventhub namespace"
+# }
 
-variable "vnet_name" {
-  type        = string
-  description = "manage vnet name for eventhub namespace"
-}
+# variable "vnet_name" {
+#   type        = string
+#   description = "manage vnet name for eventhub namespace"
+# }
 
-variable "vnet_rg_name" {
-  type        = string
-  description = "subnet and vnet rg name"
-}
+# variable "vnet_rg_name" {
+#   type        = string
+#   description = "subnet and vnet rg name"
+# }
 
 variable "tags" {
   description = "tags for the resource"
