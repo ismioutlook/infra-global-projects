@@ -19,8 +19,10 @@ logic_app_name                            = "LogicApp-TPA-Claim-Dev"
 logic_app_type                            = "Microsoft.Logic/workflows"
 app_service_plan_name                     = "ASP-ELX-TPA-Claims-Dev"
 app_kind                                  = "App"
-app_tier                                  = "V3"
-app_size                                  = "elastic"
+app_tier                                  = "Consumption"
+app_size                                  = "WS1"
+primary_access_key                        = data.azurerm_storage_account.sa.primary_access_key
+
 
 kv_policy_objects_ids = {
   reader_objects_ids = [
