@@ -19,4 +19,5 @@ module "cdc-eh" {
   costcenterit_tag = var.tags.costcenterit_tag
   sector_tag       = var.tags.sector_tag
   env_tag          = var.tags.env_tag
+  created_by_tag   = var.tags.created_by_tag
 }

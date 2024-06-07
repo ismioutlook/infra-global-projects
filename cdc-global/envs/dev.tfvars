@@ -9,13 +9,6 @@ eventhub_namespace_capacity = "2"
 auto_inflate_enabled        = true
 maximum_throughput_units    = "10"
 message_retention           = "7"
-owner_tag                   = "Arun Nalliannan"
-account_tag                 = "623065"
-billingid_tag               = "Global"
-costcenterit_tag            = "10350645"
-sector_tag                  = "WestEurope"
-env_tag                     = "Dev"
-created_by_tag              = "PETeam"
 eventhub_names = {
   topic1 = {
     name                 = "c4c-global-consumers-dev",
@@ -26,4 +19,13 @@ eventhub_names = {
     consumer_group_names = ["cg-cdc-global-cmsumers-dev", "cg-cdc-global-datalake-dev", "cg-cdc-ymkt-global-dev"]
   }
 
+}
+tags = {
+  owner_tag        = "Arun Nalliannan"
+  account_tag      = "623065"
+  billingid_tag    = "Global"
+  costcenterit_tag = "10350645"
+  sector_tag       = "WestEurope"
+  env_tag          = "Dev"
+  created_by_tag   = "PETeam"
 }
