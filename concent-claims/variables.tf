@@ -123,11 +123,6 @@ variable "app_size" {
   #default = "WS2"
 }
 
-variable "resource_group_location" {
-  type        = string
-  description = "The Azure Region where the Resource Group should exist."
-}
-
 variable "kv_policy_objects_ids" {
   type = object({
     reader_objects_ids = list(string)
