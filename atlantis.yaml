@@ -54,4 +54,4 @@ projects:
 - dir: cdc-global
   workspace: dev
   workflow: dev_basic_workflow
-  terraform_version: 1.8.4
+  terraform_version: 1.8.1
