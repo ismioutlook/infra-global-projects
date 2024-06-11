@@ -123,12 +123,6 @@ variable "app_size" {
   #default = "WS2"
 }
 
-variable "azurerm_application_insights" "appinsight" {
-  type        = string
-  description = "azurerm_application_insights"
-  #default = "WS2"
-}
-
 variable "kv_policy_objects_ids" {
   type = object({
     reader_objects_ids = list(string)
