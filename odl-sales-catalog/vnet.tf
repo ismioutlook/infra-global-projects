@@ -1,14 +1,20 @@
-resource "azurerm_subnet" "sc-ingestion-sbnt" {
-  name                 = var.subnet_name
-  resource_group_name  = var.resource_group_name
-  virtual_network_name = var.virtual_network_name
-  address_prefixes     = var.subnet_cidrs
+resource "azurerm_subnet" "apps-sbnt" {
+  count                = var.enabled && var.provision_subnet ? 1 : 0
+  name                 = var.subnet_details.name
+  resource_group_name  = var.subnet_details.resource_group_name
+  virtual_network_name = var.subnet_details.vnet_name
+  address_prefixes     = var.subnet_details.address_prefixes
 
   delegation {
-    name = var.subnet_delegation_name
+    name = var.subnet_details.delegation.name
     service_delegation {
-      name    = var.service_delegation_name
-      actions = var.service_delegation_actions
+      name    = var.subnet_details.delegation.service_delegation.name
+      actions = var.subnet_details.delegation.service_delegation.actions
     }
   }
+}
+
+moved {
+  from = azurerm_subnet.sc-ingestion-sbnt
+  to   = azurerm_subnet.apps-sbnt[0]
 }
