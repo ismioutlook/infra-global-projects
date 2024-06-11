@@ -113,13 +113,26 @@ variable "app_kind" {
 
 variable "app_tier" {
   type        = string
-  description = "Azure App service plan name"
+  description = "app_tier"
   #default = "WorkflowStandard"
 }
 
 variable "app_size" {
   type        = string
-  description = "Azure App service plan name"
+  description = "app_size"
+  #default = "WS2"
+}
+
+variable "azurerm_storage_account" {
+  type        = string
+  description = "
+"
+  #default = "WS2"
+}
+
+variable "azurerm_application_insights" "appinsight" {
+  type        = string
+  description = "azurerm_application_insights"
   #default = "WS2"
 }
 
