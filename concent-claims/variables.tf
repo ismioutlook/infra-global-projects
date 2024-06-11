@@ -123,13 +123,6 @@ variable "app_size" {
   #default = "WS2"
 }
 
-variable "azurerm_storage_account" {
-  type        = string
-  description = "
-"
-  #default = "WS2"
-}
-
 variable "azurerm_application_insights" "appinsight" {
   type        = string
   description = "azurerm_application_insights"
