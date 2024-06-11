@@ -108,6 +108,15 @@ variable "apim_details" {
   }
 }
 
+variable "sales_catalog_func_app" {
+  type = object({
+    name           = string
+    resource_group = string
+  })
+  description = "Details of sales catalog func app to grant keyvault read access. List and Get on secrets will be provided to attached identity"
+  default     = null
+}
+
 variable "enabled_keyvault" {
   type        = bool
   default     = true
