@@ -21,7 +21,6 @@ app_service_plan_name                     = "ASP-ELX-TPA-Claims-Dev"
 app_kind                                  = "App"
 app_tier                                  = "Consumption"
 app_size                                  = "WS1"
-primary_access_key                        = data.azurerm_storage_account.sa.primary_access_key
 
 
 kv_policy_objects_ids = {
