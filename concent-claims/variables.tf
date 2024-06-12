@@ -123,24 +123,6 @@ variable "app_size" {
   #default = "WS2"
 }
 
-variable "instrumentation_key" {
-  type        = string
-  description = "instrumentation_key"
-  #default = "WS2"
-}
-
-variable "connection_string" {
-  type        = string
-  description = "connection_string"
-  #default = "WS2"
-}
-
-variable "primary_access_key" {
-  type        = string
-  description = "primary_access_key"
-  #default = "WS2"
-}
-
 variable "kv_policy_objects_ids" {
   type = object({
     reader_objects_ids = list(string)
