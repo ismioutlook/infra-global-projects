@@ -17,6 +17,11 @@ app_insights_type                         = "web"
 data_factory_name                         = "adf-elx-tpa-claim-oneintegration"
 logic_app_name                            = "LogicApp-TPA-Claim-oneintegration"
 logic_app_type                            = "Microsoft.Logic/workflows"
+app_service_plan_name                     = "ASP-ELX-TPA-Claims-oneintegration"
+app_kind                                  = "App"
+app_tier                                  = "Consumption"
+app_size                                  = "WS1"
+
 kv_policy_objects_ids = {
   reader_objects_ids = [
     # michal.hornak@electrolux.com
