@@ -1,7 +1,8 @@
 resource "azurerm_app_service_plan" "asp" {
+  count               = var.enabled ? 1 : 0
   name                = var.app_service_plan_name
-  location            = var.resource_group_location
-  resource_group_name = var.resource_group_name
+  location            = azurerm_resource_group.rg[0].location
+  resource_group_name = azurerm_resource_group.rg[0].name
   kind                = var.app_kind #"elastic"
 
 
@@ -12,9 +13,10 @@ resource "azurerm_app_service_plan" "asp" {
 }
 
 resource "azurerm_logic_app_standard" "logicapp" {
+  count                      = var.enabled ? 1 : 0
   name                       = var.logic_app_name
-  location                   = var.resource_group_location
-  resource_group_name        = var.resource_group_name
+  location                   = azurerm_resource_group.rg[0].location
+  resource_group_name        = azurerm_resource_group.rg[0].name
   app_service_plan_id        = azurerm_app_service_plan.asp.id
   storage_account_name       = data.azurerm_storage_account.sa.name
   storage_account_access_key = data.azurerm_storage_account.sa.primary_access_key
