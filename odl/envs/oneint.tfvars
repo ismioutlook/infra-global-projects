@@ -51,6 +51,22 @@ eventgrid_topics = {
         case_sensitive                    = false
       }
     }
+  },
+  topic3 = {
+    eventgrid_custom_topic_name = "eg-topic-odlcore-product-entity-oneint"
+    apim_named_value_name       = "odl-core-product-eg-topic-key-oneint"
+    apim_backend_name           = "odl-core-product-oneint"
+    eventgrid_custom_subscriptions = {
+      "subscription1" = {
+        name                              = "c4c-product-webhook"
+        endpoint_url                      = "https://westeurope.azure.data.mongodb-api.com/app/odl-core-eu-cdc-pzpjr/endpoint/cdc/Product"
+        max_events_per_batch              = 10
+        preferred_batch_size_in_kilobytes = 640
+        subject_begins_with               = "product.Root"
+        subject_ends_with                 = ""
+        case_sensitive                    = false
+      }
+    }
   }
 }
 
