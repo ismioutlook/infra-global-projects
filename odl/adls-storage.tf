@@ -25,7 +25,3 @@ resource "azurerm_role_assignment" "reader_and_data_access" {
   principal_id         = data.azuread_group.data_access[each.key].object_id
   principal_type       = "Group"
 }
-moved {
-  from = module.storage_container.azurerm_storage_container.container
-  to   = module.storage_container[0].azurerm_storage_container.container
-}
