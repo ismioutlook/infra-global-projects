@@ -10,6 +10,6 @@ data "azurerm_storage_account" "sa" {
 }
 
 data "azurerm_application_insights" "appinsight" {
-  name                = var.app_insight_name
+  name                = var.app_insights_name
   resource_group_name = var.resource_group_name
 }
