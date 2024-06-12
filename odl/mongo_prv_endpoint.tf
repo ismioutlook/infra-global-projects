@@ -1,5 +1,5 @@
 resource "azurerm_private_endpoint" "mongo_endpoint" {
-  for_each            = var.mongo_prv_endpoints
+  for_each            = local.mongo_prv_endpoints
   name                = each.key
   location            = each.value.location
   resource_group_name = each.value.resource_group_name
