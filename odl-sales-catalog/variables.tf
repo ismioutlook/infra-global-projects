@@ -6,7 +6,7 @@ variable "enabled" {
 
 variable "enabled_keyvault" {
   type        = bool
-  default     = true
+  default     = false
   description = "Flag to control provisioning of keyvault"
 }
 
@@ -42,9 +42,18 @@ variable "resource_group_location" {
   description = "Location of the resource group"
 }
 
+variable "resource_group_builtin_role_assignments" {
+  type = map(object({
+    principal_group_names = list(string)
+  }))
+  description = "Map to assign builtin roles to principals. Key must be Builtin role names."
+  default     = {}
+}
+
 variable "storage_account_name" {
   type        = string
-  description = "Name of the storage account"
+  description = "Name of the storage account to be used for func app. If left empty, it will be generated"
+  default     = null
 }
 
 variable "storage_account_name_rex" {
@@ -80,14 +89,24 @@ variable "storage_container_rex_upload_folder" {
   description = "Name of the folder in storage container for REX upload"
 }
 
-variable "service_plan_name" {
-  type        = string
-  description = "Name of the service plan"
+variable "storage_account_builtin_role_assignments" {
+  type = map(object({
+    principal_group_names = list(string)
+  }))
+  description = "Map to assign builtin storage account roles to principals. Key must be Builtin role names."
+  default     = {}
+}
+
+variable "enabled_application_insights" {
+  type        = bool
+  default     = true
+  description = "Flag to control provisioning of application insights"
 }
 
 variable "application_insights_name" {
   type        = string
   description = "Name of the application insights"
+  default     = null
 }
 
 variable "application_insights_type" {
@@ -101,19 +120,45 @@ variable "function_app_name" {
   description = "Name of the function app"
 }
 
-variable "virtual_network_name" {
-  type        = string
-  description = "Name of the VNet"
+variable "function_app_plan" {
+  type = object({
+    name     = string
+    sku_name = string
+  })
+  description = "Name of the function app service plan to provision. If left, empty a name will be generated"
+  default     = null
 }
 
-variable "subnet_name" {
-  type        = string
-  description = "Name of the subnet"
+variable "function_app_subnet_details" {
+  type = object({
+    subnet_name         = string
+    vnet_name           = string
+    resource_group_name = string
+  })
+  default = null
 }
 
-variable "subnet_cidrs" {
-  type        = list(any)
-  description = "CIDR range of the subnet"
+variable "provision_subnet" {
+  type        = bool
+  description = "Flag to control subnet provisioning. If true, subnet_details variable must be provided"
+  default     = false
+}
+
+variable "subnet_details" {
+  type = object({
+    name                = string
+    resource_group_name = string
+    vnet_name           = string
+    address_prefixes    = list(string)
+    delegation = object({
+      name = string
+      service_delegation = object({
+        name    = string
+        actions = list(string)
+      })
+    })
+  })
+  default = null
 }
 
 variable "eventgrid_system_topic_name" {
@@ -124,24 +169,6 @@ variable "eventgrid_system_topic_name" {
 variable "eventgrid_custom_topic_name" {
   type        = string
   description = "Name of the event grid custom topic"
-}
-
-variable "subnet_delegation_name" {
-  type        = string
-  default     = "functionapp-delegation"
-  description = "Name of the subnet delegation"
-}
-
-variable "service_delegation_name" {
-  type        = string
-  default     = "Microsoft.Web/serverFarms"
-  description = "Name of the service delegation"
-}
-
-variable "service_delegation_actions" {
-  type        = list(string)
-  default     = ["Microsoft.Network/virtualNetworks/subnets/action"]
-  description = "Actions of the service delegation"
 }
 
 variable "eg_topic_type" {

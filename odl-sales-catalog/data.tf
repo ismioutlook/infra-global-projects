@@ -4,27 +4,14 @@ data "azurerm_subscription" "current" {
 data "azurerm_client_config" "current" {
 }
 
-data "archive_file" "function" {
-  type        = "zip"
-  excludes    = split("\n", file("${path.root}/src/.funcignore"))
-  source_dir  = "${path.root}/src"
-  output_path = "${path.root}/package.zip"
+data "azuread_group" "ad_groups" {
+  for_each     = toset(local.principal_group_names)
+  display_name = each.value
 }
 
-data "azurerm_storage_account_blob_container_sas" "storage_account_blob_container_sas" {
-  count             = var.enabled ? 1 : 0
-  connection_string = azurerm_storage_account.sales-catalog-ingestion[count.index].primary_connection_string
-  container_name    = azurerm_storage_container.sales-catalog-ingestion-cont[count.index].name
-
-  start  = "2024-04-25T00:00:00Z"
-  expiry = "2025-01-01T00:00:00Z"
-
-  permissions {
-    read   = true
-    add    = false
-    create = false
-    write  = false
-    delete = false
-    list   = false
-  }
+data "azurerm_subnet" "subnet" {
+  count                = var.function_app_subnet_details != null ? 1 : 0
+  name                 = var.function_app_subnet_details.subnet_name
+  virtual_network_name = var.function_app_subnet_details.vnet_name
+  resource_group_name  = var.function_app_subnet_details.resource_group_name
 }

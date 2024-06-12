@@ -30,7 +30,7 @@ resource "azurerm_key_vault_key" "keys" {
 
 resource "azurerm_key_vault_access_policy" "apim_read" {
   for_each = tomap({
-    for i in local.apim_identities :
+    for i in local.kv_readers :
     "${i.principal_id}" => i.principal_id
   })
 

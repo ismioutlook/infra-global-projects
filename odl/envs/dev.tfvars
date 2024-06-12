@@ -73,7 +73,7 @@ eventgrid_topics = {
 #---- private endpoints for One-integration environment to Mongo atlas
 
 mongo_prv_endpoints = {
-    mongo-odl-dev-aks-eu-001 = {
+  mongo-odl-dev-aks-eu-001 = {
     location            = "westeurope"
     resource_group_name = "RG-ELX-GL-Concent-NonProd-Networking"
     subnet_id           = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-002/subnets/PV-ENDPOINTS-SBNT-001"
@@ -125,4 +125,9 @@ reader_and_data_access_grantees = ["CSA-AAD-PRJ-Concent-ODL-Developer"]
 api_management_srv_details = {
   name                = "elxapimglnonprod01"
   resource_group_name = "RG-GL-ELX-EU-NonProd-01"
+}
+
+sales_catalog_func_app = {
+  name           = "func-sales-catalog-dev-eastus"
+  resource_group = "RG-GL-ODL-SALES-CATLOG-DEV-NA"
 }
