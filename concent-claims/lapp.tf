@@ -17,7 +17,7 @@ resource "azurerm_logic_app_standard" "logicapp" {
   resource_group_name        = var.resource_group_name
   app_service_plan_id        = azurerm_app_service_plan.asp.id
   storage_account_name       = var.storage_account_name
-  storage_account_access_key = var.storage_account_name.primary_access_key
+  storage_account_access_key = var.primary_access_key
 
   app_settings = {
     "FUNCTIONS_WORKER_RUNTIME"              = "node"
