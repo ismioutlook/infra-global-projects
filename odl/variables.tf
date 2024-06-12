@@ -2,11 +2,13 @@
 variable "resource_group_name" {
   type        = string
   description = "Name of the resource group"
+  default     = ""
 }
 
 variable "resource_group_location" {
   type        = string
   description = "Location of the resource group"
+  default     = ""
 }
 
 variable "api_management_srv_details" {
@@ -30,45 +32,55 @@ variable "reader_and_data_access_grantees" {
   description = "Names of the principals that need to have Reader and Data Access role"
 }
 
+variable "enabled_storaged_account" {
+  description = "Flag to control provisioning of storage account. If true then vars like storage_account_name and storage_container_name must be provided"
+  type        = bool
+  default     = true
+}
+
 variable "storage_account_name" {
   description = "Storage account name"
   type        = string
+  default     = ""
 }
 
 
 variable "storage_account_tier" {
   description = "Storage account tier"
-  #default     = "Standard"
-  type = string
+  default     = "Standard"
+  type        = string
 }
 
 variable "storage_account_replication" {
   description = "Storage account tier"
-  #default     = "GRS"
-  type = string
+  default     = "LRS"
+  type        = string
 }
 
 variable "storage_container_name" {
   description = "Storage container name"
   type        = string
+  default     = ""
 }
 
 
 variable "storage_container_access_type" {
   description = "Storage container type"
-  #default     = "private"
-  type = string
+  default     = "private"
+  type        = string
 }
 
 
 variable "account_kind" {
   description = "Storage account kind"
   type        = string
+  default     = "StorageV2"
 }
 
 variable "is_hns_enabled" {
   description = "Storage is hns enabled"
   type        = string
+  default     = "true"
 }
 
 #--------------------
@@ -155,6 +167,7 @@ variable "eventgrid_topics" {
       case_sensitive                    = bool
     }))
   }))
+  default = {}
 }
 variable "mongo_prv_endpoints" {
   description = "Private endpoints that need to be created for mongo atlas"
