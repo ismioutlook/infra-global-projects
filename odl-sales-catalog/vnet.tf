@@ -13,8 +13,3 @@ resource "azurerm_subnet" "apps-sbnt" {
     }
   }
 }
-
-moved {
-  from = azurerm_subnet.sc-ingestion-sbnt
-  to   = azurerm_subnet.apps-sbnt[0]
-}
