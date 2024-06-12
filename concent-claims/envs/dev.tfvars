@@ -21,9 +21,6 @@ app_service_plan_name                     = "ASP-ELX-TPA-Claims-Dev"
 app_kind                                  = "App"
 app_tier                                  = "Consumption"
 app_size                                  = "WS1"
-instrumentation_key                       = "instrumentation_key"
-connection_string                         = "connection_string"
-primary_access_key                        = "primary_access_key"
 
 
 kv_policy_objects_ids = {
