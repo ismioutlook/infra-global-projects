@@ -16,14 +16,14 @@ resource "azurerm_logic_app_standard" "logicapp" {
   location                   = var.resource_group_location
   resource_group_name        = var.resource_group_name
   app_service_plan_id        = azurerm_app_service_plan.asp.id
-  storage_account_name       = var.storage_account_name
-  storage_account_access_key = var.primary_access_key
+  storage_account_name       = data.azurerm_storage_account.sa.name
+  storage_account_access_key = data.azurerm_storage_account.sa.primary_access_key
 
   app_settings = {
     "FUNCTIONS_WORKER_RUNTIME"              = "node"
     "WEBSITE_NODE_DEFAULT_VERSION"          = "~16"
-    "APPINSIGHTS_INSTRUMENTATIONKEY"        = var.instrumentation_key
-    "APPLICATIONINSIGHTS_CONNECTION_STRING" = var.connection_string
+    "APPINSIGHTS_INSTRUMENTATIONKEY"        = data.azurerm_application_insights.appinsight.instrumentation_key
+    "APPLICATIONINSIGHTS_CONNECTION_STRING" = data.azurerm_application_insights.appinsight.connection_string
   }
 
   identity {
