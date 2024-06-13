@@ -21,7 +21,8 @@ app_service_plan_name                     = "aspws-TPA-Claim-dev-eastus001"
 app_kind                                  = "App"
 app_tier                                  = "Consumption"
 app_size                                  = "WS1"
-
+os_type                                   = "Windows"
+sku_name                                  = "B1"
 
 kv_policy_objects_ids = {
   reader_objects_ids = [
