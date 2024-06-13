@@ -32,7 +32,4 @@ resource "azurerm_logic_app_standard" "logicapp" {
     "WEBSITE_NODE_DEFAULT_VERSION"          = "~18"
   }
 
-  identity {
-    type = "SystemAssigned"
-  }
 }
