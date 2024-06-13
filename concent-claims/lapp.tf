@@ -12,8 +12,6 @@ resource "azurerm_service_plan" "asp" {
   name                = var.app_service_plan_name
   resource_group_name = azurerm_resource_group.rg[0].name
   location            = azurerm_resource_group.rg[0].location
-  os_type             = "Windows"
-  sku_name            = "B1"
 }
 
 resource "azurerm_logic_app_standard" "logicapp" {
