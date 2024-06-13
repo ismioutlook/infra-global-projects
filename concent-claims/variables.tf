@@ -62,11 +62,6 @@ variable "logic_app_name" {
   description = "Azure Logic App name"
 }
 
-variable "logic_app_type" {
-  type        = string
-  description = "Logic App type"
-}
-
 # Application Insights
 variable "app_insights_name" {
   type        = string
@@ -98,11 +93,6 @@ variable "soft_delete_retention_days" {
 variable "kv_sku_name" {
   type        = string
   description = "Key Vault SKU"
-}
-
-variable "app_service_plan_name" {
-  type        = string
-  description = "Azure App service plan name"
 }
 
 variable "kv_policy_objects_ids" {
