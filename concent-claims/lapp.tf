@@ -1,7 +1,20 @@
+resource "azurerm_resource_group" "rg" {
+  name     = azurerm_resource_group.rg.name
+  location = azurerm_resource_group.rg.location
+}
+
+resource "azurerm_storage_account" "sa" {
+  name                     = var.storage_account_name
+  resource_group_name      = azurerm_resource_group.rg.name
+  location                 = azurerm_resource_group.arg.location
+  account_tier             = var.storage_account_tier
+  account_replication_type = var.storage_account_replication
+}
+
 resource "azurerm_app_service_plan" "asp" {
   name                = var.app_service_plan_name
-  location            = azurerm_resource_group.rg[0].location
-  resource_group_name = azurerm_resource_group.rg[0].name
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
   kind                = var.app_kind #"elastic"
 
 
@@ -12,22 +25,15 @@ resource "azurerm_app_service_plan" "asp" {
 }
 
 resource "azurerm_logic_app_standard" "logicapp" {
-  count                      = var.enabled ? 1 : 0
   name                       = var.logic_app_name
-  location                   = azurerm_resource_group.rg[0].location
-  resource_group_name        = azurerm_resource_group.rg[0].name
+  location                   = azurerm_resource_group.rg.location
+  resource_group_name        = azurerm_resource_group.rg.name
   app_service_plan_id        = azurerm_app_service_plan.asp.id
-  storage_account_name       = data.azurerm_storage_account.sa.name
-  storage_account_access_key = data.azurerm_storage_account.sa.primary_access_key
+  storage_account_name       = azurerm_storage_account.sa.name
+  storage_account_access_key = azurerm_storage_account.sa.primary_access_key
 
   app_settings = {
     "FUNCTIONS_WORKER_RUNTIME"              = "node"
-    "WEBSITE_NODE_DEFAULT_VERSION"          = "~16"
-    "APPINSIGHTS_INSTRUMENTATIONKEY"        = data.azurerm_application_insights.appinsight.instrumentation_key
-    "APPLICATIONINSIGHTS_CONNECTION_STRING" = data.azurerm_application_insights.appinsight.connection_string
-  }
-
-  identity {
-    type = "SystemAssigned"
+    "WEBSITE_NODE_DEFAULT_VERSION"          = "~18"
   }
 }
