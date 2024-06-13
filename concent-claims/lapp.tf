@@ -1,4 +1,5 @@
 resource "azurerm_storage_account" "sa" {
+  count                    = var.enabled ? 1 : 0
   name                     = var.storage_account_name
   resource_group_name      = azurerm_resource_group.rg[0].name
   location                 = azurerm_resource_group.rg[0].location
@@ -7,6 +8,7 @@ resource "azurerm_storage_account" "sa" {
 }
 
 resource "azurerm_app_service_plan" "asp" {
+  count               = var.enabled ? 1 : 0
   name                = var.app_service_plan_name
   location            = azurerm_resource_group.rg[0].location
   resource_group_name = azurerm_resource_group.rg[0].name
@@ -20,6 +22,7 @@ resource "azurerm_app_service_plan" "asp" {
 }
 
 resource "azurerm_logic_app_standard" "logicapp" {
+  count                    = var.enabled ? 1 : 0
   name                       = var.logic_app_name
   location                   = azurerm_resource_group.rg[0].location
   resource_group_name        = azurerm_resource_group.rg[0].name
