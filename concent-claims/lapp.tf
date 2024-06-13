@@ -30,8 +30,6 @@ resource "azurerm_logic_app_standard" "logicapp" {
   app_settings = {
     "FUNCTIONS_WORKER_RUNTIME"              = "node"
     "WEBSITE_NODE_DEFAULT_VERSION"          = "~18"
-    "APPINSIGHTS_INSTRUMENTATIONKEY"        = data.azurerm_application_insights.appinsight.instrumentation_key
-    "APPLICATIONINSIGHTS_CONNECTION_STRING" = data.azurerm_application_insights.appinsight.connection_string
   }
 
   identity {
