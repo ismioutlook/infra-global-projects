@@ -1,15 +1,15 @@
 resource "azurerm_storage_account" "sa" {
   name                     = var.storage_account_name
-  resource_group_name      = azurerm_resource_group.rg.name
-  location                 = azurerm_resource_group.arg.location
+  resource_group_name      = azurerm_resource_group.rg[0].name
+  location                 = azurerm_resource_group.rg[0].location
   account_tier             = var.storage_account_tier
   account_replication_type = var.storage_account_replication
 }
 
 resource "azurerm_app_service_plan" "asp" {
   name                = var.app_service_plan_name
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg[0].location
+  resource_group_name = azurerm_resource_group.rg[0].name
   kind                = var.app_kind #"elastic"
 
 
@@ -21,8 +21,8 @@ resource "azurerm_app_service_plan" "asp" {
 
 resource "azurerm_logic_app_standard" "logicapp" {
   name                       = var.logic_app_name
-  location                   = azurerm_resource_group.rg.location
-  resource_group_name        = azurerm_resource_group.rg.name
+  location                   = azurerm_resource_group.rg[0].location
+  resource_group_name        = azurerm_resource_group.rg[0].name
   app_service_plan_id        = azurerm_app_service_plan.asp.id
   storage_account_name       = azurerm_storage_account.sa.name
   storage_account_access_key = azurerm_storage_account.sa.primary_access_key
