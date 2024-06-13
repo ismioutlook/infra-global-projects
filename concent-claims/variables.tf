@@ -105,34 +105,6 @@ variable "app_service_plan_name" {
   description = "Azure App service plan name"
 }
 
-variable "app_kind" {
-  type        = string
-  description = "Azure App service plan name"
-  #default = "elastic"
-}
-
-variable "app_tier" {
-  type        = string
-  description = "app_tier"
-  #default = "WorkflowStandard"
-}
-
-variable "app_size" {
-  type        = string
-  description = "app_size"
-  #default = "WS2"
-}
-
-variable "app_service_plan_name_os_type" {
-  type        = string
-  description = "app_service_plan_name_os_type"
-}
-
-variable "app_service_plan_name_sku_name" {
-  type        = string
-  description = "app_service_plan_name_sku_name"
-}
-
 variable "kv_policy_objects_ids" {
   type = object({
     reader_objects_ids = list(string)
