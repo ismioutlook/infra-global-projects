@@ -12,11 +12,11 @@ message_retention           = "7"
 eventhub_names = {
   topic1 = {
     name                 = "c4c-global-consumers-dev",
-    consumer_group_names = ["cg-c4c-global-cmsumers-dev"]
+    consumer_group_names = ["cg-c4c-global-consumers-dev"]
   },
   topic2 = {
     name                 = "cdc-global-consumers-dev",
-    consumer_group_names = ["cg-cdc-global-cmsumers-dev", "cg-cdc-global-datalake-dev", "cg-cdc-ymkt-global-dev"]
+    consumer_group_names = ["cg-cdc-global-consumers-dev", "cg-cdc-global-datalake-dev", "cg-cdc-ymkt-global-dev"]
   }
 
 }
