@@ -1,12 +1,3 @@
-terraform {
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "3.3.0"
-    }
-  }
-}
-
 resource "azurerm_storage_account" "sa" {
   count                    = var.enabled ? 1 : 0
   name                     = var.storage_account_name
