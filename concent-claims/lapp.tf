@@ -1,4 +1,4 @@
-resource "azurerm_logic_app_workflow" "example" {
+resource "azurerm_logic_app_workflow" "logicapp" {
   count               = var.enabled ? 1 : 0
   name                = var.logic_app_name
   location            = azurerm_resource_group.rg[0].location
