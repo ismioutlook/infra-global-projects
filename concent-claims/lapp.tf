@@ -7,18 +7,13 @@ resource "azurerm_storage_account" "sa" {
   account_replication_type = var.storage_account_replication
 }
 
-resource "azurerm_app_service_plan" "asp" {
+resource "azurerm_service_plan" "asp" {
   count               = var.enabled ? 1 : 0
   name                = var.app_service_plan_name
-  location            = azurerm_resource_group.rg[0].location
   resource_group_name = azurerm_resource_group.rg[0].name
-  kind                = var.app_kind #"elastic"
-
-
-  sku {
-    tier = var.app_tier #"WorkflowStandard"
-    size = var.app_size #"WS2"
-  }
+  location            = azurerm_resource_group.rg[0].location
+  os_type             = "Windows"
+  sku_name            = "B1"
 }
 
 resource "azurerm_logic_app_standard" "logicapp" {
