@@ -123,6 +123,16 @@ variable "app_size" {
   #default = "WS2"
 }
 
+variable "app_service_plan_name_os_type" {
+  type        = string
+  description = "app_service_plan_name_os_type"
+}
+
+variable "app_service_plan_name_sku_name" {
+  type        = string
+  description = "app_service_plan_name_sku_name"
+}
+
 variable "kv_policy_objects_ids" {
   type = object({
     reader_objects_ids = list(string)
