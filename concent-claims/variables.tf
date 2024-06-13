@@ -56,6 +56,12 @@ variable "storage_container_access_type" {
   description = "Storage Account Container Access type"
 }
 
+# Login App
+variable "logic_app_name" {
+  type        = string
+  description = "Azure Logic App name"
+}
+
 # Application Insights
 variable "app_insights_name" {
   type        = string

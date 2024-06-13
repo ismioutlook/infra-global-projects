@@ -15,6 +15,15 @@ storage_account_replication               = "GRS"
 app_insights_name                         = "AI-ELX-TPA-Claim-oneintegration"
 app_insights_type                         = "web"
 data_factory_name                         = "adf-elx-tpa-claim-oneintegration"
+logic_app_name                            = "logicapp-TPA-Claim-oneintegration-eastus"
+logic_app_type                            = "Microsoft.Logic/workflows"
+app_service_plan_name                     = "aspws-TPA-Claim-oneintegration-eastus001"
+app_kind                                  = "App"
+app_tier                                  = "Consumption"
+app_size                                  = "WS1"
+app_service_plan_name_os_type             = "Windows"
+app_service_plan_name_sku_name            = "B1"
+
 kv_policy_objects_ids = {
   reader_objects_ids = [
     # michal.hornak@electrolux.com
