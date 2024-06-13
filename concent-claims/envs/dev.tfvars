@@ -22,7 +22,7 @@ app_kind                                  = "App"
 app_tier                                  = "WorkflowStandard"
 app_size                                  = "WS1"
 app_service_plan_name_os_type             = "Windows"
-app_service_plan_name_sku_name            = "B1"
+app_service_plan_name_sku_name            = "WS1"
 
 kv_policy_objects_ids = {
   reader_objects_ids = [
