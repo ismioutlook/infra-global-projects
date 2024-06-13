@@ -21,8 +21,8 @@ app_service_plan_name                     = "aspws-TPA-Claim-oneintegration-east
 app_kind                                  = "App"
 app_tier                                  = "Consumption"
 app_size                                  = "WS1"
-os_type                                   = "Windows"
-sku_name                                  = "B1"
+app_service_plan_name_os_type             = "Windows"
+app_service_plan_name_sku_name            = "B1"
 
 kv_policy_objects_ids = {
   reader_objects_ids = [
