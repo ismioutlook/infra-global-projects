@@ -153,9 +153,9 @@ node_pools = [
     vm_size             = "Standard_DS3_v2"
     os_disk_size_gb     = 512
     enable_auto_scaling = true
-    node_count          = 4
+    node_count          = 6
     min_count           = 1
-    max_count           = 4
+    max_count           = 6
     max_pods            = 60
     node_taints         = ["workloadtype=spark:NoSchedule"]
     node_labels = {
