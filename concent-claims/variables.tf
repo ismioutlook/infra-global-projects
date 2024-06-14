@@ -57,8 +57,16 @@ variable "storage_container_access_type" {
 }
 
 # Login App
+
+variable "enabled_logicapp" {
+  type        = bool
+  default     = true
+  description = "Flag to control provisioning of logic app"
+}
+
 variable "logic_app_name" {
   type        = string
+  default     = ""
   description = "Azure Logic App name"
 }
 
