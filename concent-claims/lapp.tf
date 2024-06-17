@@ -1,5 +1,5 @@
 resource "azurerm_service_plan" "asp" {
-  count               = var.enabled && enabled_logicapp ? 1 : 0
+  count               = var.enabled && var.enabled_logicapp ? 1 : 0
   name                = var.app_service_plan_name
   resource_group_name = azurerm_resource_group.rg[0].name
   location            = azurerm_resource_group.rg[0].location
@@ -7,7 +7,7 @@ resource "azurerm_service_plan" "asp" {
   sku_name            = var.app_service_plan_name_sku_name
 }
 resource "azurerm_logic_app_standard" "logicapp" {
-  count                      = var.enabled && enabled_logicapp ? 1 : 0
+  count                      = var.enabled && var.enabled_logicapp ? 1 : 0
   name                       = var.logic_app_name
   location                   = azurerm_resource_group.rg[0].location
   resource_group_name        = azurerm_resource_group.rg[0].name
