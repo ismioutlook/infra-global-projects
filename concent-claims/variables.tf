@@ -70,6 +70,24 @@ variable "logic_app_name" {
   description = "Azure Logic App name"
 }
 
+variable "app_service_plan_name" {
+  type        = string
+  default     = ""
+  description = "App service plan name"
+}
+
+variable "app_service_plan_name_os_type" {
+  type        = string
+  default     = ""
+  description = "App service plan operating system type"
+}
+
+variable "app_service_plan_name_sku_name" {
+  type        = string
+  default     = ""
+  description = "App service plan sku name"
+}
+
 # Application Insights
 variable "app_insights_name" {
   type        = string
