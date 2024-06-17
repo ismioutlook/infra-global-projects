@@ -12,8 +12,8 @@ resource "azurerm_logic_app_standard" "logicapp" {
   location                   = azurerm_resource_group.rg[0].location
   resource_group_name        = azurerm_resource_group.rg[0].name
   app_service_plan_id        = azurerm_service_plan.asp[0].id
-  storage_account_name       = data.azurerm_storage_account.sa.name
-  storage_account_access_key = data.azurerm_storage_account.sa.primary_access_key
+  storage_account_name       = sa[0].name
+  storage_account_access_key = sa[0].primary_access_key
   app_settings = {
     "FUNCTIONS_WORKER_RUNTIME"     = "node"
     "WEBSITE_NODE_DEFAULT_VERSION" = "~18"
