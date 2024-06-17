@@ -1,6 +1,51 @@
 # Introduction
 
-This repository is structured for a Global Terraform project that provisions and manages Azure cloud resources. This repository provisions infrastructure via [atlantis](https://www.runatlantis.io/) which is a terraform pull request automation tool and hosted internally within Electrolux. For detailed demo of how atlantis works, please watch [this video](https://electrolux-my.sharepoint.com/:v:/p/kamran_manzoor/EbhnEaGlxBFJik5th4CA1KIBMn_UTeVqZMgJc_zxdmwQHQ?referrer=Teams.TEAMS-ELECTRON&referrerScenario=MeetingChicletGetLink.view.view). **Moreover, please note that we are using workspaces and there is 1:1 relationship between workspace and environment.**
+The idea of this repository is to have a mono-repo with multiple terraform and terragrunt based stacks to provision and manage Azure cloud resources.  
+
+This repository provisions infrastructure via [atlantis](https://www.runatlantis.io/) which is a terraform pull request automation tool and hosted internally within [Electrolux](https://dev.azure.com/ELX-Marketing-DevOps/platform-engineering-stack/_git/atlantis). For detailed demo of how atlantis works, please watch [this video](https://electrolux-my.sharepoint.com/:v:/p/kamran_manzoor/EbhnEaGlxBFJik5th4CA1KIBMn_UTeVqZMgJc_zxdmwQHQ?referrer=Teams.TEAMS-ELECTRON&referrerScenario=MeetingChicletGetLink.view.view). atlantis config can be seen in [this file](atlantis.yaml).
+
+# General IaC Strategy
+
+We are using both terraform and terragrunt for provisioning infrastructure resources. [terraform](terraform/) and [terragrunt](terragrunt/) directories contain the infra for each specific tool. **Terragrunt is mainly used to effectively provision resources/stacks in multiple regions/multiple environments.** Lets discuss in detail about when to use one over the other.
+
+## Terraform
+Terraform should be the **defacto choice** for provisioning resources for **domain teams**. The terraform directory already contains multiple terraform infrastructure structure stacks which are provisioned per business domain. Each business domain has its own statefile. Moreover, please note that we are using workspaces and there is 1:1 relationship between workspace and environment, thus, statefile is per environment within a single stack/project.
+
+### Structure of a specific terraform stack/directory
+The infrasture code i.e., resource specific terraform files should be placed directly in root directory, see an example [here](terraform/odl/odl-core/). The resources should ideally be provisioned by calling terraform modules. Please see the list [below](#provisioning-azure-services).
+
+Since atlantis is used to provisioning terraform and we are using server-side workflows, therefore, each terraform stack must contain `envs` sub-directory similar to [this one](terraform/odl/odl-core/envs).
+This envs sub-directory should contain 2 files per environment i.e., `<env>-backend.tfvars` containing backend configuration for hosting statefile for this specific environment and `<env>.tfvars` containing values for variables for this particular environment.
+
+`<env>` must be one of these: `sandbox`, `dev`, `oneint`, `nonprod`, and `prod`. These environments point to following subscriptions:
+
+| Environment | Subscription  | atlantis workflow name |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| sandbox         | ELX-EMEA-Marketing-Sandbox (f28071b5-e402-4c1a-83cc-ed0744ce8e0a) | sandbox_basic_workflow |
+| dev         | ELX-GL-Concent-NonProd (4731e47d-991b-4fbd-86aa-1e861607b82f)| dev_basic_workflow |
+| oneint         | ELX-GL-Concent-NonProd (4731e47d-991b-4fbd-86aa-1e861607b82f)|oneint_basic_workflow |
+| nonprod         | ELX-GL-Concent-NonProd (4731e47d-991b-4fbd-86aa-1e861607b82f)|nonprod_basic_workflow |
+| prod         | ELX-GL-Concent-Prod (9a44d85a-3cf1-4938-9509-c8f94b1aee10)|prod_basic_workflow |
+
+The workflows are defined on the server-side and their details can be seen [here](https://dev.azure.com/ELX-Marketing-DevOps/platform-engineering-stack/_git/atlantis?path=/atlantis/envs/prod.tfvars&version=GBmain&line=98&lineEnd=98&lineStartColumn=1&lineEndColumn=31&lineStyle=plain&_a=contents).
+
+
+### Multiregion domain infra provisioning using terraform
+If a terraform stack for a specific business domain needs to be provisioned in multiple regions, we should still use vanilla terraform to keep things simple and to avoid terragrunt complexity. We need to structure the domain specific code as this [example here](https://github.com/kung-foo/multiregion-terraform) i.e., we need to consolidate the domain specific infra in a module type sub-directory and then call it from the parent directory to provision the stack in multiple regions. 
+
+### Working with terraform locally
+In order to work with terraform locally, you must ensure that terraform is installed locally in your machine. You may also choose to use [`tfenv`](https://github.com/tfutils/tfenv) for managing different terraform versions.
+
+You may run the following example commands while inside the right terraform stack. The commands expect that you are already logged in and your user has access to the storage account containing statefile.
+````
+terraform init -backend-config envs/dev-backend.tfvars
+````
+````
+terraform plan -var-file envs/dev.tfvars
+````
+````
+terraform apply -var-file envs/dev.tfvars
+````
 
 * `main/` : This directory contains the main Terraform stack. Each file in this stack corresponds to a specific Azure resource or set of related resources.
 
@@ -38,3 +83,16 @@ Once a request comes you need to simply raise a PR and add the respective group 
 If the infra component was created manually, we must still do role assignment via **code**. We may use datasource to fetch the resource info and use the information in role assignment.
 
 Here is an [example PR](https://dev.azure.com/ELX-Marketing-DevOps/infra-global-projects/_git/infra-global-projects-v1/pullrequest/5124) to grant API gateway access to ODL developers.
+
+## Provisioning Azure Services
+
+In this section, we have provided details about how to provision various Azure components via terraform in particular, which terraform modules should be used.
+
+| Azure Service          | Recommended Module                                                                                                            | Example Usage                                                                                          |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| Resource Group         | [terraform-azurerm-aks](https://registry.terraform.io/modules/Azure/aks/azurerm/latest)                                       | [usage examples](https://github.com/Azure/terraform-azurerm-aks/tree/main/examples)                    |
+| Virtual network        | [terraform-azurerm-vnet](https://registry.terraform.io/modules/Azure/vnet/azurerm/latest)                                     | [usage examples](https://github.com/Azure/terraform-azurerm-vnet/tree/main/examples)                   |
+| Network Security Group | [terraform-azurerm-network-security-group](https://registry.terraform.io/modules/Azure/network-security-group/azurerm/latest) | [usage examples](https://github.com/Azure/terraform-azurerm-network-security-group/tree/main/examples) |
+| AKS                    | [terraform-azurerm-aks](https://registry.terraform.io/modules/Azure/aks/azurerm/latest)                                       | [usage examples](https://github.com/Azure/terraform-azurerm-aks/tree/main/examples)                    |
+| Keyvault               | [avm-res-keyvault-vault](https://registry.terraform.io/modules/Azure/avm-res-keyvault-vault/azurerm/latest)                   | [usage examples](https://github.com/Azure/terraform-azurerm-avm-res-keyvault-vault/tree/main/examples) |
+
