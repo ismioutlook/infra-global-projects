@@ -78,13 +78,13 @@ variable "app_service_plan_name" {
 
 variable "app_service_plan_name_os_type" {
   type        = string
-  default     = ""
+  default     = "Windows"
   description = "App service plan operating system type"
 }
 
 variable "app_service_plan_name_sku_name" {
   type        = string
-  default     = ""
+  default     = "WS1"
   description = "App service plan sku name"
 }
 

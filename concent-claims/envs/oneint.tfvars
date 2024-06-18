@@ -17,8 +17,6 @@ app_insights_type                         = "web"
 data_factory_name                         = "adf-elx-tpa-claim-oneintegration"
 logic_app_name                            = "logicapp-tpa-claim-dev-eastus"
 app_service_plan_name                     = "aspws-tpa-claim-dev-eastus001"
-app_service_plan_name_os_type             = "Windows"
-app_service_plan_name_sku_name            = "WS1"
 enabled_logicapp                          = false
 
 kv_policy_objects_ids = {
