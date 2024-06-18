@@ -20,3 +20,21 @@ This repository is structured for a Global Terraform project that provisions and
 If you want to change the existing infra, you should raise a PR against `main` branch and collaborate on the PR. **The merge of PR is also controlled by atlantis meaning you must not merge your PRs yourself**. 
 
 If you want to define a new terraform stack, you need to create a directory like [main](main/) which must contain the same structure with [envs](main/envs/) subdirectory containing env specific conf files. You then need to update [atlantis.yaml](atlantis.yaml) file and add the new stack there. **Be aware, we are using workspaces and there is 1:1 relationship between workspace and environment.**
+
+## Role Assignments
+
+This is a how-to section about granting accessing to Azure resources to different teams. Following general points **must** be considered:
+
+- The role assignment must be done via **code**. The SPs used in atlantis for both non-prod and prod have access to grant roles.
+- Principle of least privilege must be followed. 
+- Use a narrow scope, for instance, if AKS access is needed, the scope should be on the cluster/namespace level instead of subscription/resource group level.
+- Use AD group names instance of object IDs. Use data source to fetch the corresponding object ID. Please see [here](https://dev.azure.com/ELX-Marketing-DevOps/infra-global-projects/_git/infra-global-projects-v1?path=/main/data.tf&version=GBmain&line=47&lineEnd=48&lineStartColumn=1&lineEndColumn=1&lineStyle=plain&_a=contents).
+- Use existing Azure specified roles where needed as most of the needs can be fulfilled by them. Custom roles may be created on need.
+
+In this repo, the role assignment is already been done for various infra components like AKS and APIM. For AKS, please see [this](https://sdlcwiki.electrolux.com/x/cElKCg) page for the RBAC recommendations.
+
+Once a request comes you need to simply raise a PR and add the respective group to the already existing component like for AKS [here](https://dev.azure.com/ELX-Marketing-DevOps/infra-global-projects/_git/infra-global-projects-v1?path=/main/variables.tf&version=GBmain&line=275&lineEnd=276&lineStartColumn=1&lineEndColumn=1&lineStyle=plain&_a=contents) or in the [environment specific files](https://dev.azure.com/ELX-Marketing-DevOps/infra-global-projects/_git/infra-global-projects-v1?path=/main/envs).
+
+If the infra component was created manually, we must still do role assignment via **code**. We may use datasource to fetch the resource info and use the information in role assignment.
+
+Here is an [example PR](https://dev.azure.com/ELX-Marketing-DevOps/infra-global-projects/_git/infra-global-projects-v1/pullrequest/5124) to grant API gateway access to ODL developers.
