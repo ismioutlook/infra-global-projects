@@ -55,3 +55,8 @@ projects:
   workspace: dev
   workflow: dev_basic_workflow
   terraform_version: 1.8.1
+
+- dir: tpa-eh
+  workspace: sandbox
+  workflow: sandbox_basic_workflow
+  terraform_version: 1.8.1
