@@ -68,6 +68,12 @@ variable "tags" {
   })
 }
 
+variable "enabled" {
+  type        = bool
+  default     = true
+  description = "Global flag to control resource provisioning"
+}
+
 # # ----- provider values ---
 variable "tenant_id" {
   type        = string

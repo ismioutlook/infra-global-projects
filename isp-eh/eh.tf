@@ -1,11 +1,12 @@
-module "tpa-sb-eh" {
+module "isp-sb-eh" {
+  count                       = var.enabled ? 1 : 0
   source                      = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-eh//module?ref=v1.0.0"
   tenant_id                   = var.tenant_id
   subscription_id             = var.subscription_id
   eventhub_namespace_name     = var.eventhub_namespace_name
   eventhub_names              = var.eventhub_names
-  resource_group_location     = var.resource_group_location
-  resource_group_name         = var.resource_group_name
+  resource_group_location     = azurerm_resource_group.rg[0].location
+  resource_group_name         = azurerm_resource_group.rg[0].name
   sku                         = var.sku
   partition_count             = var.partition_count
   eventhub_namespace_capacity = var.eventhub_namespace_capacity
@@ -20,5 +21,5 @@ module "tpa-sb-eh" {
   sector_tag       = var.tags.sector_tag
   env_tag          = var.tags.env_tag
   created_by_tag   = var.tags.created_by_tag
-  depends_on       = [module.tpa-sb-rg]
+
 }
