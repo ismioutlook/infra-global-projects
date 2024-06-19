@@ -5,8 +5,8 @@ module "isp-sb-eh" {
   subscription_id             = var.subscription_id
   eventhub_namespace_name     = var.eventhub_namespace_name
   eventhub_names              = var.eventhub_names
-  resource_group_location     = azurerm_resource_group.rg.location
-  resource_group_name         = azurerm_resource_group.rg.name
+  resource_group_location     = azurerm_resource_group.rg[0].location
+  resource_group_name         = azurerm_resource_group.rg[0].name
   sku                         = var.sku
   partition_count             = var.partition_count
   eventhub_namespace_capacity = var.eventhub_namespace_capacity
