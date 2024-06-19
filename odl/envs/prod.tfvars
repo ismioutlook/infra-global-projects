@@ -102,6 +102,6 @@ mongo_prv_endpoints = {
 reader_and_data_access_grantees = ["CSA-AAD-PRJ-Concent-ODL-Developer"]
 
 api_management_srv_details = {
-  name                = "elxapimglprod01"
+  name                = "elxapimglprod-01"
   resource_group_name = "RG-GL-ELX-EU-Prod-01"
 }
