@@ -6,7 +6,7 @@ kv_resource_group_name     = "RG-ELX-GL-Concent-KeyVaults-Prod"
 kv_resource_group_location = "West Europe"
 
 #-----------------------------KeyVault----------------------
-key_vault_name = "elxkv-odl-eu-prod"
+key_vault_name = "elxkv-odl-sops-eu-prod"
 
 
 # ------------------------Storage account details for EU region------------------------------
@@ -19,7 +19,6 @@ storage_container_access_type = "private"
 storage_account_replication   = "LRS"
 account_kind                  = "StorageV2"
 is_hns_enabled                = "true"
-resource_group_readers        = []
 
 
 
