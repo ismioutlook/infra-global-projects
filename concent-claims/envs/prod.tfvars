@@ -17,4 +17,4 @@ app_insights_type                         = "web"
 data_factory_name                         = "adf-elx-tpa-claim-prod"
 logic_app_name                            = "logicapp-tpa-claim-prod-eastus"
 app_service_plan_name                     = "aspws-tpa-claim-prod-eastus001"
-enabled_logicapp                          = false
+enabled_logicapp                          = true
