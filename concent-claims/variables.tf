@@ -88,6 +88,12 @@ variable "app_service_plan_name_sku_name" {
   description = "App service plan sku name"
 }
 
+variable "logic_app_version" {
+  type        = string
+  default     = "~4"
+  description = "Azure Logic App version"
+}
+
 # Application Insights
 variable "app_insights_name" {
   type        = string
