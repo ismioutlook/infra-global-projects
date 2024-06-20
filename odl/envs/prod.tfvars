@@ -105,3 +105,8 @@ api_management_srv_details = {
   name                = "elxapimglprod-01"
   resource_group_name = "RG-GL-ELX-EU-Prod-01"
 }
+
+apim_details = {
+  name                = "elxapimglprod-01"
+  resource_group_name = "RG-GL-ELX-EU-Prod-01"
+}
