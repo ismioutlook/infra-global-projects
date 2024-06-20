@@ -17,7 +17,7 @@ app_insights_type                         = "web"
 data_factory_name                         = "adf-elx-tpa-claim-oneintegration"
 logic_app_name                            = "logicapp-tpa-claim-oneintegration-eastus"
 app_service_plan_name                     = "aspws-tpa-claim-oneintegration-eastus001"
-enabled_logicapp                          = false
+enabled_logicapp                          = true
 
 kv_policy_objects_ids = {
   reader_objects_ids = [
