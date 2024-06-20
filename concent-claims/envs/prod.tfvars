@@ -15,4 +15,6 @@ storage_account_replication               = "GRS"
 app_insights_name                         = "AI-ELX-TPA-Claim-prod"
 app_insights_type                         = "web"
 data_factory_name                         = "adf-elx-tpa-claim-prod"
-enabled_logicapp                          = false
+logic_app_name                            = "logicapp-tpa-claim-prod-eastus"
+app_service_plan_name                     = "aspws-tpa-claim-prod-eastus001"
+enabled_logicapp                          = true

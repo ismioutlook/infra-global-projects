@@ -16,6 +16,7 @@ app_insights_name                         = "AI-ELX-TPA-Claim-Dev"
 app_insights_type                         = "web"
 data_factory_name                         = "adf-elx-tpa-claim-dev"
 logic_app_name                            = "logicapp-tpa-claim-dev-eastus"
+app_service_plan_name                     = "aspws-tpa-claim-dev-eastus001"
 
 kv_policy_objects_ids = {
   reader_objects_ids = [
