@@ -25,22 +25,22 @@ is_hns_enabled                = "true"
 # --------Event Grid Topics and subscriptions -------------
 eventgrid_topics = {
   topic1 = {
-    eventgrid_custom_topic_name = "eg-topic-odlcore-individualcustomer-entity-prod"
-    apim_named_value_name       = "odl-core-customer-eg-topic-key-prod"
-    apim_backend_name           = "odl-core-customer-prod"
-    eventgrid_custom_subscriptions = []
+    eventgrid_custom_topic_name    = "eg-topic-odlcore-individualcustomer-entity-prod"
+    apim_named_value_name          = "odl-core-customer-eg-topic-key-prod"
+    apim_backend_name              = "odl-core-customer-prod"
+    eventgrid_custom_subscriptions = {}
   },
   topic2 = {
-    eventgrid_custom_topic_name = "eg-topic-odlcore-registeredproduct-entity-prod"
-    apim_named_value_name       = "odl-core-regproduct-eg-topic-key-prod"
-    apim_backend_name           = "odl-core-registeredproduct-prod"
-    eventgrid_custom_subscriptions = []
+    eventgrid_custom_topic_name    = "eg-topic-odlcore-registeredproduct-entity-prod"
+    apim_named_value_name          = "odl-core-regproduct-eg-topic-key-prod"
+    apim_backend_name              = "odl-core-registeredproduct-prod"
+    eventgrid_custom_subscriptions = {}
   },
   topic3 = {
-    eventgrid_custom_topic_name = "eg-topic-odlcore-product-entity-prod"
-    apim_named_value_name       = "odl-core-product-eg-topic-key-prod"
-    apim_backend_name           = "odl-core-product-prod"
-    eventgrid_custom_subscriptions = []
+    eventgrid_custom_topic_name    = "eg-topic-odlcore-product-entity-prod"
+    apim_named_value_name          = "odl-core-product-eg-topic-key-prod"
+    apim_backend_name              = "odl-core-product-prod"
+    eventgrid_custom_subscriptions = {}
   }
 }
 
