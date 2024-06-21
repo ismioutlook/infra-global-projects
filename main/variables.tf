@@ -297,13 +297,11 @@ variable "apim_builtin_role_assignments" {
     principal_group_names = list(string)
   }))
   description = "Map to assign builtin APIM roles to principals. Key must be Builtin role names."
-  default     = {}
-  # currently the prod svc principal does not have priveleges to perform lookup in AAD
-  # once that permissions are granted, we should then uncomment this one for prod
-  #   "API Management Service Reader Role" = {
-  #     principal_group_names = ["CSA-AAD-PRJ-Concent-ODL-Developer"]
-  #   }
-  # }
+  default = {
+    "API Management Service Reader Role" = {
+      principal_group_names = ["CSA-AAD-PRJ-Concent-ODL-Developer"]
+    }
+  }
 }
 
 variable "app_insights_details" {
@@ -320,13 +318,11 @@ variable "app_insights_builtin_role_assignments" {
     principal_group_names = list(string)
   }))
   description = "Map to assign builtin roles to principals to grant access to app insights. Key must be Builtin role names."
-  default     = {}
-  # currently the prod svc principal does not have priveleges to perform lookup in AAD
-  # once that permissions are granted, we should then uncomment this one for prod
-  #   "Monitoring Reader" = {
-  #     principal_group_names = ["CSA-AAD-PRJ-Concent-ODL-Developer"]
-  #   }
-  # }
+  default = {
+    "Monitoring Reader" = {
+      principal_group_names = ["CSA-AAD-PRJ-Concent-ODL-Developer"]
+    }
+  }
 }
 
 variable "api_gw_builtin_role_assignments" {
@@ -334,11 +330,9 @@ variable "api_gw_builtin_role_assignments" {
     principal_group_names = list(string)
   }))
   description = "Map to assign builtin roles to principals to grant access to api gateway. Key must be Builtin role names."
-  default     = {}
-  # currently the prod svc principal does not have priveleges to perform lookup in AAD
-  # once that permissions are granted, we should then uncomment this one for prod
-  #   "Reader" = {
-  #     principal_group_names = ["CSA-AAD-PRJ-Concent-ODL-Developer"]
-  #   }
-  # }
+  default = {
+    "Reader" = {
+      principal_group_names = ["CSA-AAD-PRJ-Concent-ODL-Developer"]
+    }
+  }
 }
