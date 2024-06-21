@@ -1,6 +1,3 @@
-# enabled                  = true
-# enabled_keyvault         = true
-# enabled_storaged_account = true
 # ------------------------Keyvault Resource Group Details for EU region------------------------------
 kv_resource_group_name     = "RG-ELX-GL-Concent-KeyVaults-Prod"
 kv_resource_group_location = "West Europe"
