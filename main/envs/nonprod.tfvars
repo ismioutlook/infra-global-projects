@@ -199,21 +199,3 @@ aks_builtin_role_assignments = {
     principal_group_names = ["CSA-AAD-PRJ-Concent-SRE-Write"]
   }
 }
-
-apim_builtin_role_assignments = {
-  "API Management Service Reader Role" = {
-    principal_group_names = ["CSA-AAD-PRJ-Concent-ODL-Developer"]
-  }
-}
-
-api_gw_builtin_role_assignments = {
-  "Reader" = {
-    principal_group_names = ["CSA-AAD-PRJ-Concent-ODL-Developer"]
-  }
-}
-
-app_insights_builtin_role_assignments = {
-  "Monitoring Reader" = {
-    principal_group_names = ["CSA-AAD-PRJ-Concent-ODL-Developer"]
-  }
-}

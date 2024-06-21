@@ -168,3 +168,8 @@ node_pools = [
 
 role_based_access_control_enabled = true
 rbac_aad                          = false
+
+app_insights_details = {
+  name                = "AI-ELX-MSS-Prod-01"
+  resource_group_name = "RG-GL-ELX-EU-Prod-01"
+}
