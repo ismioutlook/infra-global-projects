@@ -13,7 +13,7 @@ message_retention           = "7"
 eventhub_names = {
   topic1 = {
     name                 = "ticketupdatestpa-tickets-sandbox",
-    consumer_group_names = ["cg-ticketupdatestpa-tickets-sandbox"]
+    consumer_group_names = ["cg-ticketupdatestpa-sandbox"]
   }
 }
 tags = {
