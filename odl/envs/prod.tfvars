@@ -25,22 +25,52 @@ is_hns_enabled                = "true"
 # --------Event Grid Topics and subscriptions -------------
 eventgrid_topics = {
   topic1 = {
-    eventgrid_custom_topic_name    = "eg-topic-odlcore-individualcustomer-entity-prod"
-    apim_named_value_name          = "odl-core-customer-eg-topic-key-prod"
-    apim_backend_name              = "odl-core-customer-prod"
-    eventgrid_custom_subscriptions = {}
+    eventgrid_custom_topic_name = "eg-topic-odlcore-individualcustomer-entity-prod"
+    apim_named_value_name       = "odl-core-customer-eg-topic-key-prod"
+    apim_backend_name           = "odl-core-customer-prod"
+    eventgrid_custom_subscriptions = {
+      "subscription1" = {
+        name                              = "c4c-individualcustomer-webhook"
+        endpoint_url                      = "https://westeurope.azure.data.mongodb-api.com/app/odl-core-eu-cdc-qromida/endpoint/cdc/IndividualCustomer"
+        max_events_per_batch              = 10
+        preferred_batch_size_in_kilobytes = 640
+        subject_begins_with               = "IndividualCustomer.Root"
+        subject_ends_with                 = ""
+        case_sensitive                    = false
+      }
+    }
   },
   topic2 = {
-    eventgrid_custom_topic_name    = "eg-topic-odlcore-registeredproduct-entity-prod"
-    apim_named_value_name          = "odl-core-regproduct-eg-topic-key-prod"
-    apim_backend_name              = "odl-core-registeredproduct-prod"
-    eventgrid_custom_subscriptions = {}
+    eventgrid_custom_topic_name = "eg-topic-odlcore-registeredproduct-entity-prod"
+    apim_named_value_name       = "odl-core-regproduct-eg-topic-key-prod"
+    apim_backend_name           = "odl-core-registeredproduct-prod"
+    eventgrid_custom_subscriptions = {
+      "subscription1" = {
+        name                              = "c4c-registeredproduct-webhook"
+        endpoint_url                      = "https://westeurope.azure.data.mongodb-api.com/app/odl-core-eu-cdc-qromida/endpoint/cdc/RegisteredProduct"
+        max_events_per_batch              = 10
+        preferred_batch_size_in_kilobytes = 640
+        subject_begins_with               = "InstallationPoint/RegisteredProduct.Root"
+        subject_ends_with                 = ""
+        case_sensitive                    = false
+      }
+    }
   },
   topic3 = {
-    eventgrid_custom_topic_name    = "eg-topic-odlcore-product-entity-prod"
-    apim_named_value_name          = "odl-core-product-eg-topic-key-prod"
-    apim_backend_name              = "odl-core-product-prod"
-    eventgrid_custom_subscriptions = {}
+    eventgrid_custom_topic_name = "eg-topic-odlcore-product-entity-prod"
+    apim_named_value_name       = "odl-core-product-eg-topic-key-prod"
+    apim_backend_name           = "odl-core-product-prod"
+    eventgrid_custom_subscriptions = {
+      "subscription1" = {
+        name                              = "c4c-product-webhook"
+        endpoint_url                      = "https://westeurope.azure.data.mongodb-api.com/app/odl-core-eu-cdc-qromida/endpoint/cdc/Product"
+        max_events_per_batch              = 10
+        preferred_batch_size_in_kilobytes = 640
+        subject_begins_with               = "product.Root"
+        subject_ends_with                 = ""
+        case_sensitive                    = false
+      }
+    }
   }
 }
 
