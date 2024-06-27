@@ -55,6 +55,10 @@ projects:
   workspace: dev
   workflow: dev_basic_workflow
   terraform_version: 1.8.1
+- dir: cdc-global
+  workspace: oneint
+  workflow: oneint_basic_workflow
+  terraform_version: 1.8.1
 
 - dir: isp-eh
   workspace: sandbox
