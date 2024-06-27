@@ -26,6 +26,6 @@ tags = {
   billingid_tag    = "Global"
   costcenterit_tag = "10350645"
   sector_tag       = "WestEurope"
-  env_tag          = "Dev"
+  env_tag          = "oneintegration"
   created_by_tag   = "PETeam"
 }
