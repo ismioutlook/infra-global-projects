@@ -115,6 +115,18 @@ variable "application_insights_type" {
   description = "Type of the application insights"
 }
 
+variable "app_insights_builtin_role_assignments" {
+  type = map(object({
+    principal_group_names = list(string)
+  }))
+  description = "Map to assign builtin roles to principals to grant access to app insights. Key must be Builtin role names."
+  default = {
+    "Monitoring Reader" = {
+      principal_group_names = ["CSA-AAD-PRJ-Concent-ODL-Developer"]
+    }
+  }
+}
+
 variable "function_app_name" {
   type        = string
   description = "Name of the function app"

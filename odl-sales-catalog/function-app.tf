@@ -16,6 +16,15 @@ resource "azurerm_application_insights" "sales-catalog-rex-appin" {
   application_type    = var.application_insights_type
 }
 
+resource "azurerm_role_assignment" "app_insights_role_assign" {
+  for_each = { for item in local.app_insights_flat_role_assign_map : "${item.role}-${item.group}" => item }
+
+  principal_id         = data.azuread_group.ad_groups[each.value.group].object_id
+  scope                = azurerm_application_insights.sales-catalog-rex-appin[0].id
+  role_definition_name = each.value.role
+  principal_type       = "Group"
+}
+
 resource "azurerm_linux_function_app" "sales-catalog-ingestion-fap" {
   count                       = var.enabled ? 1 : 0
   name                        = var.function_app_name
