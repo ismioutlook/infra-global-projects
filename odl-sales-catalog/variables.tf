@@ -10,6 +10,12 @@ variable "enabled_keyvault" {
   description = "Flag to control provisioning of keyvault"
 }
 
+variable "enabled_ingestion_sbsc" {
+  type        = bool
+  default     = true
+  description = "Flag to control provisioning of keyvault"
+}
+
 variable "key_vault_name" {
   type        = string
   description = "Name of the Azure Key Vault"
