@@ -299,7 +299,9 @@ variable "apim_builtin_role_assignments" {
   description = "Map to assign builtin APIM roles to principals. Key must be Builtin role names."
   default = {
     "API Management Service Reader Role" = {
-      principal_group_names = ["CSA-AAD-PRJ-Concent-ODL-Developer"]
+      principal_group_names = ["CSA-AAD-PRJ-Concent-ODL-Developer", "CSA-AAD-PRJ-Concent-SRPartner",
+        "CSA-AAD-PRJ-Concent-SRDirect", "CSA-AAD-PRJ-Concent-Developer", "CSA-AAD-PRJ-Concent-SHAb-Developer",
+      "CSA-AAD-PRJ-Concent-SHAg-Developer"]
     }
   }
 }
@@ -320,7 +322,9 @@ variable "app_insights_builtin_role_assignments" {
   description = "Map to assign builtin roles to principals to grant access to app insights. Key must be Builtin role names."
   default = {
     "Monitoring Reader" = {
-      principal_group_names = ["CSA-AAD-PRJ-Concent-ODL-Developer"]
+      principal_group_names = ["CSA-AAD-PRJ-Concent-ODL-Developer", "CSA-AAD-PRJ-Concent-SRPartner",
+        "CSA-AAD-PRJ-Concent-SRDirect", "CSA-AAD-PRJ-Concent-Developer", "CSA-AAD-PRJ-Concent-SHAb-Developer",
+      "CSA-AAD-PRJ-Concent-SHAg-Developer"]
     }
   }
 }
@@ -332,7 +336,9 @@ variable "api_gw_builtin_role_assignments" {
   description = "Map to assign builtin roles to principals to grant access to api gateway. Key must be Builtin role names."
   default = {
     "Reader" = {
-      principal_group_names = ["CSA-AAD-PRJ-Concent-ODL-Developer"]
+      principal_group_names = ["CSA-AAD-PRJ-Concent-ODL-Developer", "CSA-AAD-PRJ-Concent-SRPartner",
+        "CSA-AAD-PRJ-Concent-SRDirect", "CSA-AAD-PRJ-Concent-Developer", "CSA-AAD-PRJ-Concent-SHAb-Developer",
+      "CSA-AAD-PRJ-Concent-SHAg-Developer"]
     }
   }
 }
