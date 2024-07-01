@@ -43,6 +43,6 @@ locals {
       }
     ]
   ])
-  storage_account_name      = var.storage_account_name != null && var.storage_account_name != "" ? var.storage_account_name : format("elxnssalescatalog%s001", terraform.workspace)
+  storage_account_name      = var.storage_account_name != null ? var.storage_account_name : format("elxnssalescatalog%s001", terraform.workspace)
   virtual_network_subnet_id = coalesce(one(data.azurerm_subnet.subnet[*].id), one(azurerm_subnet.apps-sbnt[*].id))
 }

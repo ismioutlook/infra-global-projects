@@ -16,7 +16,7 @@ storage_account_builtin_role_assignments = {
   }
 }
 
-storage_account_name      = "elxnssalescatalog1int01"
+storage_account_name      = "elxnssalescatalog1int001"
 application_insights_name = "sc-rex-process-tracking-oneint"
 application_insights_type = "web"
 
