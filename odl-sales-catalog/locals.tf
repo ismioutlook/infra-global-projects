@@ -15,6 +15,9 @@ locals {
     ]),
     flatten([
       for user, value in var.resource_group_builtin_role_assignments : value.principal_group_names
+    ]),
+    flatten([
+      for user, value in var.app_insights_builtin_role_assignments : value.principal_group_names
   ])))
   rg_flat_role_assign_map = flatten([
     for k, v in var.resource_group_builtin_role_assignments : [
@@ -26,6 +29,14 @@ locals {
   ])
   sa_flat_role_assign_map = flatten([
     for k, v in var.storage_account_builtin_role_assignments : [
+      for group in v.principal_group_names : {
+        role  = k
+        group = group
+      }
+    ]
+  ])
+  app_insights_flat_role_assign_map = flatten([
+    for k, v in var.app_insights_builtin_role_assignments : [
       for group in v.principal_group_names : {
         role  = k
         group = group
