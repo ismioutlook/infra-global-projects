@@ -13,7 +13,7 @@ variable "enabled_keyvault" {
 variable "enabled_eventgrid_event_subscription_storageaccount" {
   type        = bool
   default     = true
-  description = "Flag to control provisioning of ingestion_sbsc"
+  description = "Flag to control provisioning of eventgrid_event_subscription_storageaccount"
 }
 
 variable "key_vault_name" {
