@@ -10,6 +10,12 @@ variable "enabled_keyvault" {
   description = "Flag to control provisioning of keyvault"
 }
 
+variable "enabled_eventgrid_event_subscription_storageaccount" {
+  type        = bool
+  default     = true
+  description = "Flag to control provisioning of eventgrid_event_subscription_storageaccount"
+}
+
 variable "key_vault_name" {
   type        = string
   description = "Name of the Azure Key Vault"

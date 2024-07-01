@@ -8,7 +8,7 @@ resource "azurerm_eventgrid_system_topic" "sales-catalog-ingestion-sytp" {
 }
 
 resource "azurerm_eventgrid_event_subscription" "sales-catalog-ingestion-sbsc" {
-  count                 = var.enabled ? 1 : 0
+  count                 = var.enabled && var.enabled_eventgrid_event_subscription_storageaccount ? 1 : 0
   name                  = var.eventgrid_subscription_name
   scope                 = azurerm_storage_account.sales-catalog-rex-upload[count.index].id
   event_delivery_schema = var.eventgrid_subscription_event_delivery_schema
