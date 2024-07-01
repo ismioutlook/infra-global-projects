@@ -10,10 +10,10 @@ variable "enabled_keyvault" {
   description = "Flag to control provisioning of keyvault"
 }
 
-variable "enabled_ingestion_sbsc" {
+variable "enabled_eventgrid_event_subscription_storageaccount" {
   type        = bool
   default     = true
-  description = "Flag to control provisioning of keyvault"
+  description = "Flag to control provisioning of ingestion_sbsc"
 }
 
 variable "key_vault_name" {
