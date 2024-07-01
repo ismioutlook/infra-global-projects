@@ -6,7 +6,7 @@ variable "enabled" {
 
 variable "enabled_keyvault" {
   type        = bool
-  default     = false
+  default     = true
   description = "Flag to control provisioning of keyvault"
 }
 
