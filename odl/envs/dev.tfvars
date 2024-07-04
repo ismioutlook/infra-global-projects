@@ -62,7 +62,7 @@ eventgrid_topics = {
         endpoint_url                      = "https://westeurope.azure.data.mongodb-api.com/app/odl-core-eu-cdc-fplko/endpoint/cdc/Product"
         max_events_per_batch              = 10
         preferred_batch_size_in_kilobytes = 640
-        subject_begins_with               = "Product.Root"
+        subject_begins_with               = "Material.Root"
         subject_ends_with                 = ""
         case_sensitive                    = false
       }
