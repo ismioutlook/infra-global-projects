@@ -1,0 +1,12 @@
+tenant_id                   = "d2007bef-127d-4591-97ac-10d72fe28031"
+subscription_id             = "9a44d85a-3cf1-4938-9509-c8f94b1aee10"
+resource_group_name         = "RG-GL-ELX-FSM-Prod-01"
+resource_group_location     = "West Europe"
+storage_account_name        = "safsmprod01"
+storage_account_tier        = "Standard"
+storage_account_replication = "LRS"
+function_app_name           = ["func-fsm-c4c-backreporter-prod", "func-fsm-c4c-backreporting-consumer-prod", "func-fsm-c4c-followup-task-consumer-prod", "func-fsm-c4c-task-status-consumer-prod"]
+function_app_plan_name      = ["asp-ws-fsm-c4c-backreporter-prod", "asp-ws-fsm-c4c-backreporting-consumer-prod", "asp-ws-fsm-c4c-followup-task-consumer-prod", "asp-ws-fsm-c4c-task-status-consumer-prod"]
+function_app_os             = "Windows"
+function_app_plan_sku_size  = "Y1"
+function_app_run_time       = "dotnet"

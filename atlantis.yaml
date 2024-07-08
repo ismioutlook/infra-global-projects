@@ -1,0 +1,66 @@
+version: 3
+automerge: true
+
+projects:
+
+- dir: main
+  workspace: nonprod
+  workflow: nonprod_basic_workflow
+  terraform_version: 1.7.5
+- dir: main
+  workspace: prod
+  workflow: prod_basic_workflow
+  terraform_version: 1.7.5
+
+- dir: fsm-cosmodb
+  workspace: dev
+  workflow: dev_basic_workflow
+  terraform_version: 1.7.5
+- dir: fsm-cosmodb
+  workspace: oneint
+  workflow: oneint_basic_workflow
+  terraform_version: 1.7.5
+- dir: fsm-cosmodb
+  workspace: prod
+  workflow: prod_basic_workflow
+  terraform_version: 1.7.5
+
+- dir: fsm-eh
+  workspace: dev
+  workflow: dev_basic_workflow
+  terraform_version: 1.7.5
+- dir: fsm-eh
+  workspace: oneint
+  workflow: oneint_basic_workflow
+  terraform_version: 1.7.5
+- dir: fsm-eh
+  workspace: prod
+  workflow: prod_basic_workflow
+  terraform_version: 1.7.5
+
+- dir: fsm-funcapp
+  workspace: dev
+  workflow: dev_basic_workflow
+  terraform_version: 1.8.1
+- dir: fsm-funcapp
+  workspace: oneint
+  workflow: oneint_basic_workflow
+  terraform_version: 1.8.1
+- dir: fsm-funcapp
+  workspace: prod
+  workflow: prod_basic_workflow
+  terraform_version: 1.8.1
+
+- dir: cdc-global
+  workspace: dev
+  workflow: dev_basic_workflow
+  terraform_version: 1.8.1
+- dir: cdc-global
+  workspace: oneint
+  workflow: oneint_basic_workflow
+  terraform_version: 1.8.1
+
+- dir: isp-eh
+  workspace: sandbox
+  workflow: sandbox_basic_workflow
+  terraform_version: 1.8.1
