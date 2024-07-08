@@ -77,3 +77,29 @@ projects:
   workspace: prod
   workflow: prod_basic_workflow
   terraform_version: 1.7.5 
+
+- dir: odl/odl-core
+  workspace: dev
+  workflow: dev_basic_workflow
+  terraform_version: 1.8.1
+- dir: odl/odl-core
+  workspace: oneint
+  workflow: oneint_basic_workflow
+  terraform_version: 1.8.1
+- dir: odl/odl-core
+  workspace: prod
+  workflow: prod_basic_workflow
+  terraform_version: 1.8.1
+
+- dir: odl/odl-sales-catalog
+  workspace: sandbox
+  workflow: sandbox_basic_workflow
+  terraform_version: 1.8.1
+- dir: odl/odl-sales-catalog
+  workspace: dev
+  workflow: dev_basic_workflow
+  terraform_version: 1.8.1
+- dir: odl/odl-sales-catalog
+  workspace: oneint
+  workflow: oneint_basic_workflow
+  terraform_version: 1.8.1
