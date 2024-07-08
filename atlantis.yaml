@@ -64,3 +64,16 @@ projects:
   workspace: sandbox
   workflow: sandbox_basic_workflow
   terraform_version: 1.8.1
+
+- dir: concent-claims
+  workspace: dev
+  workflow: dev_basic_workflow
+  terraform_version: 1.7.5
+- dir: concent-claims
+  workspace: oneint
+  workflow: oneint_basic_workflow
+  terraform_version: 1.7.5 
+- dir: concent-claims
+  workspace: prod
+  workflow: prod_basic_workflow
+  terraform_version: 1.7.5 
