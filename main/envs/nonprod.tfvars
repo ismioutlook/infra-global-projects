@@ -182,24 +182,3 @@ app_insights_details = {
   name                = "AI-ELX-MSS-NonProd-01"
   resource_group_name = "RG-GL-ELX-EU-NonProd-01"
 }
-
-aks_builtin_role_assignments = {
-  "Azure Kubernetes Service RBAC Cluster Admin" = {
-    principal_group_names = ["CSA-AAD-PRJ-Concent-PE-Admin"]
-  }
-  "Azure Kubernetes Service Cluster User Role" = {
-    principal_group_names = ["CSA-AAD-PRJ-Concent-PE-Read", "CSA-AAD-PRJ-Concent-ONL-Read", "CSA-AAD-PRJ-Concent-SRE-Read", "CSA-AAD-PRJ-Concent-SRPartner",
-      "CSA-AAD-PRJ-Concent-ODL-Developer", "CSA-AAD-PRJ-Concent-SHAb-Developer", "CSA-AAD-PRJ-Concent-SRE-Write",
-      "CSA-AAD-PRJ-Concent-SRDirect", "CSA-AAD-PRJ-Concent-Developer",
-    "CSA-AAD-PRJ-Concent-SHAg-Developer"]
-  }
-  "Azure Kubernetes Service RBAC Reader" = {
-    principal_group_names = ["CSA-AAD-PRJ-Concent-PE-Read", "CSA-AAD-PRJ-Concent-ONL-Read", "CSA-AAD-PRJ-Concent-SRE-Read", "CSA-AAD-PRJ-Concent-SRPartner",
-      "CSA-AAD-PRJ-Concent-ODL-Developer", "CSA-AAD-PRJ-Concent-SHAb-Developer",
-      "CSA-AAD-PRJ-Concent-SRDirect", "CSA-AAD-PRJ-Concent-Developer",
-    "CSA-AAD-PRJ-Concent-SHAg-Developer"]
-  }
-  "Azure Kubernetes Service RBAC Writer" = {
-    principal_group_names = ["CSA-AAD-PRJ-Concent-SRE-Write"]
-  }
-}

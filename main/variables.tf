@@ -277,19 +277,26 @@ variable "aks_builtin_role_assignments" {
     principal_group_names = list(string)
   }))
   description = "Map to assign builtin AKS Azure RBAC roles to principals. Key must be RBAC role name like Azure Kubernetes Service Cluster User. The scope is cluster level"
-  default     = {}
-  # currently the prod svc principal does not have priveleges to perform lookup in AAD
-  # once that permissions are granted, we should then uncomment this one for prod
-  #   "Azure Kubernetes Service RBAC Cluster Admin" = {
-  #     principal_group_names = ["CSA-AAD-PRJ-Concent-PE-Admin"]
-  #   }
-  #   "Azure Kubernetes Service Cluster User Role" = {
-  #     principal_group_names = ["CSA-AAD-PRJ-Concent-PE-Read"]
-  #   }
-  #   "Azure Kubernetes Service RBAC Reader" = {
-  #     principal_group_names = ["CSA-AAD-PRJ-Concent-PE-Read"]
-  #   }
-  # }
+  default = {
+    "Azure Kubernetes Service RBAC Cluster Admin" = {
+      principal_group_names = ["CSA-AAD-PRJ-Concent-PE-Admin"]
+    }
+    "Azure Kubernetes Service Cluster User Role" = {
+      principal_group_names = ["CSA-AAD-PRJ-Concent-PE-Read", "CSA-AAD-PRJ-Concent-ONL-Read", "CSA-AAD-PRJ-Concent-SRE-Read", "CSA-AAD-PRJ-Concent-SRPartner",
+        "CSA-AAD-PRJ-Concent-ODL-Developer", "CSA-AAD-PRJ-Concent-SHAb-Developer", "CSA-AAD-PRJ-Concent-SRE-Write",
+        "CSA-AAD-PRJ-Concent-SRDirect", "CSA-AAD-PRJ-Concent-Developer",
+      "CSA-AAD-PRJ-Concent-SHAg-Developer"]
+    }
+    "Azure Kubernetes Service RBAC Reader" = {
+      principal_group_names = ["CSA-AAD-PRJ-Concent-PE-Read", "CSA-AAD-PRJ-Concent-ONL-Read", "CSA-AAD-PRJ-Concent-SRE-Read", "CSA-AAD-PRJ-Concent-SRPartner",
+        "CSA-AAD-PRJ-Concent-ODL-Developer", "CSA-AAD-PRJ-Concent-SHAb-Developer",
+        "CSA-AAD-PRJ-Concent-SRDirect", "CSA-AAD-PRJ-Concent-Developer",
+      "CSA-AAD-PRJ-Concent-SHAg-Developer"]
+    }
+    "Azure Kubernetes Service RBAC Writer" = {
+      principal_group_names = ["CSA-AAD-PRJ-Concent-SRE-Write"]
+    }
+  }
 }
 
 variable "apim_builtin_role_assignments" {
