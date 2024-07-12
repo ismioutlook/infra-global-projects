@@ -184,6 +184,7 @@ variable "node_pools" {
     name                = string
     vm_size             = string
     os_disk_size_gb     = number
+    os_disk_type        = optional(string, "Managed")
     enable_auto_scaling = bool
     node_count          = number
     min_count           = number
