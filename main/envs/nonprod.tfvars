@@ -175,6 +175,21 @@ node_pools = [
     node_labels = {
       "workloadtype" = "import-services"
     }
+  },
+  {
+    name                = "cdcpool"
+    vm_size             = "Standard_DS3_v2"
+    os_disk_size_gb     = 512
+    os_disk_type        = "Ephemeral"
+    enable_auto_scaling = true
+    node_count          = 2
+    min_count           = 1
+    max_count           = 2
+    max_pods            = 60
+    node_taints         = ["workloadtype=cdcconsumers:NoSchedule"]
+    node_labels = {
+      "workloadtype" = "cdcconsumers"
+    }
   }
 ]
 
