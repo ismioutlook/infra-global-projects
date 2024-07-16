@@ -84,15 +84,15 @@ projects:
     when_modified: null
   dir: fsm-funcapp
   terraform_version: 1.8.1
-  workflow: prod_basic_workflow
-  workspace: prod
+  workflow: dev_basic_workflow
+  workspace: dev
 - autoplan:
     enabled: true
     when_modified: null
   dir: fsm-funcapp
   terraform_version: 1.8.1
-  workflow: dev_basic_workflow
-  workspace: dev
+  workflow: prod_basic_workflow
+  workspace: prod
 - autoplan:
     enabled: true
     when_modified: null
@@ -126,15 +126,15 @@ projects:
     when_modified: null
   dir: odl/odl-core
   terraform_version: 1.8.1
-  workflow: oneint_basic_workflow
-  workspace: oneint
+  workflow: dev_basic_workflow
+  workspace: dev
 - autoplan:
     enabled: true
     when_modified: null
   dir: odl/odl-core
   terraform_version: 1.8.1
-  workflow: dev_basic_workflow
-  workspace: dev
+  workflow: oneint_basic_workflow
+  workspace: oneint
 - autoplan:
     enabled: true
     when_modified: null
@@ -163,6 +163,17 @@ projects:
   terraform_version: 1.8.1
   workflow: oneint_basic_workflow
   workspace: oneint
+- autoplan:
+    enabled: true
+    when_modified:
+    - '*.hcl'
+    - '*.tf*'
+    - ../../../../terragrunt.hcl
+    - ../../../../_envcommon/aks01cluster.hcl
+  dir: terragrunt/nonprod/eastus/nonprod/aks01poccluster
+  name: terragrunt_nonprod_eastus_nonprod_aks01poccluster
+  terraform_version: v1.8.1
+  workflow: nonprod_terragrunt_workflow
 - autoplan:
     enabled: true
     when_modified:
