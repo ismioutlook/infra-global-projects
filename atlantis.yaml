@@ -84,15 +84,15 @@ projects:
     when_modified: null
   dir: fsm-funcapp
   terraform_version: 1.8.1
-  workflow: dev_basic_workflow
-  workspace: dev
+  workflow: prod_basic_workflow
+  workspace: prod
 - autoplan:
     enabled: true
     when_modified: null
   dir: fsm-funcapp
   terraform_version: 1.8.1
-  workflow: prod_basic_workflow
-  workspace: prod
+  workflow: dev_basic_workflow
+  workspace: dev
 - autoplan:
     enabled: true
     when_modified: null
@@ -126,15 +126,15 @@ projects:
     when_modified: null
   dir: odl/odl-core
   terraform_version: 1.8.1
-  workflow: dev_basic_workflow
-  workspace: dev
+  workflow: oneint_basic_workflow
+  workspace: oneint
 - autoplan:
     enabled: true
     when_modified: null
   dir: odl/odl-core
   terraform_version: 1.8.1
-  workflow: oneint_basic_workflow
-  workspace: oneint
+  workflow: dev_basic_workflow
+  workspace: dev
 - autoplan:
     enabled: true
     when_modified: null

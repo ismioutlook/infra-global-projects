@@ -19,7 +19,7 @@ locals {
   # Expose the base source URL so different versions of the module can be deployed in different environments. This will
   # be used to construct the source URL in the child terragrunt configurations.
   #base_source_url = "${get_repo_root()}//modules/aks"
-  base_source_url = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/terraform-azurerm-aks//.?ref=721cc7e869f0e07526ef2654e8b745f7545ee979"
+  base_source_url = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/terraform-azurerm-aks//.?ref=7c96f62973fc4550f37c46ee3e65382625514244"
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
