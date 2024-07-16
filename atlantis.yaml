@@ -1,105 +1,177 @@
-version: 3
 automerge: true
-
+parallel_apply: true
+parallel_plan: true
 projects:
-
-- dir: main
-  workspace: nonprod
+- autoplan:
+    enabled: true
+    when_modified: null
+  dir: cdc-global
+  terraform_version: 1.8.1
+  workflow: dev_basic_workflow
+  workspace: dev
+- autoplan:
+    enabled: true
+    when_modified: null
+  dir: cdc-global
+  terraform_version: 1.8.1
+  workflow: oneint_basic_workflow
+  workspace: oneint
+- autoplan:
+    enabled: true
+    when_modified: null
+  dir: concent-claims
+  terraform_version: 1.7.5
+  workflow: prod_basic_workflow
+  workspace: prod
+- autoplan:
+    enabled: true
+    when_modified: null
+  dir: concent-claims
+  terraform_version: 1.7.5
+  workflow: oneint_basic_workflow
+  workspace: oneint
+- autoplan:
+    enabled: true
+    when_modified: null
+  dir: concent-claims
+  terraform_version: 1.7.5
+  workflow: dev_basic_workflow
+  workspace: dev
+- autoplan:
+    enabled: true
+    when_modified: null
+  dir: fsm-cosmodb
+  terraform_version: 1.7.5
+  workflow: dev_basic_workflow
+  workspace: dev
+- autoplan:
+    enabled: true
+    when_modified: null
+  dir: fsm-cosmodb
+  terraform_version: 1.7.5
+  workflow: oneint_basic_workflow
+  workspace: oneint
+- autoplan:
+    enabled: true
+    when_modified: null
+  dir: fsm-cosmodb
+  terraform_version: 1.7.5
+  workflow: prod_basic_workflow
+  workspace: prod
+- autoplan:
+    enabled: true
+    when_modified: null
+  dir: fsm-eh
+  terraform_version: 1.7.5
+  workflow: oneint_basic_workflow
+  workspace: oneint
+- autoplan:
+    enabled: true
+    when_modified: null
+  dir: fsm-eh
+  terraform_version: 1.7.5
+  workflow: dev_basic_workflow
+  workspace: dev
+- autoplan:
+    enabled: true
+    when_modified: null
+  dir: fsm-eh
+  terraform_version: 1.7.5
+  workflow: prod_basic_workflow
+  workspace: prod
+- autoplan:
+    enabled: true
+    when_modified: null
+  dir: fsm-funcapp
+  terraform_version: 1.8.1
+  workflow: dev_basic_workflow
+  workspace: dev
+- autoplan:
+    enabled: true
+    when_modified: null
+  dir: fsm-funcapp
+  terraform_version: 1.8.1
+  workflow: prod_basic_workflow
+  workspace: prod
+- autoplan:
+    enabled: true
+    when_modified: null
+  dir: fsm-funcapp
+  terraform_version: 1.8.1
+  workflow: oneint_basic_workflow
+  workspace: oneint
+- autoplan:
+    enabled: true
+    when_modified: null
+  dir: isp-eh
+  terraform_version: 1.8.1
+  workflow: sandbox_basic_workflow
+  workspace: sandbox
+- autoplan:
+    enabled: true
+    when_modified: null
+  dir: main
+  terraform_version: 1.7.5
   workflow: nonprod_basic_workflow
+  workspace: nonprod
+- autoplan:
+    enabled: true
+    when_modified: null
+  dir: main
   terraform_version: 1.7.5
-- dir: main
-  workspace: prod
   workflow: prod_basic_workflow
-  terraform_version: 1.7.5
-
-- dir: fsm-cosmodb
-  workspace: dev
-  workflow: dev_basic_workflow
-  terraform_version: 1.7.5
-- dir: fsm-cosmodb
-  workspace: oneint
-  workflow: oneint_basic_workflow
-  terraform_version: 1.7.5
-- dir: fsm-cosmodb
   workspace: prod
-  workflow: prod_basic_workflow
-  terraform_version: 1.7.5
-
-- dir: fsm-eh
-  workspace: dev
+- autoplan:
+    enabled: true
+    when_modified: null
+  dir: odl/odl-core
+  terraform_version: 1.8.1
   workflow: dev_basic_workflow
-  terraform_version: 1.7.5
-- dir: fsm-eh
-  workspace: oneint
+  workspace: dev
+- autoplan:
+    enabled: true
+    when_modified: null
+  dir: odl/odl-core
+  terraform_version: 1.8.1
   workflow: oneint_basic_workflow
-  terraform_version: 1.7.5
-- dir: fsm-eh
+  workspace: oneint
+- autoplan:
+    enabled: true
+    when_modified: null
+  dir: odl/odl-core
+  terraform_version: 1.8.1
+  workflow: prod_basic_workflow
   workspace: prod
-  workflow: prod_basic_workflow
-  terraform_version: 1.7.5
-
-- dir: fsm-funcapp
-  workspace: dev
-  workflow: dev_basic_workflow
+- autoplan:
+    enabled: true
+    when_modified: null
+  dir: odl/odl-sales-catalog
   terraform_version: 1.8.1
-- dir: fsm-funcapp
-  workspace: oneint
-  workflow: oneint_basic_workflow
-  terraform_version: 1.8.1
-- dir: fsm-funcapp
-  workspace: prod
-  workflow: prod_basic_workflow
-  terraform_version: 1.8.1
-
-- dir: cdc-global
-  workspace: dev
-  workflow: dev_basic_workflow
-  terraform_version: 1.8.1
-- dir: cdc-global
-  workspace: oneint
-  workflow: oneint_basic_workflow
-  terraform_version: 1.8.1
-
-- dir: isp-eh
-  workspace: sandbox
   workflow: sandbox_basic_workflow
-  terraform_version: 1.8.1
-
-- dir: concent-claims
-  workspace: dev
-  workflow: dev_basic_workflow
-  terraform_version: 1.7.5
-- dir: concent-claims
-  workspace: oneint
-  workflow: oneint_basic_workflow
-  terraform_version: 1.7.5 
-- dir: concent-claims
-  workspace: prod
-  workflow: prod_basic_workflow
-  terraform_version: 1.7.5 
-
-- dir: odl/odl-core
-  workspace: dev
-  workflow: dev_basic_workflow
-  terraform_version: 1.8.1
-- dir: odl/odl-core
-  workspace: oneint
-  workflow: oneint_basic_workflow
-  terraform_version: 1.8.1
-- dir: odl/odl-core
-  workspace: prod
-  workflow: prod_basic_workflow
-  terraform_version: 1.8.1
-
-- dir: odl/odl-sales-catalog
   workspace: sandbox
-  workflow: sandbox_basic_workflow
+- autoplan:
+    enabled: true
+    when_modified: null
+  dir: odl/odl-sales-catalog
   terraform_version: 1.8.1
-- dir: odl/odl-sales-catalog
-  workspace: dev
   workflow: dev_basic_workflow
+  workspace: dev
+- autoplan:
+    enabled: true
+    when_modified: null
+  dir: odl/odl-sales-catalog
   terraform_version: 1.8.1
-- dir: odl/odl-sales-catalog
-  workspace: oneint
   workflow: oneint_basic_workflow
-  terraform_version: 1.8.1
+  workspace: oneint
+- autoplan:
+    enabled: true
+    when_modified:
+    - '*.hcl'
+    - '*.tf*'
+    - ../../../../terragrunt.hcl
+    - ../../../../_envcommon/aks01cluster.hcl
+  dir: terragrunt/nonprod/westeurope/nonprod/aks01cluster
+  name: terragrunt_nonprod_westeurope_nonprod_aks01cluster
+  terraform_version: v1.8.1
+  workflow: nonprod_terragrunt_workflow
+version: 3
