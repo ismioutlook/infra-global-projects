@@ -25,7 +25,7 @@ locals {
   cluster_name                         = "AKS-MSS-NonProd-NA-POC-01"
   cluster_log_analytics_workspace_name = format("LA-%s", local.cluster_name)
   node_resource_group                  = format("RG-%s", local.cluster_name)
-  vnet_subnet_id                       = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/AKS-SBT-01"
+  vnet_subnet_id                       = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/AKS-SBT-02"
 }
 
 # Configure the version of the module to use in this environment. This allows to promote new versions one
