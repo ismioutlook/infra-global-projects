@@ -79,13 +79,6 @@ inputs = {
     mode                             = "Istio"
     internal_ingress_gateway_enabled = true
     external_ingress_gateway_enabled = false
-    certificate_authority {
-      key_vault_id = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-KeyVaults/providers/Microsoft.KeyVault/vaults/elxkv-cert-nonprod-test"
-      root_cert_object_name = "ElectroluxRootCA2"
-      cert_chain_object_name = "certificate-chain"
-      cert_object_name = "interm-cert"
-      key_object_name = "certificate-key"
-    }
   }
 
   fluxcd_git_repository_creds = {
