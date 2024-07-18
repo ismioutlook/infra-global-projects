@@ -27,13 +27,39 @@ Terragrunt is a thin wrapper on terraform and in our tooling stack Terragrunt is
 
 - **The merge of PR is also controlled by atlantis meaning you must not merge your PRs yourself**. Once the changes get applied by atlantis, your PR will automatically be merged and completed.
 
+## Working with Terraform Modules
+Ideally we should be provisioning infrastructure using modules as they provide multiple benefits such as reusability, consistency and testability. We need to be pragmatic in deciding whether we should develop our own custom modules or use opensource ones. General guidelines are mentioned below:
+
+### Opensource terraform modules
+- We may use opensource terraform module directly, provided we are careful about a few aspects such as the module is:
+  - Opensource and developed by a verified provider like Azure
+  - Well maintained (check the latest release date)
+  - Small in size with particular scope and does its job well
+  - Well tested and widely used by community
+  - Comes under permissive opensource licenses like Apache-2.0 and MIT
+- For complex components like AKS, we must use Opensource modules provided by verified providers like Azure itself. This is to ensure that we get the updates and maintainability from wider opensource community.
+
+### Custom/in-house developed terraform modules
+Following guidelines need to kept in mind for developing terraform modules.
+- The module should have its own repository under [infra-modules](https://dev.azure.com/ELX-Marketing-DevOps/infra-modules) project in Azure DevOps.
+- For Azure, the module must be named as `terraform-azurerm-<name-of-module>` for instance, `terraform-azurerm-managed-identity`. For existing modules, we may keep their existing names.
+- The repo/code structure must be similar to the opensource modules such as [terraform-azurerm-aks](https://github.com/Azure/terraform-azurerm-aks). Few important things to consider:
+  - The code should be available on root level
+  - There must exists an `examples` folder containing code showing how to consume the module
+  - `outputs.tf` must exist to expose the required outputs
+- Tests and release pipelines are created
+- Documentation, [terraform-docs](https://github.com/terraform-docs/terraform-docs) should be used to autogenerate module documentation
+- Only default `main` branch is used as a long lived branch. PRs need to be raised against `main` branch only.
+- We should ideally use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) with autorelease [semantic(https://semver.org/)] versioning. Since we dont currently have the release pipeline, therefore for the timebeing we may use specific HEAD sha hash from `main` branch in the consumer. An example can be [found here](https://dev.azure.com/ELX-Marketing-DevOps/infra-global-projects/_git/infra-global-projects-v1?path=/odl/odl-core/eventgrid.tf&version=GBmain&line=3&lineEnd=4&lineStartColumn=1&lineEndColumn=1&lineStyle=plain&_a=contents).
+
 ## Provisioning Azure Services
 
-In this section, we have provided details about how to provision various Azure components via terraform in particular, which terraform modules should be used.
+In this section, we have provided details about how to provision various Azure components via Terraform and in particular, which Terraform modules should be used. This is work in progress and therefore, should be contributed by all team members
 
+  
 | Azure Service          | Recommended Module                                                                                                            | Example Usage                                                                                          |
 | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| Resource Group         | [terraform-azurerm-aks](https://registry.terraform.io/modules/Azure/aks/azurerm/latest)                                       | [usage examples](https://github.com/Azure/terraform-azurerm-aks/tree/main/examples)                    |
+| Resource Group         | [infra-mod-rg](https://dev.azure.com/ELX-Marketing-DevOps/infra-modules/_git/infra-mod-rg)                                       | [usage examples](https://dev.azure.com/ELX-Marketing-DevOps/infra-modules/_git/infra-mod-rg?path=/examples)                    |
 | Virtual network        | [terraform-azurerm-vnet](https://registry.terraform.io/modules/Azure/vnet/azurerm/latest)                                     | [usage examples](https://github.com/Azure/terraform-azurerm-vnet/tree/main/examples)                   |
 | Network Security Group | [terraform-azurerm-network-security-group](https://registry.terraform.io/modules/Azure/network-security-group/azurerm/latest) | [usage examples](https://github.com/Azure/terraform-azurerm-network-security-group/tree/main/examples) |
 | AKS                    | [terraform-azurerm-aks](https://registry.terraform.io/modules/Azure/aks/azurerm/latest)                                       | [usage examples](https://github.com/Azure/terraform-azurerm-aks/tree/main/examples)                    |
