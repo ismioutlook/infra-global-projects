@@ -2,19 +2,19 @@
 
 The idea of this repository is to have a mono-repo with multiple terraform and terragrunt based stacks to provision and manage Azure cloud resources.  
 
-This repository provisions infrastructure via [atlantis](https://www.runatlantis.io/) which is a terraform pull request automation tool and hosted internally within [Electrolux](https://dev.azure.com/ELX-Marketing-DevOps/platform-engineering-stack/_git/atlantis). For detailed demo of how atlantis works, please watch [this video](https://electrolux-my.sharepoint.com/:v:/p/kamran_manzoor/EbhnEaGlxBFJik5th4CA1KIBMn_UTeVqZMgJc_zxdmwQHQ?referrer=Teams.TEAMS-ELECTRON&referrerScenario=MeetingChicletGetLink.view.view). atlantis config can be seen in [this file](atlantis.yaml).
+For both terragrunt and terraform stacks, this repository provisions infrastructure via [atlantis](https://www.runatlantis.io/) which is a pull request automation tool and hosted internally within [Electrolux](https://dev.azure.com/ELX-Marketing-DevOps/platform-engineering-stack/_git/atlantis). For detailed demo of how atlantis works, please watch [this video](https://electrolux-my.sharepoint.com/:v:/p/kamran_manzoor/EbhnEaGlxBFJik5th4CA1KIBMn_UTeVqZMgJc_zxdmwQHQ?referrer=Teams.TEAMS-ELECTRON&referrerScenario=MeetingChicletGetLink.view.view). atlantis config can be seen in [this file](atlantis.yaml).
 
 # General IaC Strategy
 
-We are using both terraform and terragrunt for provisioning infrastructure resources. [terraform](terraform/) and [terragrunt](terragrunt/) directories contain the infra for each specific tool. **Terragrunt is mainly used to effectively provision resources/stacks in multiple regions/multiple environments.** Lets discuss in detail about when to use one over the other.
+We are using both terraform and terragrunt for provisioning infrastructure resources. [terraform](terraform/) and [terragrunt](terragrunt/) directories contain the infra for each specific tool. **Terragrunt is mainly used to effectively provision resources/stacks in multiple regions.** Lets discuss about when to use one over the other.
 
 ## Terraform
-Terraform should be the **defacto choice** for provisioning resources for **domain teams**. The terraform directory already contains multiple terraform infrastructure structure stacks which are provisioned per business domain. Each business domain has its own statefile. Moreover, please note that we are using workspaces and there is 1:1 relationship between workspace and environment, thus, statefile is per environment within a single stack/project.
+Terraform should be the **defacto choice** for provisioning resources for **domain teams**. The terraform directory already contains multiple terraform infrastructure stacks which are provisioned per business domain. Each business domain has its own statefile. Moreover, please note that we are using workspaces and there is 1:1 relationship between workspace and environment, thus, statefile is per environment within a single stack/project.
 
 ### Structure of a specific terraform stack/directory
 The infrasture code i.e., resource specific terraform files should be placed directly in root directory, see an example [here](terraform/odl/odl-core/). The resources should ideally be provisioned by calling terraform modules. Please see the list [below](#provisioning-azure-services).
 
-Since atlantis is used to provisioning terraform and we are using server-side workflows, therefore, each terraform stack must contain `envs` sub-directory similar to [this one](terraform/odl/odl-core/envs).
+Since atlantis is used to provision terraform resources and we are using server-side workflows, therefore, each terraform stack must contain `envs` sub-directory similar to [this one](terraform/odl/odl-core/envs).
 This envs sub-directory should contain 2 files per environment i.e., `<env>-backend.tfvars` containing backend configuration for hosting statefile for this specific environment and `<env>.tfvars` containing values for variables for this particular environment.
 
 `<env>` must be one of these: `sandbox`, `dev`, `oneint`, `nonprod`, and `prod`. These environments point to following subscriptions:
@@ -47,18 +47,8 @@ terraform plan -var-file envs/dev.tfvars
 terraform apply -var-file envs/dev.tfvars
 ````
 
-* `main/` : This directory contains the main Terraform stack. Each file in this stack corresponds to a specific Azure resource or set of related resources.
-
-    - `acr.tf`: Defines Azure Container Registry resources.
-    * `aks_eu.tf`: Defines Azure Kubernetes Service resources for the EU region.
-    * `apim.tf`: Defines Azure API Management resources.
-    * `appgw_eu.tf`: Defines Azure Application Gateway resources for the EU region.
-    * `app_insights_eu.tf`: Defines Azure Application Insights resources for the EU region.
-    * `data.tf`: Defines data sources used in the Terraform configurations.
-    * `nsg_eu.tf`: Defines Network Security Group resources for the EU region.
-    * `provider.tf`: Configures the Azure provider for Terraform.
-    * `rg_eu.tf`: Defines Resource Group resources for the EU region.
-    * `variables.tf`: Defines variables used in the Terraform configurations.
+## Terragrunt
+Terragrunt is a thin wrapper on terraform and in our tooling stack Terragrunt is mainly used to provision and maintain resources across multiple regions. For instance, it is currently used within PE to provision AKS clusters across multiple regions and environments. Since terragrunt adds complexity, therefore, it should be used in a pragmatic way. Please read detailed terragrunt documentation and how to work with it [here](terragrunt/README.md).
 
 ## How to Raise a Change
 
