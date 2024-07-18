@@ -50,11 +50,19 @@ terraform apply -var-file envs/dev.tfvars
 ## Terragrunt
 Terragrunt is a thin wrapper on terraform and in our tooling stack Terragrunt is mainly used to provision and maintain resources across multiple regions. For instance, it is currently used within PE to provision AKS clusters across multiple regions and environments. Since terragrunt adds complexity, therefore, it should be used in a pragmatic way. Please read detailed terragrunt documentation and how to work with it [here](terragrunt/README.md).
 
-## How to Raise a Change
+## How to Raise a PR
+- Before you begin, please read our guidelines about [Terraform](terraform/README.md) and [Terragrunt](terragrunt/README.md).
 
-If you want to change the existing infra, you should raise a PR against `main` branch and collaborate on the PR. **The merge of PR is also controlled by atlantis meaning you must not merge your PRs yourself**. 
+- You must branch out from `main`, add your changes and raise a PR against `main` branch
 
-If you want to define a new terraform stack, you need to create a directory like [main](main/) which must contain the same structure with [envs](main/envs/) subdirectory containing env specific conf files. You then need to update [atlantis.yaml](atlantis.yaml) file and add the new stack there. **Be aware, we are using workspaces and there is 1:1 relationship between workspace and environment.**
+- atlantis should run the plan you and display the plan output on your PR. You may also run the plan anytime by commenting `atlantis plan` on your PR.
+
+- Carefully check the plan output, ensure everything looks as expected before you ask for a review.
+
+- Ask for a review. Once the PR gets approved and mergeable conditions get satisfied, you may apply your changes by commenting `atlantis apply <specific stack>`. **DONOT use global `atlantis apply`**. Instead apply in one environment/stack at a time starting from lowest environment. At the end of the plan output, atlantis shows the command to specifically apply that particular plan. Use that command and comment it on your PR.
+
+- **The merge of PR is also controlled by atlantis meaning you must not merge your PRs yourself**. Once the changes get applied by atlantis, your PR will automatically be merged and completed.
+
 
 ## Role Assignments
 
