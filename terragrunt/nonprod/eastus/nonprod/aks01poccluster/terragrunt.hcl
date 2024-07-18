@@ -90,7 +90,6 @@ inputs = {
   }
 
   enable_fluxcd = false
-  workload_identity_enabled = true
   oidc_issuer_enabled       = true
 }
 
