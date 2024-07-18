@@ -170,6 +170,17 @@ projects:
     - '*.tf*'
     - ../../../../terragrunt.hcl
     - ../../../../_envcommon/aks01cluster.hcl
+  dir: terragrunt/nonprod/eastus/nonprod/aks01poccluster
+  name: terragrunt_nonprod_eastus_nonprod_aks01poccluster
+  terraform_version: v1.8.1
+  workflow: nonprod_terragrunt_workflow
+- autoplan:
+    enabled: true
+    when_modified:
+    - '*.hcl'
+    - '*.tf*'
+    - ../../../../terragrunt.hcl
+    - ../../../../_envcommon/aks01cluster.hcl
   dir: terragrunt/nonprod/westeurope/nonprod/aks01cluster
   name: terragrunt_nonprod_westeurope_nonprod_aks01cluster
   terraform_version: v1.8.1
