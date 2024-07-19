@@ -1,25 +1,71 @@
 # Introduction
 
-This repository is structured for a Global Terraform project that provisions and manages Azure cloud resources. This repository provisions infrastructure via [atlantis](https://www.runatlantis.io/) which is a terraform pull request automation tool and hosted internally within Electrolux. For detailed demo of how atlantis works, please watch [this video](https://electrolux-my.sharepoint.com/:v:/p/kamran_manzoor/EbhnEaGlxBFJik5th4CA1KIBMn_UTeVqZMgJc_zxdmwQHQ?referrer=Teams.TEAMS-ELECTRON&referrerScenario=MeetingChicletGetLink.view.view). **Moreover, please note that we are using workspaces and there is 1:1 relationship between workspace and environment.**
+The idea of this repository is to have a mono-repo with multiple terraform and terragrunt based stacks to provision and manage Azure cloud resources.  
 
-* `main/` : This directory contains the main Terraform stack. Each file in this stack corresponds to a specific Azure resource or set of related resources.
+For both terragrunt and terraform stacks, this repository provisions infrastructure via [atlantis](https://www.runatlantis.io/) which is a pull request automation tool and hosted internally within [Electrolux](https://dev.azure.com/ELX-Marketing-DevOps/platform-engineering-stack/_git/atlantis). For detailed demo of how atlantis works, please watch [this video](https://electrolux-my.sharepoint.com/:v:/p/kamran_manzoor/EbhnEaGlxBFJik5th4CA1KIBMn_UTeVqZMgJc_zxdmwQHQ?referrer=Teams.TEAMS-ELECTRON&referrerScenario=MeetingChicletGetLink.view.view). atlantis config can be seen in [this file](atlantis.yaml).
 
-    - `acr.tf`: Defines Azure Container Registry resources.
-    * `aks_eu.tf`: Defines Azure Kubernetes Service resources for the EU region.
-    * `apim.tf`: Defines Azure API Management resources.
-    * `appgw_eu.tf`: Defines Azure Application Gateway resources for the EU region.
-    * `app_insights_eu.tf`: Defines Azure Application Insights resources for the EU region.
-    * `data.tf`: Defines data sources used in the Terraform configurations.
-    * `nsg_eu.tf`: Defines Network Security Group resources for the EU region.
-    * `provider.tf`: Configures the Azure provider for Terraform.
-    * `rg_eu.tf`: Defines Resource Group resources for the EU region.
-    * `variables.tf`: Defines variables used in the Terraform configurations.
+# General IaC Strategy
 
-## How to Raise a Change
+We are using both Terraform and Terragrunt for provisioning infrastructure resources. [terraform](terraform/) and [terragrunt](terragrunt/) directories contain the infra for each specific tool. **Terragrunt is mainly used to effectively provision resources/stacks in multiple regions.** Lets discuss about when to use one over the other.
 
-If you want to change the existing infra, you should raise a PR against `main` branch and collaborate on the PR. **The merge of PR is also controlled by atlantis meaning you must not merge your PRs yourself**. 
+## Terraform
+Terraform should be the **defacto choice** for provisioning resources for **domain teams**. The `terraform` directory already contains multiple Terraform infrastructure stacks which are provisioned per business domain. Each business domain has its own statefile. Moreover, please note that we are using workspaces and there is 1:1 relationship between workspace and environment, thus, statefile is per environment within a single stack/project. Please read detailed Terraform documentation and how to work with it [here](terraform/README.md).
 
-If you want to define a new terraform stack, you need to create a directory like [main](main/) which must contain the same structure with [envs](main/envs/) subdirectory containing env specific conf files. You then need to update [atlantis.yaml](atlantis.yaml) file and add the new stack there. **Be aware, we are using workspaces and there is 1:1 relationship between workspace and environment.**
+## Terragrunt
+Terragrunt is a thin wrapper on terraform and in our tooling stack Terragrunt is mainly used to provision and maintain resources across multiple regions. For instance, it is currently used within PE to provision AKS clusters across multiple regions and environments. Since terragrunt adds complexity, therefore, it should be used in a pragmatic way. Please read detailed terragrunt documentation and how to work with it [here](terragrunt/README.md).
+
+## How to Raise a PR
+- Before you begin, please read our guidelines about [Terraform](terraform/README.md) and [Terragrunt](terragrunt/README.md).
+
+- You must branch out from `main`, add your changes and raise a PR against `main` branch
+
+- atlantis should run the plan you and display the plan output on your PR. You may also run the plan anytime by commenting `atlantis plan` on your PR.
+
+- Carefully check the plan output, ensure everything looks as expected before you ask for a review.
+
+- Ask for a review. Once the PR gets approved and mergeable conditions get satisfied, you may apply your changes by commenting `atlantis apply <specific stack>`. **DONOT use global `atlantis apply`**. Instead apply in one environment/stack at a time starting from lowest environment. At the end of the plan output, atlantis shows the command to specifically apply that particular plan. Use that command and comment it on your PR.
+
+- **The merge of PR is also controlled by atlantis meaning you must not merge your PRs yourself**. Once the changes get applied by atlantis, your PR will automatically be merged and completed.
+
+## Working with Terraform Modules
+Ideally we should be provisioning infrastructure using modules as they provide multiple benefits such as reusability, consistency and testability. We need to be pragmatic in deciding whether we should develop our own custom modules or use opensource ones. General guidelines are mentioned below:
+
+### Opensource terraform modules
+- We may use opensource terraform module directly, provided we are careful about a few aspects such as the module is:
+  - Opensource and developed by a verified provider like Azure
+  - Well maintained (check the latest release date)
+  - Small in size with particular scope and does its job well
+  - Well tested and widely used by community
+  - Comes under permissive opensource licenses like Apache-2.0 and MIT
+- For complex components like AKS, we must use Opensource modules provided by verified providers like Azure itself. This is to ensure that we get the updates and maintainability from wider opensource community.
+
+### Custom/in-house developed terraform modules
+Following guidelines need to kept in mind for developing terraform modules.
+- The module should have its own repository under [infra-modules](https://dev.azure.com/ELX-Marketing-DevOps/infra-modules) project in Azure DevOps.
+- For Azure, the module must be named as `terraform-azurerm-<name-of-module>` for instance, `terraform-azurerm-managed-identity`. For existing modules, we may keep their existing names.
+- The repo/code structure must be similar to the opensource modules such as [terraform-azurerm-aks](https://github.com/Azure/terraform-azurerm-aks). Few important things to consider:
+  - The code should be available on root level
+  - There must exists an `examples` folder containing code showing how to consume the module
+  - `outputs.tf` must exist to expose the required outputs
+- Tests and release pipelines are created
+- Documentation, [terraform-docs](https://github.com/terraform-docs/terraform-docs) should be used to autogenerate module documentation
+- Only default `main` branch is used as a long lived branch. PRs need to be raised against `main` branch only.
+- We should ideally use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) with autorelease [semantic(https://semver.org/)] versioning. Since we dont currently have the release pipeline, therefore for the timebeing we may use specific HEAD sha hash from `main` branch in the consumer. An example can be [found here](https://dev.azure.com/ELX-Marketing-DevOps/infra-global-projects/_git/infra-global-projects-v1?path=/odl/odl-core/eventgrid.tf&version=GBmain&line=3&lineEnd=4&lineStartColumn=1&lineEndColumn=1&lineStyle=plain&_a=contents).
+
+## Provisioning Azure Services
+
+In this section, we have provided details about how to provision various Azure components via Terraform and in particular, which Terraform modules should be used. This is work in progress and therefore, should be contributed by all team members
+
+  
+| Azure Service          | Recommended Module                                                                                                            | Example Usage                                                                                          |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| Regions & Availability Zones         | [terraform-azurerm-regions](https://github.com/Azure/terraform-azurerm-regions)                                       | [usage examples](https://github.com/Azure/terraform-azurerm-regions/tree/main/examples)                    |
+| Resource Group         | [infra-mod-rg](https://dev.azure.com/ELX-Marketing-DevOps/infra-modules/_git/infra-mod-rg)                                       | [usage examples](https://dev.azure.com/ELX-Marketing-DevOps/infra-modules/_git/infra-mod-rg?path=/examples)                    |
+| Virtual network        | [terraform-azurerm-avm-res-network-virtualnetwork](https://github.com/Azure/terraform-azurerm-avm-res-network-virtualnetwork)                                     | [usage examples](https://github.com/Azure/terraform-azurerm-avm-res-network-virtualnetwork/tree/main/examples)                   |
+| Network Security Group | [terraform-azurerm-avm-res-network-networksecuritygroup](https://github.com/Azure/terraform-azurerm-avm-res-network-networksecuritygroup) | [usage examples](https://github.com/Azure/terraform-azurerm-avm-res-network-networksecuritygroup/tree/main/examples) |
+| Storage Accounts | [terraform-azurerm-avm-res-storage-storageaccount](https://github.com/Azure/terraform-azurerm-avm-res-storage-storageaccount) | [usage examples](https://github.com/Azure/terraform-azurerm-avm-res-storage-storageaccount/tree/main/examples) |
+| AKS                    | [terraform-azurerm-aks](https://dev.azure.com/ELX-Marketing-DevOps/infra-modules/_git/terraform-azurerm-aks)                                       | [usage examples](https://dev.azure.com/ELX-Marketing-DevOps/infra-modules/_git/terraform-azurerm-aks?path=/examples)                    |
+| Keyvault               | [terraform-azurerm-avm-res-keyvault-vault](https://registry.terraform.io/modules/Azure/avm-res-keyvault-vault/azurerm/latest)                   | [usage examples](https://github.com/Azure/terraform-azurerm-avm-res-keyvault-vault/tree/main/examples) |
 
 ## Role Assignments
 

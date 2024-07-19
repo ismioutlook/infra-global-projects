@@ -5,161 +5,161 @@ projects:
 - autoplan:
     enabled: true
     when_modified: null
-  dir: cdc-global
+  dir: terraform/cdc-global
   terraform_version: 1.8.1
   workflow: dev_basic_workflow
   workspace: dev
 - autoplan:
     enabled: true
     when_modified: null
-  dir: cdc-global
+  dir: terraform/cdc-global
   terraform_version: 1.8.1
   workflow: oneint_basic_workflow
   workspace: oneint
 - autoplan:
     enabled: true
     when_modified: null
-  dir: concent-claims
+  dir: terraform/concent-claims
   terraform_version: 1.7.5
   workflow: prod_basic_workflow
   workspace: prod
 - autoplan:
     enabled: true
     when_modified: null
-  dir: concent-claims
+  dir: terraform/concent-claims
   terraform_version: 1.7.5
   workflow: oneint_basic_workflow
   workspace: oneint
 - autoplan:
     enabled: true
     when_modified: null
-  dir: concent-claims
+  dir: terraform/concent-claims
   terraform_version: 1.7.5
   workflow: dev_basic_workflow
   workspace: dev
 - autoplan:
     enabled: true
     when_modified: null
-  dir: fsm-cosmodb
+  dir: terraform/fsm-cosmodb
   terraform_version: 1.7.5
   workflow: dev_basic_workflow
   workspace: dev
 - autoplan:
     enabled: true
     when_modified: null
-  dir: fsm-cosmodb
+  dir: terraform/fsm-cosmodb
   terraform_version: 1.7.5
   workflow: oneint_basic_workflow
   workspace: oneint
 - autoplan:
     enabled: true
     when_modified: null
-  dir: fsm-cosmodb
+  dir: terraform/fsm-cosmodb
   terraform_version: 1.7.5
   workflow: prod_basic_workflow
   workspace: prod
 - autoplan:
     enabled: true
     when_modified: null
-  dir: fsm-eh
+  dir: terraform/fsm-eh
   terraform_version: 1.7.5
   workflow: oneint_basic_workflow
   workspace: oneint
 - autoplan:
     enabled: true
     when_modified: null
-  dir: fsm-eh
+  dir: terraform/fsm-eh
   terraform_version: 1.7.5
   workflow: dev_basic_workflow
   workspace: dev
 - autoplan:
     enabled: true
     when_modified: null
-  dir: fsm-eh
+  dir: terraform/fsm-eh
   terraform_version: 1.7.5
   workflow: prod_basic_workflow
   workspace: prod
 - autoplan:
     enabled: true
     when_modified: null
-  dir: fsm-funcapp
+  dir: terraform/fsm-funcapp
   terraform_version: 1.8.1
   workflow: dev_basic_workflow
   workspace: dev
 - autoplan:
     enabled: true
     when_modified: null
-  dir: fsm-funcapp
+  dir: terraform/fsm-funcapp
   terraform_version: 1.8.1
   workflow: prod_basic_workflow
   workspace: prod
 - autoplan:
     enabled: true
     when_modified: null
-  dir: fsm-funcapp
+  dir: terraform/fsm-funcapp
   terraform_version: 1.8.1
   workflow: oneint_basic_workflow
   workspace: oneint
 - autoplan:
     enabled: true
     when_modified: null
-  dir: isp-eh
+  dir: terraform/isp-eh
   terraform_version: 1.8.1
   workflow: sandbox_basic_workflow
   workspace: sandbox
 - autoplan:
     enabled: true
     when_modified: null
-  dir: main
+  dir: terraform/main
   terraform_version: 1.7.5
   workflow: nonprod_basic_workflow
   workspace: nonprod
 - autoplan:
     enabled: true
     when_modified: null
-  dir: main
+  dir: terraform/main
   terraform_version: 1.7.5
   workflow: prod_basic_workflow
   workspace: prod
 - autoplan:
     enabled: true
     when_modified: null
-  dir: odl/odl-core
+  dir: terraform/odl/odl-core
   terraform_version: 1.8.1
   workflow: dev_basic_workflow
   workspace: dev
 - autoplan:
     enabled: true
     when_modified: null
-  dir: odl/odl-core
+  dir: terraform/odl/odl-core
   terraform_version: 1.8.1
   workflow: oneint_basic_workflow
   workspace: oneint
 - autoplan:
     enabled: true
     when_modified: null
-  dir: odl/odl-core
+  dir: terraform/odl/odl-core
   terraform_version: 1.8.1
   workflow: prod_basic_workflow
   workspace: prod
 - autoplan:
     enabled: true
     when_modified: null
-  dir: odl/odl-sales-catalog
+  dir: terraform/odl/odl-sales-catalog
   terraform_version: 1.8.1
   workflow: sandbox_basic_workflow
   workspace: sandbox
 - autoplan:
     enabled: true
     when_modified: null
-  dir: odl/odl-sales-catalog
+  dir: terraform/odl/odl-sales-catalog
   terraform_version: 1.8.1
   workflow: dev_basic_workflow
   workspace: dev
 - autoplan:
     enabled: true
     when_modified: null
-  dir: odl/odl-sales-catalog
+  dir: terraform/odl/odl-sales-catalog
   terraform_version: 1.8.1
   workflow: oneint_basic_workflow
   workspace: oneint
