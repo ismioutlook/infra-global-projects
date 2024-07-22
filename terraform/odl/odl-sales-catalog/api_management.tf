@@ -6,7 +6,7 @@ resource "azurerm_api_management_named_value" "named_value" {
   display_name        = each.value.apim_named_value_name
   secret              = true
   value_from_key_vault {
-    secret_id = azurerm_key_vault_secret.eventgrid_topic_key[each.key].id
+    secret_id = azurerm_key_vault_secret.eventgrid_topic_key[each.key].versionless_id
   }
 }
 
