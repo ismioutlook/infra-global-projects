@@ -45,4 +45,17 @@ locals {
   ])
   storage_account_name      = var.storage_account_name != null ? var.storage_account_name : format("elxnssalescatalog%s001", terraform.workspace)
   virtual_network_subnet_id = coalesce(one(data.azurerm_subnet.subnet[*].id), one(azurerm_subnet.apps-sbnt[*].id))
+  eventgrid_topics          = var.enabled ? var.eventgrid_topics : {}
+  header_name               = "api-key"
+  header_type               = "Static"
+  header_value              = var.enabled && length(var.eventgrid_topics) > 0 ? data.azurerm_key_vault_secret.eventsub_delivery_secret[0].value : null
+  # sales_catalog_app_services_api_key_secret = "odl-salescatalog-ecc-cdc-emwnooe-api-key"
+  sales_catalog_app_services_api_key_secret = "api-key"
+  eventgrid_event_subscriptions = merge([
+    for k1, v1 in local.eventgrid_topics :
+    {
+      for v2 in v1.eventgrid_custom_subscriptions :
+      "${k1}-${v2.name}" => v2
+    }
+  ]...)
 }

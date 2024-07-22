@@ -26,6 +26,11 @@ variable "key_vault_secret_name" {
   description = "Name of the Azure Key Vault secret"
 }
 
+variable "keyvault_id" {
+  type        = string
+  description = "Resource ID of the keyvault to read/store the secrets"
+}
+
 variable "soft_delete_retention_days" {
   type        = string
   description = "kv soft delete retention days"
@@ -224,3 +229,31 @@ variable "eventgrid_subscription_event_delivery_schema" {
   description = "Schema of event delivery for event grid subscription"
 }
 
+variable "eventgrid_topics" {
+  description = "Map of Event Grid topics and their subscriptions"
+  type = map(object({
+    eventgrid_custom_topic_name = string
+    apim_named_value_name       = string
+    apim_backend_name           = string
+    eventgrid_custom_subscriptions = map(object({
+      name                              = string
+      endpoint_url                      = string
+      max_events_per_batch              = number
+      preferred_batch_size_in_kilobytes = number
+      subject_begins_with               = string
+      subject_ends_with                 = string
+      case_sensitive                    = bool
+    }))
+  }))
+  default = {}
+}
+
+
+variable "api_management_srv_details" {
+  type = object({
+    name                = string
+    resource_group_name = string
+  })
+  default     = null
+  description = "Provide details of the api management service. If provided, backend settings will be created"
+}

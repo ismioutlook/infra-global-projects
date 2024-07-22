@@ -1,5 +1,6 @@
 key_vault_name          = "elxkv-odl-sops-eu-oneint"
 key_vault_secret_name   = "mongodb-az-oneint-odl-na-01-conn-str"
+keyvault_id             = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-KeyVaults/providers/Microsoft.KeyVault/vaults/elxkv-odl-sops-eu-1int"
 resource_group_name     = "RG-GL-ODL-SALES-CATLOG-ONEINT-NA"
 resource_group_location = "eastus"
 resource_group_builtin_role_assignments = {

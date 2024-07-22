@@ -1,6 +1,7 @@
 enabled_keyvault                    = true
 key_vault_name                      = "sc-mongodb-constr3-sndbx"
 key_vault_secret_name               = "sc-mongodb-odl-core-dev-eu-pe-conn-str"
+keyvault_id                         = "/subscriptions/f28071b5-e402-4c1a-83cc-ed0744ce8e0a/resourceGroups/RG-EMEA-DDL-Sandbox/providers/Microsoft.KeyVault/vaults/sc-mongodb-constr3-sndbx"
 resource_group_name                 = "RG-EMEA-DDL-Sandbox"
 resource_group_location             = "westeurope"
 storage_account_name                = "elxnsscsandbox"
