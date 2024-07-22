@@ -13,6 +13,6 @@ module "kv" {
 resource "azurerm_key_vault_secret" "eventgrid_topic_key" {
   for_each     = local.eventgrid_topics
   name         = format("%s-key1", each.value.eventgrid_custom_topic_name)
-  value        = azurerm_eventgrid_topic.eventgrid_topic[each.key].id
+  value        = azurerm_eventgrid_topic.eventgrid_topic[each.key].primary_access_key
   key_vault_id = var.keyvault_id
 }
