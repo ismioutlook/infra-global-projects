@@ -110,12 +110,6 @@ variable "app_insights_type" {
   description = "Type of application insights"
 }
 
-# Azure Data Factory
-variable "data_factory_name" {
-  type        = string
-  description = "Name of Azure Data Factory"
-}
-
 # Keyvault Variables
 variable "key_vault_name" {
   type        = string
