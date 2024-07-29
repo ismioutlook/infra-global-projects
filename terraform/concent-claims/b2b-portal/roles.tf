@@ -36,7 +36,7 @@ module "role_assignments" {
 
   role_assignments_for_resources = {
     example1 = {
-      resource_name       = module.logic_apps.logic_app_name
+      resource_name       = var.logic_app_name
       resource_group_name = module.rg[0].name
       role_assignments = {
         role_assignment_1 = {
