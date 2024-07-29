@@ -49,6 +49,7 @@ module "role_assignments" {
         }
       }
     }
+    depends_on = [module.sa, module.logic_apps]
   }
 
 
