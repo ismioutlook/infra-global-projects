@@ -1,6 +1,6 @@
 module "law" {
   count                                     = var.enabled ? 1 : 0
-  source                                    = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-law//module?ref=v0.0.2"
+  source                                    = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-law//module?ref=v0.0.5"
   resource_group_location                   = module.rg[0].location
   tenant_id                                 = local.tenant_id
   subscription_id                           = local.subscription_id
