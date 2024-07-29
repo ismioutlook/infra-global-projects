@@ -5,7 +5,6 @@ data "azurerm_storage_account" "sa" {
 }
 module "logic_apps" {
   source = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-logicapp?ref=logicapp-prod-r2d2-refactor"
-
   rg_name  = module.rg[0].name
   location = module.rg[0].location
   tags     = {}
