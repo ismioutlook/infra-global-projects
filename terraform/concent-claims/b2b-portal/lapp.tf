@@ -11,7 +11,7 @@ module "logic_apps" {
 
   logic_apps = [
     {
-      name                       = module.logic_apps.logic_apps[0].name
+      name                       = var.logic_app_name
       app_service_plan_name      = var.app_service_plan_name
       os_type                    = var.app_service_plan_name_os_type
       sku_name                   = var.app_service_plan_name_sku_name
