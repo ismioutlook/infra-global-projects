@@ -8,7 +8,7 @@ locals {
 
 }
 module "role_assignments" {
-  #   source = "../../"
+  count   = var.enabled ? 1 : 0
   source  = "Azure/avm-res-authorization-roleassignment/azurerm"
   version = "v0.0.1"
   role_definitions = {
