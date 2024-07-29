@@ -1,6 +1,7 @@
 data "azurerm_storage_account" "sa" {
   name                = module.sa[0].name
   resource_group_name = module.rg[0].name
+  depends_on = [ module.sa ]
 }
 module "logic_apps" {
   source = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-mod-logicapp?ref=logicapp-prod-r2d2-refactor"
