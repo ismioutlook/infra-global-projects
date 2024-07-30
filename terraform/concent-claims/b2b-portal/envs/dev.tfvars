@@ -18,58 +18,22 @@ logic_app_name                            = "logicapp-b2b-portal-dev-eastus"
 app_service_plan_name                     = "aspws-b2b-portal-dev-eastus001"
 
 kv_role_assignments = {
-  cert_officer1 = {
+  cert_officer = {
     role_definition_id_or_name = "Key Vault Certificates Officer"
-    principal_id               = "ff2822e1-8fd6-440b-871f-63961030ac60" # michal.hornak@electrolux.com
-    principal_type             = "User"
+    principal_id               = "0233c628-fb10-4cdd-8a3a-3f9472253b2d" # CSA-AAD-PRJ-ELX-Concent-Claim-Developer
+    principal_type             = "Group"
 
   },
-  cert_officer2 = {
-    role_definition_id_or_name = "Key Vault Certificates Officer"
-    principal_id               = "a4e4df86-36f9-41a2-8fce-c9c09f6fccb2" #  victor.zadiran@electrolux.com
-    principal_type             = "User"
-
-  },
-  cert_officer3 = {
-    role_definition_id_or_name = "Key Vault Certificates Officer"
-    principal_id               = "3c05f45b-9541-4624-8201-d98d4da33f3e" #  anindya.chakraborty@electrolux.com
-    principal_type             = "User"
-
-  },
-  crypto_officer1 = {
+  crypto_officer = {
     role_definition_id_or_name = "Key Vault Crypto Officer"
-    principal_id               = "ff2822e1-8fd6-440b-871f-63961030ac60" # michal.hornak@electrolux.com
-    principal_type             = "User"
+    principal_id               = "0233c628-fb10-4cdd-8a3a-3f9472253b2d" # CSA-AAD-PRJ-ELX-Concent-Claim-Developer
+    principal_type             = "Group"
 
   },
-  crypto_officer2 = {
-    role_definition_id_or_name = "Key Vault Crypto Officer"
-    principal_id               = "a4e4df86-36f9-41a2-8fce-c9c09f6fccb2" #  victor.zadiran@electrolux.com
-    principal_type             = "User"
-
-  },
-  crypto_officer3 = {
-    role_definition_id_or_name = "Key Vault Crypto Officer"
-    principal_id               = "3c05f45b-9541-4624-8201-d98d4da33f3e" #  anindya.chakraborty@electrolux.com
-    principal_type             = "User"
-
-  },
-  secrets_officer1 = {
+  secrets_officer = {
     role_definition_id_or_name = "Key Vault Secrets Officer"
-    principal_id               = "ff2822e1-8fd6-440b-871f-63961030ac60" # michal.hornak@electrolux.com
-    principal_type             = "User"
-
-  },
-  secrets_officer2 = {
-    role_definition_id_or_name = "Key Vault Secrets Officer"
-    principal_id               = "a4e4df86-36f9-41a2-8fce-c9c09f6fccb2" #  victor.zadiran@electrolux.com
-    principal_type             = "User"
-
-  },
-  secrets_officer3 = {
-    role_definition_id_or_name = "Key Vault Secrets Officer"
-    principal_id               = "3c05f45b-9541-4624-8201-d98d4da33f3e" #  anindya.chakraborty@electrolux.com
-    principal_type             = "User"
+    principal_id               = "0233c628-fb10-4cdd-8a3a-3f9472253b2d" # CSA-AAD-PRJ-ELX-Concent-Claim-Developer
+    principal_type             = "Group"
 
   }
 
