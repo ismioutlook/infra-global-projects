@@ -15,35 +15,28 @@ module "role_assignments" {
   }
 
   groups_by_display_name = local.groups_by_display_name
-  role_assignments_for_resource_groups = {
-    example1 = {
-      resource_group_name = module.rg[0].name
 
+  role_assignments_for_scopes = {
+    example1 = {
+      scope = module.rg[0].id
       role_assignments = {
         role_assignment_1 = {
           role_definition = "reader"
-          groups = [
-            "my-group-1"
-          ]
+          groups          = ["my-group-1"]
         }
       }
     }
-  }
-
-  role_assignments_for_resources = {
-    example1 = {
-      resource_name       = var.logic_app_name
-      resource_group_name = module.rg[0].name
+    example2 = {
+      scope = module.logic_apps[0].app_service_plan_id
       role_assignments = {
         role_assignment_1 = {
           role_definition = "logic_app_contributor"
-          groups = [
-            "my-group-1"
-          ]
+          groups          = ["my-group-1"]
         }
       }
     }
-
   }
+
+
   depends_on = [module.sa, module.logic_apps]
 }
