@@ -27,7 +27,7 @@ module "role_assignments" {
       }
     }
     example2 = {
-      scope = module.logic_apps[0]["${var.logic_app_name}"].app_service_plan_id
+      scope = module.logic_apps[0].logic_app_ids["${var.logic_app_name}"]
       role_assignments = {
         role_assignment_1 = {
           role_definition = "logic_app_contributor"
