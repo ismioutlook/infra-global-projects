@@ -6,7 +6,7 @@ locals {
 
 }
 module "role_assignments" {
-  count = var.enabled ? 1 : 0
+  count  = var.enabled ? 1 : 0
   source = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/terraform-azurerm-roleassignment?ref=59fc68d9edd1bc94c8e45a1ac0e3a283001a30d5"
   role_definitions = {
     reader                = "Reader"
