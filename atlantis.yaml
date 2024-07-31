@@ -47,6 +47,13 @@ projects:
 - autoplan:
     enabled: true
     when_modified: null
+  dir: terraform/concent-claims/b2b-portal
+  terraform_version: 1.8.1
+  workflow: oneint_basic_workflow
+  workspace: oneint
+- autoplan:
+    enabled: true
+    when_modified: null
   dir: terraform/fsm-cosmodb
   terraform_version: 1.7.5
   workflow: dev_basic_workflow
