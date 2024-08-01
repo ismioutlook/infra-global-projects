@@ -70,7 +70,6 @@ eventgrid_topics = {
       }
     }
   },
-  ,
   topic3 = {
     eventgrid_custom_topic_name = "eg-topic-salescatalog-ecc-mapadder-dev"
     apim_named_value_name       = "sales-catalog-ecc-mapadder-eg-topic-key-dev"
