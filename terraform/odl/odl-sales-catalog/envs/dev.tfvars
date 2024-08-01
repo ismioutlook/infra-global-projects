@@ -69,6 +69,22 @@ eventgrid_topics = {
         case_sensitive                    = false
       }
     }
+  },
+  topic3 = {
+    eventgrid_custom_topic_name = "eg-topic-salescatalog-ecc-mapadder-dev"
+    apim_named_value_name       = "sales-catalog-ecc-mapadder-eg-topic-key-dev"
+    apim_backend_name           = "sc-ecc-mapadder-events-dev"
+    eventgrid_custom_subscriptions = {
+      "subscription1" = {
+        name                              = "sc-ecc-mapadder-webhook"
+        endpoint_url                      = "https://eastus2.azure.data.mongodb-api.com/app/odl-salescatalog-ecc-cdc-emwnooe/endpoint/cdc/SalesCatalogMapAdder"
+        max_events_per_batch              = 10
+        preferred_batch_size_in_kilobytes = 640
+        subject_begins_with               = ""
+        subject_ends_with                 = ""
+        case_sensitive                    = false
+      }
+    }
   }
 }
 

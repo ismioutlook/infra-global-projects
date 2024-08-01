@@ -6,7 +6,6 @@ kv_resource_group_location = "West Europe"
 #-----------------------------KeyVault----------------------
 key_vault_name = "elxkv-odl-sops-eu-dev"
 
-
 # ------------------------Storage account details for EU region------------------------------
 resource_group_name           = "RG-GL-ODL-CORE-DEV-EU"
 resource_group_location       = "West Europe"
@@ -78,8 +77,8 @@ mongo_prv_endpoints = {
     resource_group_name = "RG-ELX-GL-Concent-NonProd-Networking"
     subnet_id           = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-GL-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-GL-Concent-NonProd-Spoke-002/subnets/PV-ENDPOINTS-SBNT-001"
     private_service_connection = {
-      name                           = "pls_64d5d8dfb915977f56e3d881"
-      private_connection_resource_id = "/subscriptions/19e802a2-d3c8-4249-9597-304977d635f9/resourceGroups/rg_621766044229b71a1a195fd3_whcma0ga/providers/Microsoft.Network/privateLinkServices/pls_64d5d8dfb915977f56e3d881"
+      name                           = "pls_66ab66f54854e52a08b154bd"
+      private_connection_resource_id = "/subscriptions/19e802a2-d3c8-4249-9597-304977d635f9/resourceGroups/rg_621766044229b71a1a195fd3_whcma0ga/providers/Microsoft.Network/privateLinkServices/pls_66ab66f54854e52a08b154bd"
     }
   },
   mongo-cdi-dev-aks-eu-001 = {
