@@ -98,15 +98,6 @@ mongo_prv_endpoints = {
       name                           = "pls_664b1dc86e81834ec72785e7"
       private_connection_resource_id = "/subscriptions/7cdc43bc-4dae-46fc-acdb-a56ecd1c0571/resourceGroups/rg_659ffe4dcb7ef44fb0c81a6a_jvikcila/providers/Microsoft.Network/privateLinkServices/pls_664b1dc86e81834ec72785e7"
     }
-  },
-  mongo-odl-core-qa-na-aks-001 = {
-    location            = "eastus"
-    resource_group_name = "RG-ELX-EUS-Concent-NonProd-Networking"
-    subnet_id           = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/resourceGroups/RG-ELX-EUS-Concent-NonProd-Networking/providers/Microsoft.Network/virtualNetworks/VN-ELX-EUS-Concent-NonProd-Spoke-001/subnets/PV-ENDPOINTS-SBT-01"
-    private_service_connection = {
-      name                           = "pls_66ab1ff48b43815b214b8e4e"
-      private_connection_resource_id = "/subscriptions/366985d4-8eff-4d0b-8a3c-33ea5a60f6ee/resourceGroups/rg_66ab1ff48b43815b214b8e6e_egw1zsk8/providers/Microsoft.Network/privateLinkServices/pls_66ab1ff48b43815b214b8e4e"
-    }
   }
 }
 
