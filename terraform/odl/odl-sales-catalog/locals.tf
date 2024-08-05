@@ -48,7 +48,7 @@ locals {
   eventgrid_topics                          = var.enabled ? var.eventgrid_topics : {}
   header_name                               = "api-key"
   header_type                               = "Static"
-  header_value                              = var.enabled && length(var.eventgrid_topics) > 0 ? data.azurerm_key_vault_secret.eventsub_delivery_secret[0].value : null
+  header_value                              = "" #var.enabled && length(var.eventgrid_topics) > 0 ? data.azurerm_key_vault_secret.eventsub_delivery_secret[0].value : null
   sales_catalog_app_services_api_key_secret = var.sales_catalog_app_services_api_key_secret
   eventgrid_event_subscriptions = merge([
     for k1, v1 in local.eventgrid_topics :
