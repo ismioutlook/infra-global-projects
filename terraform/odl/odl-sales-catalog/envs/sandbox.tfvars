@@ -32,7 +32,7 @@ subnet_details = {
     }
   }
 }
-
+sales_catalog_app_services_api_key_secret     = "odl-salescatalog-ecc-cdc-emwnooe-api-key"
 eventgrid_system_topic_name                   = "eg-s-topic-sales-catalog-ingestion"
 eventgrid_subscription_name                   = "sbsc-sales-catalog-ingestion"
 eventgrid_subscription_advanced_filter_values = ["rex-"]
