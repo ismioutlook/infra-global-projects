@@ -38,7 +38,7 @@ eventgrid_subscription_name                   = "sbsc-sales-catalog-ingestion"
 eventgrid_subscription_advanced_filter_values = ["rex-"]
 eventgrid_custom_topic_name                   = "eg-c-topic-sales-catalog-ingestion-oneint"
 
-
+sales_catalog_app_services_api_key_secret = "odl-salescatalog-ecc-cdc-pxftzsl-api-key"
 eventgrid_topics = {
   topic1 = {
     eventgrid_custom_topic_name = "eg-topic-salescatalog-ecc-materials-oneint"

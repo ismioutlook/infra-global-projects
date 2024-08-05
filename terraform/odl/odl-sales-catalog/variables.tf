@@ -16,6 +16,11 @@ variable "enabled_eventgrid_event_subscription_storageaccount" {
   description = "Flag to control provisioning of eventgrid_event_subscription_storageaccount"
 }
 
+variable "sales_catalog_app_services_api_key_secret" {
+  type        = string
+  description = "Name of the sales catalog app services apikey secret"
+}
+
 variable "key_vault_name" {
   type        = string
   description = "Name of the Azure Key Vault"
