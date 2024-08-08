@@ -6,7 +6,7 @@ terraform {
     }
   }
   backend "azurerm" {
-    key = "c4c-replica-md/terraform.tfstate"
+    key = "b2b-portal/terraform.tfstate"
   }
 }
 
