@@ -3,15 +3,15 @@ module "testvm" {
   version = "0.15.1"
 
   enable_telemetry    = var.enable_telemetry
-  location            = azurerm_resource_group.this_rg.location
-  resource_group_name = azurerm_resource_group.this_rg.name
+  location            = module.rg[0].location
+  resource_group_name = module.rg[0].name
   os_type             = "Windows"
   name                = var.machine_name
   sku_size            = "Standard_DS3_v2"
   zone                = "1"
 
   generated_secrets_key_vault_secret_config = {
-    key_vault_resource_id = module.avm_res_keyvault_vault.resource_id
+    key_vault_resource_id = module.kv.resource_id
   }
 
   source_image_reference = {
