@@ -4,5 +4,5 @@ module "adf" {
   location                   = module.rg[0].location
   resource_group_name        = module.rg[0].name
   integration_runtime_type   = "SelfHosted"
-  azure_devops_configuration = var.azure_devops_configuration != {} ? merge(var.azure_devops_configuration, "{tenant_id=${local.tenant_id}") : {}
+  azure_devops_configuration = var.azure_devops_configuration != {} ? merge(var.azure_devops_configuration, local.tenant_id_map) : {}
 }
