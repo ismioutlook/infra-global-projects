@@ -19,6 +19,13 @@ projects:
 - autoplan:
     enabled: true
     when_modified: null
+  dir: terraform/tpa-funcapp
+  terraform_version: 1.8.1
+  workflow: dev_basic_workflow
+  workspace: dev
+- autoplan:
+    enabled: true
+    when_modified: null
   dir: terraform/concent-claims/tpa
   terraform_version: 1.7.5
   workflow: prod_basic_workflow
