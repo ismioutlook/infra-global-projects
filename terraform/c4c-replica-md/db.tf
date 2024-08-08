@@ -9,7 +9,7 @@ module "sql" {
   server_custom_name     = var.sql_srv_name
   location               = module.rg[0].location
   administrator_login    = "c4creplicaadmin"
-  administrator_password = random_string.db_password
+  administrator_password = random_string.db_password.result
   databases = [{
     name = var.sql_db_name
 

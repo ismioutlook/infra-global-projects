@@ -1,7 +1,7 @@
 enabled                    = true
 resource_group_name        = "RG-GL-c4c-replica-Dev"
 location                   = "westeurope"
-key_vault_name             = "elxkv-c4creplica-dev-westeu001"
+key_vault_name             = "elxkv-c4c-dev-westeu001"
 soft_delete_retention_days = 90
 kv_sku_name                = "standard"
 adf_name                   = "elxa2df-c4creplica-dev001"
