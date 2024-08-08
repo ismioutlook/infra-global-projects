@@ -33,3 +33,12 @@ resource "azurerm_role_assignment" "sa_role_assign" {
   role_definition_name = each.value.role
   principal_type       = "Group"
 }
+
+resource "azurerm_storage_blob" "rex_landing_folder" {
+  count                  = var.enabled ? 1 : 0
+  name                   = "${var.storage_container_rex_upload_folder}/.keep"
+  storage_account_name   = azurerm_storage_account.sales-catalog-rex-upload[count.index].name
+  storage_container_name = azurerm_storage_container.sales-catalog-ingestion-cont[count.index].name
+  type                   = "Block"
+  source_content         = ""
+}
