@@ -1,4 +1,4 @@
-module "testvm" {
+module "vm" {
   source  = "Azure/avm-res-compute-virtualmachine/azurerm"
   version = "0.15.1"
 
