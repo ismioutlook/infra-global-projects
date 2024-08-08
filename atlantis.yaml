@@ -54,6 +54,13 @@ projects:
 - autoplan:
     enabled: true
     when_modified: null
+  dir: terraform/c4c-replica-md
+  terraform_version: 1.8.1
+  workflow: dev_basic_workflow
+  workspace: dev
+- autoplan:
+    enabled: true
+    when_modified: null
   dir: terraform/fsm-cosmodb
   terraform_version: 1.7.5
   workflow: dev_basic_workflow
