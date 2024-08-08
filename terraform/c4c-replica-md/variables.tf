@@ -34,6 +34,10 @@ variable "machine_name" {
   type        = string
   description = "server name"
 }
+variable "network_interface_name" {
+  type        = string
+  description = "server name"
+}
 variable "subnet_id" {
   type        = string
   description = "Subnet ID"

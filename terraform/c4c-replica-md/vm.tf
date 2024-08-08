@@ -23,7 +23,7 @@ module "testvm" {
 
   network_interfaces = {
     network_interface_1 = {
-      name = module.naming.network_interface.name_unique
+      name = var.network_interface_name
       ip_configurations = {
         ip_configuration_1 = {
           name                          = "c4creplica-ipconfig1"
