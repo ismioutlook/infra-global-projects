@@ -11,7 +11,7 @@ module "testvm" {
   zone                = "1"
 
   generated_secrets_key_vault_secret_config = {
-    key_vault_resource_id = module.kv.resource_id
+    key_vault_resource_id = module.kv[0].resource_id
   }
 
   source_image_reference = {
