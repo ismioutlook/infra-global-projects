@@ -17,6 +17,10 @@ eventhub_names = {
   topic2 = {
     name                 = "cdc-global-consumers-oneintegration",
     consumer_group_names = ["cg-cdc-global-consumers-oneintegration", "cg-cdc-global-datalake-oneintegration", "cg-cdc-ymkt-global-oneintegration"]
+  },
+  topic3 = {
+    name                 = "cdc-event-global-consumers-oneintegration",
+    consumer_group_names = ["cg-blueconic-oneintegration"]
   }
 
 }
