@@ -58,7 +58,7 @@ locals {
 resource "azapi_update_resource" "approve_kv_private_endpoint_connection" {
   type = "Microsoft.KeyVault/vaults/privateEndpointConnections@2023-07-01"
 
-  name      = slice(split("/", local.key_vault_private_endpoint_connection_name), length(split("/", local.key_vault_private_endpoint_connection_name)) - 1, length(split("/", local.key_vault_private_endpoint_connection_name)))
+  name      = "${slice(split("/", local.key_vault_private_endpoint_connection_name), length(split("/", local.key_vault_private_endpoint_connection_name)) - 1, length(split("/", local.key_vault_private_endpoint_connection_name)))}"
   parent_id = module.kv[0].resource_id
 
   body = jsonencode({
@@ -78,7 +78,7 @@ resource "azapi_update_resource" "approve_kv_private_endpoint_connection" {
 ## SQL
 resource "azapi_update_resource" "approve_sql_private_endpoint_connection" {
   type      = "Microsoft.Sql/servers/privateEndpointConnections@2023-05-01-preview"
-  name      = slice(split("/", local.sql_endpoint_connection_name), length(split("/", local.sql_endpoint_connection_name)) - 1, length(split("/", local.sql_endpoint_connection_name)))
+  name      = "${slice(split("/", local.sql_endpoint_connection_name), length(split("/", local.sql_endpoint_connection_name)) - 1, length(split("/", local.sql_endpoint_connection_name)))}"
   parent_id = module.sql[0].sql_server.id
 
   body = jsonencode({
