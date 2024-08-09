@@ -108,6 +108,6 @@ DESCRIPTION
 ##### DNS Zone ###
 variable "virtual_network_links" {
   type        = map(string)
-  default     = true
+  default     = {}
   description = "Dns Zone virtual network links"
 }
