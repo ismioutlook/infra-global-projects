@@ -1,4 +1,5 @@
 resource "azurerm_data_factory_managed_private_endpoint" "kv_adf_pe" {
+  count          = var.enabled ? 1 : 0
   name               = "pep-${var.adf_name}_${var.key_vault_name}-vault"
   data_factory_id    = module.adf[0].data_factory_id
   target_resource_id = module.kv[0].resource_id
@@ -7,6 +8,7 @@ resource "azurerm_data_factory_managed_private_endpoint" "kv_adf_pe" {
 }
 
 resource "azurerm_data_factory_managed_private_endpoint" "sql_adf_pe" {
+  count          = var.enabled ? 1 : 0
   name               = "pep-${var.adf_name}_${var.sql_srv_name}-vault"
   data_factory_id    = module.adf[0].data_factory_id
   target_resource_id = module.sql[0].sql_server.id
@@ -40,13 +42,13 @@ locals {
   ## key vault
   key_vault_private_endpoint_connection_name = one([
     for connection in jsondecode(data.azapi_resource.key_vault_private_endpoint_connection.output).properties.privateEndpointConnections
-    : connection.name if endswith(connection.properties.privateLinkServiceConnectionState.description, azurerm_data_factory_managed_private_endpoint.kv_adf_pe.name)
+    : connection.name if endswith(connection.properties.privateLinkServiceConnectionState.description, azurerm_data_factory_managed_private_endpoint.kv_adf_pe[0].name)
   ])
 
   ## SQL server endpoint
   sql_endpoint_connection_name = one([
     for connection in jsondecode(data.azapi_resource.sql_private_endpoint_connection.output).properties.privateEndpointConnections
-    : connection.name if endswith(connection.properties.privateLinkServiceConnectionState.description, azurerm_data_factory_managed_private_endpoint.sql_adf_pe.name)
+    : connection.name if endswith(connection.properties.privateLinkServiceConnectionState.description, azurerm_data_factory_managed_private_endpoint.sql_adf_pe[0].name)
   ])
 }
 
@@ -61,7 +63,7 @@ resource "azapi_update_resource" "approve_kv_private_endpoint_connection" {
   body = jsonencode({
     properties = {
       privateLinkServiceConnectionState = {
-        description = "Approved via Terraform - ${azurerm_data_factory_managed_private_endpoint.kv_adf_pe.name}" # To identify which managed private endpoint this connection belongs to we add the managed private endpoint name to the description
+        description = "Approved via Terraform - ${azurerm_data_factory_managed_private_endpoint.kv_adf_pe[0].name}" # To identify which managed private endpoint this connection belongs to we add the managed private endpoint name to the description
         status      = "Approved"
       }
     }
@@ -81,7 +83,7 @@ resource "azapi_update_resource" "approve_sql_private_endpoint_connection" {
   body = jsonencode({
     properties = {
       privateLinkServiceConnectionState = {
-        description = "Approved via Terraform - ${azurerm_data_factory_managed_private_endpoint.sql_adf_pe.name}" # To identify which managed private endpoint this connection belongs to we add the managed private endpoint name to the description
+        description = "Approved via Terraform - ${azurerm_data_factory_managed_private_endpoint.sql_adf_pe[0].name}" # To identify which managed private endpoint this connection belongs to we add the managed private endpoint name to the description
         status      = "Approved"
       }
     }
