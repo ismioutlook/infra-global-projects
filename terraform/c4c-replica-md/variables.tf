@@ -116,3 +116,8 @@ variable "virtual_network_links" {
   default     = {}
   description = "Dns Zone virtual network links"
 }
+
+variable "dz_domain_name" {
+  type        = string
+  description = "dns zone domain name"
+}
