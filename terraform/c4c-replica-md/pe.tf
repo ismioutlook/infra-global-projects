@@ -1,7 +1,7 @@
 module "adf-pe" {
   count          = var.enabled ? 1 : 0
   name           = "pl-VN-ELX-GL-Concent-NonProd-Spoke-001-01"
-  source         = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-module-pe?ref=496689fbec74fa3fe375f89d45d6bd47d8a8dbbe"
+  source         = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-module-pe?ref=59ad009d869e532befd5c5d482f9a2058fb00dc7"
   resource_group = module.rg[0].name
   location       = module.rg[0].location
   service_connection = {
@@ -20,7 +20,7 @@ module "adf-pe" {
 }
 
 module "sql-pe" {
-  source         = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-module-pe?ref=496689fbec74fa3fe375f89d45d6bd47d8a8dbbe"
+  source         = "git@ssh.dev.azure.com:v3/ELX-Marketing-DevOps/infra-modules/infra-module-pe?ref=59ad009d869e532befd5c5d482f9a2058fb00dc7"
   name           = "pl-VN-ELX-GL-Concent-NonProd-Spoke-001-02"
   resource_group = module.rg[0].name
   location       = module.rg[0].location
