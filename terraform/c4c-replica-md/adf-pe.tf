@@ -59,7 +59,7 @@ locals {
 resource "azapi_update_resource" "approve_kv_private_endpoint_connection" {
   type = "Microsoft.KeyVault/vaults/privateEndpointConnections@2023-07-01"
 
-  name      = local.key_vault_private_endpoint_connection
+  name      = local.key_vault_private_endpoint_connection[0]
   parent_id = module.kv[0].resource_id
 
   body = jsonencode({
@@ -79,7 +79,7 @@ resource "azapi_update_resource" "approve_kv_private_endpoint_connection" {
 ## SQL
 resource "azapi_update_resource" "approve_sql_private_endpoint_connection" {
   type      = "Microsoft.Sql/servers/privateEndpointConnections@2023-05-01-preview"
-  name      = local.sql_private_endpoint_connection
+  name      = local.sql_private_endpoint_connection[0]
   parent_id = module.sql[0].sql_server.id
 
   body = jsonencode({
