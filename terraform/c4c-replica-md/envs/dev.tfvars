@@ -17,7 +17,6 @@ subnet_id              = "/subscriptions/4731e47d-991b-4fbd-86aa-1e861607b82f/re
 machine_name           = "a2ws0001-c4cdev"
 ip_configname          = "c4creplicadev-ipconfig"
 network_interface_name = "a2ws0001-c4creplicadev-01"
-sql_db_name            = "elxa2sqlmi-c4creplica-dev-001"
 sql_srv_name           = "elxa2sql-c4creplica-dev-001"
 virtual_network_links = {
   vnetlink1 = {
