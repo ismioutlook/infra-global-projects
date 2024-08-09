@@ -46,7 +46,7 @@ locals {
   ## SQL server endpoint
   sql_endpoint_connection_name = one([
     for connection in jsondecode(data.azapi_resource.sql_private_endpoint_connection.output).properties.privateEndpointConnections
-    : connection.name if endswith(connection.properties.privateLinkServiceConnectionState.description, azurerm_data_factory_managed_private_endpoint.sql_adf_pe.var.adf_name)
+    : connection.name if endswith(connection.properties.privateLinkServiceConnectionState.description, azurerm_data_factory_managed_private_endpoint.sql_adf_pe.adf_name)
   ])
 }
 
