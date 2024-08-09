@@ -43,7 +43,7 @@ locals {
   key_vault_private_endpoint_connection_name = one([
     for connection in jsondecode(data.azapi_resource.key_vault_private_endpoint_connection.output).properties.privateEndpointConnections
     : connection.name
-    if endswith(connection.properties.privateLinkServiceConnectionState.description, azurerm_data_factory_managed_private_endpoint.azurerm_data_factory_managed_private_endpoint.kv_adf_pe.name)
+    if endswith(connection.properties.privateLinkServiceConnectionState.description, azurerm_data_factory_managed_private_endpoint.kv_adf_pe[0].name)
   ])
 
   ## SQL server endpoint
