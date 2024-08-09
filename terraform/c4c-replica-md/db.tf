@@ -13,5 +13,5 @@ module "sql" {
   administrator_password        = random_string.db_password.result
   public_network_access_enabled = true
   databases                     = var.databases
-  allowed_cidr_list             = var.allowed_cidr_list
+  ##allowed_cidr_list             = var.allowed_cidr_list
 }
