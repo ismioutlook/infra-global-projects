@@ -10,11 +10,17 @@ module "kv" {
   sku_name                      = var.kv_sku_name
   soft_delete_retention_days    = var.soft_delete_retention_days
   public_network_access_enabled = false
-  # private_endpoints = {
-  #   primary = {
-  #     private_dns_zone_resource_ids = [azurerm_private_dns_zone.this.id]
-  #     subnet_resource_id            = azurerm_subnet.this.id
-  #   }
-  # }
-  role_assignments = var.kv_role_assignments
+  role_assignments              = merge(var.kv_role_assignments, local.kv_roleassignment)
+  secrets = {
+    sql_server_username = {
+      name = "sql-srv-username"
+    },
+    sql_server_password = {
+      name = "sql-srv-password"
+    }
+  }
+  secrets_value = {
+    sql_server_username = "c4creplicaadmin"
+    sql_server_password = random_string.db_password.result
+  }
 }

@@ -1,4 +1,5 @@
 module "vm" {
+  count   = var.enabled ? 1 : 0
   source  = "Azure/avm-res-compute-virtualmachine/azurerm"
   version = "0.15.1"
 

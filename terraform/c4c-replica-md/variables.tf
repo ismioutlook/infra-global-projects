@@ -104,3 +104,10 @@ A map of role assignments to create on the Key Vault. The map key is deliberatel
 DESCRIPTION
   nullable    = false
 }
+
+##### DNS Zone ###
+variable "virtual_network_links" {
+  type        = map(string)
+  default     = true
+  description = "Dns Zone virtual network links"
+}
