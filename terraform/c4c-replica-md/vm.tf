@@ -27,7 +27,7 @@ module "vm" {
       name = var.network_interface_name
       ip_configurations = {
         ip_configuration_1 = {
-          name                          = "c4creplica-ipconfig1"
+          name                          = var.ip_configname
           private_ip_subnet_resource_id = var.subnet_id
         }
       }

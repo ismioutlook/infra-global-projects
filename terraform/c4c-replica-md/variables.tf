@@ -42,6 +42,10 @@ variable "subnet_id" {
   type        = string
   description = "Subnet ID"
 }
+variable "ip_configname" {
+  type        = string
+  description = "IP config name"
+}
 ### SQL DB ##
 variable "sql_srv_name" {
   type        = string
