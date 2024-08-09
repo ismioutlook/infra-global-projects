@@ -1,5 +1,5 @@
 resource "azurerm_data_factory_managed_private_endpoint" "kv_adf_pe" {
-  count          = var.enabled ? 1 : 0
+  count              = var.enabled ? 1 : 0
   name               = "pep-${var.adf_name}_${var.key_vault_name}-vault"
   data_factory_id    = module.adf[0].data_factory_id
   target_resource_id = module.kv[0].resource_id
@@ -8,7 +8,7 @@ resource "azurerm_data_factory_managed_private_endpoint" "kv_adf_pe" {
 }
 
 resource "azurerm_data_factory_managed_private_endpoint" "sql_adf_pe" {
-  count          = var.enabled ? 1 : 0
+  count              = var.enabled ? 1 : 0
   name               = "pep-${var.adf_name}_${var.sql_srv_name}-vault"
   data_factory_id    = module.adf[0].data_factory_id
   target_resource_id = module.sql[0].sql_server.id
