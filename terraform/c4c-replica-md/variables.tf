@@ -107,7 +107,12 @@ DESCRIPTION
 
 ##### DNS Zone ###
 variable "virtual_network_links" {
-  type        = map(string)
+  type = map(object({
+    vnetlinkname     = string
+    vnetid           = string
+    autoregistration = optional(bool, false)
+    tags             = optional(map(string), null)
+  }))
   default     = {}
   description = "Dns Zone virtual network links"
 }

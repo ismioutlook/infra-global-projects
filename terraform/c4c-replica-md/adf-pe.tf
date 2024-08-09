@@ -26,7 +26,7 @@ data "azapi_resource" "key_vault_private_endpoint_connection" {
 
 data "azapi_resource" "sql_private_endpoint_connection" {
   type                   = "Microsoft.Sql/servers@2023-05-01-preview"
-  resource_id            = module.sql[0].resource_id
+  resource_id            = module.sql[0].sql_server.id
   response_export_values = ["properties.privateEndpointConnections."]
 
   depends_on = [
@@ -80,7 +80,7 @@ resource "azapi_update_resource" "approve_kv_private_endpoint_connection" {
 resource "azapi_update_resource" "approve_sql_private_endpoint_connection" {
   type      = "Microsoft.Sql/servers/privateEndpointConnections@2023-05-01-preview"
   name      = local.sql_endpoint_connection_name
-  parent_id = module.sql[0].resource_id
+  parent_id = module.sql[0].sql_server.id
 
   body = jsonencode({
     properties = {
