@@ -10,7 +10,7 @@ module "kv" {
   sku_name                      = var.kv_sku_name
   soft_delete_retention_days    = var.soft_delete_retention_days
   public_network_access_enabled = false
-  role_assignments              = local.kv_roleassignment
+  role_assignments              = merge(var.kv_role_assignments, local.kv_adf_roleassignment)
   secrets = {
     sql_server_username = {
       name = "sql-srv-username"
