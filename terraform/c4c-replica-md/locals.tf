@@ -9,7 +9,7 @@ locals {
   kv_roleassignment = {
     secrets_officer = {
       role_definition_id_or_name = "Key Vault Secrets Officer"
-      principal_id               = "${module.adf[0].data_factory_managed_identity.identity_ids[0]}"
+      principal_id               = "${module.adf[0].data_factory_managed_identity[0].identity_ids[0]}"
       principal_type             = "ServicePrincipal"
 
     },
