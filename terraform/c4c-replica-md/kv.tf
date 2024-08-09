@@ -9,7 +9,7 @@ module "kv" {
   tenant_id                     = local.tenant_id
   sku_name                      = var.kv_sku_name
   soft_delete_retention_days    = var.soft_delete_retention_days
-  public_network_access_enabled = false
+  public_network_access_enabled = true ### got 403 error when false, terraform execution will fail
   role_assignments              = local.kv_roleassignment
   secrets = {
     sql_server_username = {
