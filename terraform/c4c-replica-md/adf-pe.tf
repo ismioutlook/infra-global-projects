@@ -27,7 +27,7 @@ data "azapi_resource" "key_vault_private_endpoint_connection" {
 }
 
 data "azapi_resource" "sql_private_endpoint_connection" {
-  type                   = "Microsoft.Sql/servers@2023-05-01-preview"
+  type                   = "Microsoft.Sql/servers@2023-08-01-preview"
   resource_id            = module.sql[0].sql_server.id
   response_export_values = ["properties.privateEndpointConnections."]
 
@@ -46,11 +46,12 @@ locals {
     if endswith(connection.properties.privateLinkServiceConnectionState.description, azurerm_data_factory_managed_private_endpoint.kv_adf_pe[0].name)
   ])
 
-  #   ## SQL server endpoint
-  #   sql_endpoint_connection_name = one([
-  #     for connection in jsondecode(data.azapi_resource.sql_private_endpoint_connection.output).properties.privateEndpointConnections
-  #     : connection.name if endswith(connection.properties.privateLinkServiceConnectionState.description, azurerm_data_factory_managed_private_endpoint.sql_adf_pe[0].name)
-  #   ])
+  ## SQL server endpoint
+  sql_endpoint_connection_name = one([
+    for connection in jsondecode(data.azapi_resource.sql_private_endpoint_connection.output).properties.privateEndpointConnections
+    : connection.name
+    if endswith(connection.properties.privateLinkServiceConnectionState.description, azurerm_data_factory_managed_private_endpoint.sql_adf_pe[0].name)
+  ])
 }
 
 
@@ -76,21 +77,21 @@ resource "azapi_update_resource" "approve_kv_private_endpoint_connection" {
 }
 
 ## SQL
-# resource "azapi_update_resource" "approve_sql_private_endpoint_connection" {
-#   type      = "Microsoft.Sql/servers/privateEndpointConnections@2023-05-01-preview"
-#   name      = local.sql_endpoint_connection_name
-#   parent_id = module.sql[0].sql_server.id
+resource "azapi_update_resource" "approve_sql_private_endpoint_connection" {
+  type      = "Microsoft.Sql/servers/privateEndpointConnections@2023-08-01-preview"
+  name      = local.sql_endpoint_connection_name
+  parent_id = module.sql[0].sql_server.id
 
-#   body = jsonencode({
-#     properties = {
-#       privateLinkServiceConnectionState = {
-#         description = "Approved via Terraform - ${azurerm_data_factory_managed_private_endpoint.sql_adf_pe[0].name}" # To identify which managed private endpoint this connection belongs to we add the managed private endpoint name to the description
-#         status      = "Approved"
-#       }
-#     }
-#   })
+  body = jsonencode({
+    properties = {
+      privateLinkServiceConnectionState = {
+        description = "Approved via Terraform - ${azurerm_data_factory_managed_private_endpoint.sql_adf_pe[0].name}" # To identify which managed private endpoint this connection belongs to we add the managed private endpoint name to the description
+        status      = "Approved"
+      }
+    }
+  })
 
-#   lifecycle {
-#     ignore_changes = all # We don't want to touch this after creation
-#   }
-# }
+  lifecycle {
+    ignore_changes = all # We don't want to touch this after creation
+  }
+}
