@@ -19,7 +19,7 @@ resource "azurerm_data_factory_managed_private_endpoint" "sql_adf_pe" {
 data "azapi_resource" "key_vault_private_endpoint_connection" {
   type                   = "Microsoft.KeyVault/vaults@2023-07-01"
   resource_id            = module.kv[0].resource_id
-  response_export_values = ["properties.privateEndpointConnections."]
+  response_export_values = ["privateEndpointConnections."]
 
   depends_on = [
     module.kv
@@ -29,7 +29,7 @@ data "azapi_resource" "key_vault_private_endpoint_connection" {
 data "azapi_resource" "sql_private_endpoint_connection" {
   type                   = "Microsoft.Sql/servers@2023-05-01-preview"
   resource_id            = module.sql[0].sql_server.id
-  response_export_values = ["properties.privateEndpointConnections."]
+  response_export_values = ["privateEndpointConnections."]
 
   depends_on = [
     module.sql
@@ -42,24 +42,22 @@ locals {
   ## key vault
   key_vault_private_endpoint_connection_name = one([
     for connection in jsondecode(data.azapi_resource.key_vault_private_endpoint_connection.output).properties.privateEndpointConnections
-    : connection.privateEndpoint if endswith(connection.properties.privateLinkServiceConnectionState.description, "pep-${var.adf_name}_${var.key_vault_name}-vault")
+    : connection.name if endswith(connection.properties.privateLinkServiceConnectionState.description, "pep-${var.adf_name}_${var.key_vault_name}-vault")
   ])
-  key_vault_private_endpoint_connection = slice(split("/", local.key_vault_private_endpoint_connection_name), length(split("/", local.key_vault_private_endpoint_connection_name)) - 1, length(split("/", local.key_vault_private_endpoint_connection_name)))
+
   ## SQL server endpoint
   sql_endpoint_connection_name = one([
     for connection in jsondecode(data.azapi_resource.sql_private_endpoint_connection.output).properties.privateEndpointConnections
-    : connection.privateEndpoint if endswith(connection.properties.privateLinkServiceConnectionState.description, "pep-${var.adf_name}_${var.sql_srv_name}-vault")
+    : connection.name if endswith(connection.properties.privateLinkServiceConnectionState.description, "pep-${var.adf_name}_${var.sql_srv_name}-vault")
   ])
-  sql_private_endpoint_connection = slice(split("/", local.sql_endpoint_connection_name), length(split("/", local.sql_endpoint_connection_name)) - 1, length(split("/", local.sql_endpoint_connection_name)))
 }
 
 
 ## Do the actual approval for each of the connections
 ### key vault
 resource "azapi_update_resource" "approve_kv_private_endpoint_connection" {
-  type = "Microsoft.KeyVault/vaults/privateEndpointConnections@2023-07-01"
-
-  name      = local.key_vault_private_endpoint_connection[0]
+  type      = "Microsoft.KeyVault/vaults/privateEndpointConnections@2023-07-01"
+  name      = local.key_vault_private_endpoint_connection_name
   parent_id = module.kv[0].resource_id
 
   body = jsonencode({
@@ -79,7 +77,7 @@ resource "azapi_update_resource" "approve_kv_private_endpoint_connection" {
 ## SQL
 resource "azapi_update_resource" "approve_sql_private_endpoint_connection" {
   type      = "Microsoft.Sql/servers/privateEndpointConnections@2023-05-01-preview"
-  name      = local.sql_private_endpoint_connection[0]
+  name      = local.sql_endpoint_connection_name
   parent_id = module.sql[0].sql_server.id
 
   body = jsonencode({
