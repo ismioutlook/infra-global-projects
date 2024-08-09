@@ -42,13 +42,13 @@ locals {
   ## key vault
   key_vault_private_endpoint_connection_name = one([
     for connection in jsondecode(data.azapi_resource.key_vault_private_endpoint_connection.output).properties.privateEndpointConnections
-    : connection.name if endswith(connection.properties.privateLinkServiceConnectionState.description, azurerm_data_factory_managed_private_endpoint.kv_adf_pe[0].name)
+    : connection.name if endswith(connection.properties.privateLinkServiceConnectionState.description, "pep-${var.adf_name}_${var.key_vault_name}-vault")
   ])
 
   ## SQL server endpoint
   sql_endpoint_connection_name = one([
     for connection in jsondecode(data.azapi_resource.sql_private_endpoint_connection.output).properties.privateEndpointConnections
-    : connection.name if endswith(connection.properties.privateLinkServiceConnectionState.description, azurerm_data_factory_managed_private_endpoint.sql_adf_pe[0].name)
+    : connection.name if endswith(connection.properties.privateLinkServiceConnectionState.description, "pep-${var.adf_name}_${var.sql_srv_name}-vault")
   ])
 }
 
