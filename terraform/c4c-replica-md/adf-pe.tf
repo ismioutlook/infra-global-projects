@@ -19,7 +19,7 @@ resource "azurerm_data_factory_managed_private_endpoint" "sql_adf_pe" {
 data "azapi_resource" "key_vault_private_endpoint_connection" {
   type                   = "Microsoft.KeyVault/vaults@2023-07-01"
   resource_id            = module.kv[0].resource_id
-  response_export_values = ["privateEndpointConnections."]
+  response_export_values = ["properties.privateEndpointConnections."]
 
   depends_on = [
     module.kv
@@ -29,7 +29,7 @@ data "azapi_resource" "key_vault_private_endpoint_connection" {
 data "azapi_resource" "sql_private_endpoint_connection" {
   type                   = "Microsoft.Sql/servers@2023-05-01-preview"
   resource_id            = module.sql[0].sql_server.id
-  response_export_values = ["privateEndpointConnections."]
+  response_export_values = ["properties.privateEndpointConnections."]
 
   depends_on = [
     module.sql
@@ -42,7 +42,8 @@ locals {
   ## key vault
   key_vault_private_endpoint_connection_name = one([
     for connection in jsondecode(data.azapi_resource.key_vault_private_endpoint_connection.output).properties.privateEndpointConnections
-    : connection.name if endswith(connection.properties.privateLinkServiceConnectionState.description, "pep-${var.adf_name}_${var.key_vault_name}-vault")
+    : connection.name
+    if endswith(connection.properties.privateLinkServiceConnectionState.description, azurerm_data_factory_managed_private_endpoint.azurerm_data_factory_managed_private_endpoint.kv_adf_pe.name)
   ])
 
   ## SQL server endpoint
