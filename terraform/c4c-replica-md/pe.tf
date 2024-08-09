@@ -25,11 +25,11 @@ module "sql-pe" {
   resource_group = module.rg[0].name
   location       = module.rg[0].location
   private_dns_zone = {
-    dns = {
-      name = "c4creplica"
-      ids  = [module.dz[0].resource_id]
+    # dns = {
+    name = "c4creplica"
+    ids  = [module.dz[0].resource_id]
 
-    }
+    # }
   }
   service_connection = {
     name         = "pl-VN-ELX-GL-Concent-NonProd-Spoke-001-02"

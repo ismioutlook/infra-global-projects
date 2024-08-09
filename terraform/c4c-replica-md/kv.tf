@@ -10,7 +10,7 @@ module "kv" {
   sku_name                      = var.kv_sku_name
   soft_delete_retention_days    = var.soft_delete_retention_days
   public_network_access_enabled = false
-  role_assignments              = merge(var.kv_role_assignments, local.kv_roleassignment)
+  role_assignments              = local.kv_roleassignment
   secrets = {
     sql_server_username = {
       name = "sql-srv-username"
@@ -23,4 +23,5 @@ module "kv" {
     sql_server_username = "c4creplicaadmin"
     sql_server_password = random_string.db_password.result
   }
+  depends_on = [module.adf]
 }
