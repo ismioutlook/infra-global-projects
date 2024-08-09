@@ -12,5 +12,5 @@ module "sql" {
   administrator_login    = "c4creplicaadmin"
   administrator_password = random_string.db_password.result
   databases              = var.databases
-
+  allowed_cidr_list      = var.allowed_cidr_list
 }

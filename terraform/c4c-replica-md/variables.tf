@@ -125,3 +125,8 @@ variable "dz_domain_name" {
   type        = string
   description = "dns zone domain name"
 }
+variable "allowed_cidr_list" {
+  description = "Allowed IP addresses to access the server in CIDR format. Default to all Azure services"
+  type        = list(string)
+  default     = ["0.0.0.0/32"]
+}

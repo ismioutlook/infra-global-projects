@@ -31,3 +31,4 @@ databases = [{
   }, {
   name = "elxa2sqlmi-c4creplica-dev-002"
 }]
+allowed_cidr_list = ["10.221.170.96/27"]
