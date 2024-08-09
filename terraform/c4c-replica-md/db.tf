@@ -11,10 +11,6 @@ module "sql" {
   location               = module.rg[0].location
   administrator_login    = "c4creplicaadmin"
   administrator_password = random_string.db_password.result
-  databases = [{
-    name = var.sql_db_name
-
-
-  }]
+  databases              = var.databases
 
 }

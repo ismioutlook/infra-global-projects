@@ -52,8 +52,8 @@ variable "sql_srv_name" {
   description = "SQL server name"
 }
 
-variable "sql_db_name" {
-  type        = string
+variable "databases" {
+  default     = []
   description = "SQL database name"
 }
 # Keyvault Variables

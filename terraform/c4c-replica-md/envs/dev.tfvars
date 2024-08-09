@@ -27,4 +27,8 @@ virtual_network_links = {
 
   }
 }
-
+databases = [{
+  name = "elxa2sqlmi-c4creplica-dev-001"
+  }, {
+  name = "elxa2sqlmi-c4creplica-dev-002"
+}]
